@@ -1,0 +1,30 @@
+{
+  "languageserver": {
+    "ccls": {
+      "command": "ccls",
+      "filetypes": ["c", "cpp", "objc", "objcpp"],
+      "rootPatterns": [
+        ".ccls",
+        "compile_commands.json",
+        ".vim/",
+        ".git/",
+        ".hg/"
+      ],
+      "initializationOptions": {
+        "cache": {
+          "directory": "/tmp/ccls"
+        }
+      }
+    }
+  },
+  "python.linting.enabled": false,
+  "python.linting.pylintEnabled": false,
+  "python.formatting.provider": "yapf",
+  "python.formatting.yapfPath": "/usr/bin/yapf",
+  "python.jediEnabled": true,
+  "suggest.triggerAfterInsertEnter": true,
+  "suggest.timeout": 500,
+  "suggest.noselect": true,
+  "suggest.minTriggerInputLength": 2,
+  "suggest.acceptSuggestionOnCommitCharacter": true
+}
