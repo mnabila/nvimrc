@@ -13,7 +13,8 @@ let g:airline#extensions#branch#enabled    = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 let g:airline#extensions#tagbar#enabled    = 1
 let g:airline_skip_empty_sections          = 1
-
+let g:airline_section_error = '%{airline#util#wrap(airline#extensions#coc#get_error(),0)}'
+let g:airline_section_warning = '%{airline#util#wrap(airline#extensions#coc#get_warning(),0)}'
 
 " Set this. Airline will handle the rest.
 let g:airline#extensions#ale#enabled = 0
