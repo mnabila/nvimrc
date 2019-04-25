@@ -1,4 +1,4 @@
-" lsp configuration
+" lsp
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " set omnifunc=LanguageClient#complete
 " set completefunc=LanguageClient#complete

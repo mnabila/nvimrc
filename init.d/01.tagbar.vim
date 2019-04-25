@@ -1,4 +1,4 @@
-" tagbar configuration
+" Tagbar
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:tagbar_autopreview      = 0
 let g:tagbar_indent           = 1

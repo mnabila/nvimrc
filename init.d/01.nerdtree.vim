@@ -1,4 +1,4 @@
-" NERDTree configuration
+" NERDTree
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 autocmd StdinReadPre * let s:std_in=1
 " let g:NERDTreeDirArrowExpandable=''
