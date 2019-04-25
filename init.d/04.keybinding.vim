@@ -3,13 +3,7 @@
 " leader
 let mapleader=','
 
-" move among buffers with CTRL
-nnoremap <A-l> :bn<cr>
-nnoremap <A-h> :bp<cr>
-nnoremap <leader>q :bp<cr>:bd #<cr>
-nnoremap <leader>qa :bufdo bwipeout<cr>:Startify<cr>
-
-" moving
+" disable arrow
 no <left> <Nop>
 no <right> <Nop>
 no <up> <Nop>
@@ -20,6 +14,24 @@ no <C-up> <Nop>
 no <C-down> <Nop>
 no <C-z> <Nop>
 
+" for move to each window
+nmap <C-h> <C-w><C-h>
+nmap <C-j> <C-w><C-j>
+nmap <C-k> <C-w><C-k>
+nmap <C-l> <C-w><C-l>
+
+" for move to each buffer
+nnoremap <A-l> :bn<cr>
+nnoremap <A-h> :bp<cr>
+nnoremap <leader>q :bp<cr>:bd #<cr>
+nnoremap <leader>qa :bufdo bwipeout<cr>:Startify<cr>
+
+" for move to each tab
+nmap <A-H> :tabNext<cr>
+nmap <A-L> :tabnext<cr>
+nmap <A-N> :tabnew<cr>
+nmap <A-Q> :tabclose<cr>
+
 " Folding
 noremap <F9> <C-O>za
 vnoremap <F9> zf
@@ -29,12 +41,6 @@ onoremap <F9> <C-C>za
 " Line bubbling
 nmap <A-j> ]e
 nmap <A-k> [e
-
-" for move to each split
-nmap <C-h> <C-w><C-h>
-nmap <C-j> <C-w><C-j>
-nmap <C-k> <C-w><C-k>
-nmap <C-l> <C-w><C-l>
 
 " tonggle split
 nmap <C-A-k> <C-w>t<C-w>K
@@ -80,10 +86,19 @@ vmap <Leader>F <Plug>(coc-format-selected)
 " let g:UltiSnipsExpandTrigger='<A-tab>'
 
 " Coc
-inoremap <silent><expr> <c-space> coc#refresh()
-inoremap <expr><Tab> pumvisible() ? "\<C-n>" : "\<C-h>"
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
 inoremap <expr><S-Tab> pumvisible() ? "\<C-p>" : "\<C-h>"
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+inoremap <silent><expr> <c-space> coc#refresh()
 
 imap <A-Tab> <Plug>(coc-snippets-expand)
 nmap <leader>rn <Plug>(coc-rename)

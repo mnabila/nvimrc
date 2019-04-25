@@ -26,5 +26,7 @@
   "suggest.timeout": 500,
   "suggest.noselect": true,
   "suggest.minTriggerInputLength": 2,
-  "suggest.acceptSuggestionOnCommitCharacter": true
+  "suggest.acceptSuggestionOnCommitCharacter": true,
+  "diagnostic.messageTarget": "echo",
+  "signature.target": "echo"
 }
