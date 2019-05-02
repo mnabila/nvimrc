@@ -52,10 +52,6 @@ set fileformat=unix
 "" start airline
 let g:airline#extensions#tabline#enabled = 1
 
-"" emmet
-" let g:user_emmet_install_global = 0
-" autocmd FileType html,css EmmetInstall
-
 "" Deoplete
 " let g:deoplete#enable_at_startup = 1
 
@@ -90,7 +86,6 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'           " plugin provides mappings to easily delete, change and add such surroundings in pairs.
 Plug 'tpope/vim-unimpaired'         " Pairs of handy bracket mappings
 " Plug 'w0rp/ale'                     " Linter, AutoComplete, LSP
-" Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 
 " Autocomplete
 " if has('nvim')
@@ -117,9 +112,6 @@ Plug 'honza/vim-snippets'           " snippets files for various programming lan
  " CSS, SCSS, SASS, LESS
 " Plug 'groenewege/vim-less'
 Plug 'cakebaker/scss-syntax.vim'
-
-" HTML Bundle
-Plug 'mattn/emmet-vim'
 
 " Markdown
 Plug 'plasticboy/vim-markdown'

@@ -1,4 +1,22 @@
 {
+  "coc.preferences.hoverTarget": "echo",
+  "coc.preferences.colorSupport": true,
+  "coc.preferences.previewAutoClose": true,
+  "coc.preferences.bracketEnterImprove": true,
+  "diagnostic.messageTarget": "echo",
+  "python.formatting.provider": "yapf",
+  "python.formatting.yapfPath": "/usr/bin/yapf",
+  "python.jediEnabled": true,
+  "python.linting.enabled": false,
+  "python.linting.pylintEnabled": true,
+  "python.linting.pylintPath": "/usr/bin/pylint",
+  "signature.target": "echo",
+  "suggest.acceptSuggestionOnCommitCharacter": true,
+  "suggest.autoTrigger": "always",
+  "suggest.minTriggerInputLength": 2,
+  "suggest.noselect": true,
+  "suggest.timeout": 500,
+  "suggest.triggerAfterInsertEnter": true,
   "languageserver": {
     "ccls": {
       "command": "ccls",
@@ -16,17 +34,5 @@
         }
       }
     }
-  },
-  "python.linting.enabled": false,
-  "python.linting.pylintEnabled": false,
-  "python.formatting.provider": "yapf",
-  "python.formatting.yapfPath": "/usr/bin/yapf",
-  "python.jediEnabled": true,
-  "suggest.triggerAfterInsertEnter": true,
-  "suggest.timeout": 500,
-  "suggest.noselect": true,
-  "suggest.minTriggerInputLength": 2,
-  "suggest.acceptSuggestionOnCommitCharacter": true,
-  "diagnostic.messageTarget": "echo",
-  "signature.target": "echo"
+  }
 }
