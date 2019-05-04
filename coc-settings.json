@@ -1,7 +1,7 @@
 {
   "coc.preferences.bracketEnterImprove": true,
   "coc.preferences.colorSupport": true,
-  "coc.preferences.hoverTarget": "echo",
+  "coc.preferences.hoverTarget":"float",
   "coc.preferences.previewAutoClose": true,
   "diagnostic.errorSign": "EE",
   "diagnostic.hintSign": "HH",
