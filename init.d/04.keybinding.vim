@@ -32,12 +32,6 @@ nmap <A-L> :tabnext<cr>
 nmap <A-N> :tabnew<cr>
 nmap <A-Q> :tabclose<cr>
 
-" Folding
-noremap <F9> <C-O>za
-vnoremap <F9> zf
-nnoremap <F9> za
-onoremap <F9> <C-C>za
-
 " Line bubbling
 nmap <A-j> ]e
 nmap <A-k> [e
