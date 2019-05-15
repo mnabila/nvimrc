@@ -52,9 +52,6 @@ set fileformat=unix
 "" start airline
 let g:airline#extensions#tabline#enabled = 1
 
-"" Deoplete
-" let g:deoplete#enable_at_startup = 1
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -86,23 +83,7 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'           " plugin provides mappings to easily delete, change and add such surroundings in pairs.
 Plug 'tpope/vim-unimpaired'         " Pairs of handy bracket mappings
 " Plug 'w0rp/ale'                     " Linter, AutoComplete, LSP
-
-" Autocomplete
-" if has('nvim')
-"     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-" else
-"     Plug 'Shougo/deoplete.nvim'
-"     Plug 'roxma/nvim-yarp'
-"     Plug 'roxma/vim-hug-neovim-rpc'
-" endif
-
 Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
-
-"" Lsp Client
-" Plug 'autozimu/LanguageClient-neovim', {
-"             \ 'branch': 'next',
-"             \ 'do': 'bash install.sh',
-"             \ }
 
 " Language pack
 " Plug 'SirVer/ultisnips'             " ultimate snn for Vim
