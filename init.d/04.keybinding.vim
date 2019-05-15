@@ -13,12 +13,22 @@ no <C-right> <Nop>
 no <C-up> <Nop>
 no <C-down> <Nop>
 no <C-z> <Nop>
+imap <up> <nop>
+imap <down> <nop>
+imap <left> <nop>
+imap <right> <nop>
 
 " for move to each window
 nmap <C-h> <C-w><C-h>
 nmap <C-j> <C-w><C-j>
 nmap <C-k> <C-w><C-k>
 nmap <C-l> <C-w><C-l>
+
+" arrow keys resize windows
+nnoremap <Left> :vertical resize +5<CR>
+nnoremap <Right> :vertical resize -5<CR>
+nnoremap <Up> :resize +5<CR>
+nnoremap <Down> :resize -5<CR>
 
 " for move to each buffer
 nnoremap <A-l> :bn<cr>

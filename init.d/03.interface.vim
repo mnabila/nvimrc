@@ -9,7 +9,6 @@ set cursorline                           " visually mark current line
 set foldlevel=0                          " default unfold when open a file
 set foldmethod=manual
 set formatoptions+=l                     " adjust textwidth automatically
-set guifont=Iosevka\ Nerd\ Font\ 11
 set hlsearch                             " highlight search matches
 set ignorecase                           " ignore case
 set incsearch                            " incremental search aka search as you type
