@@ -3,29 +3,16 @@
 ## Instalation
 
 ```
-$ git clone https://github.com/nabil48/nvimr ~/.config/nvim
+$ git clone https://github.com/nabil48/nvimrc ~/.config/nvim
 ```
 
-#### Neovim
-
-```Unix
+```
 curl -flo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ```
 
 ```
 $ nvim +PlugInstall
-```
-
-#### Vim
-
-```
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-```
-
-```
-$ vim +PlugInstall
 ```
 
 ## Plugin

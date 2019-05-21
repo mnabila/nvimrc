@@ -1,4 +1,5 @@
 {
+  "highlight.colors.enable": false,
   "coc.preferences.bracketEnterImprove": true,
   "coc.preferences.colorSupport": true,
   "coc.preferences.hoverTarget":"float",
