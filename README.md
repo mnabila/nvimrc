@@ -35,7 +35,12 @@ $ nvim +PlugInstall
     </tr>
     <tr>
       <td>Status line</td>
-      <td><a href="https://github.com/vim-airline/vim-airline" target="_blank">Vim Airline</a></td>
+      <td>
+        <ul>
+          <li><a href="https://github.com/itchyny/lightline.vim/" target="_blank">lightline.vim</a></li>
+          <li><a href="https://github.com/mengelbrecht/lightline-bufferline" target="_blank">lightline-bufferline</a></li>
+        </ul>
+      </td>
     </tr>
     <tr>
       <td>Color Scheme</td>

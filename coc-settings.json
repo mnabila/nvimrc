@@ -18,7 +18,7 @@
   "signature.target": "echo",
   "suggest.acceptSuggestionOnCommitCharacter": true,
   "suggest.autoTrigger": "always",
-  "suggest.minTriggerInputLength": 2,
+  "suggest.minTriggerInputLength": 1,
   "suggest.noselect": true,
   "suggest.timeout": 500,
   "suggest.triggerAfterInsertEnter": true,

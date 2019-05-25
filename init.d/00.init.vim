@@ -22,7 +22,7 @@ filetype plugin indent on
 set updatetime=300
 set backup                               " make backup files
 set backupdir=~/.local/share/nvim/backup " where to put backup files
-set clipboard+=unnamedplus                " share clipboard
+set clipboard+=unnamedplus               " share clipboard
 set directory=~/.local/share/nvim/swap   " directory to place swap files in
 set gdefault                             " global substitutions are default s/a/b/g
 set hidden                               " you can change buffers without saving
@@ -36,7 +36,8 @@ set undodir=~/.local/share/nvim/undo     " directory to place undo files in
 set undofile                             " make undo possible after the file is closed and reopened
 set wildmenu                             " turn on command line completion wild style
 set wildmode=full
-
+set showtabline=2                        " Show tabline
+set guioptions-=e                        " Don't use GUI tabline
 " Global Indentation
 set tabstop=2
 set softtabstop=2
@@ -67,8 +68,10 @@ Plug 'majutsushi/tagbar'
 Plug 'mhinz/vim-startify'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'scrooloose/nerdtree'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+" Plug 'vim-airline/vim-airline'
+" Plug 'vim-airline/vim-airline-themes'
+Plug 'itchyny/lightline.vim'
+Plug 'mengelbrecht/lightline-bufferline'
 
 " Utility
 Plug 'Chiel92/vim-autoformat'
