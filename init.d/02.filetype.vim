@@ -8,14 +8,12 @@ autocmd FileType html,jinja.html setlocal expandtab shiftwidth=2 softtabstop=2 t
 
 " Javascript
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-autocmd FileType javascript setlocal expandtab shiftwidth=2 softtabstop=2
-autocmd FileType jst,ezt setlocal expandtab shiftwidth=2 softtabstop=2
+autocmd FileType javascript,jst,ezt setlocal expandtab shiftwidth=2 softtabstop=2
 autocmd FileType javascript.jsx set syntax=javascript
-" au BufReadPost *.ezt,*.jst set syntax=html
 
 " Markdown
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-autocmd FileType markdown setlocal expandtab shiftwidth=2 softtabstop=2
+autocmd FileType markdown setlocal expandtab shiftwidth=2 softtabstop=2 colorcolumn=80 textwidth=80 fo+=t
 let g:vim_markdown_conceal             = 0
 let g:mkdp_auto_close                  = 0
 let g:vim_markdown_folding_disabled    = 1
