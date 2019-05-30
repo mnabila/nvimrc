@@ -13,7 +13,7 @@ autocmd FileType javascript.jsx set syntax=javascript
 
 " Markdown
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-autocmd FileType markdown setlocal expandtab shiftwidth=2 softtabstop=2 colorcolumn=80 textwidth=80 fo+=t
+autocmd FileType markdown setlocal expandtab shiftwidth=2 softtabstop=2 colorcolumn=80 textwidth=80 fo+=t fo-=l
 let g:vim_markdown_conceal             = 0
 let g:mkdp_auto_close                  = 0
 let g:vim_markdown_folding_disabled    = 1

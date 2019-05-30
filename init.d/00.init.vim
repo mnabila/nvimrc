@@ -68,8 +68,6 @@ Plug 'majutsushi/tagbar'
 Plug 'mhinz/vim-startify'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'scrooloose/nerdtree'
-" Plug 'vim-airline/vim-airline'
-" Plug 'vim-airline/vim-airline-themes'
 Plug 'itchyny/lightline.vim'
 Plug 'mengelbrecht/lightline-bufferline'
 
@@ -85,7 +83,6 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'           " plugin provides mappings to easily delete, change and add such surroundings in pairs.
 Plug 'tpope/vim-unimpaired'         " Pairs of handy bracket mappings
-" Plug 'w0rp/ale'                     " Linter, AutoComplete, LSP
 Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 
 " Language pack
@@ -101,10 +98,6 @@ Plug 'cakebaker/scss-syntax.vim'
 Plug 'plasticboy/vim-markdown'
 Plug 'iamcco/mathjax-support-for-mkdp'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }}
-
-" Python
-" Plug 'zchee/deoplete-jedi'
-" Plug 'davidhalter/jedi-vim'
 
 " Jinja2
 Plug 'Glench/Vim-Jinja2-Syntax'
