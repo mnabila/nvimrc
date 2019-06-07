@@ -81,15 +81,6 @@ nmap <Leader>f :Autoformat<CR>
 nmap <Leader>F <Plug>(coc-format)
 vmap <Leader>F <Plug>(coc-format-selected)
 
-" Deoplete
-" use tab to forward cycle
-" inoremap <silent><expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
-" use tab to backward cycle
-" inoremap <silent><expr><s-tab> pumvisible() ? "\<c-p>" : "\<s-tab>"
-
-" UltiSnip
-" let g:UltiSnipsExpandTrigger='<A-tab>'
-
 " Coc
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
@@ -127,18 +118,6 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Indent guides
 nmap <silent> <Leader>ig :IndentGuidesToggle<CR>
-
-" lsp
-" nnoremap <leader>la :call LanguageClient_workspace_applyEdit()<CR>
-" nnoremap <leader>lc :call LanguageClient#textDocument_completion()<CR>
-" nnoremap <leader>ld :call LanguageClient#textDocument_definition({'gotoCmd': 'split'})<CR>
-" nnoremap <leader>lf :call LanguageClient#textDocument_formatting()<CR>
-" nnoremap <leader>lh :call LanguageClient#textDocument_hover()<CR>
-" nnoremap <leader>lm :call LanguageClient_contextMenu()<CR>
-" nnoremap <leader>lr :call LanguageClient#textDocument_rename()<CR>
-" nnoremap <leader>ls :call LanguageClient_textDocument_documentSymbol()<CR>
-" nnoremap <leader>lt :call LanguageClient#textDocument_typeDefinition()<CR>
-" nnoremap <leader>lx :call LanguageClient#textDocument_references()<CR>
 
 " color picker
 let g:vcoolor_map = '<Leader>c'
