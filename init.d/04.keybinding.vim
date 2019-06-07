@@ -34,7 +34,8 @@ nnoremap <Down> :resize -5<CR>
 nnoremap <A-l> :bn<cr>
 nnoremap <A-h> :bp<cr>
 nnoremap <leader>q :bp<cr>:bd #<cr>
-nnoremap <leader>qa :bufdo bwipeout<cr>:Startify<cr>
+nnoremap <leader>qq :bufdo bd<cr>:Startify<cr>
+nnoremap <leader>qa :bufdo bd!<cr>:Startify<cr>
 
 " for move to each tab
 nmap <A-H> :tabNext<cr>
