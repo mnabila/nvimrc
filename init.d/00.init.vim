@@ -84,6 +84,7 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'           " plugin provides mappings to easily delete, change and add such surroundings in pairs.
 Plug 'tpope/vim-unimpaired'         " Pairs of handy bracket mappings
 Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
+Plug 'alpertuna/vim-header'
 
 " Language pack
 " Plug 'SirVer/ultisnips'             " ultimate snn for Vim
