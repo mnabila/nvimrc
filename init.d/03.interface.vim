@@ -1,4 +1,4 @@
-" VIM User Interface
+"" User Interface
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " hi  clear ModeMsg " disable Color StatusLine on Insert Mode and Visual Mode
 set shortmess+=c
@@ -32,8 +32,8 @@ set showmatch                            " show matching brackets
 set showmode                             " show current mode
 set sidescrolloff=10                     " keep 5 lines at the size
 set smartcase                            " but when the query starts with upper character be case sensitive
-set splitbelow
-set splitright
+set splitbelow                           " place other window under current window
+set splitright                           " place other window right current window
 set t_Co=256                             " set terminal 256 color
 set wrap                                 " Vim to word wrap visually
 set backspace=indent,eol,start           " Fix backspace indent
@@ -42,7 +42,7 @@ if (has('termguicolors'))
   set termguicolors
 endif
 
-" Change cursor shape in
+"" Change cursor shape in
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=0
 let &t_SI = "\<Esc>[6 q"
 let &t_SR = "\<Esc>[4 q"
@@ -54,7 +54,7 @@ let &t_EI = "\<Esc>[2 q"
 "   autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
 " augroup END
 
-" vim theme configuration
+"" Colorscheme configuration
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 syntax on
 colorscheme gruvbox
@@ -64,25 +64,28 @@ let g:gruvbox_improved_strings  = 1
 let g:gruvbox_improved_warnings = 1
 let g:gruvbox_bold              = 1
 
-" vim theme configuration
+"" Icon configuration
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:webdevicons_enable=1
-let g:webdevicons_enable_startify=1
-let g:webdevicons_enable_nerdtree=1
-let g:WebDevIconsNerdTreeAfterGlyphPadding = " "
-let g:WebDevIconsUnicodeDecorateFolderNodes=1
-let g:DevIconsAppendArtifactFix=1
-let g:DevIconsEnableFoldersOpenClose = 1
+let g:webdevicons_enable                    = 1
+let g:webdevicons_enable_startify           = 1
+let g:webdevicons_enable_nerdtree           = 1
+let g:WebDevIconsNerdTreeAfterGlyphPadding  = " "
+let g:WebDevIconsUnicodeDecorateFolderNodes = 1
+let g:DevIconsAppendArtifactFix             = 1
+let g:DevIconsEnableFoldersOpenClose        = 1
 
-" highlight 
+"" Highlight 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-highlight ALEErrorSign guibg='#e16f7e' guifg='#000000'
-highlight ALEWarningSign guibg='#fdc35f' guifg='#000000'
-highlight ALEInfoSign guibg='#8ca9bf' guifg='#000000'
-highlight clear SignColumn
+highlight ColorColumn guibg='#504945'
 
 highlight GruvboxGreenSign guibg='#282828' guifg='#b8bb26'
 highlight GruvboxRedSign guibg='#282828' guifg='#fb4934'
 highlight GruvboxAquaSign guibg='#282828' guifg='#8ec07c'
 
+highlight ALEErrorSign guibg='#e16f7e' guifg='#000000'
+highlight ALEWarningSign guibg='#fdc35f' guifg='#000000'
+highlight ALEInfoSign guibg='#8ca9bf' guifg='#000000'
+highlight clear SignColumn
+
 highlight! link NERDTreeFlags NERDTreeDir
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

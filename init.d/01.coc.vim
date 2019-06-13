@@ -1,4 +1,4 @@
-" Coc
+"" Coc
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:coc_node_path = "/usr/bin/node"
 autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif

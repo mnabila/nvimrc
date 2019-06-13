@@ -1,9 +1,9 @@
 "" Vim Keybindings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"" leader
+"" Leader
 let mapleader=','
 
-"" disable arrow
+"" Disable arrow
 no <left> <Nop>
 no <right> <Nop>
 no <up> <Nop>
@@ -18,34 +18,34 @@ imap <down> <nop>
 imap <left> <nop>
 imap <right> <nop>
 
-"" for move to each window
+"" For move to each window
 nmap <C-h> <C-w><C-h>
 nmap <C-j> <C-w><C-j>
 nmap <C-k> <C-w><C-k>
 nmap <C-l> <C-w><C-l>
 
-"" arrow keys resize windows
+"" Arrow keys resize windows
 nnoremap <Left> :vertical resize +5<CR>
-nnoremap <Right> :vertical resize -5<CR>
 nnoremap <Up> :resize +5<CR>
+nnoremap <Right> :vertical resize -5<CR>
 nnoremap <Down> :resize -5<CR>
 
-"" for move to each buffer
+"" For move to each buffer
 nnoremap <A-l> :bn<cr>
 nnoremap <A-h> :bp<cr>
 nnoremap <leader>q :bp<cr>:bd #<cr>
 nnoremap <leader>qq :bufdo bd<cr>:Startify<cr>
 nnoremap <leader>qa :bufdo bd!<cr>:Startify<cr>
 
-"" for move to each tab
+"" For move to each tab
 nmap <A-H> :tabNext<cr>
 nmap <A-L> :tabnext<cr>
 nmap <A-N> :tabnew<cr>
 nmap <A-Q> :tabclose<cr>
 
 "" Line bubbling
-nmap <A-j> ]e
-nmap <A-k> [e
+nmap <A-J> ]e
+nmap <A-K> [e
 
 "" tonggle split
 nmap <C-A-k> <C-w>t<C-w>K
@@ -128,7 +128,7 @@ let g:vcool_ins_rgba_map = '<Leader>cR'
 noremap <Leader>tt :TagbarToggle<CR>
 noremap <F3> :TagbarToggle<CR>
 
-"" file header
+"" File header
 nnoremap <leader>h :AddHeader<cr>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 

@@ -1,4 +1,4 @@
-" lightline
+"" lightline
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:lightline = {
       \   'colorscheme': 'gruvbox',
@@ -12,10 +12,11 @@ let g:lightline = {
       \   },
       \   'tabline': {
       \     'left': [ [ 'buffers' ], ],
-      \     'right': [ [ ], ],
+      \     'right': [ [ 'username' ], ],
       \   },
       \   'component': {
       \     'lineinfo': ' %l/%-L',
+      \     'username': 'Nabil',
       \   },
       \   'component_expand': {
       \     'buffers': 'lightline#bufferline#buffers',

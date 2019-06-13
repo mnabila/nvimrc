@@ -48,21 +48,19 @@ set fileformat=unix
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" auto start plugin
+"" auto start plugin
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"" start airline
-let g:airline#extensions#tabline#enabled = 1
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
-" Vim-Plug
+"" Vim-Plug
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Specify a directory for plugins
 " - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.local/share/nvim/plugged')
 
-" UI plugin
+"" UI plugin
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'majutsushi/tagbar'
 Plug 'mhinz/vim-startify'
@@ -71,7 +69,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'itchyny/lightline.vim'
 Plug 'mengelbrecht/lightline-bufferline'
 
-" Utility
+"" Utility
 Plug 'Chiel92/vim-autoformat'
 Plug 'KabbAmine/vCoolor.vim'
 Plug 'ctrlpvim/ctrlp.vim'
@@ -86,37 +84,37 @@ Plug 'tpope/vim-unimpaired'         " Pairs of handy bracket mappings
 Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 Plug 'alpertuna/vim-header'
 
-" Language pack
+"" Language pack
 " Plug 'SirVer/ultisnips'             " ultimate snn for Vim
 Plug 'sheerun/vim-polyglot'         " A solid language pack for Vim.
 Plug 'honza/vim-snippets'           " snippets files for various programming languages
 
- " CSS, SCSS, SASS, LESS
+"" CSS, SCSS, SASS, LESS
 " Plug 'groenewege/vim-less'
 Plug 'cakebaker/scss-syntax.vim'
 
-" Markdown
+"" Markdown
 Plug 'plasticboy/vim-markdown'
 Plug 'iamcco/mathjax-support-for-mkdp'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }}
 
-" Jinja2
+"" Jinja2
 Plug 'Glench/Vim-Jinja2-Syntax'
 
-" vimL
+"" vimL
 Plug 'Shougo/neco-vim'
 Plug 'neoclide/coc-neco'
 
-" Git Support
+"" Git Support
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 
-" Theme
+"" Theme
 Plug 'morhetz/gruvbox'
 
-" Icon
+"" Icon
 Plug 'ryanoasis/vim-devicons'
 
-" Initialize plugin system
+"" Initialize plugin system
 call plug#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
