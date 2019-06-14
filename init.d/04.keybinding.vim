@@ -19,48 +19,50 @@ imap <left> <nop>
 imap <right> <nop>
 
 "" For move to each window
-nmap <C-h> <C-w><C-h>
-nmap <C-j> <C-w><C-j>
-nmap <C-k> <C-w><C-k>
-nmap <C-l> <C-w><C-l>
+noremap <C-h> <C-w><C-h>
+noremap <C-j> <C-w><C-j>
+noremap <C-k> <C-w><C-k>
+noremap <C-l> <C-w><C-l>
 
 "" Arrow keys resize windows
-nnoremap <Left> :vertical resize +5<CR>
-nnoremap <Up> :resize +5<CR>
-nnoremap <Right> :vertical resize -5<CR>
-nnoremap <Down> :resize -5<CR>
+noremap <Left> :vertical resize +5<CR>
+noremap <Up> :resize +5<CR>
+noremap <Right> :vertical resize -5<CR>
+noremap <Down> :resize -5<CR>
 
-"" For move to each buffer
-nnoremap <A-l> :bn<cr>
-nnoremap <A-h> :bp<cr>
-nnoremap <leader>q :bp<cr>:bd #<cr>
-nnoremap <leader>qq :bufdo bd<cr>:Startify<cr>
-nnoremap <leader>qa :bufdo bd!<cr>:Startify<cr>
+"" Buffers management
+noremap <A-l> :bn<cr>
+noremap <A-h> :bp<cr>
+noremap <A-L> :bl<cr>
+noremap <A-H> :bf<cr>
+noremap <leader>q :bp<cr>:bd #<cr>
+noremap <leader>qq :bufdo bd<cr>:Startify<cr>
+noremap <leader>qa :bufdo bd!<cr>:Startify<cr>
 
-"" For move to each tab
-nmap <A-H> :tabNext<cr>
-nmap <A-L> :tabnext<cr>
-nmap <A-N> :tabnew<cr>
-nmap <A-Q> :tabclose<cr>
+"" Tab management
+" nmap <A-H> :tabNext<cr>
+" nmap <A-L> :tabnext<cr>
+" nmap <A-N> :tabnew<cr>
+" nmap <A-Q> :tabclose<cr>
 
 "" Line bubbling
-nmap <A-J> ]e
-nmap <A-K> [e
+nmap <A-j> ]e
+nmap <A-k> [e
 
 "" tonggle split
 nmap <C-A-k> <C-w>t<C-w>K
 nmap <C-A-h> <C-w>t<C-w>H
 
 "" omni copletion
-imap <C-Space> <C-x><C-o>
+inoremap <C-Space> <C-x><C-o>
 
 "" Terminal mode keybinding
 tnoremap <Esc> <C-\><C-n>
 
 
 "" NERDTree
-map <F2> :NERDTreeToggle<CR>
-map <C-\> :NERDTreeToggle<CR>
+noremap <F2> :NERDTreeToggle<CR>
+noremap <C-\> :NERDTreeToggle<CR>
 
 "" Git fugitif
 noremap <Leader>ga :Gwrite<CR>
@@ -73,7 +75,7 @@ noremap <Leader>gd :Gvdiff<CR>
 noremap <Leader>gr :Gremove<CR>
 
 "" Commentary
-map <Leader>/ :Commentary<CR>
+noremap <Leader>/ :Commentary<CR>
 
 "" Autoformat
 nmap <Leader>f :Autoformat<CR>
@@ -81,19 +83,28 @@ nmap <Leader>F <Plug>(coc-format)
 vmap <Leader>F <Plug>(coc-format-selected)
 
 "" Coc
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-
 function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+
 inoremap <expr><S-Tab> pumvisible() ? "\<C-p>" : "\<C-h>"
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 inoremap <silent><expr> <c-space> coc#refresh()
+nnoremap <silent> K :call <SID>show_documentation()<CR>
 
 imap <A-Tab> <Plug>(coc-snippets-expand)
 nmap <leader>rn <Plug>(coc-rename)
@@ -103,17 +114,7 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 nmap <silent> gy <Plug>(coc-type-definition)
-
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
-endfunction
-nnoremap <silent> K :call <SID>show_documentation()<CR>
-
-autocmd CursorHold * silent call CocActionAsync('highlight')
+nmap <leader>ac  <Plug>(coc-codeaction)
 
 "" Indent guides
 nmap <silent> <Leader>ig :IndentGuidesToggle<CR>
@@ -129,6 +130,6 @@ noremap <Leader>tt :TagbarToggle<CR>
 noremap <F3> :TagbarToggle<CR>
 
 "" File header
-nnoremap <leader>h :AddHeader<cr>
+noremap <leader>h :AddHeader<cr>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
