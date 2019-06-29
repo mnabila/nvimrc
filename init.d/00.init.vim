@@ -79,31 +79,24 @@ Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-surround'           " plugin provides mappings to easily delete, change and add such surroundings in pairs.
-Plug 'tpope/vim-unimpaired'         " Pairs of handy bracket mappings
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-unimpaired'
 Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 Plug 'alpertuna/vim-header'
-
-"" Language pack
-" Plug 'SirVer/ultisnips'             " ultimate snn for Vim
-Plug 'sheerun/vim-polyglot'         " A solid language pack for Vim.
-Plug 'honza/vim-snippets'           " snippets files for various programming languages
-
-"" CSS, SCSS, SASS, LESS
-" Plug 'groenewege/vim-less'
-Plug 'cakebaker/scss-syntax.vim'
-
-"" Markdown
-Plug 'plasticboy/vim-markdown'
-Plug 'iamcco/mathjax-support-for-mkdp'
+Plug 'vim-pandoc/vim-pandoc'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }}
 
-"" Jinja2
+"" Language pack
+Plug 'sheerun/vim-polyglot'
+Plug 'honza/vim-snippets'
+" Plug 'groenewege/vim-less'
+Plug 'cakebaker/scss-syntax.vim'
+Plug 'plasticboy/vim-markdown'
+Plug 'iamcco/mathjax-support-for-mkdp'
 Plug 'Glench/Vim-Jinja2-Syntax'
-
-"" vimL
 Plug 'Shougo/neco-vim'
 Plug 'neoclide/coc-neco'
+Plug 'vim-pandoc/vim-pandoc-syntax' 
 
 "" Git Support
 Plug 'tpope/vim-fugitive'

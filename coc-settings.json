@@ -25,7 +25,7 @@
   "python.linting.pylintPath": "/usr/bin/pylint",
   "python.linting.pylintUseMinimalCheckers": true,
   "signature.enable": true,
-  "signature.hideOnTextChange": false,
+  "signature.hideOnTextChange": true,
   "signature.target": "float",
   "signature.triggerSignatureWait": 50,
   "suggest.acceptSuggestionOnCommitCharacter": true,

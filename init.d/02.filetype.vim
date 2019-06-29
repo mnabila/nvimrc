@@ -13,7 +13,7 @@ autocmd FileType javascript.jsx set syntax=javascript
 
 "" Markdown
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-autocmd FileType markdown setlocal expandtab shiftwidth=2 softtabstop=2 colorcolumn=80 textwidth=80 fo+=t fo-=l
+autocmd FileType markdown setlocal expandtab shiftwidth=2 softtabstop=2 colorcolumn=90 textwidth=90 fo+=t fo-=l
 let g:vim_markdown_conceal             = 0
 let g:mkdp_auto_close                  = 0
 let g:vim_markdown_folding_disabled    = 1
@@ -31,4 +31,13 @@ autocmd FileType php setlocal expandtab shiftwidth=4 softtabstop=4
 "" Python
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 autocmd FileType python setlocal expandtab shiftwidth=4 softtabstop=4 colorcolumn=80
+
+"" Json
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+autocmd FileType json setlocal expandtab shiftwidth=2 softtabstop=2
+autocmd FileType json syntax match Comment +\/\/.\+$+
+
+"" Gitcommit
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+autocmd FileType gitcommit setlocal colorcolumn=80 textwidth=80 fo+=t fo-=l
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

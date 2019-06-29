@@ -127,9 +127,11 @@ let g:vcool_ins_rgba_map = '<Leader>cR'
 
 "" Tagbar
 noremap <Leader>tt :TagbarToggle<CR>
-noremap <F3> :TagbarToggle<CR>
 
 "" File header
 noremap <leader>h :AddHeader<cr>
+
+"" Set working directory to the current file 
+noremap <F3> :lcd %:p:h<CR>:NERDTreeCWD<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
