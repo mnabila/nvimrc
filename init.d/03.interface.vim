@@ -1,6 +1,5 @@
 "" User Interface
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" hi  clear ModeMsg " disable Color StatusLine on Insert Mode and Visual Mode
 set shortmess+=c
 set completeopt=menuone,noselect,preview
 set conceallevel=0                       " Text is shown normally
@@ -42,12 +41,6 @@ if (has('termguicolors'))
   set termguicolors
 endif
 
-"" Change cursor shape in
-let $NVIM_TUI_ENABLE_CURSOR_SHAPE=0
-let &t_SI = "\<Esc>[6 q"
-let &t_SR = "\<Esc>[4 q"
-let &t_EI = "\<Esc>[2 q"
-
 " augroup numbertoggle
 "   autocmd!
 "   autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
@@ -58,11 +51,18 @@ let &t_EI = "\<Esc>[2 q"
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 syntax on
 colorscheme gruvbox
-let g:gruvbox_contrast_dark     = 'dark'
-let g:gruvbox_italic            = 1
-let g:gruvbox_improved_strings  = 1
-let g:gruvbox_improved_warnings = 1
-let g:gruvbox_bold              = 1
+let g:gruvbox_bold                 = 1
+let g:gruvbox_contrast_dark        = 'hard'
+let g:gruvbox_improved_strings     = 1
+let g:gruvbox_improved_strings     = 1
+let g:gruvbox_improved_warnings    = 1
+let g:gruvbox_invert_indent_guides = 1
+let g:gruvbox_invert_tabline       = 1
+let g:gruvbox_italic               = 1
+let g:gruvbox_italicize_comments   = 1
+let g:gruvbox_italicize_strings    = 0
+let g:gruvbox_undercurl            = 1
+
 
 "" Icon configuration
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -71,7 +71,7 @@ let g:DevIconsAppendArtifactFix                       = 1
 let g:DevIconsEnableFolderExtensionPatternMatching    = 1
 let g:DevIconsEnableFolderPatternMatching             = 1
 let g:DevIconsEnableFoldersOpenClose                  = 1
-let g:WebDevIconsNerdTreeAfterGlyphPadding            = " "
+let g:WebDevIconsNerdTreeAfterGlyphPadding            = ' '
 let g:WebDevIconsNerdTreeGitPluginForceVAlign         = 1
 let g:WebDevIconsOS                                   = 'Linux'
 let g:WebDevIconsUnicodeDecorateFolderNodes           = 1

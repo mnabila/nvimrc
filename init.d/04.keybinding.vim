@@ -53,12 +53,8 @@ nmap <A-k> [e
 nmap <C-A-k> <C-w>t<C-w>K
 nmap <C-A-h> <C-w>t<C-w>H
 
-"" omni copletion
-inoremap <C-Space> <C-x><C-o>
-
 "" Terminal mode keybinding
 tnoremap <Esc> <C-\><C-n>
-
 
 "" NERDTree
 noremap <F2> :NERDTreeToggle<CR>
@@ -133,5 +129,23 @@ noremap <leader>h :AddHeader<cr>
 
 "" Set working directory to the current file 
 noremap <F3> :lcd %:p:h<CR>:NERDTreeCWD<CR>
+
+"" Neoranger
+" nnoremap <silent> <Leader>r :Ranger<CR>
+" nnoremap <silent> <Leader>R :RangerCurrentFile<CR>
+
+"" FZF
+" Mapping selecting mappings
+nmap <leader><tab> <plug>(fzf-maps-n)
+xmap <leader><tab> <plug>(fzf-maps-x)
+omap <leader><tab> <plug>(fzf-maps-o)
+" Insert mode completion
+imap <c-x><c-k> <plug>(fzf-complete-word)
+imap <c-x><c-f> <plug>(fzf-complete-path)
+imap <c-x><c-j> <plug>(fzf-complete-file-ag)
+imap <c-x><c-l> <plug>(fzf-complete-line)
+" Advanced customization using autoload functions
+inoremap <expr> <c-x><c-k> fzf#vim#complete#word({'left': '15%'})
+autocmd! FileType fzf tnoremap <buffer> <esc> <c-c>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 

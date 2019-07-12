@@ -45,6 +45,8 @@ set shiftwidth=2
 set expandtab
 set autoindent
 set fileformat=unix
+set pyxversion=3
+let g:python3_host_prog = '/usr/bin/python3'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -77,14 +79,16 @@ Plug 'godlygeek/tabular'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-easy-align'
-Plug 'terryma/vim-multiple-cursors'
+" Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
-Plug 'alpertuna/vim-header'
-Plug 'vim-pandoc/vim-pandoc'
+Plug 'mnabila/vim-header'
+" Plug 'vim-pandoc/vim-pandoc'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }}
+" Plug 'Lokaltog/neoranger'
+" Plug 'rhysd/vim-grammarous'
 
 "" Language pack
 Plug 'sheerun/vim-polyglot'
@@ -96,7 +100,7 @@ Plug 'iamcco/mathjax-support-for-mkdp'
 Plug 'Glench/Vim-Jinja2-Syntax'
 Plug 'Shougo/neco-vim'
 Plug 'neoclide/coc-neco'
-Plug 'vim-pandoc/vim-pandoc-syntax' 
+" Plug 'vim-pandoc/vim-pandoc-syntax' 
 
 "" Git Support
 Plug 'tpope/vim-fugitive'

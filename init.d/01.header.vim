@@ -1,4 +1,4 @@
-"" header
+"" Header
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:header_auto_add_header          = 0
 let g:header_alignment                = 1
