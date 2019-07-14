@@ -88,7 +88,7 @@ Plug 'mnabila/vim-header'
 " Plug 'vim-pandoc/vim-pandoc'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }}
 " Plug 'Lokaltog/neoranger'
-" Plug 'rhysd/vim-grammarous'
+Plug 'rhysd/vim-grammarous'
 
 "" Language pack
 Plug 'sheerun/vim-polyglot'
