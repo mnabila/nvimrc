@@ -1,75 +1,118 @@
-" General
+" Main {{{
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"" Encoding
-set encoding=utf-8
-set fileencoding=utf-8
-set fileencodings=utf-8
-set bomb
-set binary
-
-if (has('nvim'))
-  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-endif
-
+filetype on                           " required
+filetype plugin indent on
 
 au CursorHold,CursorHoldI * checktime " auto update trigger when cursor stops moving
 au FocusGained,BufEnter * :checktime  " auto update trigger on buffer change or terminal focus
 au BufRead /tmp/mutt-* set tw=72      " Configuring editors to work with mutt                  "
 
-filetype on                           " required
-filetype plugin indent on
+if (has('nvim'))
+  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+endif
 
+if (has('termguicolors'))
+  set termguicolors
+endif
+
+set backspace=indent,eol,start
+set backup
+set backupdir=~/.local/share/nvim/backup
+set writebackup
+set binary
+set bomb
+set clipboard+=unnamedplus
+set completeopt=menuone,noselect,preview
+set conceallevel=0
+set cursorcolumn
+set cursorline
+set dictionary+=/usr/share/dict/american-english
+set directory=~/.local/share/nvim/swap
+set encoding=utf-8
+set fileencoding=utf-8
+set fileencodings=utf-8
+set foldlevel=0
+set foldmethod=indent
+set formatoptions+=l
+set gdefault
+set guioptions-=e
+set hidden
+set hlsearch
+set ignorecase
+set incsearch
+set laststatus=2
+set lazyredraw
+set linebreak
+set linespace=0
+set list
+set listchars=tab:»·,trail:·,nbsp:·
+set mouse=a
+set noautoread
+set nocompatible
+set noerrorbells
+set nostartofline
+set novisualbell
+set number
+set pumblend=10
+set regexpengine=1
+set relativenumber
+set report=0
+set ruler
+set scrolloff=5
+set shortmess=atToOc
+set showcmd
+set showmatch
+set showmode
+set showtabline=2
+set sidescrolloff=10
+set smartcase
+set splitbelow
+set splitright
+set t_Co=256
+set ttimeoutlen=50
+set undodir=~/.local/share/nvim/undo
+set undofile
 set updatetime=300
-set backup                               " make backup files
-set backupdir=~/.local/share/nvim/backup " where to put backup files
-set clipboard+=unnamedplus               " share clipboard
-set directory=~/.local/share/nvim/swap   " directory to place swap files in
-set gdefault                             " global substitutions are default s/a/b/g
-set hidden                               " you can change buffers without saving
-set mouse=a                              " Enable mouse mode
-set noautoread                           " make vim monitor realtime changes to a file
-set nocompatible                         " required
-set noerrorbells                         " don't make noise
-set ttimeoutlen=50                       " make Esc work faster
-set ttyfast                              " i have a fast terminal
-set undodir=~/.local/share/nvim/undo     " directory to place undo files in
-set undofile                             " make undo possible after the file is closed and reopened
-set wildmenu                             " turn on command line completion wild style
+set wildmenu
 set wildmode=full
-set showtabline=2                        " Show tabline
-set guioptions-=e                        " Don't use GUI tabline
+set wildoptions=pum
+set winblend=10
+set wrap
+
+" augroup numbertoggle
+"   autocmd!
+"   autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+"   autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+" augroup END
+
 " Global Indentation
-set tabstop=2
-set softtabstop=2
-set shiftwidth=2
-set expandtab
 set autoindent
+set expandtab
 set fileformat=unix
 set pyxversion=3
-let g:python3_host_prog = '/usr/bin/python3'
+set shiftwidth=2
+set softtabstop=2
+set tabstop=2
 
+let g:loaded_python3_provider = 1
+let g:python3_host_prog       = '/usr/bin/python3'
+" }}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-"" auto start plugin
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-
-"" Vim-Plug
+"" Vim-Plug {{{
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Specify a directory for plugins
 " - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.local/share/nvim/plugged')
 
 "" UI plugin
+Plug 'itchyny/lightline.vim'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'majutsushi/tagbar'
+Plug 'mengelbrecht/lightline-bufferline'
 Plug 'mhinz/vim-startify'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'scrooloose/nerdtree'
-Plug 'itchyny/lightline.vim'
-Plug 'mengelbrecht/lightline-bufferline'
 
 "" Utility
 Plug 'Chiel92/vim-autoformat'
@@ -89,6 +132,8 @@ Plug 'mnabila/vim-header'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }}
 " Plug 'Lokaltog/neoranger'
 Plug 'rhysd/vim-grammarous'
+" Plug 'editorconfig/editorconfig-vim'
+Plug 'junegunn/vim-peekaboo'
 
 "" Language pack
 Plug 'sheerun/vim-polyglot'
@@ -100,7 +145,8 @@ Plug 'iamcco/mathjax-support-for-mkdp'
 Plug 'Glench/Vim-Jinja2-Syntax'
 Plug 'Shougo/neco-vim'
 Plug 'neoclide/coc-neco'
-" Plug 'vim-pandoc/vim-pandoc-syntax' 
+" Plug 'vim-pandoc/vim-pandoc-syntax'
+Plug 'tbastos/vim-lua'
 
 "" Git Support
 Plug 'tpope/vim-fugitive'
@@ -114,4 +160,5 @@ Plug 'ryanoasis/vim-devicons'
 
 "" Initialize plugin system
 call plug#end()
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" }}}
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

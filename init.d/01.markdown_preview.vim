@@ -1,4 +1,4 @@
-"" Markdown Preview
+"" Markdown Preview {{{
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:mkdp_auto_start              = 0
 let g:mkdp_auto_close              = 0
@@ -20,4 +20,5 @@ let g:mkdp_preview_options         = {
 let g:mkdp_markdown_css            = ''
 let g:mkdp_highlight_css           = ''
 let g:mkdp_port                    = ''
+" }}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

@@ -1,6 +1,6 @@
-"" vcolor {{{
+"" Peekaboo {{{
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:vcoolor_lowercase = 1
-let g:vcoolor_custom_picker = 'yad --title "custom" --color-selection --show-palette --color'
+let g:peekaboo_window = 'vert bo 50 new'
+let g:peekaboo_compact = 0
 " }}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

@@ -1,4 +1,4 @@
-"" Nerdtree
+"" Nerdtree {{{
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 autocmd StdinReadPre * let s:std_in=1
 " let g:NERDTreeDirArrowExpandable=''
@@ -25,4 +25,5 @@ autocmd FileType nerdtree setlocal signcolumn=no nocursorcolumn
 "             \ 'Ignored'   : '☒',
 "             \ "Unknown"   : "?"
 "             \ }
+" }}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

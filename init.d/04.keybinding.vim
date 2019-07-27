@@ -1,9 +1,10 @@
-"" Vim Keybindings
+"" Vim Keybindings {{{
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"" Leader
+"" Leader {{{
 let mapleader=','
+" }}}
 
-"" Disable arrow
+"" Disable arrow {{{
 no <left> <Nop>
 no <right> <Nop>
 no <up> <Nop>
@@ -17,20 +18,23 @@ imap <up> <nop>
 imap <down> <nop>
 imap <left> <nop>
 imap <right> <nop>
+" }}}
 
-"" For move to each window
+"" For move to each window {{{
 noremap <C-h> <C-w><C-h>
 noremap <C-j> <C-w><C-j>
 noremap <C-k> <C-w><C-k>
 noremap <C-l> <C-w><C-l>
+" }}}
 
-"" Arrow keys resize windows
+"" Arrow keys resize windows {{{
 noremap <Left> :vertical resize +5<CR>
 noremap <Up> :resize +5<CR>
 noremap <Right> :vertical resize -5<CR>
 noremap <Down> :resize -5<CR>
+" }}}
 
-"" Buffers management
+"" Buffers {{{
 noremap <A-l> :bn<cr>
 noremap <A-h> :bp<cr>
 noremap <A-L> :bl<cr>
@@ -38,6 +42,7 @@ noremap <A-H> :bf<cr>
 noremap <leader>q :bp<cr>:bd #<cr>
 noremap <leader>qq :bufdo bd<cr>:Startify<cr>
 noremap <leader>qa :bufdo bd!<cr>:Startify<cr>
+" }}}
 
 "" Tab management
 " nmap <A-H> :tabNext<cr>
@@ -45,22 +50,27 @@ noremap <leader>qa :bufdo bd!<cr>:Startify<cr>
 " nmap <A-N> :tabnew<cr>
 " nmap <A-Q> :tabclose<cr>
 
-"" Line bubbling
+"" Line bubbling {{{
 nmap <A-j> ]e
 nmap <A-k> [e
+" }}}
 
-"" tonggle split
+"" Split {{{
 nmap <C-A-k> <C-w>t<C-w>K
 nmap <C-A-h> <C-w>t<C-w>H
+" }}}
 
-"" Terminal mode keybinding
+"" Terminal-mode {{{
 tnoremap <Esc> <C-\><C-n>
+" }}}
 
-"" NERDTree
+"" NERDTree {{{
 noremap <F2> :NERDTreeToggle<CR>
 noremap <C-\> :NERDTreeToggle<CR>
+noremap <F3> :lcd %:p:h<CR>:NERDTreeCWD<CR>
+" }}}
 
-"" Git fugitif
+"" Git fugitif {{{
 noremap <Leader>ga :Gwrite<CR>
 noremap <Leader>gc :Gcommit<CR>
 noremap <Leader>gsh :Gpush<CR>
@@ -69,16 +79,19 @@ noremap <Leader>gs :Gstatus<CR>
 noremap <Leader>gb :Gblame<CR>
 noremap <Leader>gd :Gvdiff<CR>
 noremap <Leader>gr :Gremove<CR>
+" }}}
 
-"" Commentary
+"" Commentary {{{
 noremap <Leader>/ :Commentary<CR>
+" }}}
 
-"" Autoformat
+"" Autoformat {{{
 nmap <Leader>f :Autoformat<CR>
 nmap <Leader>F <Plug>(coc-format)
 vmap <Leader>F <Plug>(coc-format-selected)
+" }}}
 
-"" Coc
+"" Coc {{{
 function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
@@ -111,30 +124,33 @@ nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <leader>ac  <Plug>(coc-codeaction)
+" }}}
 
-"" Indent guides
+"" Indent guides {{{
 nmap <silent> <Leader>ig :IndentGuidesToggle<CR>
+" }}}
 
-"" color picker
+"" color picker {{{
 let g:vcoolor_map = '<Leader>c'
 let g:vcool_ins_rgb_map = '<Leader>cr'
 let g:vcool_ins_hsl_map = '<Leader>ch'
 let g:vcool_ins_rgba_map = '<Leader>cR'
+" }}}
 
-"" Tagbar
+"" Tagbar {{{
 noremap <Leader>tt :TagbarToggle<CR>
+" }}}
 
-"" File header
+"" File header {{{
 noremap <leader>h :AddHeader<cr>
+" }}}
 
-"" Set working directory to the current file 
-noremap <F3> :lcd %:p:h<CR>:NERDTreeCWD<CR>
-
-"" Neoranger
+"" Neoranger {{{
 " nnoremap <silent> <Leader>r :Ranger<CR>
 " nnoremap <silent> <Leader>R :RangerCurrentFile<CR>
+" }}}
 
-"" FZF
+"" FZF {{{
 " Mapping selecting mappings
 nmap <leader><tab> <plug>(fzf-maps-n)
 xmap <leader><tab> <plug>(fzf-maps-x)
@@ -147,5 +163,7 @@ imap <c-x><c-l> <plug>(fzf-complete-line)
 " Advanced customization using autoload functions
 inoremap <expr> <c-x><c-k> fzf#vim#complete#word({'left': '15%'})
 autocmd! FileType fzf tnoremap <buffer> <esc> <c-c>
+" }}}
+" }}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
