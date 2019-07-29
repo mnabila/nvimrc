@@ -1,5 +1,9 @@
 # NeoVim File Configuration
 
+## Preview
+
+![Neovim Preview](https://raw.githubusercontent.com/mnabila/nvimrc/master/preview.png)
+
 ## Instalation
 
 ```
@@ -103,7 +107,6 @@ $ nvim +PlugInstall
           <li><a href="https://github.com/junegunn/fzf.vim" target="_blank">FZF</a></li>
           <li><a href="https://github.com/jiangmiao/auto-pairs" target="_blank">Auto Pair</a></li>
           <li><a href="https://github.com/godlygeek/tabular" target="_blank">Tabular</a></li>
-          <li><a href="https://github.com/ctrlpvim/ctrlp.vim" target="_blank">Ctrl P</a></li>
           <li><a href="https://github.com/KabbAmine/vCoolor.vim" target="_blank">Color Picker</a></li>
           <li><a href="https://github.com/Chiel92/vim-autoformat" target="_blank">Auto Format</a></li>
           <li><a href="https://github.com/majutsushi/tagbar" target="_blank">Tag Bar</a></li>
