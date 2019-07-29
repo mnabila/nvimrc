@@ -5,15 +5,15 @@ let mapleader=','
 " }}}
 
 "" Disable arrow {{{
-no <left> <Nop>
-no <right> <Nop>
-no <up> <Nop>
-no <down> <Nop>
-no <C-left> <Nop>
-no <C-right> <Nop>
-no <C-up> <Nop>
-no <C-down> <Nop>
-no <C-z> <Nop>
+no   <left> <Nop>
+no   <right> <Nop>
+no   <up> <Nop>
+no   <down> <Nop>
+no   <C-left> <Nop>
+no   <C-right> <Nop>
+no   <C-up> <Nop>
+no   <C-down> <Nop>
+no   <C-z> <Nop>
 imap <up> <nop>
 imap <down> <nop>
 imap <left> <nop>
@@ -131,9 +131,9 @@ nmap <silent> <Leader>ig :IndentGuidesToggle<CR>
 " }}}
 
 "" color picker {{{
-let g:vcoolor_map = '<Leader>c'
-let g:vcool_ins_rgb_map = '<Leader>cr'
-let g:vcool_ins_hsl_map = '<Leader>ch'
+let g:vcoolor_map        = '<Leader>c'
+let g:vcool_ins_rgb_map  = '<Leader>cr'
+let g:vcool_ins_hsl_map  = '<Leader>ch'
 let g:vcool_ins_rgba_map = '<Leader>cR'
 " }}}
 
@@ -163,6 +163,11 @@ imap <c-x><c-l> <plug>(fzf-complete-line)
 " Advanced customization using autoload functions
 inoremap <expr> <c-x><c-k> fzf#vim#complete#word({'left': '15%'})
 autocmd! FileType fzf tnoremap <buffer> <esc> <c-c>
+" }}}
+
+"" EasyAlign {{{
+vmap <leader>a :EasyAlign<cr>
+nmap <leader>a :EasyAlign<cr>
 " }}}
 " }}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

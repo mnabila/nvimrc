@@ -32,7 +32,7 @@ set encoding=utf-8
 set fileencoding=utf-8
 set fileencodings=utf-8
 set foldlevel=0
-set foldmethod=indent
+set foldmethod=manual
 set formatoptions+=l
 set gdefault
 set guioptions-=e
@@ -94,7 +94,6 @@ set shiftwidth=2
 set softtabstop=2
 set tabstop=2
 
-let g:loaded_python3_provider = 1
 let g:python3_host_prog       = '/usr/bin/python3'
 " }}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -117,7 +116,6 @@ Plug 'scrooloose/nerdtree'
 "" Utility
 Plug 'Chiel92/vim-autoformat'
 Plug 'KabbAmine/vCoolor.vim'
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'godlygeek/tabular'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf.vim'
