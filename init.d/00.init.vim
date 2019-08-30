@@ -109,7 +109,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'majutsushi/tagbar'
 Plug 'mengelbrecht/lightline-bufferline'
-Plug 'mhinz/vim-startify'
+" Plug 'mhinz/vim-startify'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'scrooloose/nerdtree'
 
@@ -132,6 +132,7 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }}
 Plug 'rhysd/vim-grammarous'
 " Plug 'editorconfig/editorconfig-vim'
 Plug 'junegunn/vim-peekaboo'
+Plug 'echuraev/translate-shell.vim'
 
 "" Language pack
 Plug 'sheerun/vim-polyglot'

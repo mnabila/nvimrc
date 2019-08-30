@@ -1,8 +1,6 @@
 {
   "coc.preferences.bracketEnterImprove": true,
   "coc.preferences.colorSupport": true,
-  "prettier.printWidth": 200,
-  "prettier.htmlWhitespaceSensitivity": "css",
   "coc.preferences.currentFunctionSymbolAutoUpdate": true,
   "coc.preferences.enableFloatHighlight": true,
   "coc.preferences.extensionUpdateCheck": "never",
@@ -15,18 +13,23 @@
   "diagnostic.errorSign": "EE",
   "diagnostic.hintSign": "HH",
   "diagnostic.infoSign": "II",
-  "diagnostic.messageTarget": "echo",
-  "diagnostic.virtualText": false,
+  "diagnostic.messageTarget": "float",
+  "diagnostic.virtualText": true,
   "diagnostic.warningSign": "WW",
+  "emmet.includeLanguages": { "vue-html": "html", "javascript": "javascriptreact", "jinja2.html": "html" },
   "highlight.colors.enable": false,
   "highlight.document.enable": true,
+  "html.filetypes": ["html", "handlebars", "jinja2.html"],
   "html.suggest.html5": true,
+  "html.validate.styles": true,
+  "prettier.htmlWhitespaceSensitivity": "css",
+  "prettier.printWidth": 500,
+  "python.autoUpdateLanguageServer": false,
   "python.formatting.blackArgs": ["--line-length=80"],
   "python.formatting.blackPath": "black",
   "python.formatting.provider": "black",
   "python.formatting.yapfPath": "yapf",
   "python.jediEnabled": true,
-  "python.jediPath": "/usr/lib/python3.7/site-packages/jedi/",
   "python.linting.enabled": true,
   "python.linting.pydocstyleArgs": ["--ignore=D100"],
   "python.linting.pydocstyleEnabled": false,
@@ -44,18 +47,6 @@
   "suggest.floatEnable": true,
   "suggest.minTriggerInputLength": 2,
   "suggest.noselect": true,
-  "suggest.timeout": 500,
-  "suggest.triggerAfterInsertEnter": true,
-  "languageserver": {
-    "ccls": {
-      "command": "ccls",
-      "filetypes": ["c", "cpp", "objc", "objcpp"],
-      "rootPatterns": [".ccls", "compile_commands.json", ".vim/", ".git/", ".hg/"],
-      "initializationOptions": {
-        "cache": {
-          "directory": "/tmp/ccls"
-        }
-      }
-    }
-  }
+  "suggest.timeout": 1000,
+  "suggest.triggerAfterInsertEnter": true
 }

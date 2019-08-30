@@ -5,7 +5,8 @@ autocmd FileType scss,sass,css setlocal expandtab shiftwidth=2 softtabstop=2 tex
 " }}}
 
 "" HTML5 {{{
-autocmd FileType html,jinja.html setlocal expandtab shiftwidth=2 softtabstop=2 textwidth=0
+autocmd FileType html,jinja2.html setlocal expandtab shiftwidth=2 softtabstop=2 textwidth=0
+autocmd BufRead,BufNewFile *.html set filetype=jinja2.html
 " }}}
 
 "" Javascript {{{
@@ -14,7 +15,8 @@ autocmd FileType javascript.jsx set syntax=javascript
 " }}}
 
 "" Markdown {{{
-autocmd FileType markdown setlocal expandtab shiftwidth=2 softtabstop=2 colorcolumn=90 textwidth=90 fo+=t fo-=l
+" autocmd FileType markdown setlocal expandtab shiftwidth=2 softtabstop=2 colorcolumn=90 textwidth=90 fo+=t fo-=l
+autocmd FileType markdown setlocal expandtab shiftwidth=2 softtabstop=2 colorcolumn=90
 let g:mkdp_auto_close                  = 0
 let g:vim_markdown_auto_insert_bullets = 0
 let g:vim_markdown_conceal             = 0

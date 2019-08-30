@@ -90,6 +90,7 @@ $ nvim +PlugInstall
           <li><a href="https://www.npmjs.com/package/coc-marketplace"target="_blank">coc-marketplace</a></li>
           <li><a href="https://www.npmjs.com/package/coc-sh"target="_blank">coc-sh</a></li>
           <li><a href="https://www.npmjs.com/package/coc-word" target="_blank">coc-word</a></li>
+          <li><a href="https://www.npmjs.com/package/coc-todolist" target="_blank">coc-todolist</a></li>
         </ul>
       </td>
     </tr>
@@ -114,6 +115,7 @@ $ nvim +PlugInstall
           <li><a href="https://github.com/nathanaelkane/vim-indent-guides" target="_blank">Vim Indent Guides</a></li>
           <li><a href="https://github.com/mnabila/vim-header" target="_blank">Vim Header</a></li>
           <li><a href="https://github.com/rhysd/vim-grammarous" target="_blank">Vim Grammarous</a></li>
+          <li><a href="https://github.com/echuraev/translate-shell.vim" target="_blank">translate-shell</a></li>
         </ul>
       </td>
     </tr>

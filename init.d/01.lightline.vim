@@ -12,11 +12,10 @@ let g:lightline = {
       \   },
       \   'tabline': {
       \     'left': [ [ 'buffers' ], ],
-      \     'right': [ [ 'username' ], ],
+      \     'right': [ [ '' ], ],
       \   },
       \   'component': {
       \     'lineinfo': ' %l/%-L',
-      \     'username': 'Nabil',
       \   },
       \   'component_expand': {
       \     'buffers': 'lightline#bufferline#buffers',
