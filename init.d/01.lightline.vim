@@ -12,10 +12,11 @@ let g:lightline = {
       \   },
       \   'tabline': {
       \     'left': [ [ 'buffers' ], ],
-      \     'right': [ [ '' ], ],
+      \     'right': [ [ 'username' ], ],
       \   },
       \   'component': {
       \     'lineinfo': ' %l/%-L',
+      \     'username': $USER,
       \   },
       \   'component_expand': {
       \     'buffers': 'lightline#bufferline#buffers',
@@ -46,7 +47,7 @@ let g:lightline#bufferline#filename_modifier = ':t'
 let g:lightline#bufferline#shorten_path      = 0
 let g:lightline#bufferline#show_number       = 0
 let g:lightline#bufferline#unicode_symbols   = 1
-let g:lightline#bufferline#unnamed           = '[NO NAME]'
+let g:lightline#bufferline#unnamed           = 'NO NAME'
 
 function! LightlineModified()
   return &modified ? '●' : ''

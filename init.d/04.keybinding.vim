@@ -137,16 +137,16 @@ let g:vcool_ins_hsl_map  = '<Leader>ch'
 let g:vcool_ins_rgba_map = '<Leader>cR'
 " }}}
 
-"" Tagbar {{{
-noremap <Leader>tt :TagbarToggle<CR>
-" }}}
-
 "" File header {{{
 noremap <leader>h :AddHeader<cr>
 " }}}
 
 "" FZF {{{
 nmap <leader><space> :History<cr>
+nmap <leader>b :Buffers<cr>
+nmap <leader>o :cd %:p:h<cr>:Files<cr>
+nmap <leader>g :BTags<cr>
+nmap <leader><leader> :Commands<cr>
 
 " Mapping selecting mappings
 nmap <leader><tab> <plug>(fzf-maps-n)

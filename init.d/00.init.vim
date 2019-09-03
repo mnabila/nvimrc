@@ -105,46 +105,42 @@ let g:python3_host_prog       = '/usr/bin/python3'
 call plug#begin('~/.local/share/nvim/plugged')
 
 "" UI plugin
+" Plug 'mhinz/vim-startify'
 Plug 'itchyny/lightline.vim'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'majutsushi/tagbar'
 Plug 'mengelbrecht/lightline-bufferline'
-" Plug 'mhinz/vim-startify'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'scrooloose/nerdtree'
 
 "" Utility
+" Plug 'editorconfig/editorconfig-vim'
+" Plug 'vim-pandoc/vim-pandoc'
 Plug 'Chiel92/vim-autoformat'
 Plug 'KabbAmine/vCoolor.vim'
+Plug 'echuraev/translate-shell.vim'
 Plug 'godlygeek/tabular'
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }}
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-easy-align'
-" Plug 'terryma/vim-multiple-cursors'
+Plug 'junegunn/vim-peekaboo'
+Plug 'mnabila/vim-header'
+Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
+Plug 'rhysd/vim-grammarous'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
-Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
-Plug 'mnabila/vim-header'
-" Plug 'vim-pandoc/vim-pandoc'
-Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }}
-" Plug 'Lokaltog/neoranger'
-Plug 'rhysd/vim-grammarous'
-" Plug 'editorconfig/editorconfig-vim'
-Plug 'junegunn/vim-peekaboo'
-Plug 'echuraev/translate-shell.vim'
 
 "" Language pack
-Plug 'sheerun/vim-polyglot'
-Plug 'honza/vim-snippets'
 " Plug 'groenewege/vim-less'
-Plug 'cakebaker/scss-syntax.vim'
-Plug 'plasticboy/vim-markdown'
-Plug 'iamcco/mathjax-support-for-mkdp'
-Plug 'Glench/Vim-Jinja2-Syntax'
-Plug 'Shougo/neco-vim'
-Plug 'neoclide/coc-neco'
 " Plug 'vim-pandoc/vim-pandoc-syntax'
+Plug 'Glench/Vim-Jinja2-Syntax'
+Plug 'cakebaker/scss-syntax.vim'
+Plug 'honza/vim-snippets'
+Plug 'iamcco/mathjax-support-for-mkdp'
+Plug 'plasticboy/vim-markdown'
+Plug 'sheerun/vim-polyglot'
 Plug 'tbastos/vim-lua'
 
 "" Git Support

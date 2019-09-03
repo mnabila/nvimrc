@@ -14,7 +14,7 @@
   "diagnostic.hintSign": "HH",
   "diagnostic.infoSign": "II",
   "diagnostic.messageTarget": "float",
-  "diagnostic.virtualText": true,
+  "diagnostic.virtualText": false,
   "diagnostic.warningSign": "WW",
   "emmet.includeLanguages": { "vue-html": "html", "javascript": "javascriptreact", "jinja2.html": "html" },
   "highlight.colors.enable": false,
@@ -45,8 +45,13 @@
   "suggest.acceptSuggestionOnCommitCharacter": true,
   "suggest.autoTrigger": "always",
   "suggest.floatEnable": true,
+  "suggest.languageSourcePriority": 0,
   "suggest.minTriggerInputLength": 2,
   "suggest.noselect": true,
   "suggest.timeout": 1000,
-  "suggest.triggerAfterInsertEnter": true
+  "suggest.triggerAfterInsertEnter": true,
+  "vimlsp.indexes.count": 2,
+  "vimlsp.indexes.runtimepath": true,
+  "vimlsp.suggest.fromRuntimepath": true,
+  "languageserver": { "ccls": { "command": "ccls", "filetypes": ["c", "cpp", "objc", "objcpp"], "rootPatterns": [".ccls", "compile_commands.json", ".vim/", ".git/", ".hg/"], "initializationOptions": { "cache": { "directory": "/tmp/ccls" } } } }
 }

@@ -6,6 +6,16 @@
 
 ## Instalation
 
+### Installing Dependency
+
+> archlinux with yay package manager
+
+```
+$ yay -S neovim-nightly nodejs npm yarn
+```
+
+### Installing Configuration
+
 ```
 $ git clone https://github.com/nabil48/nvimrc ~/.config/nvim
 ```
@@ -98,7 +108,6 @@ $ nvim +PlugInstall
       <td>Utility</td>
       <td>
         <ul>
-          <li><a href="https://github.com/" target="_blank"></a></li>
           <li><a href="https://github.com/iamcco/markdown-preview.nvim" target="_blank">Markdown Preview</a></li>
           <li><a href="https://github.com/tpope/vim-unimpaired" target="_blank">Unimpaired</a></li>
           <li><a href="https://github.com/tpope/vim-surround" target="_blank">Surround</a></li>
