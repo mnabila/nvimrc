@@ -144,7 +144,7 @@ noremap <leader>h :AddHeader<cr>
 "" FZF {{{
 nmap <leader><space> :History<cr>
 nmap <leader>b :Buffers<cr>
-nmap <leader>o :cd %:p:h<cr>:Files<cr>
+nmap <leader>o :Files<cr>
 nmap <leader>g :BTags<cr>
 nmap <leader><leader> :Commands<cr>
 

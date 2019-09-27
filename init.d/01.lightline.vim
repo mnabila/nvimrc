@@ -4,19 +4,24 @@ let g:lightline = {
       \   'colorscheme': 'gruvbox',
       \   'active': {
       \     'left':[ [ 'mode', 'paste' ],
-      \              [ 'fugitive' ],
-      \              [ 'readonly', 'absolutepath', 'modified' ], ],
-      \   'right': [ [ 'lineinfo' ],
+      \              [ 'gitbranch' ],
+      \              [ 'readonly', 'fname', 'modified' ], ],
+      \     'right': [ [ 'lineinfo' ],
       \              [ 'filetype' ],
       \              [ 'currentfunction', 'cocstatus', 'fileformat', 'fileencoding' ], ],
+      \   },
+      \   'inactive': {
+      \    'left': [ [ 'fname' ], ],
+      \   'right': [ [ 'lineinfo' ], ],
       \   },
       \   'tabline': {
       \     'left': [ [ 'buffers' ], ],
       \     'right': [ [ 'username' ], ],
       \   },
       \   'component': {
-      \     'lineinfo': ' %l/%-L',
+      \     'lineinfo': '%3p%%  %l/%-L',
       \     'username': $USER,
+      \     'fname': '%<%f',
       \   },
       \   'component_expand': {
       \     'buffers': 'lightline#bufferline#buffers',
@@ -28,7 +33,7 @@ let g:lightline = {
       \     'bufferinfo': 'lightline#buffer#bufferinfo',
       \     'cocstatus': 'coc#status',
       \     'currentfunction': 'CocCurrentFunction',
-      \     'fugitive': 'LightlineFugitive',
+      \     'gitbranch': 'LightlineFugitive',
       \     'modified': 'LightlineModified',
       \     'readonly': 'LightlineReadonly',
       \     'filetype': 'MyFiletype',
@@ -38,7 +43,7 @@ let g:lightline = {
       \     'left': '', 'right': ''
       \   },
       \   'subseparator':{
-      \     'left': '❱', 'right': '❰'
+      \     'left': '', 'right': ''
       \   },
       \}
 
@@ -57,13 +62,13 @@ function! LightlineReadonly()
   return &readonly ? '' : ''
 endfunction
 
-function! LightlineFugitive()
-  if exists('*fugitive#head')
-    let branch = fugitive#head()
-    return branch !=# '' ? ' '.branch : ''
-  endif
-  return ''
-endfunction
+" function! LightlineFugitive()
+"   if exists('*fugitive#head')
+"     let branch = fugitive#head()
+"     return branch !=# '' ? ' '.branch : ''
+"   endif
+"   return ''
+" endfunction
 
 function! CocCurrentFunction()
   return get(b:, 'coc_current_function', '')

@@ -70,6 +70,8 @@ set splitbelow
 set splitright
 set t_Co=256
 set ttimeoutlen=50
+set title
+set titlestring=%t%(\ %M%)%(\ (%{expand(\"%:~:.:h\")})%)%(\ %a%)
 set undodir=~/.local/share/nvim/undo
 set undofile
 set updatetime=300
@@ -112,6 +114,8 @@ Plug 'majutsushi/tagbar'
 Plug 'mengelbrecht/lightline-bufferline'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'scrooloose/nerdtree'
+" Plug 'vim-airline/vim-airline'
+" Plug 'vim-airline/vim-airline-themes'
 
 "" Utility
 " Plug 'editorconfig/editorconfig-vim'
@@ -127,7 +131,7 @@ Plug 'junegunn/vim-easy-align'
 Plug 'junegunn/vim-peekaboo'
 Plug 'mnabila/vim-header'
 Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
-Plug 'rhysd/vim-grammarous'
+" Plug 'rhysd/vim-grammarous'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
