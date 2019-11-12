@@ -18,7 +18,6 @@ endif
 set backspace=indent,eol,start
 set backup
 set backupdir=~/.local/share/nvim/backup
-set writebackup
 set binary
 set bomb
 set clipboard+=unnamedplus
@@ -26,7 +25,6 @@ set completeopt=menuone,noselect,preview
 set conceallevel=0
 set cursorcolumn
 set cursorline
-set dictionary+=/usr/share/dict/american-english
 set directory=~/.local/share/nvim/swap
 set encoding=utf-8
 set fileencoding=utf-8
@@ -69,9 +67,9 @@ set smartcase
 set splitbelow
 set splitright
 set t_Co=256
-set ttimeoutlen=50
 set title
 set titlestring=%t%(\ %M%)%(\ (%{expand(\"%:~:.:h\")})%)%(\ %a%)
+set ttimeoutlen=50
 set undodir=~/.local/share/nvim/undo
 set undofile
 set updatetime=300
@@ -80,6 +78,7 @@ set wildmode=full
 set wildoptions=pum
 set winblend=10
 set wrap
+set writebackup
 
 " augroup numbertoggle
 "   autocmd!
@@ -107,8 +106,8 @@ let g:python3_host_prog       = '/usr/bin/python3'
 call plug#begin('~/.local/share/nvim/plugged')
 
 "" UI plugin
-" Plug 'mhinz/vim-startify'
-Plug 'itchyny/lightline.vim'
+" Plug 'mhinz/vim-startify' 
+Plug 'itchyny/lightline.vim' 
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'majutsushi/tagbar'
 Plug 'mengelbrecht/lightline-bufferline'
@@ -118,34 +117,26 @@ Plug 'scrooloose/nerdtree'
 " Plug 'vim-airline/vim-airline-themes'
 
 "" Utility
-" Plug 'editorconfig/editorconfig-vim'
-" Plug 'vim-pandoc/vim-pandoc'
 Plug 'Chiel92/vim-autoformat'
-Plug 'KabbAmine/vCoolor.vim'
 Plug 'echuraev/translate-shell.vim'
 Plug 'godlygeek/tabular'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }}
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-easy-align'
-Plug 'junegunn/vim-peekaboo'
+" Plug 'junegunn/vim-peekaboo'
 Plug 'mnabila/vim-header'
 Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
-" Plug 'rhysd/vim-grammarous'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 
 "" Language pack
-" Plug 'groenewege/vim-less'
-" Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'Glench/Vim-Jinja2-Syntax'
 Plug 'cakebaker/scss-syntax.vim'
 Plug 'honza/vim-snippets'
-Plug 'iamcco/mathjax-support-for-mkdp'
 Plug 'plasticboy/vim-markdown'
 Plug 'sheerun/vim-polyglot'
-Plug 'tbastos/vim-lua'
 
 "" Git Support
 Plug 'tpope/vim-fugitive'

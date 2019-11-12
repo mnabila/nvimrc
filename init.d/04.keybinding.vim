@@ -5,33 +5,29 @@ let mapleader=','
 " }}}
 
 "" Disable arrow {{{
-no   <left> <Nop>
-no   <right> <Nop>
-no   <up> <Nop>
-no   <down> <Nop>
+nnoremap   <left> <Nop>
+nnoremap   <right> <Nop>
+nnoremap   <up> <Nop>
+nnoremap   <down> <Nop>
 no   <C-left> <Nop>
 no   <C-right> <Nop>
 no   <C-up> <Nop>
 no   <C-down> <Nop>
 no   <C-z> <Nop>
-imap <up> <nop>
-imap <down> <nop>
-imap <left> <nop>
-imap <right> <nop>
 " }}}
 
 "" For move to each window {{{
-noremap <C-h> <C-w><C-h>
-noremap <C-j> <C-w><C-j>
-noremap <C-k> <C-w><C-k>
-noremap <C-l> <C-w><C-l>
+" nnoremap <C-h> <C-w><C-h>
+" nnoremap <C-j> <C-w><C-j>
+" nnoremap <C-k> <C-w><C-k>
+" nnoremap <C-l> <C-w><C-l>
 " }}}
 
 "" Arrow keys resize windows {{{
 noremap <Left> :vertical resize +5<CR>
-noremap <Up> :resize +5<CR>
+noremap <Up> :resize -5<CR>
 noremap <Right> :vertical resize -5<CR>
-noremap <Down> :resize -5<CR>
+noremap <Down> :resize +5<CR>
 " }}}
 
 "" Buffers {{{
@@ -51,13 +47,13 @@ noremap <leader>qa :bufdo bd!<cr>
 " nmap <A-Q> :tabclose<cr>
 
 "" Line bubbling {{{
-nmap <A-j> ]e
-nmap <A-k> [e
+" nmap <A-j> ]e
+" nmap <A-k> [e
 " }}}
 
 "" Split {{{
-nmap <C-A-k> <C-w>t<C-w>K
-nmap <C-A-h> <C-w>t<C-w>H
+" nmap <C-A-k> <C-w>t<C-w>K
+" nmap <C-A-h> <C-w>t<C-w>H
 " }}}
 
 "" Terminal-mode {{{
@@ -142,11 +138,11 @@ noremap <leader>h :AddHeader<cr>
 " }}}
 
 "" FZF {{{
-nmap <leader><space> :History<cr>
-nmap <leader>b :Buffers<cr>
-nmap <leader>o :Files<cr>
-nmap <leader>g :BTags<cr>
-nmap <leader><leader> :Commands<cr>
+nnoremap <leader><space> :History<cr>
+nnoremap <leader>b :Buffers<cr>
+nnoremap <leader>o :Files<cr>
+nnoremap <leader>g :BTags<cr>
+nnoremap <leader><leader> :Commands<cr>
 
 " Mapping selecting mappings
 nmap <leader><tab> <plug>(fzf-maps-n)
