@@ -111,14 +111,15 @@ Plug 'itchyny/lightline.vim'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'majutsushi/tagbar'
 Plug 'mengelbrecht/lightline-bufferline'
-Plug 'nathanaelkane/vim-indent-guides'
+" Plug 'nathanaelkane/vim-indent-guides'
 Plug 'scrooloose/nerdtree'
+Plug 'Yggdroot/indentLine'
 " Plug 'vim-airline/vim-airline'
 " Plug 'vim-airline/vim-airline-themes'
 
 "" Utility
 Plug 'Chiel92/vim-autoformat'
-Plug 'echuraev/translate-shell.vim'
+" Plug 'echuraev/translate-shell.vim'
 Plug 'godlygeek/tabular'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }}
 Plug 'jiangmiao/auto-pairs'
@@ -133,7 +134,7 @@ Plug 'tpope/vim-unimpaired'
 
 "" Language pack
 Plug 'Glench/Vim-Jinja2-Syntax'
-Plug 'cakebaker/scss-syntax.vim'
+" Plug 'cakebaker/scss-syntax.vim'
 Plug 'honza/vim-snippets'
 Plug 'plasticboy/vim-markdown'
 Plug 'sheerun/vim-polyglot'

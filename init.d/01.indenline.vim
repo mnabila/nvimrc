@@ -1,15 +1,23 @@
 "" Indent Line {{{
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:indent_guides_enable_on_vim_startup = 1
-let g:indent_guides_start_level           = 1
-let g:indent_guides_auto_colors           = 1
-let g:indent_guides_color_change_percent  = 15
-let g:indent_guides_space_guides          = 1
-let g:indent_guides_tab_guides            = 1
-let g:indent_guides_guide_size            = 1
-let g:indent_guides_exclude_filetypes     = [
-    \ 'help', 'nerdtree', 'startify', 'Preview','__doc__',
-    \ 'peekaboo', 'man', 'trans', 'fzf',
-    \ ]
+" nathanaelkane/vim-indent-guides
+if exists('g:plugs["vim-indent-guides"]')
+  let g:indent_guides_enable_on_vim_startup = 1
+  let g:indent_guides_start_level           = 1
+  let g:indent_guides_auto_colors           = 1
+  let g:indent_guides_color_change_percent  = 15
+  let g:indent_guides_space_guides          = 1
+  let g:indent_guides_tab_guides            = 1
+  let g:indent_guides_guide_size            = 1
+  let g:indent_guides_exclude_filetypes     = [
+        \ 'help', 'nerdtree', 'startify', 'Preview','__doc__',
+        \ 'peekaboo', 'man', 'trans', 'fzf',
+        \ ]
+  
+" Yggdroot/indentLine
+elseif exists('g:plugs["indentLine"]')
+  let g:indentLine_setColors = 0
+  let g:indentLine_char = '╏'
+endif
 " }}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
