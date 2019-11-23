@@ -16,7 +16,7 @@ if exists('g:plugs["vim-indent-guides"]')
   
 " Yggdroot/indentLine
 elseif exists('g:plugs["indentLine"]')
-  let g:indentLine_setColors = 0
+  let g:indentLine_setColors = 1
   let g:indentLine_char = '╏'
 endif
 " }}}

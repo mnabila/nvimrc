@@ -35,9 +35,13 @@ noremap <A-l> :bn<cr>
 noremap <A-h> :bp<cr>
 noremap <A-L> :bl<cr>
 noremap <A-H> :bf<cr>
+" close buffer
 noremap <leader>q :bp<cr>:bd #<cr>
+" cleanup all vim buffers
 noremap <leader>qq :bufdo bd<cr>
 noremap <leader>qa :bufdo bd!<cr>
+" cleanup all vim buffers, except the active one.
+noremap <leader>qo :Bdeleteonly<cr>
 " }}}
 
 "" Tab management
@@ -52,8 +56,8 @@ noremap <leader>qa :bufdo bd!<cr>
 " }}}
 
 "" Split {{{
-" nmap <C-A-k> <C-w>t<C-w>K
-" nmap <C-A-h> <C-w>t<C-w>H
+nmap <C-A-k> <C-w>t<C-w>K
+nmap <C-A-h> <C-w>t<C-w>H
 " }}}
 
 "" Terminal-mode {{{

@@ -6,7 +6,6 @@ autocmd FileType scss,sass,css setlocal expandtab shiftwidth=2 softtabstop=2 tex
 
 "" HTML5 {{{
 autocmd FileType html,jinja2.html setlocal expandtab shiftwidth=2 softtabstop=2 textwidth=0
-autocmd BufRead,BufNewFile *.html set filetype=jinja2.html
 " }}}
 
 "" Javascript {{{
