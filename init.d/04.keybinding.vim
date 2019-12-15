@@ -176,6 +176,10 @@ vnoremap <silent> <leader>t :Trans<CR>
 nnoremap <silent> <leader>td :TransSelectDirection<CR>
 vnoremap <silent> <leader>td :TransSelectDirection<CR>
 " }}}
+
+" base64 decode {{{
+vnoremap <leader>64 y:let @"=system('base64 --decode', @")<cr>gvP
+" }}}
 " }}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 

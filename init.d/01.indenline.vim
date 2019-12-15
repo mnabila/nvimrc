@@ -13,11 +13,11 @@ if exists('g:plugs["vim-indent-guides"]')
         \ 'help', 'nerdtree', 'startify', 'Preview','__doc__',
         \ 'peekaboo', 'man', 'trans', 'fzf',
         \ ]
-  
+
 " Yggdroot/indentLine
 elseif exists('g:plugs["indentLine"]')
-  let g:indentLine_setColors = 1
-  let g:indentLine_char = '╏'
+  let g:indentLine_setColors    = 1
+  let g:indentLine_char         = '╏'
 endif
 " }}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
