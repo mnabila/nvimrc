@@ -133,6 +133,9 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'mattn/webapi-vim'
 Plug 'mattn/gist-vim'
+Plug 'vim-pandoc/vim-pandoc'
+Plug 'vim-pandoc/vim-pandoc-syntax'
+" Plug 'liuchengxu/vim-clap', { 'do': function('clap#helper#build_all') }
 
 "" Language pack
 " Plug 'Glench/Vim-Jinja2-Syntax'

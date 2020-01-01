@@ -15,7 +15,11 @@ autocmd FileType javascript.jsx set syntax=javascript
 
 "" Markdown {{{
 " autocmd FileType markdown setlocal expandtab shiftwidth=2 softtabstop=2 colorcolumn=90 textwidth=90 fo+=t fo-=l
-autocmd FileType markdown setlocal expandtab shiftwidth=2 softtabstop=2 colorcolumn=90 conceallevel=0
+" autocmd FileType markdown setlocal expandtab shiftwidth=2 softtabstop=2 colorcolumn=90 conceallevel=0
+augroup pandoc_syntax
+  au! BufNewFile,BufFilePre,BufRead *.md set filetype=markdown.pandoc
+augroup END
+autocmd FileType markdown.pandoc setlocal expandtab shiftwidth=2 softtabstop=2 colorcolumn=90 conceallevel=0
 let g:mkdp_auto_close                  = 0
 let g:vim_markdown_auto_insert_bullets = 0
 let g:vim_markdown_conceal             = 0
