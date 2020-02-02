@@ -63,13 +63,13 @@ if exists('g:plugs["lightline.vim"]')
     return &readonly ? '' : ''
   endfunction
 
-  " function! LightlineFugitive()
-  "   if exists('*fugitive#head')
-  "     let branch = fugitive#head()
-  "     return branch !=# '' ? ' '.branch : ''
-  "   endif
-  "   return ''
-  " endfunction
+  function! LightlineFugitive()
+    if exists('*fugitive#head')
+      let branch = fugitive#head()
+      return branch !=# '' ? ' '.branch : ''
+    endif
+    return fugitive#head()
+  endfunction
 
   function! CocCurrentFunction()
     return get(b:, 'coc_current_function', '')

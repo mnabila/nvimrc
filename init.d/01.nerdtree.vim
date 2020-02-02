@@ -11,21 +11,6 @@ if exists('g:plugs["nerdtree"]')
 
   " autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
   autocmd FileType nerdtree setlocal signcolumn=no nocursorcolumn
-
-  " nerdtree github configuration
-  """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-  " let g:NERDTreeIndicatorMapCustom = {
-  "             \ "Modified"  : "✹",
-  "             \ "Staged"    : "✚",
-  "             \ "Untracked" : "✭",
-  "             \ "Renamed"   : "➜",
-  "             \ "Unmerged"  : "═",
-  "             \ "Deleted"   : "✖",
-  "             \ "Dirty"     : "✗",
-  "             \ "Clean"     : "✔︎",
-  "             \ 'Ignored'   : '☒',
-  "             \ "Unknown"   : "?"
-  "             \ }
 endif
 " }}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

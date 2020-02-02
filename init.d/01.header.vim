@@ -7,7 +7,7 @@ if exists('g:plugs["vim-header"]')
   let g:header_field_filename           = 1
   let g:header_field_filename_path      = 0
   let g:header_field_author             = 'M. Nabil Adani'
-  let g:header_field_author_email       = 'macroid48@gmail.com'
+  let g:header_field_author_email       = 'nblid48@gmail.com'
   let g:header_field_copyright          = ''
   let g:header_field_timestamp          = 1
   let g:header_field_modified_timestamp = 1
