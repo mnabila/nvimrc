@@ -1,4 +1,4 @@
-"" Nerdtree {{{
+"" nerdtree {{{
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 if exists('g:plugs["nerdtree"]')
   autocmd StdinReadPre * let s:std_in = 1

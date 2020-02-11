@@ -1,4 +1,4 @@
-"" lightline {{{
+"" lightline.vim {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 if exists('g:plugs["lightline.vim"]')
   let g:lightline = {

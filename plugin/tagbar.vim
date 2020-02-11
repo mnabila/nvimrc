@@ -1,4 +1,4 @@
-"" Tagbar {{{
+"" tagbar {{{
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 if exists('g:plugs["tagbar"]')
   let g:tagbar_autopreview      = 0

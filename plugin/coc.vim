@@ -1,4 +1,4 @@
-"" Coc {{{
+"" coc.nvim {{{
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 if exists('g:plugs["coc.nvim"]')
   let g:coc_node_path = "/usr/bin/node"

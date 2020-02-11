@@ -1,4 +1,4 @@
-"" Airline {{{
+"" vim-airline {{{
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 if exists('g:plugs["vim-airline"]')
   let airline#extensions#coc#error_symbol       = 'E:'

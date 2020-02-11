@@ -1,6 +1,5 @@
-"" Indent Line {{{
+"" vim-indent-guides {{{
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" nathanaelkane/vim-indent-guides
 if exists('g:plugs["vim-indent-guides"]')
   let g:indent_guides_enable_on_vim_startup = 1
   let g:indent_guides_start_level           = 1
@@ -13,11 +12,6 @@ if exists('g:plugs["vim-indent-guides"]')
         \ 'help', 'nerdtree', 'startify', 'Preview','__doc__',
         \ 'peekaboo', 'man', 'trans', 'fzf',
         \ ]
-
-" Yggdroot/indentLine
-elseif exists('g:plugs["indentLine"]')
-  let g:indentLine_setColors    = 1
-  let g:indentLine_char         = '╏'
 endif
 " }}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

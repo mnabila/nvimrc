@@ -1,4 +1,4 @@
-"" Header {{{
+"" vim-header {{{
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 if exists('g:plugs["vim-header"]')
   let g:header_auto_add_header          = 0

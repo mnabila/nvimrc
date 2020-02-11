@@ -1,8 +1,8 @@
-"" Peekaboo {{{
+"" indentLine {{{
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-if exists('g:plugs["vim-peekaboo"]')
-  let g:peekaboo_window  = 'vert bo 50 new'
-  let g:peekaboo_compact = 0
+if exists('g:plugs["indentLine"]')
+  let g:indentLine_setColors    = 1
+  let g:indentLine_char         = '╏'
 endif
 " }}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

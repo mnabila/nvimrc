@@ -1,4 +1,4 @@
-" Buffer {{{
+" buffer {{{
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " buffer cleanup - delete every buffer except the one open {{{
 function! Buflist()

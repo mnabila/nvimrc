@@ -1,4 +1,4 @@
-"" Vim Keybindings {{{
+"" Keybindings {{{
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" Leader {{{
 let mapleader=','
@@ -169,12 +169,10 @@ vmap <leader>a :EasyAlign<cr>
 nmap <leader>a :EasyAlign<cr>
 " }}}
 
-"" Translate-shell {{{
-inoremap <silent> <leader>t <ESC>:Trans<CR>
-nnoremap <silent> <leader>t :Trans<CR>
-vnoremap <silent> <leader>t :Trans<CR>
-nnoremap <silent> <leader>td :TransSelectDirection<CR>
-vnoremap <silent> <leader>td :TransSelectDirection<CR>
+"" vim-translate {{{
+nnoremap <silent> <leader>tt :Translate<CR>
+vnoremap <silent> <leader>tt :TranslateVisual<CR>
+vnoremap <silent> <leader>tr :TranslateReplace<CR>
 " }}}
 
 " base64 decode {{{

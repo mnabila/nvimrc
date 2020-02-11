@@ -1,4 +1,4 @@
-"" Markdown Preview {{{
+"" vim-markdown {{{
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 if exists('g:plugs["vim-markdown"]')
   let g:mkdp_auto_start              = 0
