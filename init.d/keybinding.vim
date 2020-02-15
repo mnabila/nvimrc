@@ -41,7 +41,7 @@ noremap <leader>q :bp<cr>:bd #<cr>
 noremap <leader>qq :bufdo bd<cr>
 noremap <leader>qa :bufdo bd!<cr>
 " cleanup all vim buffers, except the active one.
-noremap <leader>qo :Bdeleteonly<cr>
+noremap <leader>qo :call buffer#DeleteOnly()<cr>
 " }}}
 
 "" Tab management
