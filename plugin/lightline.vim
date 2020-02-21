@@ -5,7 +5,7 @@ if exists('g:plugs["lightline.vim"]')
         \   'colorscheme': 'gruvbox',
         \   'active': {
         \     'left':[ [ 'mode', 'paste' ],
-        \              [ 'gitbranch' ],
+        \              [ 'gitstatus' ],
         \              [ 'readonly', 'fname', 'modified' ], ],
         \     'right': [ [ 'lineinfo' ],
         \              [ 'filetype' ],
@@ -34,7 +34,7 @@ if exists('g:plugs["lightline.vim"]')
         \     'bufferinfo': 'lightline#buffer#bufferinfo',
         \     'cocstatus': 'coc#status',
         \     'currentfunction': 'CocCurrentFunction',
-        \     'gitbranch': 'LightlineFugitive',
+        \     'gitstatus': 'GitStatus',
         \     'modified': 'LightlineModified',
         \     'readonly': 'LightlineReadonly',
         \     'filetype': 'MyFiletype',
@@ -63,14 +63,6 @@ if exists('g:plugs["lightline.vim"]')
     return &readonly ? '' : ''
   endfunction
 
-  function! LightlineFugitive()
-    if exists('*fugitive#head')
-      let branch = fugitive#head()
-      return branch !=# '' ? ' '.branch : ''
-    endif
-    return fugitive#head()
-  endfunction
-
   function! CocCurrentFunction()
     return get(b:, 'coc_current_function', '')
   endfunction
@@ -81,6 +73,16 @@ if exists('g:plugs["lightline.vim"]')
 
   function! MyFileformat()
     return winwidth(0) > 70 ? (&fileformat . ' ' . WebDevIconsGetFileFormatSymbol()) : ''
+  endfunction
+
+  function! GitStatus()
+    let [a,m,r] = GitGutterGetHunkSummary()
+    let l:branch = fugitive#head()
+    if l:branch == ""
+      return ''
+    else
+      return printf('+%d ~%d -%d |  %s', a, m, r, l:branch)
+    endif
   endfunction
 endif
 " }}}

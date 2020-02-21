@@ -15,7 +15,7 @@ autocmd FileType javascript.jsx set syntax=javascript
 " }}}
 
 "" markdown {{{
-autocmd FileType markdown setlocal expandtab shiftwidth=2 softtabstop=2 colorcolumn=90 textwidth=90 fo+=t fo-=l conceallevel=0
+autocmd FileType markdown setlocal expandtab shiftwidth=2 softtabstop=2 colorcolumn=90  conceallevel=0
 " }}}
 
 "" php {{{
