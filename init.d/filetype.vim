@@ -2,11 +2,11 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 "" css {{{
-autocmd filetype scss,sass,css setlocal expandtab shiftwidth=2 softtabstop=2 textwidth=0
+autocmd filetype scss,sass,css setlocal expandtab shiftwidth=2 softtabstop=2
 " }}}
 
 "" html5 {{{
-autocmd FileType html,jinja2.html setlocal expandtab shiftwidth=2 softtabstop=2 textwidth=0
+autocmd FileType html,jinja2.html setlocal expandtab shiftwidth=2 softtabstop=2
 " }}}
 
 "" javascript {{{
@@ -19,7 +19,7 @@ autocmd FileType markdown setlocal expandtab shiftwidth=2 softtabstop=2 colorcol
 " }}}
 
 "" php {{{
-autocmd FileType php setlocal expandtab shiftwidth=4 softtabstop=4
+autocmd FileType php setlocal expandtab shiftwidth=2 softtabstop=2
 " }}}
 
 "" python {{{
