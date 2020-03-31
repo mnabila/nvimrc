@@ -39,5 +39,9 @@ autocmd FileType gitcommit setlocal colorcolumn=80 textwidth=80 fo+=t fo-=l
 autocmd FileType lua setlocal expandtab shiftwidth=2 softtabstop=2
 " }}}
 
+"" go {{{
+autocmd BufWritePre *.go :call CocAction('runCommand', 'editor.action.organizeImport')
+" }}}
+
 " }}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

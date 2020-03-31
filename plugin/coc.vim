@@ -26,6 +26,7 @@ if exists('g:plugs["coc.nvim"]')
         \ 'coc-vimlsp',
         \ 'coc-word',
         \ 'coc-xml',
+        \ 'coc-texlab',
         \ 'coc-yaml'
         \ ]
   autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif

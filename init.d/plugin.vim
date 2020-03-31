@@ -18,6 +18,7 @@ Plug 'Yggdroot/indentLine'
 " Plug 'vim-airline/vim-airline-themes'
 
 "" Utility
+Plug 'editorconfig/editorconfig-vim'
 Plug 'Chiel92/vim-autoformat'
 Plug 'VincentCordobes/vim-translate'
 Plug 'godlygeek/tabular'
@@ -36,8 +37,6 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 
 "" Language pack
-" Plug 'Glench/Vim-Jinja2-Syntax'
-" Plug 'cakebaker/scss-syntax.vim'
 Plug 'honza/vim-snippets'
 Plug 'plasticboy/vim-markdown'
 Plug 'sheerun/vim-polyglot'

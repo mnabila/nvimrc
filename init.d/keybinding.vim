@@ -87,6 +87,7 @@ noremap <Leader>/ :Commentary<CR>
 
 "" Autoformat {{{
 nmap <Leader>f :Autoformat<CR>
+vmap <Leader>f :Autoformat<CR>
 nmap <Leader>F <Plug>(coc-format)
 vmap <Leader>F <Plug>(coc-format-selected)
 " }}}
@@ -122,7 +123,7 @@ nmap <silent> ]c <Plug>(coc-diagnostic-next)
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
-nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gt <Plug>(coc-type-definition)
 nmap <leader>ac  <Plug>(coc-codeaction)
 " }}}
 
@@ -178,6 +179,11 @@ vnoremap <silent> <leader>tr :TranslateReplace<CR>
 " base64 decode {{{
 vnoremap <leader>64 y:let @"=system('base64 --decode', @")<cr>gvP
 " }}}
+
+" Edit init.vim {{{
+nmap <leader>ev :NERDTree ~/.config/nvim<CR>
+" }}}
+
 " }}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
