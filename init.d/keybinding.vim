@@ -24,10 +24,10 @@ no   <C-z> <Nop>
 " }}}
 
 "" Arrow keys resize windows {{{
-noremap <Left> :vertical resize +5<CR>
-noremap <Up> :resize -5<CR>
-noremap <Right> :vertical resize -5<CR>
-noremap <Down> :resize +5<CR>
+noremap <silent> <C-Left> :vertical resize +5<CR>
+noremap <silent> <C-Up> :resize -5<CR>
+noremap <silent> <C-Right> :vertical resize -5<CR>
+noremap <silent> <C-Down> :resize +5<CR>
 " }}}
 
 "" Buffers {{{
@@ -71,18 +71,18 @@ noremap <F3> :lcd %:p:h<CR>:NERDTreeCWD<CR>
 " }}}
 
 "" Git fugitif {{{
-noremap <Leader>ga :Gwrite<CR>
-noremap <Leader>gc :Gcommit<CR>
+noremap <Leader>ga  :Gwrite<CR>
+noremap <Leader>gc  :Gcommit<CR>
 noremap <Leader>gsh :Gpush<CR>
 noremap <Leader>gll :Gpull<CR>
-noremap <Leader>gs :Gstatus<CR>
-noremap <Leader>gb :Gblame<CR>
-noremap <Leader>gd :Gvdiff<CR>
-noremap <Leader>gr :Gremove<CR>
+noremap <Leader>gs  :Gstatus<CR>
+noremap <Leader>gb  :Gblame<CR>
+noremap <Leader>gd  :Gvdiff<CR>
+noremap <Leader>gr  :Gremove<CR>
 " }}}
 
 "" Commentary {{{
-noremap <Leader>/ :Commentary<CR>
+" noremap <Leader>/ :Commentary<CR>
 " }}}
 
 "" Autoformat {{{
@@ -139,7 +139,7 @@ let g:vcool_ins_rgba_map = '<Leader>cR'
 " }}}
 
 "" File header {{{
-noremap <leader>h :AddHeader<cr>
+noremap <leader>h :AddHeader<cr> :AddMITLicense<cr>
 " }}}
 
 "" FZF {{{
@@ -182,6 +182,10 @@ vnoremap <leader>64 y:let @"=system('base64 --decode', @")<cr>gvP
 
 " Edit init.vim {{{
 nmap <leader>ev :NERDTree ~/.config/nvim<CR>
+" }}}
+
+" Edit init.vim {{{
+nmap <leader>ed :NERDTree ~/Dotfiles<CR>
 " }}}
 
 " }}}

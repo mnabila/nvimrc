@@ -32,6 +32,7 @@
   "latex.build.executable": "latexmk",
   "prettier.htmlWhitespaceSensitivity": "css",
   "prettier.printWidth": 500,
+  "prettier.semi": true,
   "python.analysis.diagnosticEnabled": false,
   "python.autoComplete.addBrackets": false,
   "python.autoUpdateLanguageServer": false,

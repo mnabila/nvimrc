@@ -9,7 +9,7 @@ if exists('g:plugs["indentLine"]')
         \ 'man', 'trans', 'fzf', 'markdown'
         \ ]
   let g:indentLine_bufTypeExclude = [
-        \ 'help', 'terminal' 
+        \ 'help', 'terminal'
         \ ]
 endif
 " }}}
