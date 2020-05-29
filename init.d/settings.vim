@@ -52,6 +52,7 @@ set nostartofline
 set novisualbell
 set number
 set pumblend=10
+set pyxversion=3
 set regexpengine=1
 set relativenumber
 set report=0
@@ -90,11 +91,11 @@ set writebackup
 set autoindent
 set expandtab
 set fileformat=unix
-set pyxversion=3
 set shiftwidth=4
 set softtabstop=4
 set tabstop=4
 
-let g:python3_host_prog       = '/usr/bin/python3'
+let g:python3_host_prog        = '/usr/bin/python3'
+let g:vimtex_compiler_progname = 'nvr'
 " }}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

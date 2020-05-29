@@ -2,11 +2,12 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 "" css {{{
-autocmd filetype scss,sass,css setlocal expandtab shiftwidth=2 softtabstop=2
+autocmd FileType scss,sass,css setlocal expandtab shiftwidth=2 softtabstop=2
 " }}}
 
 "" html5 {{{
-autocmd FileType html,jinja2.html setlocal expandtab shiftwidth=2 softtabstop=2
+autocmd FileType html set filetype=jinja.html
+autocmd FileType html,jinja.html setlocal expandtab shiftwidth=2 softtabstop=2
 " }}}
 
 "" javascript {{{
@@ -41,6 +42,10 @@ autocmd FileType lua setlocal expandtab shiftwidth=2 softtabstop=2
 
 "" go {{{
 autocmd BufWritePre *.go :call CocAction('runCommand', 'editor.action.organizeImport')
+" }}}
+
+"" vim {{{
+autocmd FileType vim setlocal expandtab shiftwidth=2 softtabstop=2
 " }}}
 
 " }}}

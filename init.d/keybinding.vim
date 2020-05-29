@@ -1,26 +1,15 @@
 "" Keybindings {{{
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"" Leader {{{
+"" leader {{{
 let mapleader=','
 " }}}
 
 "" Disable arrow {{{
-nnoremap   <left> <Nop>
-nnoremap   <right> <Nop>
-nnoremap   <up> <Nop>
-nnoremap   <down> <Nop>
-no   <C-left> <Nop>
-no   <C-right> <Nop>
-no   <C-up> <Nop>
-no   <C-down> <Nop>
-no   <C-z> <Nop>
-" }}}
-
-"" For move to each window {{{
-" nnoremap <C-h> <C-w><C-h>
-" nnoremap <C-j> <C-w><C-j>
-" nnoremap <C-k> <C-w><C-k>
-" nnoremap <C-l> <C-w><C-l>
+nnoremap  <left> <Nop>
+nnoremap <right> <Nop>
+nnoremap    <up> <Nop>
+nnoremap  <down> <Nop>
+no         <C-z> <Nop>
 " }}}
 
 "" Arrow keys resize windows {{{
@@ -35,13 +24,11 @@ noremap <A-l> :bn<cr>
 noremap <A-h> :bp<cr>
 noremap <A-L> :bl<cr>
 noremap <A-H> :bf<cr>
-" close buffer
 noremap <leader>q :bp<cr>:bd #<cr>
-" cleanup all vim buffers
 noremap <leader>qq :bufdo bd<cr>
 noremap <leader>qa :bufdo bd!<cr>
-" cleanup all vim buffers, except the active one.
 noremap <leader>qo :call buffer#DeleteOnly()<cr>
+noremap <leader>qi :bp<cr>:bd! #<cr>
 " }}}
 
 "" Tab management
@@ -71,25 +58,21 @@ noremap <F3> :lcd %:p:h<CR>:NERDTreeCWD<CR>
 " }}}
 
 "" Git fugitif {{{
-noremap <Leader>ga  :Gwrite<CR>
-noremap <Leader>gc  :Gcommit<CR>
-noremap <Leader>gsh :Gpush<CR>
-noremap <Leader>gll :Gpull<CR>
-noremap <Leader>gs  :Gstatus<CR>
-noremap <Leader>gb  :Gblame<CR>
-noremap <Leader>gd  :Gvdiff<CR>
-noremap <Leader>gr  :Gremove<CR>
-" }}}
-
-"" Commentary {{{
-" noremap <Leader>/ :Commentary<CR>
+noremap <leader>ga  :Gwrite<CR>
+noremap <leader>gc  :Gcommit<CR>
+noremap <leader>gsh :Gpush<CR>
+noremap <leader>gll :Gpull<CR>
+noremap <leader>gs  :Gstatus<CR>
+noremap <leader>gb  :Gblame<CR>
+noremap <leader>gd  :Gvdiff<CR>
+noremap <leader>gr  :Gremove<CR>
 " }}}
 
 "" Autoformat {{{
-nmap <Leader>f :Autoformat<CR>
-vmap <Leader>f :Autoformat<CR>
-nmap <Leader>F <Plug>(coc-format)
-vmap <Leader>F <Plug>(coc-format-selected)
+nmap <leader>f :Autoformat<CR>
+vmap <leader>f :Autoformat<CR>
+nmap <leader>F <Plug>(coc-format)
+vmap <leader>F <Plug>(coc-format-selected)
 " }}}
 
 "" Coc {{{
@@ -128,18 +111,14 @@ nmap <leader>ac  <Plug>(coc-codeaction)
 " }}}
 
 "" Indent guides {{{
-nmap <silent> <Leader>ig :IndentGuidesToggle<CR>
+nmap <silent> <leader>ig :IndentGuidesToggle<CR>
 " }}}
 
 "" color picker {{{
-let g:vcoolor_map        = '<Leader>c'
-let g:vcool_ins_rgb_map  = '<Leader>cr'
-let g:vcool_ins_hsl_map  = '<Leader>ch'
-let g:vcool_ins_rgba_map = '<Leader>cR'
-" }}}
-
-"" File header {{{
-noremap <leader>h :AddHeader<cr> :AddMITLicense<cr>
+let g:vcoolor_map        = '<leader>c'
+let g:vcool_ins_rgb_map  = '<leader>cr'
+let g:vcool_ins_hsl_map  = '<leader>ch'
+let g:vcool_ins_rgba_map = '<leader>cR'
 " }}}
 
 "" FZF {{{
@@ -170,14 +149,19 @@ vmap <leader>a :EasyAlign<cr>
 nmap <leader>a :EasyAlign<cr>
 " }}}
 
-"" vim-translate {{{
-nnoremap <silent> <leader>tt :Translate<CR>
-vnoremap <silent> <leader>tt :TranslateVisual<CR>
-vnoremap <silent> <leader>tr :TranslateReplace<CR>
+"" vim-translator {{{
+" Display translation in a window
+nmap <silent> <leader>t <Plug>TranslateW
+vmap <silent> <leader>t <Plug>TranslateWV
+" Replace the text with translation
+nmap <silent> <leader>tr <Plug>TranslateR
+vmap <silent> <leader>tr <Plug>TranslateRV
+" Translate the text in clipboard
+nmap <silent> <leader>tx <Plug>TranslateX
 " }}}
 
 " base64 decode {{{
-vnoremap <leader>64 y:let @"=system('base64 --decode', @")<cr>gvP
+vnoremap <leader>64 c<c-r>=system('base64 --decode', @")<cr><esc>
 " }}}
 
 " Edit init.vim {{{

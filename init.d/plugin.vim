@@ -20,18 +20,19 @@ Plug 'scrooloose/nerdtree'
 "" Utility
 " Plug 'editorconfig/editorconfig-vim'
 " Plug 'godlygeek/tabular'
+" Plug 'junegunn/vim-peekaboo'
+" Plug 'VincentCordobes/vim-translate'
 Plug 'Chiel92/vim-autoformat'
-Plug 'VincentCordobes/vim-translate'
+Plug 'voldikss/vim-translator'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }}
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-easy-align'
-Plug 'junegunn/vim-peekaboo'
 Plug 'mattn/gist-vim'
 Plug 'mattn/webapi-vim'
 Plug 'mnabila/vim-header'
-Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
