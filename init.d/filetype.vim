@@ -1,52 +1,15 @@
-"" filetype {{{
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-"" css {{{
-autocmd FileType scss,sass,css setlocal expandtab shiftwidth=2 softtabstop=2
-" }}}
-
-"" html5 {{{
+"" FileType
+autocmd FileType gitcommit setlocal colorcolumn=80 textwidth=80 fo+=t fo-=l
+autocmd FileType go :call CocAction('runCommand', 'editor.action.organizeImport')
 autocmd FileType html set filetype=jinja.html
 autocmd FileType html,jinja.html setlocal expandtab shiftwidth=2 softtabstop=2
-" }}}
-
-"" javascript {{{
 autocmd FileType javascript,jst,ezt setlocal expandtab shiftwidth=2 softtabstop=2
 autocmd FileType javascript.jsx set syntax=javascript
-" }}}
-
-"" markdown {{{
-autocmd FileType markdown setlocal expandtab shiftwidth=2 softtabstop=2 colorcolumn=90  conceallevel=0
-" }}}
-
-"" php {{{
-autocmd FileType php setlocal expandtab shiftwidth=2 softtabstop=2
-" }}}
-
-"" python {{{
-autocmd FileType python setlocal expandtab shiftwidth=4 softtabstop=4 colorcolumn=80
-" }}}
-
-"" json {{{
 autocmd FileType json setlocal expandtab shiftwidth=2 softtabstop=2
 autocmd FileType json syntax match Comment +\/\/.\+$+
-" }}}
-
-"" gitcommit {{{
-autocmd FileType gitcommit setlocal colorcolumn=80 textwidth=80 fo+=t fo-=l
-" }}}
-
-"" lua {{{
 autocmd FileType lua setlocal expandtab shiftwidth=2 softtabstop=2
-" }}}
-
-"" go {{{
-autocmd BufWritePre *.go :call CocAction('runCommand', 'editor.action.organizeImport')
-" }}}
-
-"" vim {{{
+autocmd FileType markdown setlocal expandtab shiftwidth=2 softtabstop=2 colorcolumn=90  conceallevel=0
+autocmd FileType php setlocal expandtab shiftwidth=2 softtabstop=2
+autocmd FileType python setlocal expandtab shiftwidth=4 softtabstop=4 colorcolumn=80
+autocmd FileType scss,sass,css setlocal expandtab shiftwidth=2 softtabstop=2
 autocmd FileType vim setlocal expandtab shiftwidth=2 softtabstop=2
-" }}}
-
-" }}}
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

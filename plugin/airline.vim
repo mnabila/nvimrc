@@ -1,5 +1,3 @@
-"" vim-airline {{{
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 if exists('g:plugs["vim-airline"]')
   let airline#extensions#coc#error_symbol       = 'E:'
   let airline#extensions#coc#stl_format_err     = '%E{[%e(#%fe)]}'
@@ -31,5 +29,3 @@ if exists('g:plugs["vim-airline"]')
   " endfunction
   " autocmd User AirlineAfterInit call AirlineInit()
 endif
-"}}}
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

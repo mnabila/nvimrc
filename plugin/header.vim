@@ -1,5 +1,3 @@
-"" vim-header {{{
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 if exists('g:plugs["vim-header"]')
   let g:header_auto_add_header          = 0
   let g:header_alignment                = 1
@@ -16,5 +14,3 @@ if exists('g:plugs["vim-header"]')
   let g:header_field_license_id         = 'MIT License'
   let g:header_cfg_comment_char         = ';'
 endif
-" }}}
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

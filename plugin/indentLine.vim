@@ -1,5 +1,3 @@
-"" indentLine {{{
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 if exists('g:plugs["indentLine"]')
   let g:indentLine_char            = '╏'
   let g:indentLine_faster          = 1
@@ -12,5 +10,3 @@ if exists('g:plugs["indentLine"]')
         \ 'help', 'terminal'
         \ ]
 endif
-" }}}
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

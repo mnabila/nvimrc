@@ -1,5 +1,3 @@
-"" vim-markdown {{{
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 if exists('g:plugs["vim-markdown"]')
   let g:mkdp_auto_start              = 0
   let g:mkdp_auto_close              = 0
@@ -22,5 +20,3 @@ if exists('g:plugs["vim-markdown"]')
   let g:mkdp_highlight_css           = ''
   let g:mkdp_port                    = ''
 endif
-" }}}
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

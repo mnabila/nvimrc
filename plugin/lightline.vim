@@ -1,5 +1,3 @@
-"" lightline.vim {{{
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 if exists('g:plugs["lightline.vim"]')
   let g:lightline = {
         \   'colorscheme': 'gruvbox',
@@ -85,6 +83,3 @@ if exists('g:plugs["lightline.vim"]')
     endif
   endfunction
 endif
-" }}}
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-

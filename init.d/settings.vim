@@ -1,5 +1,4 @@
-" settings {{{
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"" Settings
 filetype on                           " required
 filetype plugin indent on
 
@@ -97,5 +96,3 @@ set tabstop=4
 
 let g:python3_host_prog        = '/usr/bin/python3'
 let g:vimtex_compiler_progname = 'nvr'
-" }}}
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

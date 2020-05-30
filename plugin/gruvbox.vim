@@ -1,5 +1,3 @@
-"" gruvbox {{{
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 if exists('g:plugs["gruvbox"]')
   let g:gruvbox_bold                 = 1
   let g:gruvbox_contrast_dark        = 'hard'
@@ -13,5 +11,3 @@ if exists('g:plugs["gruvbox"]')
   let g:gruvbox_italicize_strings    = 0
   let g:gruvbox_undercurl            = 1
 endif
-" }}}
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

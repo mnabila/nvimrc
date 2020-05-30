@@ -1,5 +1,3 @@
-" buffer {{{
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " buffer cleanup - delete every buffer except the one open
 function! buffer#List()
   redir => bufnames
@@ -27,5 +25,3 @@ function! buffer#DeleteEmptyBuffers()
     exe 'bd '.join(buffers, ' ')
   endif
 endfunction
-" }}}
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

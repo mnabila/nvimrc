@@ -1,5 +1,4 @@
-"" Vim-Plug {{{
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"" Vim-Plug
 " Specify a directory for plugins
 " - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.local/share/nvim/plugged')
@@ -54,5 +53,3 @@ Plug 'ryanoasis/vim-devicons'
 
 "" Initialize plugin system
 call plug#end()
-" }}}
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

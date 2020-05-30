@@ -1,5 +1,3 @@
-"" vim-devicons {{{
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 if exists('g:plugs["vim-devicons"]')
   let WebDevIconsUnicodeDecorateFolderNodesExactMatches    = 1
   let g:DevIconsAppendArtifactFix                          = 1
@@ -22,5 +20,3 @@ if exists('g:plugs["vim-devicons"]')
   let g:DevIconsDefaultFolderOpenSymbol                    = ''
   let g:WebDevIconsUnicodeDecorateFolderNodesDefaultSymbol = ''
 endif
-" }}}
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

@@ -1,5 +1,3 @@
-" fzf.vim {{{
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 if exists('g:plugs["fzf.vim"]')
   function! FloatingFZF()
     let buf = nvim_create_buf(v:false, v:true)
@@ -41,5 +39,3 @@ if exists('g:plugs["fzf.vim"]')
         \ }
   let g:fzf_layout = { 'window': 'call FloatingFZF()' }
 endif
-" }}}
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

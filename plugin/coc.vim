@@ -1,5 +1,3 @@
-"" coc.nvim {{{
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 if exists('g:plugs["coc.nvim"]')
   let g:coc_node_path = "/usr/bin/node"
   let g:coc_filetype_map = {
@@ -34,5 +32,3 @@ if exists('g:plugs["coc.nvim"]')
   autocmd User CocLocationsChange CocList --normal -A location
   autocmd CursorHold * silent call CocActionAsync('highlight')
 endif
-" }}}
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

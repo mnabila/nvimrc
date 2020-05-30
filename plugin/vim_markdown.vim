@@ -1,5 +1,3 @@
-"" vim-markdown {{{
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 if exists('g:plugs["vim-markdown"]')
   let g:mkdp_auto_close                        = 0
   let g:vim_markdown_auto_insert_bullets       = 0
@@ -22,5 +20,3 @@ if exists('g:plugs["vim-markdown"]')
         \ 'csharp = cs', 'c++=cpp', 'viml=vim', 'bash=sh', 'ini=dosini'
         \ ]
 endif
-" }}}
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
