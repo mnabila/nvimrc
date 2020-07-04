@@ -11,9 +11,24 @@
 > archlinux with yay package manager
 
 ```
-$ yay -S git neovim-git nodejs npm yarn python-pynvim neovim-remote the_silver_searcher bat
-
-$ yay -S python-black python-pylint python-jedi python-pipenv python-pydocstyle prettier texlive-core shfmt ccls texlab
+$ yay -S git neovim-git nodejs npm yarn python-pynvim neovim-remote the_silver_searcher bat prettier
+```
+optional dependency
+> python
+```
+$ yay -S python-black python-pylint python-jedi python-pipenv python-pydocstyle
+```
+> latex
+```
+$ yay -S texlive-most texlab
+```
+> bash
+```
+$ yay -S shfmt
+```
+> cpp
+```
+$ yay -S ccls
 ```
 
 ### Installing Configuration

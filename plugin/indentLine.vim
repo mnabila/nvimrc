@@ -4,7 +4,7 @@ if exists('g:plugs["indentLine"]')
   let g:indentLine_setColors       = 1
   let g:indentLine_fileTypeExclude = [
         \ 'help', 'nerdtree', 'startify', 'Preview','__doc__', 'peekaboo',
-        \ 'man', 'trans', 'fzf', 'markdown'
+        \ 'man', 'trans', 'fzf', 'markdown', 'log'
         \ ]
   let g:indentLine_bufTypeExclude = [
         \ 'help', 'terminal'

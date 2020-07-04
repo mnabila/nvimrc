@@ -1,50 +1,55 @@
 if exists('g:plugs["lightline.vim"]')
   let g:lightline = {
-        \   'colorscheme': 'gruvbox',
-        \   'active': {
-        \     'left':[ [ 'mode', 'paste' ],
-        \              [ 'gitstatus' ],
-        \              [ 'readonly', 'fname', 'modified' ], ],
-        \     'right': [ [ 'lineinfo' ],
-        \              [ 'filetype' ],
-        \              [ 'currentfunction', 'cocstatus', 'fileformat', 'fileencoding' ], ],
-        \   },
-        \   'inactive': {
-        \    'left': [ [ 'fname' ], ],
+        \  'colorscheme': 'gruvbox',
+        \  'active': {
+        \    'left':[ [ 'mode', 'paste' ],
+        \             [ 'gitstatus' ],
+        \             [ 'readonly', 'fname', 'modified' ], ],
+        \    'right': [ [ 'lineinfo' ],
+        \             [ 'filetype' ],
+        \             [ 'currentfunction', 'cocstatus', 'fileformat', 'fileencoding' ], ],
+        \  },
+        \  'inactive': {
+        \   'left': [ [ 'fname' ], ],
         \   'right': [ [ 'lineinfo' ], ],
-        \   },
-        \   'tabline': {
-        \     'left': [ [ 'buffers' ], ],
-        \     'right': [ [ 'username' ], ],
-        \   },
-        \   'component': {
-        \     'lineinfo': '%3p%%  %l/%-L',
-        \     'username': $USER,
-        \     'fname': '%<%f',
-        \   },
-        \   'component_expand': {
-        \     'buffers': 'lightline#bufferline#buffers',
-        \   },
-        \   'component_type': {
-        \     'buffers': 'tabsel',
-        \   },
-        \   'component_function': {
-        \     'bufferinfo': 'lightline#buffer#bufferinfo',
-        \     'cocstatus': 'coc#status',
-        \     'currentfunction': 'CocCurrentFunction',
-        \     'gitstatus': 'GitStatus',
-        \     'modified': 'LightlineModified',
-        \     'readonly': 'LightlineReadonly',
-        \     'filetype': 'MyFiletype',
-        \     'fileformat': 'MyFileformat',
-        \   },
-        \   'separator':{
-        \     'left': '', 'right': ''
-        \   },
-        \   'subseparator':{
-        \     'left': '', 'right': ''
-        \   },
-        \}
+        \  },
+        \  'tab': {
+        \    'active': ['tabnum'],
+        \    'inactive': ['tabnum'],
+        \  },
+        \  'tabline': {
+        \    'left': [ [ 'buffers' ], ],
+        \    'right': [ ['username'], ['smarttabs'] ],
+        \  },
+        \  'component': {
+        \    'lineinfo': '%3p%%  %l/%-L',
+        \    'username': $USER,
+        \    'fname': '%<%f',
+        \  },
+        \  'component_expand': {
+        \    'buffers': 'lightline#bufferline#buffers',
+        \    'smarttabs': 'SmartTabsIndicator',
+        \  },
+        \  'component_type': {
+        \    'buffers': 'tabsel',
+        \  },
+        \  'component_function': {
+        \    'bufferinfo': 'lightline#buffer#bufferinfo',
+        \    'cocstatus': 'coc#status',
+        \    'currentfunction': 'CocCurrentFunction',
+        \    'gitstatus': 'GitStatus',
+        \    'modified': 'LightlineModified',
+        \    'readonly': 'LightlineReadonly',
+        \    'filetype': 'MyFiletype',
+        \    'fileformat': 'MyFileformat',
+        \  },
+        \  'separator':{
+        \    'left': '', 'right': ''
+        \  },
+        \  'subseparator':{
+        \    'left': '', 'right': ''
+        \  },
+        \ }
 
   let g:lightline#bufferline#enable_devicons   = 1
   let g:lightline#bufferline#filename_modifier = ':t'
@@ -81,5 +86,11 @@ if exists('g:plugs["lightline.vim"]')
     else
       return printf('+%d ~%d -%d |  %s', a, m, r, l:branch)
     endif
+  endfunction
+
+  function! SmartTabsIndicator()
+    let tabs = lightline#tab#tabnum(tabpagenr())
+    let tab_total = tabpagenr('$')
+    return tabpagenr('$') > 1 ? ('TABS ' . tabs . '/' . tab_total) : ''
   endfunction
 endif

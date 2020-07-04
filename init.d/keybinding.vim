@@ -8,7 +8,7 @@ nnoremap  <left> <Nop>
 nnoremap <right> <Nop>
 nnoremap    <up> <Nop>
 nnoremap  <down> <Nop>
-no         <C-z> <Nop>
+nnoremap   <C-z> <Nop>
 
 "" Arrow keys resize windows
 noremap <silent> <C-Left> :vertical resize +5<CR>
@@ -91,17 +91,14 @@ inoremap <silent><expr> <c-space> coc#refresh()
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
 imap <A-Tab> <Plug>(coc-snippets-expand)
-nmap <leader> rn <Plug>(coc-rename)
-nmap <silent> [c <Plug>(coc-diagnostic-prev)
-nmap <silent> ]c <Plug>(coc-diagnostic-next)
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-nmap <silent> gt <Plug>(coc-type-definition)
-nmap <leader> ac  <Plug>(coc-codeaction)
-
-"" Indent guides
-nmap <silent> <leader>ig :IndentGuidesToggle<CR>
+nmap <leader>rn <Plug>(coc-rename)
+nmap <silent>[c <Plug>(coc-diagnostic-prev)
+nmap <silent>]c <Plug>(coc-diagnostic-next)
+nmap <silent>gd <Plug>(coc-definition)
+nmap <silent>gi <Plug>(coc-implementation)
+nmap <silent>gr <Plug>(coc-references)
+nmap <silent>gt <Plug>(coc-type-definition)
+nmap <leader>ac  <Plug>(coc-codeaction)
 
 "" color picker
 let g:vcoolor_map        = '<leader>c'

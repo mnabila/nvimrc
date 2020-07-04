@@ -10,7 +10,6 @@ if exists('g:plugs["coc.nvim"]')
         \ 'coc-css',
         \ 'coc-emmet',
         \ 'coc-go',
-        \ 'coc-highlight',
         \ 'coc-html',
         \ 'coc-json',
         \ 'coc-marketplace',
@@ -30,5 +29,4 @@ if exists('g:plugs["coc.nvim"]')
   autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
   autocmd User CocLocationsChange CocList --normal -A location
-  autocmd CursorHold * silent call CocActionAsync('highlight')
 endif

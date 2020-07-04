@@ -35,6 +35,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
+Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 
 "" Language pack
 Plug 'honza/vim-snippets'

@@ -13,3 +13,4 @@ autocmd FileType php setlocal expandtab shiftwidth=2 softtabstop=2
 autocmd FileType python setlocal expandtab shiftwidth=4 softtabstop=4 colorcolumn=80
 autocmd FileType scss,sass,css setlocal expandtab shiftwidth=2 softtabstop=2
 autocmd FileType vim setlocal expandtab shiftwidth=2 softtabstop=2
+autocmd FileType tex setlocal conceallevel=0
