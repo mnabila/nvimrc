@@ -97,7 +97,7 @@ nmap <silent>]c <Plug>(coc-diagnostic-next)
 nmap <silent>gd <Plug>(coc-definition)
 nmap <silent>gi <Plug>(coc-implementation)
 nmap <silent>gr <Plug>(coc-references)
-nmap <silent>gt <Plug>(coc-type-definition)
+nmap <silent>gtd <Plug>(coc-type-definition)
 nmap <leader>ac  <Plug>(coc-codeaction)
 
 "" color picker
