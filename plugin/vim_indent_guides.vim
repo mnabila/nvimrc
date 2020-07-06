@@ -8,6 +8,6 @@ if exists('g:plugs["vim-indent-guides"]')
   let g:indent_guides_guide_size            = 1
   let g:indent_guides_exclude_filetypes     = [
         \ 'help', 'nerdtree', 'startify', 'Preview','__doc__',
-        \ 'peekaboo', 'man', 'trans', 'fzf',
+        \ 'peekaboo', 'man', 'trans', 'fzf', 'defx',
         \ ]
 endif

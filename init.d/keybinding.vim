@@ -44,10 +44,9 @@ nmap <C-A-h> <C-w>t<C-w>H
 "" Terminal-mode
 tnoremap <Esc> <C-\><C-n>
 
-"" NERDTree
-noremap <F2> :NERDTreeToggle<CR>
-noremap <C-\> :NERDTreeToggle<CR>
-noremap <F3> :lcd %:p:h<CR>:NERDTreeCWD<CR>
+"" File manager
+noremap <space><space> :Defx<CR>
+noremap <A-space> :Defx `expand('%:p:h')` -search=`expand('%:p')`<CR>
 
 
 "" Git fugitif
@@ -143,7 +142,7 @@ vmap <silent> <leader>tr <Plug>TranslateRV
 vnoremap <leader>64 c<c-r>=system('base64 --decode', @")<cr><esc>
 
 " Edit init.vim
-nmap <leader>ev :NERDTree ~/.config/nvim<CR>
+nmap <leader>ev :cd ~/.config/nvim<CR>
 
 " Edit init.vim
-nmap <leader>ed :NERDTree ~/Dotfiles<CR>
+nmap <leader>ed :cd ~/Dotfiles<CR>
