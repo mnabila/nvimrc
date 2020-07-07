@@ -45,8 +45,8 @@ nmap <C-A-h> <C-w>t<C-w>H
 tnoremap <Esc> <C-\><C-n>
 
 "" File manager
-noremap <space><space> :Defx<CR>
-noremap <A-space> :Defx `expand('%:p:h')` -search=`expand('%:p')`<CR>
+noremap ` :Defx<CR>
+noremap <A-`> :Defx `expand('%:p:h')`<CR>
 
 
 "" Git fugitif
