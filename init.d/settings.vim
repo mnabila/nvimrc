@@ -1,6 +1,7 @@
 "" Settings
-filetype on                           " required
-filetype plugin indent on
+syntax      on
+colorscheme gruvbox
+filetype    plugin indent on
 
 au CursorHold,CursorHoldI * checktime " auto update trigger when cursor stops moving
 au FocusGained,BufEnter * :checktime  " auto update trigger on buffer change or terminal focus
@@ -17,6 +18,7 @@ endif
 set backspace=indent,eol,start
 set backup
 set backupdir=~/.local/share/nvim/backup
+set bg=dark
 set binary
 set bomb
 set clipboard+=unnamedplus
@@ -76,7 +78,7 @@ set updatetime=300
 set wildmenu
 set wildmode=full
 set wildoptions=pum
-set winblend=10
+set winblend=0
 set wrap
 set writebackup
 

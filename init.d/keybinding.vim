@@ -47,6 +47,7 @@ tnoremap <Esc> <C-\><C-n>
 "" File manager
 noremap ` :Defx<CR>
 noremap <A-`> :Defx `expand('%:p:h')`<CR>
+noremap <C-`> :cd `expand('%:p:h')`<CR>
 
 
 "" Git fugitif
@@ -127,22 +128,23 @@ imap <c-x><c-l> <plug>(fzf-complete-line)
 inoremap <expr> <c-x><c-k> fzf#vim#complete#word({'left': '15%'})
 autocmd! FileType fzf tnoremap <buffer> <esc> <c-c>
 
-"" EasyAlign
+" EasyAlign
 vmap <leader>a :EasyAlign<cr>
 nmap <leader>a :EasyAlign<cr>
 
-"" vim-translator
+" Vim-translator
 nmap <silent> <leader>t <Plug>TranslateW
 nmap <silent> <leader>tr <Plug>TranslateR
 nmap <silent> <leader>tx <Plug>TranslateX
 vmap <silent> <leader>t <Plug>TranslateWV
 vmap <silent> <leader>tr <Plug>TranslateRV
 
-" base64 decode
-vnoremap <leader>64 c<c-r>=system('base64 --decode', @")<cr><esc>
+" Base64 encoding
+vnoremap <leader>d64 c<c-r>=system('base64 -d', @")<cr><esc>
+vnoremap <leader>e64 c<c-r>=system('base64', @")<cr><esc>
 
 " Edit init.vim
-nmap <leader>ev :cd ~/.config/nvim<CR>
+nmap <leader>ev :Defx ~/.config/nvim<CR>
 
-" Edit init.vim
-nmap <leader>ed :cd ~/Dotfiles<CR>
+" Edit dotfiles
+nmap <leader>ed :Defx ~/Dotfiles<CR>

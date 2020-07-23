@@ -3,7 +3,7 @@
 " - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.local/share/nvim/plugged')
 
-" Plug 'VincentCordobes/vim-translate'
+" Plug 'Xuyuanp/nerdtree-git-plugin'
 " Plug 'editorconfig/editorconfig-vim'
 " Plug 'godlygeek/tabular'
 " Plug 'jistr/vim-nerdtree-tabs'
@@ -14,10 +14,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 " Plug 'vim-airline/vim-airline'
 " Plug 'vim-airline/vim-airline-themes'
 Plug 'Chiel92/vim-autoformat'
-Plug 'kristijanhusak/defx-icons'
-Plug 'kristijanhusak/defx-git'
 Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
-" Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'Yggdroot/indentLine'
 Plug 'airblade/vim-gitgutter'
 Plug 'honza/vim-snippets'
@@ -27,6 +24,8 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-easy-align'
+Plug 'kristijanhusak/defx-git'
+Plug 'kristijanhusak/defx-icons'
 Plug 'majutsushi/tagbar'
 Plug 'mattn/gist-vim'
 Plug 'mattn/webapi-vim'
@@ -35,6 +34,7 @@ Plug 'mnabila/vim-header'
 Plug 'morhetz/gruvbox'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'plasticboy/vim-markdown'
+Plug 'psliwka/vim-smoothie'
 Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 Plug 'ryanoasis/vim-devicons'
 Plug 'sheerun/vim-polyglot'

@@ -9,8 +9,7 @@ if exists('g:plugs["defx.nvim"]')
         \ 'show_ignored_files': 0,
         \ 'buffer_name': 'defx',
         \ 'toggle': 1,
-        \ 'resume': 1,
-        \ 'columns': 'indent:icons:filename',
+        \ 'columns': 'git:indent:icons:filename',
         \ })
 
   function! s:defx_my_settings() abort
