@@ -7,6 +7,7 @@ if exists('g:plugs["coc.nvim"]')
         \ 'sass': 'css',
         \ }
   let g:coc_global_extensions=[
+        \ 'coc-clangd',
         \ 'coc-css',
         \ 'coc-emmet',
         \ 'coc-go',
@@ -22,7 +23,6 @@ if exists('g:plugs["coc.nvim"]')
         \ 'coc-vetur',
         \ 'coc-vimlsp',
         \ 'coc-word',
-        \ 'coc-xml',
         \ 'coc-texlab',
         \ 'coc-yaml'
         \ ]

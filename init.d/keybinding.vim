@@ -11,10 +11,10 @@ nnoremap  <down> <Nop>
 nnoremap   <C-z> <Nop>
 
 "" Arrow keys resize windows
-noremap <silent> <C-Left> :vertical resize +5<CR>
-noremap <silent> <C-Up> :resize -5<CR>
-noremap <silent> <C-Right> :vertical resize -5<CR>
-noremap <silent> <C-Down> :resize +5<CR>
+noremap <silent> <C-Left> :vertical resize +5<cr>
+noremap <silent> <C-Up> :resize -5<cr>
+noremap <silent> <C-Right> :vertical resize -5<cr>
+noremap <silent> <C-Down> :resize +5<cr>
 
 "" Buffers
 noremap <A-l> :bn<cr>
@@ -45,24 +45,23 @@ nmap <C-A-h> <C-w>t<C-w>H
 tnoremap <Esc> <C-\><C-n>
 
 "" File manager
-noremap ` :Defx<CR>
-noremap <A-`> :Defx `expand('%:p:h')`<CR>
-noremap <C-`> :cd `expand('%:p:h')`<CR>
+noremap ` :Defx<cr>
+noremap <A-`> :Defx `expand('%:p:h')` -search=`expand('%:p')`<cr>
 
 
 "" Git fugitif
-noremap <leader>ga  :Gwrite<CR>
-noremap <leader>gc  :Gcommit<CR>
-noremap <leader>gsh :Gpush<CR>
-noremap <leader>gll :Gpull<CR>
-noremap <leader>gs  :Gstatus<CR>
-noremap <leader>gb  :Gblame<CR>
-noremap <leader>gd  :Gvdiff<CR>
-noremap <leader>gr  :Gremove<CR>
+noremap <leader>ga  :Gwrite<cr>
+noremap <leader>gc  :Gcommit<cr>
+noremap <leader>gsh :Gpush<cr>
+noremap <leader>gll :Gpull<cr>
+noremap <leader>gs  :Gstatus<cr>
+noremap <leader>gb  :Gblame<cr>
+noremap <leader>gd  :Gvdiff<cr>
+noremap <leader>gr  :Gremove<cr>
 
 "" Autoformat
-nmap <leader>f :Autoformat<CR>
-vmap <leader>f :Autoformat<CR>
+nmap <leader>f :Autoformat<cr>
+vmap <leader>f :Autoformat<cr>
 nmap <leader>F <Plug>(coc-format)
 vmap <leader>F <Plug>(coc-format-selected)
 
@@ -86,9 +85,9 @@ inoremap <silent><expr> <TAB>
       \ coc#refresh()
 
 inoremap <expr><S-Tab> pumvisible() ? "\<C-p>" : "\<C-h>"
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<cr>"
 inoremap <silent><expr> <c-space> coc#refresh()
-nnoremap <silent> K :call <SID>show_documentation()<CR>
+nnoremap <silent> K :call <SID>show_documentation()<cr>
 
 imap <A-Tab> <Plug>(coc-snippets-expand)
 nmap <leader>rn <Plug>(coc-rename)
@@ -119,18 +118,14 @@ xmap <leader><tab> <plug>(fzf-maps-x)
 omap <leader><tab> <plug>(fzf-maps-o)
 
 " Insert mode completion
-imap <c-x><c-w> <plug>(fzf-complete-word)
-imap <c-x><c-p> <plug>(fzf-complete-path)
-imap <c-x><c-f> <plug>(fzf-complete-file-ag)
-imap <c-x><c-l> <plug>(fzf-complete-line)
+imap <C-x><C-w> <plug>(fzf-complete-word)
+imap <C-x><C-p> <plug>(fzf-complete-path)
+imap <C-x><C-f> <plug>(fzf-complete-file-ag)
+imap <C-x><C-l> <plug>(fzf-complete-line)
 
 " Advanced customization using autoload functions
 inoremap <expr> <c-x><c-k> fzf#vim#complete#word({'left': '15%'})
 autocmd! FileType fzf tnoremap <buffer> <esc> <c-c>
-
-" EasyAlign
-vmap <leader>a :EasyAlign<cr>
-nmap <leader>a :EasyAlign<cr>
 
 " Vim-translator
 nmap <silent> <leader>t <Plug>TranslateW
@@ -144,7 +139,7 @@ vnoremap <leader>d64 c<c-r>=system('base64 -d', @")<cr><esc>
 vnoremap <leader>e64 c<c-r>=system('base64', @")<cr><esc>
 
 " Edit init.vim
-nmap <leader>ev :Defx ~/.config/nvim<CR>
+nmap <leader>ev :Defx ~/.config/nvim<cr>
 
 " Edit dotfiles
-nmap <leader>ed :Defx ~/Dotfiles<CR>
+nmap <leader>ed :Defx ~/Dotfiles<cr>

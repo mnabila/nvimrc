@@ -28,7 +28,11 @@ $ yay -S shfmt
 ```
 > cpp
 ```
-$ yay -S ccls
+$ yay -S clang
+```
+> lua
+```
+$ yay -S lua-format
 ```
 
 ### Installing Configuration

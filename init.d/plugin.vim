@@ -13,6 +13,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 " Plug 'scrooloose/nerdtree'
 " Plug 'vim-airline/vim-airline'
 " Plug 'vim-airline/vim-airline-themes'
+" Plug 'plasticboy/vim-markdown'
 Plug 'Chiel92/vim-autoformat'
 Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Yggdroot/indentLine'
@@ -33,7 +34,6 @@ Plug 'mengelbrecht/lightline-bufferline'
 Plug 'mnabila/vim-header'
 Plug 'morhetz/gruvbox'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'plasticboy/vim-markdown'
 Plug 'psliwka/vim-smoothie'
 Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 Plug 'ryanoasis/vim-devicons'
@@ -43,6 +43,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'voldikss/vim-translator'
+" Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': ':UpdateRemotePlugins'}
 
 "" Initialize plugin system
 call plug#end()
