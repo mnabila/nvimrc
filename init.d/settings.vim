@@ -3,8 +3,9 @@ syntax      on
 colorscheme gruvbox
 filetype    plugin indent on
 
-au CursorHold,CursorHoldI * checktime " auto update trigger when cursor stops moving
-au FocusGained,BufEnter * :checktime  " auto update trigger on buffer change or terminal focus
+" au CursorHold,CursorHoldI * checktime " auto update trigger when cursor stops moving
+" au FocusGained,BufEnter * :checktime  " auto update trigger on buffer change or terminal focus
+
 au BufRead /tmp/mutt-* set tw=72      " Configuring editors to work with mutt                  "
 
 if (has('nvim'))
@@ -15,6 +16,7 @@ if (has('termguicolors'))
   set termguicolors
 endif
 
+set autoread
 set backspace=indent,eol,start
 set backup
 set backupdir=~/.local/share/nvim/backup
@@ -45,8 +47,8 @@ set linebreak
 set linespace=0
 set list
 set listchars=tab:»·,trail:·,nbsp:·
+set fillchars=vert:┃
 set mouse=a
-set noautoread
 set nocompatible
 set noerrorbells
 set nostartofline

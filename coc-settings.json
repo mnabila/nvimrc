@@ -4,6 +4,7 @@
   "coc.preferences.currentFunctionSymbolAutoUpdate": true,
   "coc.preferences.enableFloatHighlight": true,
   "coc.preferences.extensionUpdateCheck": "never",
+  "coc.preferences.formatOnSaveFiletypes": ["css", "javascript", "html"],
   "coc.preferences.hoverTarget": "float",
   "coc.preferences.previewAutoClose": true,
   "coc.preferences.rootPatterns": [".git", ".hg", ".projections.json", ".vim"],
@@ -25,6 +26,7 @@
   "html.filetypes": ["html", "handlebars", "jinja2.html", "php"],
   "html.suggest.html5": true,
   "html.validate.styles": true,
+  "languageserver": { "lua": { "command": "lua-language-server", "filetypes": ["lua"] } },
   "latex.build.args": [ "-xelatex", "-file-line-error", "-synctex=1", "-interaction=nonstopmode", "-verbose" ],
   "latex.build.executable": "latexmk",
   "latex.forwardSearch.args": ["--synctex-forward", "%l:1:%f", "%p"],
@@ -35,6 +37,7 @@
   "prettier.semi": true,
   "python.analysis.diagnosticEnabled": false,
   "python.autoComplete.addBrackets": false,
+  "python.autoComplete.showAdvancedMembers": true,
   "python.autoUpdateLanguageServer": false,
   "python.formatting.blackArgs": ["--line-length=80", "-S"],
   "python.formatting.blackPath": "/usr/bin/black",
@@ -65,8 +68,8 @@
   "suggest.timeout": 2000,
   "suggest.triggerAfterInsertEnter": true,
   "texlab.path": "/usr/bin/texlab",
+  "tsserver.useBatchedBufferSync": true,
   "vimlsp.indexes.count": 2,
   "vimlsp.indexes.runtimepath": true,
-  "vimlsp.suggest.fromRuntimepath": true,
-  "languageserver": { "lua": { "command": "lua-language-server", "filetypes": ["lua"] } }
+  "vimlsp.suggest.fromRuntimepath": true
 }
