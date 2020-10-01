@@ -20,7 +20,7 @@
   "diagnostic.refreshOnInsertMode": true,
   "diagnostic.virtualText": true,
   "diagnostic.warningSign": "",
-  "emmet.includeLanguages": { "vue-html": "html", "javascript": "javascriptreact", "jinja2.html": "html" },
+  "emmet.includeLanguages": { "vue-html": "html", "javascript": "javascriptreact", "jinja2.html": "html" , "jst": "html"},
   "emmet.showExpandedAbbreviation": "always",
   "go.goplsOptions": { "usePlaceholders": true, "completeUnimported": true },
   "html.filetypes": ["html", "handlebars", "jinja2.html", "php"],
