@@ -35,6 +35,8 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'voldikss/vim-translator'
+" Plug 'metakirby5/codi.vim'
+" Plug 'nvim-treesitter/nvim-treesitter'
 
 "" Initialize plugin system
 call plug#end()

@@ -3,6 +3,10 @@
 "" leader
 let mapleader=','
 
+
+"" disable 
+nmap Q <Nop>
+
 "" Disable arrow
 nnoremap  <left> <Nop>
 nnoremap <right> <Nop>
@@ -34,8 +38,8 @@ noremap <leader>qi :bp<cr>:bd! #<cr>
 " nmap <A-Q> :tabclose<cr>
 
 "" Line bubbling
-" nmap <A-j> ]e
-" nmap <A-k> [e
+nmap <A-j> ]e
+nmap <A-k> [e
 
 "" Split
 nmap <C-A-k> <C-w>t<C-w>K
@@ -110,6 +114,7 @@ nnoremap <leader><space> :History<cr>
 nnoremap <leader>b :Buffers<cr>
 nnoremap <leader>o :Files<cr>
 nnoremap <leader>g :BTags<cr>
+nnoremap <leader>m :Marks<cr>
 nnoremap <leader><leader> :Commands<cr>
 
 " Mapping selecting mappings
@@ -143,3 +148,9 @@ nmap <leader>ev :Defx ~/.config/nvim<cr>
 
 " Edit dotfiles
 nmap <leader>ed :Defx ~/Dotfiles<cr>
+
+" Search for visually selected text
+vnoremap <leader>v y/\V<C-R>=escape(@",'/\')<cr><cr>
+
+" Delete in search result
+nmap <leader>x :%s///<cr>
