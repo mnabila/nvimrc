@@ -49,9 +49,9 @@ nmap <C-A-h> <C-w>t<C-w>H
 tnoremap <Esc> <C-\><C-n>
 
 "" File manager
-noremap ` :Defx<cr>
-noremap <A-`> :Defx `expand('%:p:h')` -search=`expand('%:p')`<cr>
-
+noremap ` :LuaTreeToggle<cr>
+noremap <A-`> :LuaTreeFindFile<cr>
+" noremap <A-`> :Defx `expand('%:p:h')` -search=`expand('%:p')`<cr>
 
 "" Git fugitif
 noremap <leader>ga  :Gwrite<cr>
@@ -144,10 +144,10 @@ vnoremap <leader>d64 c<c-r>=system('base64 -d', @")<cr><esc>
 vnoremap <leader>e64 c<c-r>=system('base64', @")<cr><esc>
 
 " Edit init.vim
-nmap <leader>ev :Defx ~/.config/nvim<cr>
+nmap <leader>ev :cd ~/.config/nvim<cr>:LuaTreeToggle<cr>
 
 " Edit dotfiles
-nmap <leader>ed :Defx ~/Dotfiles<cr>
+nmap <leader>ed :cd ~/Dotfiles<cr>:LuaTreeToggle<cr>
 
 " Search for visually selected text
 vnoremap <leader>v y/\V<C-R>=escape(@",'/\')<cr><cr>

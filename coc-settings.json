@@ -4,7 +4,6 @@
   "coc.preferences.currentFunctionSymbolAutoUpdate": true,
   "coc.preferences.enableFloatHighlight": true,
   "coc.preferences.extensionUpdateCheck": "never",
-  "coc.preferences.formatOnSaveFiletypes": ["css", "javascript", "html"],
   "coc.preferences.hoverTarget": "float",
   "coc.preferences.previewAutoClose": true,
   "coc.preferences.rootPatterns": [".git", ".hg", ".projections.json", ".vim"],
