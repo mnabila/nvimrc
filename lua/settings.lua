@@ -94,3 +94,4 @@ vim.cmd('filetype plugin indent on')
 
 vim.g.python3_host_prog = '/usr/bin/python3'
 vim.g.vimtex_compiler_progname = 'nvr'
+vim.g.vimsyn_embed= 'l'
