@@ -12,7 +12,7 @@ require('bufferline').setup{
         max_name_length = 18,
         tab_size = 18,
         show_buffer_close_icons = true,
-        separator_style = 'thin',
+        separator_style = {'',''},
         enforce_regular_tabs = false,
         always_show_bufferline = true,
     },

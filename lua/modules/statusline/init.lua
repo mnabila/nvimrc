@@ -1,8 +1,3 @@
--- change them if you want to different separator
-local left_sep = ''
-local right_sep = ''
-local thin_sep = ''
-
 -- highlight groups
 local colors = {
     active = '%#Active#',
@@ -29,7 +24,7 @@ local get_current_mode = function()
         no = {'N·Pending', 'N'},
         v = {'Visual', 'V'},
         V = {'V·Line', 'V'},
-        ['^V'] = {'V·Block', 'V'},
+        [''] = {'V·Block', 'V'},
         s = {'Select', 'S'},
         S = {'S·Line', 'S'},
         ['^S'] = {'S·Block', 'S'},
@@ -71,17 +66,16 @@ end
 local get_filename = function()
     local filetype = vim.bo.filetype
     local filename = vim.fn.expand('%:t')
-    local icon = require('nvim-web-devicons').get_icon(filename, filetype, {default = true})
-
-    return string.format(' %s %s ', icon, filename)
+    return string.format(' %s ', filename)
 end
 
 local get_filetype = function()
     local filetype = vim.bo.filetype
+    local icon = require('nvim-web-devicons').get_icon(filename, filetype, {default = true})
     if filetype == '' then
         return ''
     else
-        return string.format(' %s ', filetype):lower()
+        return string.format(' %s %s ', icon, filetype):lower()
     end
 end
 
@@ -93,53 +87,59 @@ local get_line_col = function()
     end
 end
 
-statusline = {}
+local get_coc_status = function()
+    return string.format(' %s ', vim.call('coc#status'))
+end
 
-statusline.active = function()
+local get_coc_curfun = function()
+    local curfun = vim.fn.getbufvar(0, 'coc_current_function')
+    return string.format(' %s ', curfun)
+end
+
+Statusline = {}
+
+Statusline.active = function()
     local mid = "%="
     local mode = colors.mode .. get_current_mode()
-    local mode_alt = colors.mode_alt .. left_sep
     local git = colors.git .. get_git_status()
-    local git_alt = colors.git_alt .. left_sep
     local filename = colors.filetype .. get_filename()
-    local filename_alt = colors.filetype_alt .. right_sep
     local filetype = colors.filetype .. get_filetype()
     local line_col = colors.line_col .. get_line_col()
-    local line_col_alt = colors.line_col_alt .. right_sep
-    -- local diagnostic = colors.line_col .. get_lsp_diagnostic()
+    local coc_status = colors.filetype .. get_coc_status()
+    local coc_curfun = colors.filetype .. get_coc_curfun()
 
     return table.concat({
+        -- left
         colors.active,
         mode,
-        mode_alt,
         git,
-        git_alt,
-        filename_alt,
         filename,
+
+        -- middle
         mid,
-        thin_sep,
+
+        -- right
+        coc_status,
+        coc_curfun,
         filetype,
-        line_col_alt,
         line_col,
-        -- diagnostic
     })
 end
 
-statusline.inactive = function()
+Statusline.inactive = function()
     return colors.inactive .. '%F'
 end
 
-statusline.explorer = function()
+Statusline.explorer = function()
     local title = colors.mode .. ' Explorer '
-    local title_alt = colors.mode_alt .. left_sep
-
-    return table.concat({colors.active, title:upper(), title_alt})
+    return table.concat({colors.active, title:upper()})
 end
 
 -- set statusline
 vim.cmd('augroup Statusline')
 vim.cmd('au!')
-vim.cmd('au WinEnter,BufEnter * setlocal statusline=%!v:lua.statusline.active()')
-vim.cmd('au WinLeave,BufLeave * setlocal statusline=%!v:lua.statusline.inactive()')
-vim.cmd('au WinEnter,BufEnter,FileType LuaTree setlocal statusline=%!v:lua.statusline.explorer()')
+vim.cmd('au WinEnter,BufEnter * setlocal statusline=%!v:lua.Statusline.active()')
+vim.cmd('au WinLeave,BufLeave * setlocal statusline=%!v:lua.Statusline.inactive()')
+vim.cmd('au WinLeave,BufLeave * setlocal statusline=%!v:lua.Statusline.inactive()')
+vim.cmd('au WinEnter,BufEnter,FileType LuaTree setlocal statusline=%!v:lua.Statusline.explorer()')
 vim.cmd('augroup END')

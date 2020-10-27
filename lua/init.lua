@@ -1,12 +1,30 @@
---[[--
-File              : init.lua
-Date              : 20.10.2020
-Last Modified Date: 20.10.2020
---]]--
--- neovim user interfaces
-require('modules.ui.colorscheme')
-require('modules.ui.statusline')
+-- neovim basic configuration
+require('settings')
+require('filetype')
+require('keybindings')
+
+-- neovim modules
+require('modules.colors.gruvbox')
+require('modules.statusline.init')
+require('modules.libs.buffer')
 
 -- neovim plugins
-require('plugins.nvimtree')
-require('plugins.nvimbufferline')
+require('plugins.translator')
+require('plugins.header')
+require('plugins.fzf')
+require('plugins.nvimBufferLine')
+require('plugins.indentLine')
+require('plugins.hexokinase')
+require('plugins.nvimTree')
+require('plugins.gruvbox')
+
+-- neovim language support
+require('plugins.markdown')
+
+-- neovim git{_,hub} support
+require('plugins.signify')
+require('plugins.gist')
+
+-- neovim code completion and code formater
+require('plugins.coc')
+require('plugins.autoformat')
