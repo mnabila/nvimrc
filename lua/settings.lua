@@ -21,7 +21,7 @@ local options = {
     bomb = true,
     clipboard = 'unnamedplus',
     compatible = false,
-    completeopt = 'menuone,noselect,preview',
+    completeopt = 'menuone,noselect',
     conceallevel = 0,
     cursorcolumn = true,
     cursorline = true,
@@ -94,4 +94,4 @@ vim.cmd('filetype plugin indent on')
 
 vim.g.python3_host_prog = '/usr/bin/python3'
 vim.g.vimtex_compiler_progname = 'nvr'
-vim.g.vimsyn_embed= 'l'
+vim.g.vimsyn_embed = 'l'

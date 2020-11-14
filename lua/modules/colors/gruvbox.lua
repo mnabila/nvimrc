@@ -1,3 +1,8 @@
+-- local get_color = function(group)
+--     local gui_color = vim.fn.synIDattr(vim.fn.hlID(group), "fg", "gui")
+--     local term_color = vim.fn.synIDattr(vim.fn.hlID(group), "fg", "cterm")
+--     return {gui_color, term_color}
+-- end
 local hl = function(group, options)
     local bg = options.bg == nil and '' or 'guibg=' .. options.bg
     local fg = options.fg == nil and '' or 'guifg=' .. options.fg
@@ -11,32 +16,28 @@ ApplyGruvbox = function()
         -- normal stuff
         {'Normal', {bg = 'NONE'}},
         {'SignColumn', {bg = 'NONE'}},
-        {'GitGutterAdd', {fg = '#98971a'}},
-        {'GitGutterChange', {fg = '#D79921'}},
-        {'GitGutterDelete', {fg = '#CC241D'}},
-        {'SignifySignAdd', {fg = '#458588', bg = 'NONE'}},
-        {'SignifySignChange', {fg = '#D79921', bg = 'NONE'}},
-        {'SignifySignDelete', {fg = '#CC241D', bg = 'NONE'}},
-        {'GitGutterChange', {fg = '#D79921'}},
-        {'GitGutterDelete', {fg = '#CC241D'}},
-        {'jsonMissingCommaError', {fg = '#CC241D'}},
-        {'jsonNoQuotesError', {fg = '#CC241D'}},
         {'ColorColumn', {bg = 'NONE', fg = '#928374'}},
         {'IncSearch', {bg = '#928374', fg = '#282828', gui = 'bold'}},
 
-        -- statusline colours
-        {'Active', {bg = '#3C3836', fg = '#EBDBB2'}},
-        {'Inactive', {bg = '#3C3836', fg = '#928374'}},
-        {'Mode', {bg = '#928374', fg = '#1D2021', gui = "bold"}},
-        {'LineCol', {bg = '#928374', fg = '#1D2021', gui = "bold"}},
-        {'Git', {bg = '#504945', fg = '#EBDBB2'}},
-        {'Filetype', {bg = '#504945', fg = '#EBDBB2'}},
-        {'Filename', {bg = '#504945', fg = '#EBDBB2'}},
+        -- signify
+        {'SignifySignAdd', {fg = '#458588', bg = 'NONE'}},
+        {'SignifySignChange', {fg = '#D79921', bg = 'NONE'}},
+        {'SignifySignDelete', {fg = '#CC241D', bg = 'NONE'}},
 
-        {'ModeAlt', {bg = '#504945', fg = '#928374'}},
-        {'GitAlt', {bg = '#3C3836', fg = '#504945'}},
-        {'LineColAlt', {bg = '#504945', fg = '#928374'}},
-        {'FiletypeAlt', {bg = '#3C3836', fg = '#504945'}},
+        -- statusline colours
+        {'StatusLineActive', {bg = '#3C3836', fg = '#EBDBB2'}},
+        {'StatusLineInactive', {bg = '#3C3836', fg = '#928374'}},
+
+        {'StatusLineMode', {bg = '#EBDBB2', fg = '#282828', gui = 'bold'}},
+        {'StatusLineLineCol', {bg = '#EBDBB2', fg = '#3C3836'}},
+
+        {'StatusLineFiletype', {bg = '#BDAE93', fg = '#3C3836'}},
+        {'StatusLineGit', {bg = '#BDAE93', fg = '#3C3836'}},
+
+        {'StatusLineFilename', {bg = '#3C3836', fg = '#D5C4A1'}},
+
+        {'StatusLineError', {bg = '#FB4934', fg = '#3C3836'}},
+        {'StatusLineWarning', {bg = '##fabd2f', fg = '#3C3836'}},
 
         -- luatree
         {'LuaTreeFolderIcon', {fg = '#D79921'}},
@@ -55,6 +56,12 @@ ApplyGruvbox = function()
         {'CocHintSign', {bg = 'NONE', fg = '#83a598'}},
         {'CocInfoSign', {bg = 'NONE', fg = '#fabd2f'}},
         {'CocWarningSign', {bg = 'NONE', fg = '#fe8019'}},
+
+        -- diagnostic-nvim
+        {'LspDiagnosticsDefaultError', {bg = 'NONE', fg = '#fb4934'}},
+        {'LspDiagnosticsDefaultInformation', {bg = 'NONE', fg = '#d3869b'}},
+        {'LspDiagnosticsDefaultWarning', {bg = 'NONE', fg = '#fabd2f'}},
+        {'LspDiagnosticsDefaultHint', {bg = 'NONE', fg = '#83a598'}}
     }
 
     for _, highlight in pairs(highlights) do hl(highlight[1], highlight[2]) end

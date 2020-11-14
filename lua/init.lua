@@ -1,6 +1,5 @@
 -- neovim basic configuration
 require('settings')
-require('filetype')
 require('keybindings')
 
 -- neovim modules
@@ -26,5 +25,8 @@ require('plugins.signify')
 require('plugins.gist')
 
 -- neovim code completion and code formater
-require('plugins.coc')
-require('plugins.autoformat')
+-- require('plugins.coc')
+-- require('plugins.autoformat')
+require('plugins.codeformatter')
+require('plugins.completion')
+require('modules.lsp.init')
