@@ -16,6 +16,8 @@ local markdownfmt = {
     {cmd = {"black"}, start_pattern = "^```python$", end_pattern = "^```$", target = "current", tempfile_dir = tempdir}
 }
 
+local black = {{cmd = {"black"}, tempfile_dir = tempdir}}
+
 vim.g.format_debug = true
 require('format').setup {
     javascript = prettier,
@@ -25,5 +27,6 @@ require('format').setup {
     sh = shfmt,
     lua = luafmt,
     markdown = markdownfmt,
-    json = prettier
+    json = prettier,
+    python = black
 }

@@ -19,7 +19,7 @@ nvim_lsp.sumneko_lua.setup {
         Lua = {
             runtime = {version = "LuaJIT", path = vim.split(package.path, ';')},
             completion = {keywordSnippet = "Disable"},
-            diagnostics = {enable = true, globals = {"vim"}}
+            diagnostics = {enable = true, globals = {"vim", "awesome"}}
         }
     }
 }
@@ -33,3 +33,5 @@ nvim_lsp.bashls.setup {on_init = custom_on_init}
 nvim_lsp.texlab.setup {on_init = custom_on_init}
 
 nvim_lsp.clangd.setup {on_init = custom_on_init}
+
+nvim_lsp.jedi_language_server.setup {on_init = custom_on_init}
