@@ -11,6 +11,8 @@ local colors = {
     filename = '%#StatuslineFilename#',
     warning = '%#StatusLineWarning#',
     error = '%#StatusLineError#',
+    fmicon = '%#StatusLineFileManagerIcon#',
+    fmtext = '%#StatusLineFileManagerText#',
 }
 
 Statusline = {}
@@ -42,8 +44,9 @@ end
 Statusline.inactive = function() return colors.inactive .. '%F' end
 
 Statusline.explorer = function()
-    local title = colors.active .. '  Explorer '
-    return table.concat({colors.active, title:upper()})
+    local title = colors.fmtext .. ' Explorer '
+    local icon =  colors.fmicon  .. '   '
+    return table.concat({colors.fmicon, icon,title:upper()})
 end
 
 -- set statusline

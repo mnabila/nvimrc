@@ -1,3 +1,4 @@
+local devicons = require('nvim-web-devicons')
 local M = {}
 
 M.is_truncated = function(width)
@@ -64,7 +65,7 @@ end
 M.get_filetype = function()
     local filetype = vim.bo.filetype
     local filename = vim.fn.expand('%')
-    local icon = require('nvim-web-devicons').get_icon(filename, filetype, {default = true})
+    local icon = devicons.get_icon(filename, filetype, {default = true})
     if filetype == '' then
         return ''
     else
@@ -72,11 +73,12 @@ M.get_filetype = function()
     end
 end
 
+
 M.get_line_col = function()
     if M.is_truncated(60) then
-        return ' %l/%-L:%c '
+        return '  %l  %c '
     else
-        return ' Ln %l/%-L, Col %c '
+        return '  %l/%-L  %c '
     end
 end
 

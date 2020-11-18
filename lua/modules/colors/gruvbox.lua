@@ -29,10 +29,12 @@ ApplyGruvbox = function()
         {'StatusLineInactive', {bg = '#3C3836', fg = '#928374'}},
 
         {'StatusLineMode', {bg = '#EBDBB2', fg = '#282828', gui = 'bold'}},
-        {'StatusLineLineCol', {bg = '#EBDBB2', fg = '#3C3836'}},
+        {'StatusLineFileManagerIcon', {bg = '#EBDBB2', fg = '#3C3836'}},
+        {'StatusLineLineCol', {bg = '#EBDBB2', fg = '#3C3836', gui='bold'}},
 
         {'StatusLineFiletype', {bg = '#BDAE93', fg = '#3C3836'}},
         {'StatusLineGit', {bg = '#BDAE93', fg = '#3C3836'}},
+        {'StatusLineFileManagerText', {bg = '#BDAE93', fg = '#3C3836', gui='bold'}},
 
         {'StatusLineFilename', {bg = '#3C3836', fg = '#D5C4A1'}},
 

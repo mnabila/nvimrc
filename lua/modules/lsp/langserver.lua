@@ -1,4 +1,4 @@
-local nvim_lsp = require("nvim_lsp")
+local nvim_lsp = require("lspconfig")
 
 local custom_on_init = function() print('Language Server Protocol started!') end
 
@@ -7,10 +7,6 @@ nvim_lsp.tsserver.setup {
     on_init = custom_on_init,
     root_dir = function() return vim.loop.cwd() end
 }
-
-nvim_lsp.html.setup {filetypes = {"html"}, settings = {}, on_init = custom_on_init}
-
-nvim_lsp.cssls.setup {on_init = custom_on_init}
 
 nvim_lsp.sumneko_lua.setup {
     on_init = custom_on_init,
@@ -23,6 +19,10 @@ nvim_lsp.sumneko_lua.setup {
         }
     }
 }
+
+nvim_lsp.html.setup {filetypes = {"html"}, settings = {}, on_init = custom_on_init}
+
+nvim_lsp.cssls.setup {on_init = custom_on_init}
 
 nvim_lsp.vimls.setup {on_init = custom_on_init}
 
