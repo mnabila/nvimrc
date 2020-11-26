@@ -1,5 +1,3 @@
-autocmd FileType gitcommit setlocal colorcolumn=80 textwidth=80 fo+=t fo-=l
-" autocmd FileType go :call CocAction('runCommand', 'editor.action.organizeImport')
 autocmd FileType jst setlocal filetype=html
 autocmd FileType html,jst,ezt setlocal expandtab shiftwidth=2 softtabstop=2
 autocmd FileType json setlocal expandtab shiftwidth=2 softtabstop=2
@@ -11,5 +9,4 @@ autocmd FileType python setlocal expandtab shiftwidth=4 softtabstop=4 colorcolum
 autocmd FileType scss,sass,css setlocal expandtab shiftwidth=2 softtabstop=2
 autocmd FileType tex setlocal conceallevel=0
 autocmd FileType vim setlocal expandtab shiftwidth=2 softtabstop=2
-" autocmd FileType LuaTree setlocal nowrap
 autocmd FileType * setlocal formatoptions-=cro 

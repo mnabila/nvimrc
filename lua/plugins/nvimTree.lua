@@ -45,7 +45,7 @@ vim.g.lua_tree_icons = {
     default = '',
     symlink = '',
     git = {unstaged = "✗", staged = "✓", unmerged = "", renamed = "➜", untracked = "★"},
-    folder = {default = " ", open = "ﱮ "},
+    folder = {default = " ", open = " "},
 }
 
 -- disable word wrap

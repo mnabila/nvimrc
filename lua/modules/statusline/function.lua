@@ -46,9 +46,9 @@ M.get_git_status = function()
     if branch == '' then
         return ''
     elseif M.is_truncated(90) then
-        return string.format(' שׂ %s ', branch)
+        return string.format('  %s ', branch)
     else
-        return string.format(' +%s ~%s -%s | שׂ %s ', s[1], s[2], s[3], branch)
+        return string.format(' +%s ~%s -%s |  %s ', s[1], s[2], s[3], branch)
     end
 end
 

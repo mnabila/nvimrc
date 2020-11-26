@@ -1,37 +1,56 @@
-local nvim_lsp = require("lspconfig")
+local lspconfig = require('lspconfig')
 
 local custom_on_init = function() print('Language Server Protocol started!') end
 
-nvim_lsp.tsserver.setup {
+lspconfig.tsserver.setup {
     filetypes = {'javascript', 'typescript', 'typescriptreact'},
     on_init = custom_on_init,
     root_dir = function() return vim.loop.cwd() end
 }
 
-nvim_lsp.sumneko_lua.setup {
+lspconfig.sumneko_lua.setup {
     on_init = custom_on_init,
-    cmd = {"lua-language-server"},
+    cmd = {'lua-language-server'},
     settings = {
         Lua = {
-            runtime = {version = "LuaJIT", path = vim.split(package.path, ';')},
-            completion = {keywordSnippet = "Disable"},
-            diagnostics = {enable = true, globals = {"vim", "awesome"}}
+            runtime = {version = 'LuaJIT', path = vim.split(package.path, ';')},
+            completion = {keywordSnippet = 'Disable'},
+            diagnostics = {enable = true, globals = {'vim', 'awesome'}}
         }
     }
 }
 
-nvim_lsp.html.setup {filetypes = {"html"}, settings = {}, on_init = custom_on_init}
+lspconfig.jedi_language_server.setup {
+    on_init = custom_on_init,
+    settings = {
+        jedi = {
+            enable = true,
+            startupMessage = true,
+            markupKindPreferred = 'markdown',
+            jediSettings = {
+                autoImportModules = {},
+                completion = {disableSnippets = false},
+                diagnostics = {enable = true, didOpen = true, didSave = true, didChange = true}
+            },
+            workspace = {extraPaths = {}}
+        }
+    }
+}
 
-nvim_lsp.cssls.setup {on_init = custom_on_init}
+lspconfig.html.setup {filetypes = {'html'}, settings = {}, on_init = custom_on_init}
 
-nvim_lsp.vimls.setup {on_init = custom_on_init}
+lspconfig.cssls.setup {on_init = custom_on_init}
 
-nvim_lsp.jsonls.setup {on_init = custom_on_init}
+lspconfig.vimls.setup {on_init = custom_on_init}
 
-nvim_lsp.bashls.setup {on_init = custom_on_init}
+lspconfig.jsonls.setup {on_init = custom_on_init}
 
-nvim_lsp.texlab.setup {on_init = custom_on_init}
+lspconfig.bashls.setup {on_init = custom_on_init}
 
-nvim_lsp.clangd.setup {on_init = custom_on_init}
+lspconfig.texlab.setup {on_init = custom_on_init}
 
-nvim_lsp.jedi_language_server.setup {on_init = custom_on_init}
+lspconfig.clangd.setup {on_init = custom_on_init}
+
+-- texlab not working if file or buffer is empty
+lspconfig.texlab.setup {on_init = custom_on_init, filetypes = {'tex', 'bib', 'plaintex'}}
+
