@@ -30,11 +30,11 @@ ApplyGruvbox = function()
 
         {'StatusLineMode', {bg = '#EBDBB2', fg = '#282828', gui = 'bold'}},
         {'StatusLineFileManagerIcon', {bg = '#EBDBB2', fg = '#3C3836'}},
-        {'StatusLineLineCol', {bg = '#EBDBB2', fg = '#3C3836', gui='bold'}},
+        {'StatusLineLineCol', {bg = '#EBDBB2', fg = '#3C3836', gui = 'bold'}},
 
         {'StatusLineFiletype', {bg = '#BDAE93', fg = '#3C3836'}},
         {'StatusLineGit', {bg = '#BDAE93', fg = '#3C3836'}},
-        {'StatusLineFileManagerText', {bg = '#BDAE93', fg = '#3C3836', gui='bold'}},
+        {'StatusLineFileManagerText', {bg = '#BDAE93', fg = '#3C3836', gui = 'bold'}},
 
         {'StatusLineFilename', {bg = '#3C3836', fg = '#D5C4A1'}},
 
@@ -47,23 +47,40 @@ ApplyGruvbox = function()
 
         -- telescope
         {'TelescopeSelection', {bg = 'NONE', fg = '#D79921', gui = 'bold'}},
-        {'TelescopeMatching', {bg = 'NONE', fg = '#CC241D', gui = 'bold'}},
+        {'TelescopeMatching', {bg = 'NONE', fg = '#D79921', gui = 'bold'}},
         {'TelescopePreviewBorder', {bg = 'NONE', fg = '#928374', gui = 'bold'}},
         {'TelescopePromptBorder', {bg = 'NONE', fg = '#928374', gui = 'bold'}},
         {'TelescopeResultsBorder', {bg = 'NONE', fg = '#928374', gui = 'bold'}},
+        {'TelescopePromptPrefix', {bg = 'NONE', fg = '#D79921'}},
 
         -- coc.nvim
-        {'CocErrorFloat', {bg = 'NONE', fg = '#fb4934'}},
-        {'CocErrorSign', {bg = 'NONE', fg = '#fb4934'}},
-        {'CocHintSign', {bg = 'NONE', fg = '#83a598'}},
-        {'CocInfoSign', {bg = 'NONE', fg = '#fabd2f'}},
-        {'CocWarningSign', {bg = 'NONE', fg = '#fe8019'}},
+        {'CocErrorFloat', {bg = 'NONE', fg = '#FB4934'}},
+        {'CocErrorSign', {bg = 'NONE', fg = '#FB4934'}},
+        {'CocHintSign', {bg = 'NONE', fg = '#83A598'}},
+        {'CocInfoSign', {bg = 'NONE', fg = '#FABD2F'}},
+        {'CocWarningSign', {bg = 'NONE', fg = '#FE8019'}},
 
         -- diagnostic-nvim
-        {'LspDiagnosticsDefaultError', {bg = 'NONE', fg = '#fb4934'}},
-        {'LspDiagnosticsDefaultInformation', {bg = 'NONE', fg = '#d3869b'}},
-        {'LspDiagnosticsDefaultWarning', {bg = 'NONE', fg = '#fabd2f'}},
-        {'LspDiagnosticsDefaultHint', {bg = 'NONE', fg = '#83a598'}}
+        {'LspDiagnosticsDefaultError', {bg = 'NONE', fg = '#FB4934'}},
+        {'LspDiagnosticsDefaultInformation', {bg = 'NONE', fg = '#D3869B'}},
+        {'LspDiagnosticsDefaultWarning', {bg = 'NONE', fg = '#FABD2F'}},
+        {'LspDiagnosticsDefaultHint', {bg = 'NONE', fg = '#83A598'}},
+
+        -- barbar
+        {'BufferCurrent', {bg = 'NONE', fg = '#EBDBB2', gui = 'bold'}},
+        {'BufferCurrentMod', {bg = 'NONE', fg = '#EBDBB2'}},
+        {'BufferCurrentSign', {bg = 'NONE', fg = '#EBDBB2'}},
+        {'BufferCurrentTarget', {bg = 'NONE', fg = '#EBDBB2'}},
+        {'BufferVisible', {bg = 'NONE', fg = '#EBDBB2'}},
+        {'BufferVisibleMod', {bg = 'NONE', fg = '#EBDBB2'}},
+        {'BufferVisibleSign', {bg = 'NONE', fg = '#EBDBB2'}},
+        {'BufferVisibleTarget', {bg = 'NONE', fg = '#EBDBB2'}},
+        {'BufferInactive', {bg = 'NONE', fg = '#928374'}},
+        {'BufferInactiveMod', {bg = 'NONE', fg = '#928374'}},
+        {'BufferInactiveSign', {bg = 'NONE', fg = '#928374'}},
+        {'BufferInactiveTarget', {bg = 'NONE', fg = '#928374'}},
+        {'BufferTabpages', {bg = 'NONE', fg = '#EBDBB2'}},
+        {'BufferTabpageFill', {bg = 'NONE', fg = '#EBDBB2'}}
     }
 
     for _, highlight in pairs(highlights) do hl(highlight[1], highlight[2]) end

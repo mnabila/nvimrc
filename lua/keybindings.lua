@@ -26,11 +26,11 @@ local set_keybindings = function()
         {'n', '<A-h>', '<CMD>bp<CR>', {noremap = true, silent = true}},
         {'n', '<A-L>', '<CMD>bl<CR>', {noremap = true, silent = true}},
         {'n', '<A-H>', '<CMD>bf<CR>', {noremap = true, silent = true}},
-        {'n', '<Leader>q', '<CMD>bp<CR>:bd #<CR>', {noremap = true, silent = true}},
-        {'n', '<Leader>qq', '<CMD>bufdo bd<CR>', {noremap = true, silent = true}},
-        {'n', '<Leader>qa', '<CMD>bufdo bd!<CR>', {noremap = true, silent = true}},
-        {'n', '<Leader>qo', '<CMD> lua delete_other_buffer()<CR>', {noremap = true, silent = true}},
-        {'n', '<Leader>qi', '<CMD>bp<CR>:bd! #<CR>', {noremap = true, silent = true}},
+        {'n', '<Leader>q', '<CMD>BufferClose<CR>', {noremap = true, silent = true}},
+        {'n', '<Leader>qq', '<CMD>BufferWipeout<CR>', {noremap = true, silent = true}},
+        -- {'n', '<Leader>qa', '<CMD>bufdo bd!<CR>', {noremap = true, silent = true}},
+        {'n', '<Leader>qo', '<CMD>BufferCloseAllButCurrent<CR>', {noremap = true, silent = true}},
+        -- {'n', '<Leader>qi', '<CMD>bp<CR>:bd! #<CR>', {noremap = true, silent = true}},
 
         -- line bubbling
         {'n', '<A-j>', ']e', {noremap = false, silent = true}},
@@ -61,22 +61,15 @@ local set_keybindings = function()
         {'n', '<Leader>f', '<CMD>FormatWrite<CR>', {noremap = false, silent = false}},
         {'v', '<Leader>f', '<CMD>FormatWrite<CR>', {noremap = false, silent = false}},
 
-        -- fzf
-        {'n', '<Leader><space>', '<CMD>History<CR>', {noremap = true, silent = false}},
-        {'n', '<Leader>b', '<CMD>Buffers<CR>', {noremap = true, silent = false}},
-        {'n', '<Leader>o', '<CMD>Files<CR>', {noremap = true, silent = false}},
-        {'n', '<Leader>g', '<CMD>BTags<CR>', {noremap = true, silent = false}},
-        {'n', '<Leader>m', '<CMD>Marks<CR>', {noremap = true, silent = false}},
-        {'n', '<Leader><Leader>', '<CMD>Commands<CR>', {noremap = true, silent = false}},
-
-        {'n', '<Leader><tab>', '<plug>(fzf-maps-n)', {noremap = false, silent = false}},
-        {'x', '<Leader><tab>', '<plug>(fzf-maps-x)', {noremap = false, silent = false}},
-        {'o', '<Leader><tab>', '<plug>(fzf-maps-o)', {noremap = false, silent = false}},
-
-        {'i', '<C-x><C-w>', '<plug>(fzf-complete-word)', {noremap = false, silent = false}},
-        {'i', '<C-x><C-p>', '<plug>(fzf-complete-path)', {noremap = false, silent = false}},
-        {'i', '<C-x><C-f>', '<plug>(fzf-complete-file-ag)', {noremap = false, silent = false}},
-        {'i', '<C-x><C-l>', '<plug>(fzf-complete-line)', {noremap = false, silent = false}},
+        -- telescope
+        {'n', '<Leader><space>', '<CMD>lua require("telescope.builtin").oldfiles({file_ignore_patterns = {"/usr/share/nvim/runtime/*"}})<CR>', {noremap = true, silent = false}},
+        {'n', '<Leader>b', '<CMD>lua require("telescope.builtin").buffers()<CR>', {noremap = true, silent = false}},
+        {'n', '<Leader>o', '<CMD>lua require("telescope.builtin").find_files()<CR>', {noremap = true, silent = false}},
+        {'n', '<Leader>m', '<CMD>lua require("telescope.builtin").marks()<CR>', {noremap = true, silent = false}},
+        {'n', '<Leader><Leader>', '<CMD>lua require("telescope.builtin").commands()<CR>', {noremap = true, silent = false}},
+        {'n', '<Leader>k', '<CMD>lua require("telescope.builtin").keymaps()<CR>', {noremap = true, silent = false}},
+        {'n', '<Leader>/', '<CMD>lua require("telescope.builtin").current_buffer_fuzzy_find()<CR>', {noremap = true, silent = false}},
+        {'n', '<Leader>?', '<CMD>lua require("telescope.builtin").grep_string()<CR>', {noremap = true, silent = false}},
 
         -- base64
         {'v', '<Leader>d64', 'c<C-r>=system(\'base64 -d\', @")<CR><ESC>', {noremap = false, silent = false}},
@@ -91,7 +84,7 @@ local set_keybindings = function()
         {'n', '<Leader>x', '<CMD>%s///<CR>', {noremap = false, silent = false}},
 
         -- Search for visually selected text
-        {'v', '<Leader>v', 'y/\\V<C-R>=escape(@",\'/\\\')<CR><CR>', {noremap = false, silent = false}},
+        {'v', '<Leader>v', 'y/\\V<C-R>=escape(@",\'/\\\')<CR><CR>', {noremap = false, silent = false}}
 
         -- TODO: convert to lua
         -- " Edit init.vim

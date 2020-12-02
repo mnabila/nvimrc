@@ -37,9 +37,9 @@ lspconfig.jedi_language_server.setup {
     }
 }
 
-lspconfig.html.setup {filetypes = {'html'}, settings = {}, on_init = custom_on_init}
+lspconfig.html.setup {filetypes = {'html'}, on_init = custom_on_init}
 
-lspconfig.cssls.setup {on_init = custom_on_init}
+lspconfig.cssls.setup {on_init = custom_on_init, root_dir = function() return vim.loop.cwd() end}
 
 lspconfig.vimls.setup {on_init = custom_on_init}
 
