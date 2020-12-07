@@ -10,3 +10,11 @@ autocmd FileType scss,sass,css setlocal expandtab shiftwidth=2 softtabstop=2
 autocmd FileType tex setlocal conceallevel=0
 autocmd FileType vim setlocal expandtab shiftwidth=2 softtabstop=2
 autocmd FileType * setlocal formatoptions-=cro 
+
+
+" disable nvim-compe on telescope.nvim
+augroup Compe
+  autocmd!
+  autocmd BufEnter * let g:compe_enabled = v:true
+  autocmd FileType TelescopePrompt let g:compe_enabled = v:false
+augroup END

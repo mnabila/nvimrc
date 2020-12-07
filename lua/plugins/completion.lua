@@ -1,5 +1,18 @@
 local keymap = vim.api.nvim_set_keymap
 
+require('compe').setup({
+    enabled = true,
+    debug = false,
+    min_length = 1,
+    auto_preselect = false,
+    throttle_time = 100,
+    source_timeout = 200,
+    incomplete_delay = 400,
+    allow_prefix_unmatch = false,
+
+    source = {path = true, buffer = true, vsnip = true, nvim_lsp = true}
+})
+
 function Check_backspace()
     local col = vim.fn.col('.') - 1
     if col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') then
@@ -8,12 +21,6 @@ function Check_backspace()
         return false
     end
 end
-
-vim.g.compe_enabled = true
-vim.g.compe_min_length = 2
-vim.g.compe_auto_preselect = false
-vim.g.compe_source_timeout = 200
-vim.g.compe_incomplete_delay = 400
 
 keymap('i', '<CR>', table.concat {
     'pumvisible()',
@@ -25,20 +32,11 @@ keymap('i', '<CR>', table.concat {
 }, {silent = true, expr = true})
 
 keymap('i', '<Tab>',
-       'pumvisible() ? "<C-n>" : v:lua.Check_backspace() ? "<Tab>" : compe#confirm(lexima#expand("<LT>CR>", "i"))',
-       {silent = true, noremap = true, expr = true})
-keymap('i', '<S-Tab>', 'pumvisible() ? "<C-p>" : "<S-Tab>"', {noremap = true, expr = true})
-keymap('i', '<C-space>', '<C-r>=compe#complete()<CR>', {noremap = false, silent = true})
+    'pumvisible() ? "<C-n>" : v:lua.Check_backspace() ? "<Tab>" : compe#confirm(lexima#expand("<LT>CR>", "i"))',
+    {silent = true, noremap = true, expr = true})
 
--- lsp completion source
-require('compe_nvim_lsp').attach()
--- buffer completion source
-require('compe'):register_lua_source('buffer', require 'compe_buffer')
+keymap('i', '<S-Tab>', 'pumvisible() ? "<C-p>" : "<S-Tab>"',
+    {noremap = true, expr = true})
 
-vim.api.nvim_command('call compe#source#vim_bridge#register("path", compe_path#source#create())')
-
-vim.cmd("augroup Compe")
-vim.cmd("au!")
-vim.cmd("au BufEnter * let g:compe_enabled = v:true")
-vim.cmd("au FileType TelescopePrompt let g:compe_enabled = v:false")
-vim.cmd("augroup END")
+keymap('i', '<C-space>', '<C-r>=compe#complete()<CR>',
+    {noremap = false, silent = true})
