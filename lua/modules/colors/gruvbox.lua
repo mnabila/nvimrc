@@ -18,6 +18,7 @@ ApplyGruvbox = function()
         {'SignColumn', {bg = 'NONE'}},
         {'ColorColumn', {bg = 'NONE', fg = '#928374'}},
         {'IncSearch', {bg = '#928374', fg = '#282828', gui = 'bold'}},
+        {'VertSplit', {bg = '#3C3836', fg = '#3C3836'}},
 
         -- signify
         {'SignifySignAdd', {fg = '#458588', bg = 'NONE'}},
@@ -25,6 +26,7 @@ ApplyGruvbox = function()
         {'SignifySignDelete', {fg = '#CC241D', bg = 'NONE'}},
 
         -- statusline colours
+        {'StatusLine', {bg = '#3C3836', fg = '#3C3836'}},
         {'StatusLineActive', {bg = '#3C3836', fg = '#EBDBB2'}},
         {'StatusLineInactive', {bg = '#3C3836', fg = '#928374'}},
 

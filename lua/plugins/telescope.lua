@@ -1,5 +1,6 @@
 local actions = require('telescope.actions')
 local telescope = require('telescope')
+local previewers = require('telescope.previewers')
 
 telescope.setup {
     defaults = {
@@ -34,6 +35,9 @@ telescope.setup {
         color_devicons = true,
         use_less = false,
         set_env = {['COLORTERM'] = 'truecolor'}, -- default { }, currently unsupported for shells like cmd.exe / powershell.exe
+        file_previewer = previewers.vim_buffer_cat.new,
+        grep_previewer = previewers.vim_buffer_vimgrep.new,
+        qflist_previewer = previewers.vim_buffer_qflist.new,
         default_mappings = {
             i = {
                 ['<C-j>'] = actions.move_selection_next,
