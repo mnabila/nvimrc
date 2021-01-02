@@ -44,8 +44,8 @@ local set_keybindings = function()
         {'t', '<Esc>', '<C-\\><C-n>', {noremap = true, silent = true}},
 
         -- nvim tree.lua
-        {'n', '`', '<CMD>LuaTreeToggle<CR>', {noremap = true, silent = false}},
-        {'n', '<A-`>', '<CMD>LuaTreeFindFile<CR>', {noremap = true, silent = false}},
+        {'n', '`', '<CMD>NvimTreeToggle<CR>', {noremap = true, silent = false}},
+        {'n', '<A-`>', '<CMD>NvimTreeFindFile<CR>', {noremap = true, silent = false}},
 
         -- git
         {'n', '<Leader>ga', '<CMD>Gwrite<CR>', {noremap = true, silent = false}},
@@ -74,10 +74,6 @@ local set_keybindings = function()
         -- base64
         {'v', '<Leader>d64', 'c<C-r>=system(\'base64 -d\', @")<CR><ESC>', {noremap = false, silent = false}},
         {'v', '<Leader>e64', 'c<C-r>=system(\'base64\', @")<CR><ESC>', {noremap = false, silent = false}},
-
-        -- emmet-vim
-        {'i', '<A-Tab>', '<C-y>,', {noremap = false, silent = false}},
-        {'v', '<A-Tab>', '<C-y>,', {noremap = false, silent = false}},
 
         -- others
         -- Delete in search result

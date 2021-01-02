@@ -44,8 +44,8 @@ ApplyGruvbox = function()
         {'StatusLineWarning', {bg = '##fabd2f', fg = '#3C3836'}},
 
         -- luatree
-        {'LuaTreeFolderIcon', {fg = '#D79921'}},
-        {'LuaTreeIndentMarker', {fg = '#928374'}},
+        {'NvimTreeFolderIcon', {fg = '#D79921'}},
+        {'NvimTreeIndentMarker', {fg = '#928374'}},
 
         -- telescope
         {'TelescopeSelection', {bg = 'NONE', fg = '#D79921', gui = 'bold'}},

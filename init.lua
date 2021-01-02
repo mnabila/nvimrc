@@ -1,3 +1,9 @@
+-- install packer
+require('modules.packer.bootstrapping')
+
+-- neovim package manager
+require('modules.packer')
+
 -- neovim basic configuration
 require('settings')
 require('keybindings')
@@ -30,3 +36,4 @@ require('plugins.gist')
 require('modules.lsp.init')
 require('plugins.completion')
 require('plugins.codeformatter')
+require('plugins.emmet')
