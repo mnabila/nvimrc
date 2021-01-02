@@ -22,13 +22,13 @@ local set_keybindings = function()
         {'n', '<C-Down>', '<CMD>resize +5<CR>', {noremap = true, silent = true}},
 
         -- Buffers
-        {'n', '<A-l>', '<CMD>bn<CR>', {noremap = true, silent = true}},
-        {'n', '<A-h>', '<CMD>bp<CR>', {noremap = true, silent = true}},
-        {'n', '<A-L>', '<CMD>bl<CR>', {noremap = true, silent = true}},
-        {'n', '<A-H>', '<CMD>bf<CR>', {noremap = true, silent = true}},
+        {'n', '<A-l>', '<CMD>BufferNext<CR>', {noremap = true, silent = true}},
+        {'n', '<A-h>', '<CMD>BufferPrevious<CR>', {noremap = true, silent = true}},
+        {'n', '<A-L>', '<CMD>BufferMovePrevious<CR>', {noremap = true, silent = true}},
+        {'n', '<A-H>', '<CMD>BufferMoveNext<CR>', {noremap = true, silent = true}},
         {'n', '<Leader>q', '<CMD>BufferClose<CR>', {noremap = true, silent = true}},
-        {'n', '<Leader>qq', '<CMD>BufferWipeout<CR>', {noremap = true, silent = true}},
-        -- {'n', '<Leader>qa', '<CMD>bufdo bd!<CR>', {noremap = true, silent = true}},
+        {'n', '<Leader>qq', '<CMD>bufdo BufferClose<CR>', {noremap = true, silent = true}},
+        {'n', '<Leader>qa', '<CMD>bufdo BufferClose!<CR>', {noremap = true, silent = true}},
         {'n', '<Leader>qo', '<CMD>BufferCloseAllButCurrent<CR>', {noremap = true, silent = true}},
         -- {'n', '<Leader>qi', '<CMD>bp<CR>:bd! #<CR>', {noremap = true, silent = true}},
 
