@@ -1,69 +1,56 @@
-local nvim_lsp = require("nvim_lsp")
+local lspconfig = require('lspconfig')
 
-nvim_lsp.tsserver.setup{
-    cmd = {"typescript-language-server", "--stdio"},
+local custom_on_init = function() print('Language Server Protocol started!') end
+
+lspconfig.tsserver.setup {
     filetypes = {'javascript', 'typescript', 'typescriptreact'},
-    on_attach = function(client, bufnr)
-        print('tsserver started!')
-    end,
+    on_init = custom_on_init,
+    root_dir = function() return vim.loop.cwd() end
 }
 
-nvim_lsp.html.setup{
-    filetypes = {"html", "javascript"},
-    settings = {},
-    on_attach = function(client, bufnr)
-        print('html-language-server started!')
-    end,
+lspconfig.sumneko_lua.setup {
+    on_init = custom_on_init,
+    cmd = {'lua-language-server'},
+    settings = {
+        Lua = {
+            runtime = {version = 'LuaJIT', path = vim.split(package.path, ';')},
+            completion = {keywordSnippet = 'Disable'},
+            diagnostics = {enable = true, globals = {'vim', 'awesome', 'use'}}
+        }
+    }
 }
 
-nvim_lsp.cssls.setup{
-    on_attach = function(client, bufnr)
-        print('css-language-server started!')
-    end,
+lspconfig.jedi_language_server.setup {
+    on_init = custom_on_init,
+    settings = {
+        jedi = {
+            enable = true,
+            startupMessage = true,
+            markupKindPreferred = 'markdown',
+            jediSettings = {
+                autoImportModules = {},
+                completion = {disableSnippets = false},
+                diagnostics = {enable = true, didOpen = true, didSave = true, didChange = true}
+            },
+            workspace = {extraPaths = {}}
+        }
+    }
 }
 
-nvim_lsp.sumneko_lua.setup{
-    cmd = {"lua-language-server"},
-    on_attach = function(client, bufnr)
-        print("lua-language-server started!")
-    end,
-}
+lspconfig.html.setup {filetypes = {'html'}, on_init = custom_on_init}
 
-nvim_lsp.gopls.setup{
-    cmd = {"gopls"},
-    on_attach = function(client, bufnr)
-        print("go-language-server started!")
-    end,
-}
+lspconfig.cssls.setup {on_init = custom_on_init, root_dir = function() return vim.loop.cwd() end}
 
-nvim_lsp.vimls.setup{
-    cmd = { "vim-language-server", "--stdio" },
-    on_attach = function(client, bufnr)
-        print("vim-language-server started!")
-    end,
-}
+lspconfig.vimls.setup {on_init = custom_on_init}
 
-nvim_lsp.jsonls.setup{
-    on_attach = function(client, bufnr)
-        print("json-language-server started!")
-    end,
-}
+lspconfig.jsonls.setup {on_init = custom_on_init}
 
-nvim_lsp.bashls.setup{
-    on_attach = function(client, bufnr)
-        print("bash-language-server started!")
-    end,
-}
+lspconfig.bashls.setup {on_init = custom_on_init}
 
-nvim_lsp.texlab.setup{
-    on_attach = function(client, bufnr)
-        print("texlab started!")
-    end,
-}
+lspconfig.texlab.setup {on_init = custom_on_init}
 
-nvim_lsp.sqlls.setup{
-    cmd= {"sql-language-server", "up", "--method", "stdio" },
-    on_attach = function(client, bufnr)
-        print("sql-language-server started!")
-    end,
-}
+lspconfig.clangd.setup {on_init = custom_on_init}
+
+-- texlab not working if file or buffer is empty
+lspconfig.texlab.setup {on_init = custom_on_init, filetypes = {'tex', 'bib', 'plaintex'}}
+
