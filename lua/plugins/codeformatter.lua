@@ -9,7 +9,16 @@ local shfmt = {
     }
 }
 
-local luafmt = {{cmd = {"lua-format -i"}, tempfile_dir = tempdir}}
+local luafmt = {
+    {
+        cmd = {
+            function(file)
+                return string.format("lua-format -c %s -i", os.getenv("HOME") .. "/.config/nvim/luaformatter.yaml", file)
+            end
+        },
+        tempfile_dir = tempdir
+    }
+}
 
 local markdownfmt = {
     {cmd = {"prettier -w"}, tempfile_dir = tempdir},
