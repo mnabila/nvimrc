@@ -49,7 +49,7 @@ M.get_git_status = function()
     elseif M.is_truncated(90) then
         return string.format('  %s ', branch)
     else
-        return string.format(' +%s ~%s -%s |  %s', s[1], s[2], s[3], branch)
+        return string.format(' +%s ~%s -%s |  %s ', s[1], s[2], s[3], branch)
     end
 end
 
@@ -83,12 +83,12 @@ M.get_line_col = function()
     end
 end
 
-M.get_coc_status = function() return string.format(' %s ', vim.call('coc#status')) end
+-- M.get_coc_status = function() return string.format(' %s ', vim.call('coc#status')) end
 
-M.get_coc_curfun = function()
-    local curfun = vim.fn.getbufvar(0, 'coc_current_function')
-    return string.format(' %s ', curfun)
-end
+-- M.get_coc_curfun = function()
+--     local curfun = vim.fn.getbufvar(0, 'coc_current_function')
+--     return string.format(' %s ', curfun)
+-- end
 
 -- M.get_lsp_diagnstic_count = function()
 --     if not vim.tbl_isempty(vim.lsp.buf_get_clients(0)) then
