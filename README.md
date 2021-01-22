@@ -13,24 +13,35 @@
 ```
 $ yay -S git neovim-git nodejs npm yarn python-pynvim neovim-remote the_silver_searcher bat prettier
 ```
+
 optional dependency
+
 > python
+
 ```
 $ yay -S python-black python-pylint python-jedi python-pipenv python-pydocstyle
 ```
+
 > latex
+
 ```
 $ yay -S texlive-most texlab
 ```
+
 > bash
+
 ```
 $ yay -S shfmt
 ```
+
 > cpp
+
 ```
 $ yay -S clang
 ```
+
 > lua
+
 ```
 $ yay -S lua-format
 ```
@@ -42,23 +53,18 @@ $ git clone https://github.com/mnabila/nvimrc ~/.config/nvim
 ```
 
 ```
-curl -flo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
-https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-```
-
-```
-$ nvim +PlugInstall
+$ nvim +PackerInstall
 ```
 
 ### Plugins
 
-|    Function    | Plugins                                                                                                              |
-| :------------: | -------------------------------------------------------------------------------------------------------------------- |
-| Plugin Manager | [vim-plug](https://github.com/junegunn/vim-plug)                                                                     |
-|  File Manager  | [nerd tree](https://github.com/scrooloose/nerdtree)                                                                  |
-|  Status line   | [lightline.vim](https://github.com/itchyny/lightline.vim/) [vim-airline](https://github.com/vim-airline/vim-airline) |
-|  Colorscheme   | [gruvbox](https://github.com/morhetz/gruvbox)                                                                        |
-|      Icon      | [vim-devicons](https://github.com/ryanoasis/vim-devicons)                                                            |
-|      Git       | [vim fugitive](https://github.com/tpope/vim-fugitive) [vim gitgutter](https://github.com/airblade/vim-gitgutter)     |
-| Auto Complete  | [coc.nvim](https://github.com/neoclide/coc.nvim)                                                                     |
-|     Others     | [nvimrc](https://github.com/mnabila/nvimrc/blob/master/init.d/plugin.vim)                                            |
+|    Function    | Plugins                                                                                                   |
+| :------------: | --------------------------------------------------------------------------------------------------------- |
+| Plugin Manager | [packer.nvim](https://github.com/wbthomason/packer.nvim)                                                  |
+|  File Manager  | [nvim-tree.lua](https://github.com/kyazdani42/nvim-tree.lua)                                              |
+|  Status line   | [DIY](https://github.com/mnabila/nvimrc/tree/master/lua/modules/statusline)                               |
+|  Colorscheme   | [gruvbox](https://github.com/morhetz/gruvbox) and [gruvbox8](https://github.com/lifepillar/vim-gruvbox8)  |
+|      Icon      | [Nvim-web-devicons](https://github.com/kyazdani42/nvim-web-devicons)                                      |
+|      Git       | [vim fugitive](https://github.com/tpope/vim-fugitive) [vim-signify](https://github.com/mhinz/vim-signify) |
+| Auto Complete  | [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)                                                |
+|     Others     | [packer/init](https://github.com/mnabila/nvimrc/blob/master/lua/modules/packer/init.lua)                       |
