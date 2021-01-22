@@ -1,4 +1,4 @@
-function setOptions(options)
+local function setOptions(options)
     for key, val in pairs(options) do
         if val == true then
             vim.api.nvim_command('set ' .. key)
@@ -89,7 +89,7 @@ local options = {
 setOptions(options)
 
 vim.cmd('syntax on')
-vim.cmd('colorscheme gruvbox')
+vim.cmd('colorscheme gruvbox8')
 vim.cmd('filetype plugin indent on')
 
 vim.g.python3_host_prog = '/usr/bin/python3'

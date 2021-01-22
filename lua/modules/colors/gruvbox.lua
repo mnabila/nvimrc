@@ -3,6 +3,7 @@
 --     local term_color = vim.fn.synIDattr(vim.fn.hlID(group), "fg", "cterm")
 --     return {gui_color, term_color}
 -- end
+
 local hl = function(group, options)
     local bg = options.bg == nil and '' or 'guibg=' .. options.bg
     local fg = options.fg == nil and '' or 'guifg=' .. options.fg
@@ -94,10 +95,10 @@ hl('Comment', {gui = 'italic'})
 -- automatically override colourscheme
 vim.cmd('augroup NewColor')
 vim.cmd('au!')
-vim.cmd('au ColorScheme gruvbox call v:lua.ApplyGruvbox()')
+vim.cmd('au ColorScheme gruvbox8 call v:lua.ApplyGruvbox()')
 vim.cmd('augroup END')
 
 -- disable invert selection for gruvbox
 vim.g.gruvbox_invert_selection = false
 
-vim.cmd('colors gruvbox')
+vim.cmd('colors gruvbox8')

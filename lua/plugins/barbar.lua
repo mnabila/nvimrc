@@ -2,6 +2,9 @@ vim.g.bufferline = {
     -- Enable/disable animations
     animation = false,
 
+    -- Enable/disable auto-hiding the tab bar when there is a single buffer
+    auto_hide = false,
+
     -- Enable/disable icons
     -- if set to 'numbers', will show buffer index in the tabline
     -- if set to 'both', will show buffer index and icons in the tabline
