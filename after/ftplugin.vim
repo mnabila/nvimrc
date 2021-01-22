@@ -23,7 +23,8 @@ augroup END
 " hide cursor on Nvim Tree
 augroup HideCursor
   au!
-  au BufEnter,WinEnter,FileType * set guicursor=n-v-c-sm:block,i-ci-ve:ver2u,r-cr-o:hor20,
+  au BufLeave,WinLeave,FileType NvimTree set guicursor=n-v-c-sm:block,i-ci-ve:ver2u,r-cr-o:hor20,
   au BufEnter,WinEnter,FileType NvimTree set guicursor=n-c-v:block-Cursor/Cursor-blinkon0,
-  au BufEnter,WinEnter,FileType NvimTree hi Cursor blend=100
 augroup END
+
+au FileType NvimTree hi Cursor blend=100

@@ -40,6 +40,7 @@ M.get_current_mode = function()
 end
 
 M.get_git_status = function()
+    -- local signs = vim.b.gitsigns_status_dict or {head = '', added = 0, changed = 0, removed = 0}
     local s = vim.call('sy#repo#get_stats')
     local branch = vim.call('fugitive#head')
 
@@ -48,12 +49,12 @@ M.get_git_status = function()
     elseif M.is_truncated(90) then
         return string.format('  %s ', branch)
     else
-        return string.format(' +%s ~%s -%s |  %s ', s[1], s[2], s[3], branch)
+        return string.format(' +%s ~%s -%s |  %s', s[1], s[2], s[3], branch)
     end
 end
 
 M.get_filename = function()
-    local filename = nill
+    local filename = nil
     if M.is_truncated(90) then
         filename = vim.fn.expand('%:t')
     else
