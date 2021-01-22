@@ -19,7 +19,6 @@ augroup Compe
   autocmd FileType TelescopePrompt let g:compe_enabled = v:false
 augroup END
 
-
 " hide cursor on Nvim Tree
 augroup HideCursor
   au!

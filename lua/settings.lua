@@ -1,8 +1,3 @@
---[[--
-File              : settings.lua
-Date              : 04.01.2021
-Last Modified Date: 04.01.2021
---]]--
 local function setOptions(options)
     for key, val in pairs(options) do
         if val == true then
