@@ -7,17 +7,13 @@ require('modules.packer.bootstrapping')
 -- neovim package manager
 require('modules.packer')
 
--- neovim modules
-require('modules.colors.gruvbox')
-require('modules.statusline')
-
 -- neovim plugins for user interface
 require('plugins.barbar')
-require('plugins.gruvbox')
 require('plugins.hexokinase')
 require('plugins.indentLine')
 require('plugins.treesitter')
 require('plugins.nvimTree')
+require('modules.statusline')
 
 -- neovim plugins for functionality
 require('plugins.translator')
@@ -37,5 +33,10 @@ require('plugins.completion')
 require('plugins.codeformatter')
 require('plugins.emmet')
 
+-- colorscheme
+require('modules.colors.gruvbox')
+require('plugins.gruvbox')
+
 -- neovim keybindings
 require('keybindings')
+

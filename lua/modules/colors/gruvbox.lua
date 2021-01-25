@@ -1,10 +1,4 @@
--- local get_color = function(group)
---     local gui_color = vim.fn.synIDattr(vim.fn.hlID(group), "fg", "gui")
---     local term_color = vim.fn.synIDattr(vim.fn.hlID(group), "fg", "cterm")
---     return {gui_color, term_color}
--- end
-
-local hl = function(group, options)
+local function hl(group, options)
     local bg = options.bg == nil and '' or 'guibg=' .. options.bg
     local fg = options.fg == nil and '' or 'guifg=' .. options.fg
     local gui = options.gui == nil and '' or 'gui=' .. options.gui
@@ -12,7 +6,7 @@ local hl = function(group, options)
     vim.cmd(string.format('hi %s %s %s %s', group, bg, fg, gui))
 end
 
-ApplyGruvbox = function()
+function ApplyGruvbox()
     local highlights = {
         -- normal stuff
         {'Normal', {bg = 'NONE'}},
@@ -83,7 +77,13 @@ ApplyGruvbox = function()
         {'BufferInactiveSign', {bg = 'NONE', fg = '#928374'}},
         {'BufferInactiveTarget', {bg = 'NONE', fg = '#928374'}},
         {'BufferTabpages', {bg = 'NONE', fg = '#EBDBB2'}},
-        {'BufferTabpageFill', {bg = 'NONE', fg = '#EBDBB2'}}
+        {'BufferTabpageFill', {bg = 'NONE', fg = '#EBDBB2'}},
+
+        -- lspsaga
+        {'LspFloatWinBorder', {bg = 'NONE', fg = '#928374'}},
+        {'ProviderTruncateLine', {bg = 'NONE', fg = '#928374'}},
+        {'LspSagaDocTruncateLine', {bg = 'NONE', fg = '#928374'}},
+        {'LspSagaCodeActionTruncateLine', {bg = 'NONE', fg = '#928374'}},
     }
 
     for _, highlight in pairs(highlights) do hl(highlight[1], highlight[2]) end

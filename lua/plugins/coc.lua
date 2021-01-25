@@ -46,7 +46,7 @@ function show_documentation()
     end
 end
 
-local set_keybindings = function()
+local function set_keybindings()
     local keybindings = {
         {
             'i',

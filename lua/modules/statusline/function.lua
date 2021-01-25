@@ -1,33 +1,38 @@
+--[[--
+File              : function.lua
+Date              : 25.01.2021
+Last Modified Date: 25.01.2021
+--]]--
 local devicons = require('nvim-web-devicons')
 local M = {}
 
-M.is_truncated = function(width)
+function M.is_truncated(width)
     local current_window = vim.fn.winnr()
     local current_width = vim.fn.winwidth(current_window)
     return current_width < width
 end
 
-M.get_current_mode = function()
+function M.get_current_mode()
     local modes = {
-        n = {'Normal', 'N'},
-        no = {'N·Pending', 'N'},
-        v = {'Visual', 'V'},
-        V = {'V·Line', 'V'},
+        n      = {'Normal', 'N'},
+        no     = {'N·Pending', 'N'},
+        v      = {'Visual', 'V'},
+        V      = {'V·Line', 'V'},
         [''] = {'V·Block', 'V'},
-        s = {'Select', 'S'},
-        S = {'S·Line', 'S'},
+        s      = {'Select', 'S'},
+        S      = {'S·Line', 'S'},
         ['^S'] = {'S·Block', 'S'},
-        i = {'Insert', 'I'},
-        R = {'Replace', 'R'},
-        Rv = {'V·Replace', 'V'},
-        c = {'Command', 'C'},
-        cv = {'Vim Ex ', 'V'},
-        ce = {'Ex ', 'E'},
-        r = {'Prompt ', 'P'},
-        rm = {'More ', 'M'},
+        i      = {'Insert', 'I'},
+        R      = {'Replace', 'R'},
+        Rv     = {'V·Replace', 'V'},
+        c      = {'Command', 'C'},
+        cv     = {'Vim Ex ', 'V'},
+        ce     = {'Ex ', 'E'},
+        r      = {'Prompt ', 'P'},
+        rm     = {'More ', 'M'},
         ['r?'] = {'Confirm ', 'C'},
-        ['!'] = {'Shell ', 'S'},
-        t = {'Terminal ', 'T'}
+        ['!']  = {'Shell ', 'S'},
+        t      = {'Terminal ', 'T'}
     }
 
     local current_mode = vim.fn.mode()
@@ -39,7 +44,7 @@ M.get_current_mode = function()
     end
 end
 
-M.get_git_status = function()
+function M.get_git_status()
     local s = vim.call('sy#repo#get_stats')
     local branch = vim.call('fugitive#head')
 
@@ -52,7 +57,7 @@ M.get_git_status = function()
     end
 end
 
-M.get_filename = function()
+function M.get_filename()
     local filename = nil
     if M.is_truncated(90) then
         filename = vim.fn.expand('%:t')
@@ -62,7 +67,7 @@ M.get_filename = function()
     return string.format(' %s ', filename)
 end
 
-M.get_filetype = function()
+function M.get_filetype()
     local filetype = vim.bo.filetype
     local filename = vim.fn.expand('%')
     local icon = devicons.get_icon(filename, filetype, {default = true})
@@ -73,31 +78,13 @@ M.get_filetype = function()
     end
 end
 
-
-M.get_line_col = function()
+function M.get_line_col()
     if M.is_truncated(60) then
         return '  %l  %c '
     else
         return '  %l/%-L  %c '
     end
 end
-
--- M.get_coc_status = function() return string.format(' %s ', vim.call('coc#status')) end
-
--- M.get_coc_curfun = function()
---     local curfun = vim.fn.getbufvar(0, 'coc_current_function')
---     return string.format(' %s ', curfun)
--- end
-
--- M.get_lsp_diagnstic_count = function()
---     if not vim.tbl_isempty(vim.lsp.buf_get_clients(0)) then
---         local error_count = vim.lsp.diagnostic.get_count([[Error]])
---         local warning_count = vim.lsp.diagnostic.get_count([[Warning]])
---         return string.format(' E:%s W:%s ', error_count, warning_count)
---     else
---         return ' '
---     end
--- end
 
 return M
 

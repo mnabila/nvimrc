@@ -17,7 +17,7 @@ local colors = {
 
 Statusline = {}
 
-Statusline.active = function()
+function Statusline.active()
     local mid = "%="
     local mode = colors.mode .. func.get_current_mode()
     local git = colors.git .. func.get_git_status()
@@ -41,9 +41,9 @@ Statusline.active = function()
     })
 end
 
-Statusline.inactive = function() return colors.inactive .. '%F' end
+function Statusline.inactive() return colors.inactive .. '%F' end
 
-Statusline.explorer = function()
+function Statusline.explorer()
     local title = colors.fmtext .. ' Explorer '
     local icon =  colors.fmicon  .. '   '
     return table.concat({colors.fmicon, icon,title:upper()})

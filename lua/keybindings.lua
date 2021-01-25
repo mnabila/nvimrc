@@ -1,6 +1,6 @@
 local keymap = vim.api.nvim_set_keymap
 
-local set_keybindings = function()
+local function set_keybindings()
     local keybindings = {
         -- {'mode', 'keybindings', 'command', '{noremap=bool', 'silent=bool', expr=bool}}
 

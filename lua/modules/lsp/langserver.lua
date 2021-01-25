@@ -1,6 +1,8 @@
 local lspconfig = require('lspconfig')
 
-local custom_on_init = function() print('Language Server Protocol started!') end
+local function custom_on_init()
+    print('Language Server Protocol started!')
+end
 
 lspconfig.tsserver.setup {
     filetypes = {'javascript', 'typescript', 'typescriptreact'},
