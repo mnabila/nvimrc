@@ -22,14 +22,15 @@ packer.startup(function()
     use 'rrethy/vim-hexokinase'
     use 'tpope/vim-commentary'
     use 'tpope/vim-surround'
-    use 'tpope/vim-unimpaired'
+    -- use 'tpope/vim-unimpaired'
     use 'voldikss/vim-translator'
     use 'tweekmonster/startuptime.vim'
 
     -- git
-    use 'tpope/vim-fugitive'
-    use 'mhinz/vim-signify'
+    -- use 'tpope/vim-fugitive'
+    -- use 'mhinz/vim-signify'
     use { 'mattn/gist-vim', requires = { 'mattn/webapi-vim' } }
+    use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' } }
 
     -- colorsceme
     use { 'morhetz/gruvbox', disable = true }
