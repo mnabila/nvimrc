@@ -1,0 +1,12 @@
+{
+  "todo": {
+    "prefix": ["todo"],
+    "body": ["TODO(${1:Name}): ${0:Summary}"],
+    "description": "TODO reminder"
+  },
+  "fixme": {
+    "prefix": ["fixme"],
+    "body": ["FIXME(mnabila): ${0:Summary}"],
+    "description": "FIXME reminder"
+  }
+}
