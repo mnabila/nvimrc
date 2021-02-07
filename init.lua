@@ -19,19 +19,19 @@ require('modules.statusline')
 require('plugins.translator')
 require('plugins.header')
 require('plugins.telescope')
+require('plugins.autopairs')
 
 -- neovim language support
 require('plugins.markdown')
 
 -- neovim git{_,hub} support
-require('plugins.signify')
+require('plugins.gitsigns')
 require('plugins.gist')
 
 -- neovim code completion and code formater
 require('modules.lsp')
 require('plugins.completion')
 require('plugins.codeformatter')
-require('plugins.emmet')
 
 -- colorscheme
 require('modules.colors.gruvbox')

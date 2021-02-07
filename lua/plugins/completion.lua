@@ -1,42 +1,45 @@
 local keymap = vim.api.nvim_set_keymap
 
+vim.g.vsnip_snippet_dir = vim.fn.stdpath("config").."/snippets"
+
 require('compe').setup({
     enabled = true,
+    autocomplete = true,
     debug = false,
     min_length = 1,
-    auto_preselect = false,
-    throttle_time = 100,
+    preselect = 'disable',
+    throttle_time = 80,
     source_timeout = 200,
     incomplete_delay = 400,
-    allow_prefix_unmatch = false,
+    max_abbr_width = 100,
+    max_kind_width = 100,
+    max_menu_width = 100,
 
-    source = {path = true, buffer = true, vsnip = true, nvim_lsp = true}
+    source = {
+        path = true,
+        buffer = true,
+        calc = true,
+        vsnip = true,
+        nvim_lsp = true,
+        nvim_lua = true,
+        spell = true,
+        tags = true,
+        snippets_nvim = true,
+        treesitter = true,
+    }
 })
 
-function Check_backspace()
-    local col = vim.fn.col('.') - 1
-    if col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') then
-        return true
-    else
-        return false
+function Completions()
+    local npairs = require('nvim-autopairs')
+    if vim.fn.pumvisible() == 1  then
+        if vim.fn.complete_info()["selected"] ~= -1 then
+            return vim.fn["compe#confirm"]('<CR>')
+        end
     end
+    return npairs.check_break_line_char()
 end
 
-keymap('i', '<CR>', table.concat {
-    'pumvisible()',
-    '? complete_info()["selected"] != "-1"',
-    '? compe#confirm(lexima#expand("<LT>CR>", "i"))',
-    ': "<C-g>u".lexima#expand("<LT>CR>", "i")',
-    ': v:lua.Util.check_html_char() ? lexima#expand("<LT>CR>", "i")."<ESC>O"',
-    ': lexima#expand("<LT>CR>", "i")'
-}, {silent = true, expr = true})
-
-keymap('i', '<Tab>',
-    'pumvisible() ? "<C-n>" : v:lua.Check_backspace() ? "<Tab>" : compe#confirm(lexima#expand("<LT>CR>", "i"))',
-    {silent = true, noremap = true, expr = true})
-
-keymap('i', '<S-Tab>', 'pumvisible() ? "<C-p>" : "<S-Tab>"',
-    {noremap = true, expr = true})
-
-keymap('i', '<C-space>', '<C-r>=compe#complete()<CR>',
-    {noremap = false, silent = true})
+keymap('i', '<C-space>', 'compe#complete()',                   { expr = true})
+keymap('i', '<CR>',      'v:lua.Completions()',                { expr = true})
+keymap('i', '<Tab>',     'pumvisible() ? "<C-n>" : "<Tab>"',   { expr = true})
+keymap('i', '<S-Tab>',   'pumvisible() ? "<C-p>" : "<S-Tab>"', { expr = true})
