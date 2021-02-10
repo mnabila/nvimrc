@@ -10,7 +10,7 @@ require('modules.packer')
 -- neovim plugins for user interface
 require('plugins.barbar')
 require('plugins.hexokinase')
-require('plugins.indentLine')
+require('plugins.indentline')
 require('plugins.treesitter')
 require('plugins.nvimTree')
 require('modules.statusline')
@@ -20,6 +20,7 @@ require('plugins.translator')
 require('plugins.header')
 require('plugins.telescope')
 require('plugins.autopairs')
+require('plugins.comment')
 
 -- neovim language support
 require('plugins.markdown')

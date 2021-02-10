@@ -6,7 +6,14 @@
   },
   "fixme": {
     "prefix": ["fixme"],
-    "body": ["FIXME(mnabila): ${0:Summary}"],
+    "body": [
+      "FIXME(${VIM:system('git config github.user | tr -d \"\n\"')}): ${0:Summary}"
+    ],
     "description": "FIXME reminder"
+  },
+  "pwgen": {
+    "prefix": ["pwgen"],
+    "body": ["${VIM:system('pwgen -s 32 -1 | tr -d \"\n\"')}"],
+    "description": "Generate password"
   }
 }

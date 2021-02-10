@@ -11,7 +11,7 @@ packer.init({
 packer.startup(function()
     use { 'wbthomason/packer.nvim', opt = true }
 
-    use 'Yggdroot/indentLine'
+    use 'glepnir/indent-guides.nvim'
     use { 'iamcco/markdown-preview.nvim', run = 'cd app && yarn install', cmd = 'MarkdownPreview' }
     use 'junegunn/vim-easy-align'
     use { 'kyazdani42/nvim-tree.lua', requires = { 'kyazdani42/nvim-web-devicons' } }
@@ -19,11 +19,12 @@ packer.startup(function()
     use 'mnabila/vim-header'
     use 'psliwka/vim-smoothie'
     use 'rrethy/vim-hexokinase'
-    use 'tpope/vim-commentary'
+    -- use 'tpope/vim-commentary'
     use 'tpope/vim-surround'
     -- use 'tpope/vim-unimpaired'
     use 'voldikss/vim-translator'
     use 'windwp/nvim-autopairs'
+    use 'terrortylor/nvim-comment'
 
     -- git
     use { 'mattn/gist-vim', requires = { 'mattn/webapi-vim' } }
@@ -35,7 +36,7 @@ packer.startup(function()
 
     -- nvim-lsp
     use 'neovim/nvim-lspconfig'
-    use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/popup.nvim', 'nvim-lua/plenary.nvim' } }
+    use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/popup.nvim', 'nvim-lua/plenary.nvim', 'nvim-telescope/telescope-fzy-native.nvim'} }
     use 'lukas-reineke/format.nvim'
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
     use { 'hrsh7th/nvim-compe', requires = { 'hrsh7th/vim-vsnip' } }

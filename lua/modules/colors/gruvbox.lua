@@ -6,7 +6,7 @@ local function hl(group, options)
     vim.cmd(string.format('hi %s %s %s %s', group, bg, fg, gui))
 end
 
-function ApplyGruvbox()
+function _G.applyGruvbox()
     local highlights = {
         -- normal stuff
         {'Normal',      {bg = 'NONE'}},
@@ -87,7 +87,7 @@ hl('Comment', {gui = 'italic'})
 -- automatically override colourscheme
 vim.cmd('augroup NewColor')
 vim.cmd('au!')
-vim.cmd('au ColorScheme gruvbox8 call v:lua.ApplyGruvbox()')
+vim.cmd('au ColorScheme gruvbox8 call v:lua.applyGruvbox()')
 vim.cmd('augroup END')
 
 -- disable invert selection for gruvbox

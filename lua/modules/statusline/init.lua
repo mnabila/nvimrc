@@ -15,9 +15,9 @@ local colors = {
     fmtext = '%#StatusLineFileManagerText#',
 }
 
-Statusline = {}
+_G.statusline = {}
 
-function Statusline.active()
+function _G.statusline.active()
     local mid = "%="
     local mode = colors.mode .. func.get_current_mode()
     local git = colors.git .. func.get_git_status()
@@ -41,9 +41,9 @@ function Statusline.active()
     })
 end
 
-function Statusline.inactive() return colors.inactive .. '%F' end
+function _G.statusline.inactive() return colors.inactive .. '%F' end
 
-function Statusline.explorer()
+function _G.statusline.explorer()
     local title = colors.fmtext .. ' Explorer '
     local icon =  colors.fmicon  .. '   '
     return table.concat({colors.fmicon, icon,title:upper()})
@@ -52,7 +52,7 @@ end
 -- set statusline
 vim.cmd('augroup Statusline')
 vim.cmd('au!')
-vim.cmd('au WinEnter,BufEnter * setlocal statusline=%!v:lua.Statusline.active()')
-vim.cmd('au WinLeave,BufLeave * setlocal statusline=%!v:lua.Statusline.inactive()')
-vim.cmd('au WinEnter,BufEnter,FileType NvimTree setlocal statusline=%!v:lua.Statusline.explorer()')
+vim.cmd('au WinEnter,BufEnter * setlocal statusline=%!v:lua.statusline.active()')
+vim.cmd('au WinLeave,BufLeave * setlocal statusline=%!v:lua.statusline.inactive()')
+vim.cmd('au WinEnter,BufEnter,FileType NvimTree setlocal statusline=%!v:lua.statusline.explorer()')
 vim.cmd('augroup END')

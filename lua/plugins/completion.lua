@@ -29,7 +29,7 @@ require('compe').setup({
     }
 })
 
-function Completions()
+function _G.completions()
     local npairs = require('nvim-autopairs')
     if vim.fn.pumvisible() == 1  then
         if vim.fn.complete_info()["selected"] ~= -1 then
@@ -40,6 +40,6 @@ function Completions()
 end
 
 keymap('i', '<C-space>', 'compe#complete()',                   { expr = true})
-keymap('i', '<CR>',      'v:lua.Completions()',                { expr = true})
+keymap('i', '<CR>',      'v:lua.completions()',                { expr = true})
 keymap('i', '<Tab>',     'pumvisible() ? "<C-n>" : "<Tab>"',   { expr = true})
 keymap('i', '<S-Tab>',   'pumvisible() ? "<C-p>" : "<S-Tab>"', { expr = true})

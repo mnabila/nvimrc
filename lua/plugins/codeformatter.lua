@@ -1,5 +1,9 @@
 local tempdir = "/tmp"
 
+local remove_whitespace = {
+    {cmd = {"sed -i 's/[ \t]*$//'"}}
+}
+
 local prettier = {{cmd = {"prettier -w"}, tempfile_dir = tempdir}}
 
 local shfmt = {
@@ -13,7 +17,8 @@ local luafmt = {
     {
         cmd = {
             function(file)
-                return string.format("lua-format -c %s -i", os.getenv("HOME") .. "/.config/nvim/luaformatter.yaml", file)
+                local config = os.getenv("HOME") .. "/.config/nvim/luaformatter.yaml"
+                return string.format('lua-format -c %s -i', config, file)
             end
         },
         tempfile_dir = tempdir
@@ -29,6 +34,7 @@ local black = {{cmd = {"black"}, tempfile_dir = tempdir}}
 
 vim.g.format_debug = true
 require('format').setup {
+    ['*'] = remove_whitespace,
     javascript = prettier,
     typescript = prettier,
     html = prettier,

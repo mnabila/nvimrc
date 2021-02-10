@@ -21,7 +21,7 @@ local options = {
     bomb           = true,
     clipboard      = 'unnamedplus',
     compatible     = false,
-    completeopt    = 'menuone,noselect',
+    completeopt    = 'menu,menuone,noselect',
     conceallevel   = 0,
     cursorcolumn   = true,
     cursorline     = true,
@@ -91,7 +91,6 @@ setOptions(options)
 
 vim.cmd('syntax on')
 vim.cmd('colorscheme gruvbox8')
-vim.cmd('filetype plugin indent on')
 
 vim.g.python3_host_prog = '/usr/bin/python3'
 vim.g.vimtex_compiler_progname = 'nvr'

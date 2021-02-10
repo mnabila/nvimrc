@@ -1,8 +1,3 @@
---[[--
-File              : function.lua
-Date              : 25.01.2021
-Last Modified Date: 25.01.2021
---]]--
 local devicons = require('nvim-web-devicons')
 local M = {}
 
