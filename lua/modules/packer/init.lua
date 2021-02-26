@@ -19,9 +19,7 @@ packer.startup(function()
     use 'mnabila/vim-header'
     use 'psliwka/vim-smoothie'
     use 'rrethy/vim-hexokinase'
-    -- use 'tpope/vim-commentary'
     use 'tpope/vim-surround'
-    -- use 'tpope/vim-unimpaired'
     use 'voldikss/vim-translator'
     use 'windwp/nvim-autopairs'
     use 'terrortylor/nvim-comment'
@@ -35,12 +33,11 @@ packer.startup(function()
     use { 'lifepillar/vim-gruvbox8', disable = false }
 
     -- nvim-lsp
-    use 'neovim/nvim-lspconfig'
+    use { 'neovim/nvim-lspconfig', requires = { 'glepnir/lspsaga.nvim', 'onsails/lspkind-nvim' } }
     use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/popup.nvim', 'nvim-lua/plenary.nvim', 'nvim-telescope/telescope-fzy-native.nvim'} }
     use 'lukas-reineke/format.nvim'
-    use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+    use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' , requires = { 'p00f/nvim-ts-rainbow' }}
     use { 'hrsh7th/nvim-compe', requires = { 'hrsh7th/vim-vsnip' } }
-    -- use { 'glepnir/lspsaga.nvim', requires = { 'neovim/nvim-lspconfig' } }
 
     -- snippet
     use 'mattn/emmet-vim'

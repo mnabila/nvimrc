@@ -1,0 +1,674 @@
+{
+  "s-alter-add-after": {
+    "prefix": "s-alter-add-after",
+    "body": "\nALTER TABLE `${1:table}` ADD COLUMN `${2:col_name}` ${3:INT}${4: NOT NULL} AFTER `${5:col_name}`;\n",
+    "description": "",
+    "scope": "source.sql"
+  },
+  "s-alter-add-first": {
+    "prefix": "s-alter-add-first",
+    "body": "\nALTER TABLE `${1:table}` ADD COLUMN `${2:col_name}` ${3:INT}${4: NOT NULL} FIRST;\n",
+    "description": "",
+    "scope": "source.sql"
+  },
+  "s-alter-add": {
+    "prefix": "s-alter-add",
+    "body": "\nALTER TABLE `${1:table}` ADD COLUMN `${2:col_name}` ${3:INT}${4: NOT NULL};\n",
+    "description": "",
+    "scope": "source.sql"
+  },
+  "s-alter-auto-increment": {
+    "prefix": "s-alter-auto-increment",
+    "body": "\nALTER TABLE `${1:table}` AUTO_INCREMENT = ${2:1};\n",
+    "description": "",
+    "scope": "source.sql"
+  },
+  "s-alter-change": {
+    "prefix": "s-alter-change",
+    "body": "\nALTER TABLE `${1:table}` CHANGE `${2:old_name}` `${3:new_name}` ${4:new_type}${5: NOT NULL};\n",
+    "description": "",
+    "scope": "source.sql"
+  },
+  "s-alter-db-charset": {
+    "prefix": "s-alter-db-charset",
+    "body": "\nALTER DATABASE `${1:table}` CHARACTER SET ${2:utf8} COLLATE ${3:utf8_unicode_ci};\n",
+    "description": "",
+    "scope": "source.sql"
+  },
+  "s-alter-drop": {
+    "prefix": "s-alter-drop",
+    "body": "\nALTER TABLE `${1:table}` DROP COLUMN `${2:col_name}`;\n",
+    "description": "",
+    "scope": "source.sql"
+  },
+  "s-alter-fk-drop": {
+    "prefix": "s-alter-fk-drop",
+    "body": "\nALTER TABLE `$1`\nDROP FOREIGN KEY `${2:fk_${3:the_table}_${4:far_table}}`;\n",
+    "description": "",
+    "scope": "source.sql"
+  },
+  "s-alter--fk": {
+    "prefix": "s-alter--fk",
+    "body": "\nALTER TABLE `$1`\nADD INDEX `fk_$1_$3_idx` (`$2` ASC),\nADD CONSTRAINT `fk_${1:the_table}_$3`\n  FOREIGN KEY (`${2:foreign_key}`)\n  REFERENCES `${3:far_table}` (`${4:far_key}`)\n  ON DELETE NO ACTION\n  ON UPDATE CASCADE\n",
+    "description": "",
+    "scope": "source.sql"
+  },
+  "s-alter-fk": {
+    "prefix": "s-alter-fk",
+    "body": "\nALTER TABLE `$1`\nADD CONSTRAINT `fk_${1:the_table}_$3`\n  FOREIGN KEY (`${2:foreign_key}`)\n  REFERENCES `${3:far_table}` (`${4:far_key}`)\n  ON DELETE NO ACTION\n  ON UPDATE CASCADE\n",
+    "description": "",
+    "scope": "source.sql"
+  },
+  "s-alter-idx-drop": {
+    "prefix": "s-alter-idx-drop",
+    "body": "\nALTER TABLE `${1:table}` DROP INDEX `${3:index_name}`;\n",
+    "description": "",
+    "scope": "source.sql"
+  },
+  "s-alter-idx": {
+    "prefix": "s-alter-idx",
+    "body": "\nALTER TABLE `${1:table}` ADD ${2:INDEX} `${3:index_name}`(`${4:field}` ASC$5);\n",
+    "description": "",
+    "scope": "source.sql"
+  },
+  "s-alter-modify": {
+    "prefix": "s-alter-modify",
+    "body": "\nALTER TABLE `${1:table}` MODIFY `${2:field}` ${3:NEW-FIELD-TYPE}${4: NOT NULL} ${5:AFTER `${6:field}`};\n",
+    "description": "",
+    "scope": "source.sql"
+  },
+  "s-alter-sort": {
+    "prefix": "s-alter-sort",
+    "body": "\nALTER TABLE `${1:table}` ORDER BY `${2:field}`;\n",
+    "description": "",
+    "scope": "source.sql"
+  },
+  "s-alter-table-charset": {
+    "prefix": "s-alter-table-charset",
+    "body": "\nALTER TABLE `${1:table}` CHARACTER SET ${2:utf8} COLLATE ${3:utf8_unicode_ci};\n",
+    "description": "",
+    "scope": "source.sql"
+  },
+  "s-alter-table-rename": {
+    "prefix": "s-alter-table-rename",
+    "body": "\nALTER TABLE `${1:table}` RENAME TO `${2:new_name}`;\n",
+    "description": "",
+    "scope": "source.sql"
+  },
+  "s-alter-uk": {
+    "prefix": "s-alter-uk",
+    "body": "\nALTER TABLE `${1:table_name}` ADD UNIQUE `unique_${5:index_name}` (`${11:column_1}`${15:, `${18:column_2}`});\n",
+    "description": "(add unique key)",
+    "scope": "source.sql"
+  },
+  "s--case": {
+    "prefix": "s--case",
+    "body": "\nCASE\n\t${1:-- Example:\n\t-- --------------------------------------------------------------------------\n\t-- WHEN `my_var` = 5 THEN SELECT 'case equals 5';\n\t--\n\t-- WHEN `my_var` > 5 THEN BEGIN\n\t--   SELECT 'case bigger than 5';\n\t-- END;\n\t--\n\t-- ELSE SELECT 'case default';\n\t-- --------------------------------------------------------------------------\n\t-- you can use snippets for create a case\n\t--   s-case-w  - When\n\t--   s-case-wb - When Block\n\t}${2:ELSE $0;}\nEND CASE;\n",
+    "description": "(case ... end case;)",
+    "scope": "source.sql"
+  },
+  "s-case": {
+    "prefix": "s-case",
+    "body": "\nCASE `${2:var_name}`\n\t${1:-- Example:\n\t-- --------------------------------------------------------------------------\n\t-- WHEN 'my_val' THEN SELECT 'case my_val';\n\t--\n\t-- WHEN 'my_val_2' THEN BEGIN\n\t--   SELECT 'case my_val_2';\n\t-- END;\n\t--\n\t-- ELSE SELECT 'case default';\n\t-- --------------------------------------------------------------------------\n\t-- you can use snippets for create a case\n\t--   s--case-w  - When\n\t--   s--case-wb - When Block\n\t}${3:ELSE $0;}\nEND CASE;\n",
+    "description": "(case `var` ... end case;)",
+    "scope": "source.sql"
+  },
+  "s--case-wb": {
+    "prefix": "s--case-wb",
+    "body": "\nWHEN `${1:var_name}` ${2:=} '${3:value}' THEN BEGIN\n  ${0:-- SELECT 'case $3'};\nEND;\n\n",
+    "description": "(when `...` = '...' begin ...)",
+    "scope": "source.sql"
+  },
+  "s-case-wb": {
+    "prefix": "s-case-wb",
+    "body": "\nWHEN '${1:value}' THEN BEGIN\n  ${0:-- SELECT 'case $1'};\nEND;\n\n",
+    "description": "(when '...' begin ...)",
+    "scope": "source.sql"
+  },
+  "s--case-w": {
+    "prefix": "s--case-w",
+    "body": "\nWHEN `${1:var_name}` ${2:=} '${3:value}' THEN ${0:-- SELECT 'case $3'};\n",
+    "description": "(when `...` = '...' then ...)",
+    "scope": "source.sql"
+  },
+  "s-case-w": {
+    "prefix": "s-case-w",
+    "body": "\nWHEN '${1:value}' THEN ${0:-- SELECT 'case $1'};\n",
+    "description": "(when '...' then ...)",
+    "scope": "source.sql"
+  },
+  "s-cur": {
+    "prefix": "s-cur",
+    "body": "\nDECLARE `${5:var_1}` ${7:VARCHAR(255)};\nDECLARE `${10:done}` INT DEFAULT 0;\nDECLARE `${30:cur}` CURSOR FOR ${40:SELECT `User` FROM `mysql`.`user`};\nDECLARE CONTINUE HANDLER FOR SQLSTATE '02000' SET `${10:done}` = 1;\n\nOPEN `${30:cur}`;\nREPEAT\n  FETCH `${30:cur}` INTO `${5:var_1}`;\n  IF NOT `${10:done}` THEN\n  \t${0:-- Your code ...\n  \tSELECT `${5:var_1}`;\n  \t}\n  END IF;\nUNTIL `${10:done}` END REPEAT;\nCLOSE `${30:cur}`;\n",
+    "description": "(cursor full)",
+    "scope": "source.sql"
+  },
+  "s-dec-cur": {
+    "prefix": "s-dec-cur",
+    "body": "\nDECLARE `${1:cursor_name}` FOR ${0:-- SELECT ...};\n",
+    "description": "(declare cursor)",
+    "scope": "source.sql"
+  },
+  "s--dec": {
+    "prefix": "s--dec",
+    "body": "\nDECLARE `${1:var_name}` ${2:INT} DEFAULT '${3:value}';\n",
+    "description": "(var with default)",
+    "scope": "source.sql"
+  },
+  "s-dec-h": {
+    "prefix": "s-dec-h",
+    "body": "\nDECLARE CONTINUE HANDLER FOR SQLSTATE '${1:02000}' ${2:SET `done` = 1};\n",
+    "description": "(declare handler)",
+    "scope": "source.sql"
+  },
+  "s--dec-s": {
+    "prefix": "s--dec-s",
+    "body": "\nDECLARE `${1:var_name}` VARCHAR(${2:255}) DEFAULT '${3:value}';\n",
+    "description": "(declare .. varchar .. default)",
+    "scope": "source.sql"
+  },
+  "s-dec-s": {
+    "prefix": "s-dec-s",
+    "body": "\nDECLARE `${1:var_name}` VARCHAR(${2:255});\n",
+    "description": "(declare ... varchar)",
+    "scope": "source.sql"
+  },
+  "s-dec": {
+    "prefix": "s-dec",
+    "body": "\nDECLARE `${1:var_name}` ${2:INT};\n",
+    "description": "(declare ...)",
+    "scope": "source.sql"
+  },
+  "s--if": {
+    "prefix": "s--if",
+    "body": "\nIF `${1:var}` ${2:=} ${3:value} THEN\n\t${4:-- body}\nELSE\n\nEND IF;\n",
+    "description": "(if ... else)",
+    "scope": "source.sql"
+  },
+  "s-if": {
+    "prefix": "s-if",
+    "body": "\nIF `${1:var}` ${2:=} ${3:value} THEN\n\t${4:-- body}\nEND IF;\n",
+    "description": "(if ...)",
+    "scope": "source.sql"
+  },
+  "s-loop": {
+    "prefix": "s-loop",
+    "body": "\n`${1:label_name}`: LOOP\n\tSET `${10:var_name}` = `${10}` ${11:+} ${12:1};\n\n\t${0:-- Your code ...}\n\n\tIF `${10}` ${20:>=} ${22:10} THEN\n\t\tLEAVE `${1:label_name}`;\n\tEND IF;\nEND LOOP `${1:label_name}`;\n",
+    "description": "(loop ... end loop)",
+    "scope": "source.sql"
+  },
+  "s--repeat": {
+    "prefix": "s--repeat",
+    "body": "\nREPEAT\n\tBEGIN\n\t\t${0:-- Your code ...}\n\tEND;\nUNTIL `${1:var_name}` ${2:>} ${3:10} END REPEAT;\n",
+    "description": "(loop begin ...)",
+    "scope": "source.sql"
+  },
+  "s-repeat": {
+    "prefix": "s-repeat",
+    "body": "\nREPEAT ${0:/* Your code ... */}; UNTIL `${1:var_name}` ${2:>} ${3:10} END REPEAT;\n",
+    "description": "(loop ... until ...)",
+    "scope": "source.sql"
+  },
+  "s-db-drop": {
+    "prefix": "s-db-drop",
+    "body": "\nDROP DATABASE `${1:db_name}`;\n",
+    "description": "",
+    "scope": "source.sql"
+  },
+  "s-db": {
+    "prefix": "s-db",
+    "body": "\nCREATE DATABASE `${1:db_name}` DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;\n",
+    "description": "",
+    "scope": "source.sql"
+  },
+  "s-d": {
+    "prefix": "s-d",
+    "body": "\nDELETE FROM `${1:table}`${2: WHERE `$3` = '$4'};\n",
+    "description": "",
+    "scope": "source.sql"
+  },
+  "s-func-drop": {
+    "prefix": "s-func-drop",
+    "body": "\nDROP FUNCTION IF EXISTS `${1:name}`;\n",
+    "description": "",
+    "scope": "source.sql"
+  },
+  "s-func-list": {
+    "prefix": "s-func-list",
+    "body": "\n${1:SELECT `name`, `param_list`, `comment` FROM `mysql`.`proc` WHERE `db`=DATABASE() AND `type` = 'FUNCTION';}\n",
+    "description": "",
+    "scope": "source.sql"
+  },
+  "s--func": {
+    "prefix": "s--func",
+    "body": "\nDROP FUNCTION IF EXISTS `${1:function_name}`;\nCREATE FUNCTION `${1}`(`${2:arg_name}` ${3:INT}) RETURNS ${4:INT}\nBEGIN\n  $5\nEND;\n",
+    "description": "",
+    "scope": "source.sql"
+  },
+  "s-func": {
+    "prefix": "s-func",
+    "body": "\nCREATE FUNCTION `${1:function_name}`(`${2:arg_name}` ${3:INT}) RETURNS ${4:INT}\nBEGIN\n  $5\nEND;\n",
+    "description": "",
+    "scope": "source.sql"
+  },
+  "s-ione": {
+    "prefix": "s-ione",
+    "body": "\nINSERT INTO `$1` SET\n`${2:name}` = '${3:value}'${4:,\n};\n",
+    "description": "",
+    "scope": "source.sql"
+  },
+  "s-ifrom": {
+    "prefix": "s-ifrom",
+    "body": "\nINSERT INTO `${1:table}` SELECT ${2:*} FROM ${3:`${4:database}`.}`${5:$1}`;\n",
+    "description": "",
+    "scope": "source.sql"
+  },
+  "s-i": {
+    "prefix": "s-i",
+    "body": "\nINSERT INTO `$1`(`$2`) VALUES\n($3)${4:,\n};\n",
+    "description": "",
+    "scope": "source.sql"
+  },
+  "s-delim": {
+    "prefix": "s-delim",
+    "body": "\nDELIMITER ${1:$$}\n\n$2\n\n$1\nDELIMITER ;\n",
+    "description": "",
+    "scope": "source.sql"
+  },
+  "s-utc": {
+    "prefix": "s-utc",
+    "body": "\nSELECT UNIX_TIMESTAMP(NOW());\n",
+    "description": "",
+    "scope": "source.sql"
+  },
+  "s-priv-add-all": {
+    "prefix": "s-priv-add-all",
+    "body": "\nGRANT ALL PRIVILEGES ON *.* TO '${4:user_name}'@'${5:localhost}';\n",
+    "description": "(add all privileges)",
+    "scope": "source.sql"
+  },
+  "s-priv-add": {
+    "prefix": "s-priv-add",
+    "body": "\nGRANT ${1:ALL} PRIVILEGES ON `${2:db_name}`.`${3:table_name}` TO '${4:user_name}'@'${5:localhost}';\n",
+    "description": "(add privileges)",
+    "scope": "source.sql"
+  },
+  "s-priv-drop-all": {
+    "prefix": "s-priv-drop-all",
+    "body": "\nREVOKE ALL ON *.* FROM '${4:user_name}'@'${5:localhost}';\n",
+    "description": "(remove all privileges)",
+    "scope": "source.sql"
+  },
+  "s-priv-drop": {
+    "prefix": "s-priv-drop",
+    "body": "\nREVOKE ${1:ALL} ON `${2:db_name}`.`${3:table_name}` FROM '${4:user_name}'@'${5:localhost}';\n",
+    "description": "(remove privileges)",
+    "scope": "source.sql"
+  },
+  "s-priv-list": {
+    "prefix": "s-priv-list",
+    "body": "\nSHOW GRANTS FOR '${1:user_name}'@'${2:localhost}'\\G\n",
+    "description": "(list privileges)",
+    "scope": "source.sql"
+  },
+  "s-priv-refresh": {
+    "prefix": "s-priv-refresh",
+    "body": "\n${0:FLUSH PRIVILEGES;}\n",
+    "description": "(flush privileges)",
+    "scope": "source.sql"
+  },
+  "s-proc-drop": {
+    "prefix": "s-proc-drop",
+    "body": "\nDROP PROCEDURE IF EXISTS `${1:name}`;\n",
+    "description": "",
+    "scope": "source.sql"
+  },
+  "s-proc-list": {
+    "prefix": "s-proc-list",
+    "body": "\n${1:SELECT `name`, `param_list`, `comment` FROM `mysql`.`proc` WHERE `db`=DATABASE() AND `type` = 'PROCEDURE';}\n",
+    "description": "",
+    "scope": "source.sql"
+  },
+  "s--proc": {
+    "prefix": "s--proc",
+    "body": "\nDROP PROCEDURE IF EXISTS `${1:procedure_name}`;\nCREATE PROCEDURE `${1}`(\n`${2:arg_name}` ${3:INT}${4:,}\n) BEGIN\n  $5\nEND;\n",
+    "description": "",
+    "scope": "source.sql"
+  },
+  "s-proc": {
+    "prefix": "s-proc",
+    "body": "\nCREATE PROCEDURE `${1:procedure_name}`(\n`${2:arg_name}` ${3:INT}${4:,}\n) BEGIN\n  $5\nEND;\n",
+    "description": "",
+    "scope": "source.sql"
+  },
+  "s--and": {
+    "prefix": "s--and",
+    "body": "\nAND ( `$1` ${2:=} '$3' ) \n",
+    "description": "",
+    "scope": "source.sql"
+  },
+  "s-and": {
+    "prefix": "s-and",
+    "body": "\nAND ( $1 ) \n",
+    "description": "",
+    "scope": "source.sql"
+  },
+  "s-alias": {
+    "prefix": "s-alias",
+    "body": "\n`$1`.`$2` AS `$3`\n",
+    "description": "",
+    "scope": "source.sql"
+  },
+  "s--alias": {
+    "prefix": "s--alias",
+    "body": "\n, `$1`.`$2` AS `$3`\n",
+    "description": "",
+    "scope": "source.sql"
+  },
+  "s--": {
+    "prefix": "s--",
+    "body": "\n, `$1`.`$2`\n",
+    "description": "",
+    "scope": "source.sql"
+  },
+  "s-": {
+    "prefix": "s-",
+    "body": "\n`$1`.`$2`\n",
+    "description": "",
+    "scope": "source.sql"
+  },
+  "s-e": {
+    "prefix": "s-e",
+    "body": "\n( `$1` ${2:=} '$3' ) \n",
+    "description": "",
+    "scope": "source.sql"
+  },
+  "s-f": {
+    "prefix": "s-f",
+    "body": "\nFROM `$1` AS `$2`\n",
+    "description": "",
+    "scope": "source.sql"
+  },
+  "s-g": {
+    "prefix": "s-g",
+    "body": "\nGROUP BY `$1`\n",
+    "description": "",
+    "scope": "source.sql"
+  },
+  "s-h": {
+    "prefix": "s-h",
+    "body": "\nHAVING ( `$1` ${2:=} '$3' ) \n",
+    "description": "",
+    "scope": "source.sql"
+  },
+  "s-j": {
+    "prefix": "s-j",
+    "body": "\nINNER JOIN `$1` AS `${2:${1/(.)[^_]*(?:_(.))?.*/$1$2/}}` ON ( `${2:${1/(.)[^_]*(?:_(.))?.*/$1$2/}}`.`${4:id}` = `$5`.`${6:id}` )\n",
+    "description": "",
+    "scope": "source.sql"
+  },
+  "s-jleft": {
+    "prefix": "s-jleft",
+    "body": "\nLEFT JOIN `$1` AS `${2:${1/(.)[^_]*(?:_(.))?.*/$1$2/}}` ON ( `${2:${1/(.)[^_]*(?:_(.))?.*/$1$2/}}`.`${4:id}` = `$5`.`${6:id}` )\n",
+    "description": "",
+    "scope": "source.sql"
+  },
+  "s-jright": {
+    "prefix": "s-jright",
+    "body": "\nRIGHT JOIN `$1` AS `${2:${1/(.)[^_]*(?:_(.))?.*/$1$2/}}` ON ( `${2:${1/(.)[^_]*(?:_(.))?.*/$1$2/}}`.`${4:id}` = `$5`.`${6:id}` )\n",
+    "description": "",
+    "scope": "source.sql"
+  },
+  "s-l": {
+    "prefix": "s-l",
+    "body": "\nLIMIT ${1:0}, ${3:count}\n",
+    "description": "",
+    "scope": "source.sql"
+  },
+  "s--or": {
+    "prefix": "s--or",
+    "body": "\nOR ( `$1` ${2:=} '$3' ) \n",
+    "description": "",
+    "scope": "source.sql"
+  },
+  "s-or": {
+    "prefix": "s-or",
+    "body": "\nOR ( $1 ) \n",
+    "description": "",
+    "scope": "source.sql"
+  },
+  "s-o": {
+    "prefix": "s-o",
+    "body": "\nORDER BY `$1`${2: DESC}\n",
+    "description": "",
+    "scope": "source.sql"
+  },
+  "s-union": {
+    "prefix": "s-union",
+    "body": "\n(\n  $1\n) UNION (\n  $2\n)\n",
+    "description": "",
+    "scope": "source.sql"
+  },
+  "s-w": {
+    "prefix": "s-w",
+    "body": "\nWHERE ( `$1` ${2:=} '$3' ) \n",
+    "description": "",
+    "scope": "source.sql"
+  },
+  "s-scount": {
+    "prefix": "s-scount",
+    "body": "\nSELECT COUNT(${1:*}) FROM `$2` AS `${2/(.).*/$1/}`\n",
+    "description": "",
+    "scope": "source.sql"
+  },
+  "s-sinline": {
+    "prefix": "s-sinline",
+    "body": "\nSELECT `${3/(.).*/$1/}`.$1 FROM `$3` AS `${3/(.).*/$1/}`\n",
+    "description": "",
+    "scope": "source.sql"
+  },
+  "s-smax": {
+    "prefix": "s-smax",
+    "body": "\nSELECT MAX(${1:id}) FROM `$2` AS `${2/(.).*/$1/}`\n",
+    "description": "",
+    "scope": "source.sql"
+  },
+  "s-smin": {
+    "prefix": "s-smin",
+    "body": "\nSELECT MIN(${1:id}) FROM `$2` AS `${2/(.).*/$1/}`\n",
+    "description": "",
+    "scope": "source.sql"
+  },
+  "s-sone": {
+    "prefix": "s-sone",
+    "body": "\n${5:SELECT\n  *\nFROM `$1`\nWHERE `${2:id}` ${3:=} '$4';\n}\n",
+    "description": "",
+    "scope": "source.sql"
+  },
+  "s-ss": {
+    "prefix": "s-ss",
+    "body": "\nSELECT '${1:My String}';\n",
+    "description": "(select '...';)",
+    "scope": "source.sql"
+  },
+  "s-sv": {
+    "prefix": "s-sv",
+    "body": "\nSELECT `${1:var_name}`;\n",
+    "description": "(select `...`;)",
+    "scope": "source.sql"
+  },
+  "s-s": {
+    "prefix": "s-s",
+    "body": "\nSELECT\n    `${4:${3/(.).*/$1/}}`.${1:*}\n  FROM `$3` AS `${4:${3/(.).*/$1/}}`\n",
+    "description": "",
+    "scope": "source.sql"
+  },
+  "s-hcols": {
+    "prefix": "s-hcols",
+    "body": "\n${2:SHOW FULL COLUMNS FROM `${1:table}`;}\n",
+    "description": "(show columns)",
+    "scope": "source.sql"
+  },
+  "s-hcreate": {
+    "prefix": "s-hcreate",
+    "body": "\n${2:SHOW CREATE TABLE `${1:table}`;}\n",
+    "description": "(show create signature)",
+    "scope": "source.sql"
+  },
+  "s-hidx": {
+    "prefix": "s-hidx",
+    "body": "\n${2:SHOW INDEX FROM `${1:table}`;}\n",
+    "description": "(show indexes)",
+    "scope": "source.sql"
+  },
+  "s-hrel": {
+    "prefix": "s-hrel",
+    "body": "\n${0:SELECT CONCAT(\n\t`constraint_name`, ' : ',\n\t`table_name`, '.', `column_name`, ' -> ', \n  `referenced_table_name`, '.', `referenced_column_name`\n) AS `relations_list`\nFROM `information_schema`.`key_column_usage`\nWHERE `table_schema` = ${1:DATABASE()}\n\tAND `table_name` = '${2:table_name}'\n  AND `referenced_table_name` IS NOT NULL;\n}\n",
+    "description": "(show relations table)",
+    "scope": "source.sql"
+  },
+  "s--fk": {
+    "prefix": "s--fk",
+    "body": "\nINDEX `fk_$1_$3_idx` (`$2` ASC),\nCONSTRAINT `fk_${1:the_table}_$3`\n  FOREIGN KEY (`${2:foreign_key}`)\n  REFERENCES `${3:far_table}` (`${4:far_key}`)\n  ON DELETE NO ACTION\n  ON UPDATE CASCADE\n",
+    "description": "",
+    "scope": "source.sql"
+  },
+  "s-fk": {
+    "prefix": "s-fk",
+    "body": "\nCONSTRAINT `fk_${1:the_table}_$3`\n  FOREIGN KEY (`${2:foreign_key}`)\n  REFERENCES `${3:far_table}` (`${4:far_key}`)\n  ON DELETE NO ACTION\n  ON UPDATE CASCADE\n",
+    "description": "",
+    "scope": "source.sql"
+  },
+  "s-idx-txt": {
+    "prefix": "s-idx-txt",
+    "body": "\nFULLTEXT INDEX `$1_idx` (`${1:column}` ASC$2)${3:,\n}\n",
+    "description": "",
+    "scope": "source.sql"
+  },
+  "s-idx": {
+    "prefix": "s-idx",
+    "body": "\nINDEX `$1_idx` (`${1:email}` ASC$2)${3:,\n}\n",
+    "description": "",
+    "scope": "source.sql"
+  },
+  "s-many-many": {
+    "prefix": "s-many-many",
+    "body": "\nCREATE INDEX `$4_idx` ON `$1` (`$4` ASC);\nCREATE INDEX `$5_idx` ON `$2` (`$5` ASC);\n\nCREATE TABLE IF NOT EXISTS `${3:$1_$2}` (\n  `${1:table1}_${4:id}` INT UNSIGNED NOT NULL,\n  `${2:table2}_${5:id}` INT UNSIGNED NOT NULL,\n\n  PRIMARY KEY (`$1_$4`, `$2_$5`),\n  INDEX `fk_$3_$1_$4_idx` (`$1_$4` ASC),\n  INDEX `fk_$3_$2_$5_idx` (`$2_$5` ASC),\n\n  CONSTRAINT `fk_$3_$1`\n    FOREIGN KEY (`$1_$4`)\n    REFERENCES `$1` (`$4`)\n    ON DELETE ${6:NO ACTION}\n    ON UPDATE CASCADE,\n\n  CONSTRAINT `fk_$3_$2`\n    FOREIGN KEY (`$2_$5`)\n    REFERENCES `$2` (`$5`)\n    ON DELETE $6\n    ON UPDATE CASCADE\n) ENGINE = InnoDB;\n",
+    "description": "",
+    "scope": "source.sql"
+  },
+  "s-pk": {
+    "prefix": "s-pk",
+    "body": "\nPRIMARY KEY `pk_${1:id}`(`$1`)${2:,\n}\n",
+    "description": "",
+    "scope": "source.sql"
+  },
+  "s-table-drop": {
+    "prefix": "s-table-drop",
+    "body": "\nDROP TABLE IF EXISTS `$1`;\n",
+    "description": "",
+    "scope": "source.sql"
+  },
+  "s--table": {
+    "prefix": "s--table",
+    "body": "\nDROP TABLE IF EXISTS `${1:table_name}`;\nCREATE TABLE `$1` (\n  `${2:id}` INT UNSIGNED NOT NULL AUTO_INCREMENT,\n  `${3:name}` ${4:VARCHAR(255)},\n  PRIMARY KEY `pk_$2`(`$2`)\n) ENGINE = InnoDB;\n",
+    "description": "",
+    "scope": "source.sql"
+  },
+  "s--table-tmp": {
+    "prefix": "s--table-tmp",
+    "body": "\nDROP TABLE IF EXISTS `${1:table_name}`;\nCREATE TEMPORARY TABLE IF NOT EXISTS `${1:table_name}` (\n  `${2:id}` INT UNSIGNED NOT NULL AUTO_INCREMENT,\n  `${3:name}` ${4:VARCHAR(255)},\n  PRIMARY KEY `pk_$2`(`$2`)\n) ENGINE = MEMORY;\n",
+    "description": "",
+    "scope": "source.sql"
+  },
+  "s-table-tmp": {
+    "prefix": "s-table-tmp",
+    "body": "\nCREATE TEMPORARY TABLE IF NOT EXISTS `${1:table_name}` (\n  `${2:id}` INT UNSIGNED NOT NULL AUTO_INCREMENT,\n  `${3:name}` ${4:VARCHAR(255)},\n  PRIMARY KEY `pk_$2`(`$2`)\n) ENGINE = MEMORY;\n",
+    "description": "",
+    "scope": "source.sql"
+  },
+  "s-table": {
+    "prefix": "s-table",
+    "body": "\nCREATE TABLE IF NOT EXISTS `${1:table_name}` (\n  `${2:id}` INT UNSIGNED NOT NULL AUTO_INCREMENT,\n  `${3:name}` ${4:VARCHAR(255)},\n  PRIMARY KEY `pk_$2`(`$2`)\n) ENGINE = InnoDB;\n",
+    "description": "",
+    "scope": "source.sql"
+  },
+  "s-uk": {
+    "prefix": "s-uk",
+    "body": "\nUNIQUE KEY `unique_${1:id}`(`$1`$2)${3:,\n}\n",
+    "description": "",
+    "scope": "source.sql"
+  },
+  "s-trig-drop": {
+    "prefix": "s-trig-drop",
+    "body": "\nDROP TRIGGER IF EXISTS `${1:name}`;\n",
+    "description": "",
+    "scope": "source.sql"
+  },
+  "s--trig-list": {
+    "prefix": "s--trig-list",
+    "body": "\nSHOW TRIGGERS FROM `${1:full_db_name}` LIKE '${2:table_name}%'\\G\n",
+    "description": "",
+    "scope": "source.sql"
+  },
+  "s-trig-list": {
+    "prefix": "s-trig-list",
+    "body": "\nSHOW TRIGGERS LIKE '${2:table_name}%'\\G\n",
+    "description": "",
+    "scope": "source.sql"
+  },
+  "s--trig": {
+    "prefix": "s--trig",
+    "body": "\nDROP TRIGGER IF EXISTS `${1:trigger_name}`;\nCREATE TRIGGER `${1}` ${2:AFTER} ${3:INSERT} ON `${4:table_name}` FOR EACH ROW\nBEGIN\n    ${5: -- Use NEW and OLD constants for access to row}\nEND;\n",
+    "description": "",
+    "scope": "source.sql"
+  },
+  "s-trig": {
+    "prefix": "s-trig",
+    "body": "\nCREATE TRIGGER `${1:trigger_name}` ${2:AFTER} ${3:INSERT} ON `${4:table_name}` FOR EACH ROW\nBEGIN\n    ${5: -- Use NEW and OLD constants for access to row}\nEND;\n",
+    "description": "",
+    "scope": "source.sql"
+  },
+  "s-u": {
+    "prefix": "s-u",
+    "body": "\nUPDATE `${1:table}` SET\n  `$2` = '$3'${4:,}\nWHERE `$5` = '$6';\n",
+    "description": "",
+    "scope": "source.sql"
+  },
+  "s-user-add-hash": {
+    "prefix": "s-user-add-hash",
+    "body": "\nCREATE USER '${1:username}'@'${2:localhost}' IDENTIFIED BY PASSWORD '*832EB84CB764129D05D498ED9CA7E5CE9B8F83EB';\n",
+    "description": "(new user, hashed password)",
+    "scope": "source.sql"
+  },
+  "s--user-add": {
+    "prefix": "s--user-add",
+    "body": "\nCREATE USER '${1:username}'@'${2:localhost}' IDENTIFIED BY '${3:password}';\n",
+    "description": "(new user, password)",
+    "scope": "source.sql"
+  },
+  "s-user-add": {
+    "prefix": "s-user-add",
+    "body": "\nCREATE USER '${1:username}'@'${2:localhost}';\n",
+    "description": "(new user)",
+    "scope": "source.sql"
+  },
+  "s-user-drop": {
+    "prefix": "s-user-drop",
+    "body": "\nDROP USER '${1:username}'@'${2:localhost}';\n",
+    "description": "(drop user)",
+    "scope": "source.sql"
+  },
+  "s-user-list": {
+    "prefix": "s-user-list",
+    "body": "\nSELECT `user`, `host`, `password` FROM `mysql`.`user`;\n",
+    "description": "(list users)",
+    "scope": "source.sql"
+  },
+  "s-user-pwd": {
+    "prefix": "s-user-pwd",
+    "body": "\nSET PASSWORD ${1:FOR '${2:username}'@'${3:localhost}'} = PASSWORD('${4:password}');\n",
+    "description": "(change user password)",
+    "scope": "source.sql"
+  }
+}

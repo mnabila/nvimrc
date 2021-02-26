@@ -5,6 +5,7 @@ local function custom_capabilittis()
     capabilities.textDocument.completion.completionItem.snippetSupport = true
     return capabilities 
 end
+
 local function custom_on_init()
     print('Language Server Protocol started!')
 end
@@ -68,9 +69,7 @@ lspconfig.jsonls.setup {on_init = custom_on_init,  capabilities = custom_capabil
 
 lspconfig.bashls.setup {on_init = custom_on_init,  capabilities = custom_capabilittis() }
 
+-- texlab not working if file or buffer is empty
 lspconfig.texlab.setup {on_init = custom_on_init,  capabilities = custom_capabilittis() }
 
 lspconfig.clangd.setup {on_init = custom_on_init,  capabilities = custom_capabilittis() }
-
--- texlab not working if file or buffer is empty
-lspconfig.texlab.setup {on_init = custom_on_init, filetypes = {'tex', 'bib', 'plaintex'}}

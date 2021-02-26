@@ -23,6 +23,7 @@ require('indent_guides').setup({
         'terminal',
         'trans',
         'vista',
+        'packer'
     },
     even_colors = { fg ='#504945',bg='#504945' },
     odd_colors = {fg='#504945',bg='#504945'},

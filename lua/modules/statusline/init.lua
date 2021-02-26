@@ -50,9 +50,11 @@ function _G.statusline.explorer()
 end
 
 -- set statusline
-vim.cmd('augroup Statusline')
-vim.cmd('au!')
-vim.cmd('au WinEnter,BufEnter * setlocal statusline=%!v:lua.statusline.active()')
-vim.cmd('au WinLeave,BufLeave * setlocal statusline=%!v:lua.statusline.inactive()')
-vim.cmd('au WinEnter,BufEnter,FileType NvimTree setlocal statusline=%!v:lua.statusline.explorer()')
-vim.cmd('augroup END')
+vim.api.nvim_exec([[
+    augroup Statusline
+    au!
+    au WinEnter,BufEnter * setlocal statusline=%!v:lua.statusline.active()
+    au WinLeave,BufLeave * setlocal statusline=%!v:lua.statusline.inactive()
+    au WinEnter,BufEnter,FileType NvimTree setlocal statusline=%!v:lua.statusline.explorer()
+    augroup END
+]], false)

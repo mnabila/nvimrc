@@ -65,7 +65,7 @@ local function set_keybindings()
         {'n', '<Leader>b', '<CMD>lua require("telescope.builtin").buffers()<CR>', {noremap = true, silent = false}},
         {'n', '<Leader>o', '<CMD>lua require("telescope.builtin").find_files()<CR>', {noremap = true, silent = false}},
         {'n', '<Leader>m', '<cmd>lua require("telescope.builtin").marks()<cr>', {noremap = true, silent = false}},
-        {'n', '<Leader><Leader>', '<CMD>lua require("telescope.builtin").builtin()<CR>', {noremap = true, silent = false}},
+        {'n', '<Leader><Leader>', '<CMD>lua require("telescope.builtin").builtin({previewer = false})<CR>', {noremap = true, silent = false}},
         {'n', '<Leader>k', '<CMD>lua require("telescope.builtin").keymaps()<CR>', {noremap = true, silent = false}},
         {'n', '<Leader>/', '<CMD>lua require("telescope.builtin").current_buffer_fuzzy_find()<CR>', {noremap = true, silent = false}},
         {'n', '<Leader>?', '<CMD>lua require("telescope.builtin").grep_string()<CR>', {noremap = true, silent = false}},

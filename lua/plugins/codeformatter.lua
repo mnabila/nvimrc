@@ -4,7 +4,17 @@ local remove_whitespace = {
     {cmd = {"sed -i 's/[ \t]*$//'"}}
 }
 
-local prettier = {{cmd = {"prettier -w"}, tempfile_dir = tempdir}}
+local prettier = {
+    {
+        cmd = {
+            function(file)
+                local config = os.getenv("HOME") .. "/.config/nvim/.prettierrc"
+                return string.format('prettier --config %s --tab-width %s -w "%s"', config, vim.bo.shiftwidth, file)
+            end
+        },
+        tempfile_dir = tempdir
+    }
+}
 
 local shfmt = {
     {
