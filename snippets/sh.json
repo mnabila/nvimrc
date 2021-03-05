@@ -1420,22 +1420,6 @@
   },
   "output.format-bold": {
     "prefix": "format bold",
-    "body": "echo `tput bold`${0:bold text}`tput r red",
-    "body": "echo `tput setaf 1`${0:red text}`tput sgr0`\n",
-    "description": "write in red"
-  },
-  "output.color-white": {
-    "prefix": "color white",
-    "body": "echo `tput setaf 7`${0:white text}`tput sgr0`\n",
-    "description": "write in white"
-  },
-  "output.color-yellow": {
-    "prefix": "color yellow",
-    "body": "echo `tput setaf 3`${0:yellow text}`tput sgr0`\n",
-    "description": "write in yellow"
-  },
-  "output.format-bold": {
-    "prefix": "format bold",
     "body": "echo `tput bold`${0:bold text}`tput sgr0`\n",
     "description": "write in bold"
   },

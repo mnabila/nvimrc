@@ -15,11 +15,18 @@ telescope.setup {
         },
         prompt_position = 'bottom',
         prompt_prefix = '❱❱',
+        selection_caret = '❱ ',
+        initial_mode = 'insert',
         selection_strategy = 'reset',
         sorting_strategy = 'descending',
         layout_strategy = 'flex',
         layout_defaults = {
-            -- TODO add builtin options.
+            horizontal = {
+                mirror = false,
+            },
+            vertical = {
+                mirror = false,
+            },
         },
         file_sorter = require('telescope.sorters').get_fuzzy_file,
         file_ignore_patterns = {},

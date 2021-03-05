@@ -4,6 +4,7 @@ require('indent_guides').setup({
     indent_start_level = 1,
     indent_space_guides = true,
     indent_tab_guides = false,
+    indent_pretty_mode = true,
     indent_soft_pattern = '\\s',
     exclude_filetypes = {
         'NvimTree',

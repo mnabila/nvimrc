@@ -73,3 +73,7 @@ lspconfig.bashls.setup {on_init = custom_on_init,  capabilities = custom_capabil
 lspconfig.texlab.setup {on_init = custom_on_init,  capabilities = custom_capabilittis() }
 
 lspconfig.clangd.setup {on_init = custom_on_init,  capabilities = custom_capabilittis() }
+
+lspconfig.dockerls.setup {on_init = custom_on_init,  capabilities = custom_capabilittis() }
+
+lspconfig.gopls.setup {on_init = custom_on_init,  capabilities = custom_capabilittis() }

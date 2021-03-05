@@ -42,6 +42,9 @@ packer.startup(function()
     -- snippet
     use 'mattn/emmet-vim'
 
+    use { 'glepnir/galaxyline.nvim', branch = 'main', requires = {'kyazdani42/nvim-web-devicons'}
+}
+
 end)
 
 return packer

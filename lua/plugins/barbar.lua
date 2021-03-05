@@ -3,7 +3,7 @@ vim.g.bufferline = {
     animation = false,
 
     -- Enable/disable auto-hiding the tab bar when there is a single buffer
-    auto_hide = false,
+    auto_hide = true,
 
     -- Enable/disable icons
     -- if set to 'numbers', will show buffer index in the tabline
@@ -15,7 +15,7 @@ vim.g.bufferline = {
     icon_close_tab_modified = ' ',
 
     -- Enable/disable close button
-    closable = true,
+    closable = false,
 
     -- Enables/disable clickable tabs
     --  - left-click: go to buffer

@@ -13,3 +13,4 @@ vim.g.Hexokinase_ftDisabled = {
     'fzf',
     'markdown',
 }
+vim.g.Hexokinase_optInPatterns = 'full_hex,rgb,rgba,hsl,hsla'
