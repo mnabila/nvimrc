@@ -53,14 +53,14 @@ gls.left = {
     {
         GitIcon = {
             provider = function() return '   ' end,
-            condition = condition.check_git_workspace,
+            condition = function() return condition.check_git_workspace() and condition.checkwidth() end,
             highlight = {colors.black, colors.bblack}
         }
     },
     {
         GitBranch = {
             provider = function() return string.format('%s ', vcs.get_git_branch()) end,
-            condition = condition.check_git_workspace,
+            condition = function() return condition.check_git_workspace() and condition.checkwidth() end,
             highlight = {colors.black, colors.bblack}
         }
     },
@@ -68,7 +68,7 @@ gls.left = {
         DiffAdd = {
             provider = vcs.diff_add,
             icon = '+',
-            condition = condition.check_git_workspace,
+            condition = function() return condition.check_git_workspace() and condition.checkwidth() end,
             highlight = {colors.black, colors.bblack}
         }
     },
@@ -76,7 +76,7 @@ gls.left = {
         DiffModified = {
             provider = vcs.diff_modified,
             icon = '~',
-            condition = condition.check_git_workspace,
+            condition = function() return condition.check_git_workspace() and condition.checkwidth() end,
             highlight = {colors.black, colors.bblack}
         }
     },
@@ -84,9 +84,14 @@ gls.left = {
         DiffRemove = {
             provider = vcs.diff_remove,
             icon = '-',
-            condition = condition.check_git_workspace,
-            separator = ' ',
+            condition = function() return condition.check_git_workspace() and condition.checkwidth() end,
             highlight = {colors.black, colors.bblack}
+        }
+    },
+    {
+        BlankSpace = {
+            provider = function() return ' ' end,
+            highlight = {colors.black, colors.black}
         }
     },
     {
@@ -122,7 +127,7 @@ gls.right = {
         DiagnosticError = {
             provider = diagnostic.get_diagnostic_error,
             icon = '  ',
-            condition = condition.check_active_lsp,
+            condition = function() return condition.check_active_lsp() and condition.checkwidth() end,
             highlight = {colors.red, colors.black}
         },
     },
@@ -130,7 +135,7 @@ gls.right = {
         DiagnosticWarn = {
             provider = diagnostic.get_diagnostic_warn,
             icon = '  ',
-            condition = condition.check_active_lsp,
+            condition = function() return condition.check_active_lsp() and condition.checkwidth() end,
             highlight = {colors.yellow, colors.black}
         },
     },
@@ -138,7 +143,7 @@ gls.right = {
         DiagnosticHint = {
             provider = diagnostic.get_diagnostic_hint,
             icon = '  ',
-            condition = condition.check_active_lsp,
+            condition = function() return condition.check_active_lsp() and condition.checkwidth() end,
             highlight = {colors.cyan, colors.black}
         }
     },
@@ -146,19 +151,21 @@ gls.right = {
         LspStatus = {
             provider = function() return string.format(' %s ', lspclient.get_lsp_client()) end,
             icon = '   ',
-            condition = condition.check_active_lsp,
+            condition = function() return condition.check_active_lsp() and condition.checkwidth() end,
             highlight = {colors.white, colors.black}
         }
     },
     {
         FileFormat = {
             provider = function() return string.format('   %s ', fileinfo.get_file_format()) end,
+            condition = condition.checkwidth,
             highlight = {colors.black, colors.white}
         }
     },
     {
         FileEncode = {
             provider = function() return string.format('   %s ', fileinfo.get_file_encode()) end,
+            condition = condition.checkwidth,
             highlight = {colors.black, colors.bblack}
         }
     },
