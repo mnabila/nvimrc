@@ -31,7 +31,7 @@ icons['man'] = {colors.green, ''}
 
 function condition.checkwidth()
   local squeeze_width  = vim.fn.winwidth(0) / 2
-  if squeeze_width > 40 then
+  if squeeze_width > 50 then
     return true
   end
     return false
@@ -187,13 +187,14 @@ gls.short_line_left = {
                     return string.format(' %s ', icon)
                 end
             end,
-            highlight = {colors.white, colors.black},
+            highlight = {colors.white, colors.black}
         }
     },
     {
         BufferName = {
             provider = function() return string.format(' %s ', fileinfo.get_current_file_name()) end,
-            highlight = {colors.white, colors.black},
+            separator = '',
+            highlight = {colors.white, colors.black}
         }
     }
 }

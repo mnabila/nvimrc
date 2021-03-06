@@ -23,12 +23,12 @@ local shfmt = {
     }
 }
 
-local luafmt = {
+local stylua = {
     {
         cmd = {
             function(file)
-                local config = os.getenv("HOME") .. "/.config/nvim/luaformatter.yaml"
-                return string.format('lua-format -c %s -i', config, file)
+                local config = os.getenv("HOME") .. "/.config/nvim/stylua.toml"
+                return string.format('stylua --config-path %s %s %s ', config, file, file)
             end
         },
         tempfile_dir = tempdir
@@ -50,7 +50,7 @@ require('format').setup {
     html = prettier,
     css = prettier,
     sh = shfmt,
-    lua = luafmt,
+    lua = stylua,
     markdown = markdownfmt,
     json = prettier,
     python = black

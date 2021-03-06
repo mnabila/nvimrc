@@ -12,7 +12,7 @@ packer.startup(function()
     use { 'wbthomason/packer.nvim', opt = true }
 
     use 'glepnir/indent-guides.nvim'
-    use { 'iamcco/markdown-preview.nvim', run = 'cd app && yarn install', cmd = 'MarkdownPreview' }
+    use { 'iamcco/markdown-preview.nvim', run = 'cd app && yarn install'}
     use 'junegunn/vim-easy-align'
     use { 'kyazdani42/nvim-tree.lua', requires = { 'kyazdani42/nvim-web-devicons' } }
     use { 'romgrk/barbar.nvim', requires = { 'kyazdani42/nvim-web-devicons' } }

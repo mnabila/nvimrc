@@ -79,3 +79,5 @@ lspconfig.dockerls.setup {on_init = custom_on_init,  capabilities = custom_capab
 lspconfig.gopls.setup {on_init = custom_on_init,  capabilities = custom_capabilittis() }
 
 lspconfig.yamlls.setup {on_init = custom_on_init,  capabilities = custom_capabilittis() }
+
+lspconfig.sqls.setup {on_init = custom_on_init,  capabilities = custom_capabilittis() }
