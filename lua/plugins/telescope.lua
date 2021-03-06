@@ -14,7 +14,7 @@ telescope.setup {
             '--smart-case'
         },
         prompt_position = 'bottom',
-        prompt_prefix = '❱❱',
+        prompt_prefix = '❱❱ ',
         selection_caret = '❱ ',
         initial_mode = 'insert',
         selection_strategy = 'reset',

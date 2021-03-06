@@ -1,6 +1,11 @@
 local gl = require('galaxyline')
 local gls = gl.section
 local condition = require('galaxyline.condition')
+local vcs = require('galaxyline.provider_vcs')
+local buffer = require('galaxyline.provider_buffer')
+local fileinfo = require('galaxyline.provider_fileinfo')
+local diagnostic = require('galaxyline.provider_diagnostic')
+local lspclient = require('galaxyline.provider_lsp')
 local icons = require('galaxyline.provider_fileinfo').define_file_icon()
 
 local colors = {
@@ -40,55 +45,53 @@ gls.left = {
                 if not condition.checkwidth() then
                     alias = {n = 'N', i = 'I', c = 'C', V= 'V', [''] = 'V'}
                 end
-                return alias[vim.fn.mode()]
+                return string.format('   %s ', alias[vim.fn.mode()])
             end,
-            separator = ' ',
-            highlight = {colors.bwhite, colors.black, 'bold'},
+            highlight = {colors.black, colors.yellow, 'bold'},
         }
     },
     {
         GitIcon = {
-            provider = function() return '' end,
+            provider = function() return '   ' end,
             condition = condition.check_git_workspace,
-            separator = ' ',
-            highlight = {colors.yellow, colors.black}
+            highlight = {colors.black, colors.bblack}
         }
     },
     {
         GitBranch = {
-            provider = 'GitBranch',
+            provider = function() return string.format('%s ', vcs.get_git_branch()) end,
             condition = condition.check_git_workspace,
-            highlight = {colors.bwhite, colors.black}
+            highlight = {colors.black, colors.bblack}
         }
     },
     {
         DiffAdd = {
-            provider = 'DiffAdd',
+            provider = vcs.diff_add,
             icon = '+',
             condition = condition.check_git_workspace,
-            highlight = {colors.green, colors.black}
+            highlight = {colors.black, colors.bblack}
         }
     },
     {
         DiffModified = {
-            provider = 'DiffModified',
+            provider = vcs.diff_modified,
             icon = '~',
             condition = condition.check_git_workspace,
-            highlight = {colors.cyan, colors.black}
+            highlight = {colors.black, colors.bblack}
         }
     },
     {
         DiffRemove = {
-            provider = 'DiffRemove',
+            provider = vcs.diff_remove,
             icon = '-',
             condition = condition.check_git_workspace,
             separator = ' ',
-            highlight = {colors.red, colors.black}
+            highlight = {colors.black, colors.bblack}
         }
     },
     {
         FileIcon = {
-            provider = 'FileIcon',
+            provider = fileinfo.get_file_icon,
             condition = condition.buffer_not_empty,
             highlight = {
                 require('galaxyline.provider_fileinfo').get_file_icon_color,
@@ -98,7 +101,9 @@ gls.left = {
     },
     {
         FileName = {
-            provider = 'FileName',
+            provider = function()
+                return string.format('%s| %s ', fileinfo.get_file_size(), fileinfo.get_current_file_name())
+            end,
             condition = condition.buffer_not_empty,
             highlight = {colors.bwhite, colors.black}
         }
@@ -115,7 +120,7 @@ gls.left = {
 gls.right = {
     {
         DiagnosticError = {
-            provider = 'DiagnosticError',
+            provider = diagnostic.get_diagnostic_error,
             icon = '  ',
             condition = condition.check_active_lsp,
             highlight = {colors.red, colors.black}
@@ -123,31 +128,44 @@ gls.right = {
     },
     {
         DiagnosticWarn = {
-            provider = 'DiagnosticWarn',
+            provider = diagnostic.get_diagnostic_warn,
             icon = '  ',
             condition = condition.check_active_lsp,
             highlight = {colors.yellow, colors.black}
         },
     },
     {
+        DiagnosticHint = {
+            provider = diagnostic.get_diagnostic_hint,
+            icon = '  ',
+            condition = condition.check_active_lsp,
+            highlight = {colors.cyan, colors.black}
+        }
+    },
+    {
+        LspStatus = {
+            provider = function() return string.format(' %s ', lspclient.get_lsp_client()) end,
+            icon = '   ',
+            condition = condition.check_active_lsp,
+            highlight = {colors.white, colors.black}
+        }
+    },
+    {
         FileFormat = {
-            provider = 'FileFormat',
-            separator = ' ',
-            highlight = {colors.bwhite, colors.black}
+            provider = function() return string.format('   %s ', fileinfo.get_file_format()) end,
+            highlight = {colors.black, colors.white}
         }
     },
     {
         FileEncode = {
-            provider = 'FileEncode',
-            separator = ' ',
-            highlight = {colors.bwhite, colors.black}
+            provider = function() return string.format('   %s ', fileinfo.get_file_encode()) end,
+            highlight = {colors.black, colors.bblack}
         }
     },
     {
         LineInfo = {
-            provider = 'LineColumn',
-            separator = ' ',
-            highlight = {colors.bwhite, colors.black}
+            provider = function() return string.format('   %s ', fileinfo.line_column()) end,
+            highlight = {colors.black, colors.yellow}
         }
     },
 }
@@ -156,16 +174,19 @@ gl.short_line_list = {'NvimTree'}
 gls.short_line_left = {
     {
         BufferIcon = {
-            provider = 'BufferIcon',
-            separator = ' ',
-            highlight = {colors.bwhite, colors.black}
+            provider = function()
+                local icon = buffer.get_buffer_type_icon()
+                if icon ~= nil then
+                    return string.format(' %s ', icon)
+                end
+            end,
+            highlight = {colors.white, colors.black},
         }
     },
     {
-        FileName = {
-            provider = 'FileName',
-            highlight = {colors.bwhite, colors.black, 'bold'}
-
+        BufferName = {
+            provider = function() return string.format(' %s ', fileinfo.get_current_file_name()) end,
+            highlight = {colors.white, colors.black},
         }
     }
 }

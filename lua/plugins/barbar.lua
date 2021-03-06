@@ -15,7 +15,7 @@ vim.g.bufferline = {
     icon_close_tab_modified = ' ',
 
     -- Enable/disable close button
-    closable = false,
+    closable = true,
 
     -- Enables/disable clickable tabs
     --  - left-click: go to buffer
