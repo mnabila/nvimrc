@@ -206,7 +206,9 @@ gls.short_line_left = {
                         return ' Explorer '
                     end
                 else
-                    return string.format(' %s %s| %s ', fileinfo.get_file_icon(), fileinfo.get_file_size() , fileinfo.get_current_file_name())
+                    if fileinfo.get_current_file_name() ~= '' then
+                        return string.format(' %s %s| %s ', fileinfo.get_file_icon(), fileinfo.get_file_size() , fileinfo.get_current_file_name())
+                    end
                 end
             end,
             separator = '',
