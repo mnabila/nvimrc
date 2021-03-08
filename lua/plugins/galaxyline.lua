@@ -99,7 +99,7 @@ gls.left = {
             provider = fileinfo.get_file_icon,
             condition = condition.buffer_not_empty,
             highlight = {
-                require('galaxyline.provider_fileinfo').get_file_icon_color,
+                fileinfo.get_file_icon_color,
                 colors.black
             },
         },
@@ -156,6 +156,13 @@ gls.right = {
         }
     },
     {
+        FileType = {
+            provider = function() return string.format(' %s ', buffer.get_buffer_filetype()) end,
+            condition = function() return buffer.get_buffer_filetype() ~= '' end,
+            highlight = {colors.white, colors.black}
+        }
+    },
+    {
         FileFormat = {
             provider = function() return string.format('   %s ', fileinfo.get_file_format()) end,
             condition = condition.checkwidth,
@@ -192,7 +199,16 @@ gls.short_line_left = {
     },
     {
         BufferName = {
-            provider = function() return string.format(' %s ', fileinfo.get_current_file_name()) end,
+            provider = function()
+                if vim.fn.index(gl.short_line_list, vim.bo.filetype) ~= -1 then
+                    local filetype = vim.bo.filetype
+                    if filetype == 'NvimTree' then
+                        return ' Explorer '
+                    end
+                else
+                    return string.format(' %s %s| %s ', fileinfo.get_file_icon(), fileinfo.get_file_size() , fileinfo.get_current_file_name())
+                end
+            end,
             separator = '',
             highlight = {colors.white, colors.black}
         }

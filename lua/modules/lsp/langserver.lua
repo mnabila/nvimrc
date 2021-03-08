@@ -59,6 +59,16 @@ lspconfig.jedi_language_server.setup {
     capabilities = custom_capabilittis()
 }
 
+lspconfig.sqls.setup {
+    cmd = {'sqls', '-config', os.getenv('HOME') .. '/.config/sqls/config.yml'};
+    on_init = custom_on_init,
+    capabilities = custom_capabilittis(),
+    on_attach = function(client)
+        client.resolved_capabilities.execute_command = true
+        require('sqls').setup{ picker = 'default' }
+    end
+}
+
 lspconfig.html.setup {filetypes = {'html'}, on_init = custom_on_init,  capabilities = custom_capabilittis()}
 
 lspconfig.cssls.setup {on_init = custom_on_init, root_dir = function() return vim.loop.cwd() end,  capabilities = custom_capabilittis() }
@@ -79,5 +89,3 @@ lspconfig.dockerls.setup {on_init = custom_on_init,  capabilities = custom_capab
 lspconfig.gopls.setup {on_init = custom_on_init,  capabilities = custom_capabilittis() }
 
 lspconfig.yamlls.setup {on_init = custom_on_init,  capabilities = custom_capabilittis() }
-
-lspconfig.sqls.setup {on_init = custom_on_init,  capabilities = custom_capabilittis() }

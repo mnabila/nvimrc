@@ -3,7 +3,7 @@ vim.g.bufferline = {
     animation = false,
 
     -- Enable/disable auto-hiding the tab bar when there is a single buffer
-    auto_hide = true,
+    auto_hide = false,
 
     -- Enable/disable icons
     -- if set to 'numbers', will show buffer index in the tabline
@@ -29,5 +29,8 @@ vim.g.bufferline = {
     semantic_letters = true,
 
     -- Sets the maximum padding width with which to surround each tab
-    maximum_padding = 2
+    maximum_padding = 2,
+
+    -- Sets the name of unsaved buffer
+    no_name_title = " empty"
 }
