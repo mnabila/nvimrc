@@ -69,6 +69,22 @@ lspconfig.sqls.setup {
     end
 }
 
+lspconfig.gopls.setup {
+    cmd = {"gopls", "serve"},
+    settings = {
+        gopls = {
+            analyses = {
+                unusedparams = true,
+            },
+            staticcheck = true,
+        },
+    },
+    on_init = custom_on_init,
+    capabilities = custom_capabilittis(),
+    root_dir = function() return vim.loop.cwd() end
+}
+
+
 lspconfig.html.setup {filetypes = {'html'}, on_init = custom_on_init,  capabilities = custom_capabilittis()}
 
 lspconfig.cssls.setup {on_init = custom_on_init, root_dir = function() return vim.loop.cwd() end,  capabilities = custom_capabilittis() }
@@ -85,7 +101,5 @@ lspconfig.texlab.setup {on_init = custom_on_init,  capabilities = custom_capabil
 lspconfig.clangd.setup {on_init = custom_on_init,  capabilities = custom_capabilittis() }
 
 lspconfig.dockerls.setup {on_init = custom_on_init,  capabilities = custom_capabilittis() }
-
-lspconfig.gopls.setup {on_init = custom_on_init,  capabilities = custom_capabilittis() }
 
 lspconfig.yamlls.setup {on_init = custom_on_init,  capabilities = custom_capabilittis() }

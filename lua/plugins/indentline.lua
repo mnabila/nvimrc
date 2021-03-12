@@ -26,6 +26,6 @@ require('indent_guides').setup({
         'vista',
         'packer'
     },
-    even_colors = { fg ='#504945',bg='#504945' },
-    odd_colors = {fg='#504945',bg='#504945'},
+    even_colors = { fg ='#32302f',bg='#32302f' },
+    odd_colors = {fg='#32302f',bg='#32302f'},
 })

@@ -148,6 +148,14 @@ gls.right = {
         }
     },
     {
+        DiagnosticInfo = {
+            provider = diagnostic.get_diagnostic_info,
+            icon = '  ',
+            condition = function() return condition.check_active_lsp() and condition.checkwidth() end,
+            highlight = {colors.cyan, colors.black}
+        }
+    },
+    {
         LspStatus = {
             provider = function() return string.format(' %s ', lspclient.get_lsp_client()) end,
             icon = '   ',

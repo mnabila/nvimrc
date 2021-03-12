@@ -5,8 +5,18 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagn
     update_in_insert = true
 })
 
-vim.fn.sign_define("LspDiagnosticsSignError", {text = "▊", texthl = "LspDiagnosticsDefaultError", linehl = "NONE"})
-vim.fn.sign_define("LspDiagnosticsSignWarning", {text = "▊", texthl = "LspDiagnosticsDefaultWarning", linehl = "NONE"})
-vim.fn.sign_define("LspDiagnosticsSignInformation", {text = "▊", texthl = "LspDiagnosticsDefaultInformation", linehl = "NONE"})
-vim.fn.sign_define("LspDiagnosticsSignHint", {text = "▊", texthl = "LspDiagnosticsDefaultHint", linehl = "NONE"})
+local opts = {
+    error_sign               = '▊',
+    warn_sign                = '▊',
+    hint_sign                = '▊',
+    infor_sign               = '▊',
+    dianostic_header_icon    = '   ',
+    code_action_icon         = ' ',
+    finder_definition_icon   = '  ',
+    finder_reference_icon    = '  ',
+    definition_preview_icon  = '  ',
+    border_style             = 1,
+    rename_prompt_prefix     = '❱❱'
+}
 
+require('lspsaga').init_lsp_saga(opts)
