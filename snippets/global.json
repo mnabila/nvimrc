@@ -11,9 +11,14 @@
     ],
     "description": "FIXME reminder"
   },
-  "pwgen": {
-    "prefix": ["pwgen"],
+  "pwgen16": {
+    "prefix": ["pwgen16"],
+    "body": ["${VIM:system('pwgen -s 16 -1 | tr -d \"\n\"')}"],
+    "description": "Generate password with 16 characters"
+  },
+  "pwgen32": {
+    "prefix": ["pwgen32"],
     "body": ["${VIM:system('pwgen -s 32 -1 | tr -d \"\n\"')}"],
-    "description": "Generate password"
+    "description": "Generate password with 32 characters"
   }
 }

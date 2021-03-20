@@ -94,4 +94,4 @@ vim.cmd('augroup END')
 -- disable invert selection for gruvbox
 vim.g.gruvbox_invert_selection = false
 
-vim.cmd('colors gruvbox8')
+vim.cmd('colorscheme gruvbox8')

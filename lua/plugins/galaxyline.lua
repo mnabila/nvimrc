@@ -29,20 +29,12 @@ local colors = {
 
 icons['man'] = {colors.green, ''}
 
-function condition.checkwidth()
-  local squeeze_width  = vim.fn.winwidth(0) / 2
-  if squeeze_width > 50 then
-    return true
-  end
-    return false
-end
-
 gls.left = {
     {
         Mode = {
             provider = function()
                 local alias = {n = 'NORMAL', i = 'INSERT', c = 'COMMAND', V= 'VISUAL', [''] = 'VISUAL'}
-                if not condition.checkwidth() then
+                if not condition.hide_in_width() then
                     alias = {n = 'N', i = 'I', c = 'C', V= 'V', [''] = 'V'}
                 end
                 return string.format('   %s ', alias[vim.fn.mode()])
@@ -53,14 +45,14 @@ gls.left = {
     {
         GitIcon = {
             provider = function() return '   ' end,
-            condition = function() return condition.check_git_workspace() and condition.checkwidth() end,
+            condition = function() return condition.check_git_workspace() and condition.hide_in_width() end,
             highlight = {colors.black, colors.bblack}
         }
     },
     {
         GitBranch = {
             provider = function() return string.format('%s ', vcs.get_git_branch()) end,
-            condition = function() return condition.check_git_workspace() and condition.checkwidth() end,
+            condition = function() return condition.check_git_workspace() and condition.hide_in_width() end,
             highlight = {colors.black, colors.bblack}
         }
     },
@@ -68,7 +60,7 @@ gls.left = {
         DiffAdd = {
             provider = vcs.diff_add,
             icon = '+',
-            condition = function() return condition.check_git_workspace() and condition.checkwidth() end,
+            condition = function() return condition.check_git_workspace() and condition.hide_in_width() end,
             highlight = {colors.black, colors.bblack}
         }
     },
@@ -76,7 +68,7 @@ gls.left = {
         DiffModified = {
             provider = vcs.diff_modified,
             icon = '~',
-            condition = function() return condition.check_git_workspace() and condition.checkwidth() end,
+            condition = function() return condition.check_git_workspace() and condition.hide_in_width() end,
             highlight = {colors.black, colors.bblack}
         }
     },
@@ -84,7 +76,7 @@ gls.left = {
         DiffRemove = {
             provider = vcs.diff_remove,
             icon = '-',
-            condition = function() return condition.check_git_workspace() and condition.checkwidth() end,
+            condition = function() return condition.check_git_workspace() and condition.hide_in_width() end,
             highlight = {colors.black, colors.bblack}
         }
     },
@@ -127,7 +119,7 @@ gls.right = {
         DiagnosticError = {
             provider = diagnostic.get_diagnostic_error,
             icon = '  ',
-            condition = function() return condition.check_active_lsp() and condition.checkwidth() end,
+            condition = function() return condition.check_active_lsp() and condition.hide_in_width() end,
             highlight = {colors.red, colors.black}
         },
     },
@@ -135,7 +127,7 @@ gls.right = {
         DiagnosticWarn = {
             provider = diagnostic.get_diagnostic_warn,
             icon = '  ',
-            condition = function() return condition.check_active_lsp() and condition.checkwidth() end,
+            condition = function() return condition.check_active_lsp() and condition.hide_in_width() end,
             highlight = {colors.yellow, colors.black}
         },
     },
@@ -143,7 +135,7 @@ gls.right = {
         DiagnosticHint = {
             provider = diagnostic.get_diagnostic_hint,
             icon = '  ',
-            condition = function() return condition.check_active_lsp() and condition.checkwidth() end,
+            condition = function() return condition.check_active_lsp() and condition.hide_in_width() end,
             highlight = {colors.cyan, colors.black}
         }
     },
@@ -151,7 +143,7 @@ gls.right = {
         DiagnosticInfo = {
             provider = diagnostic.get_diagnostic_info,
             icon = '  ',
-            condition = function() return condition.check_active_lsp() and condition.checkwidth() end,
+            condition = function() return condition.check_active_lsp() and condition.hide_in_width() end,
             highlight = {colors.cyan, colors.black}
         }
     },
@@ -159,7 +151,7 @@ gls.right = {
         LspStatus = {
             provider = function() return string.format(' %s ', lspclient.get_lsp_client()) end,
             icon = '   ',
-            condition = function() return condition.check_active_lsp() and condition.checkwidth() end,
+            condition = function() return condition.check_active_lsp() and condition.hide_in_width() end,
             highlight = {colors.white, colors.black}
         }
     },
@@ -173,14 +165,14 @@ gls.right = {
     {
         FileFormat = {
             provider = function() return string.format('   %s ', fileinfo.get_file_format()) end,
-            condition = condition.checkwidth,
+            condition = condition.hide_in_width,
             highlight = {colors.black, colors.white}
         }
     },
     {
         FileEncode = {
             provider = function() return string.format('   %s ', fileinfo.get_file_encode()) end,
-            condition = condition.checkwidth,
+            condition = condition.hide_in_width,
             highlight = {colors.black, colors.bblack}
         }
     },

@@ -25,7 +25,7 @@ require('compe').setup({
         spell = true,
         tags = true,
         snippets_nvim = false,
-        treesitter = true,
+        treesitter = false,
     }
 })
 

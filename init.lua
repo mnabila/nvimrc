@@ -34,6 +34,7 @@ require('plugins.gist')
 require('modules.lsp')
 require('plugins.completion')
 require('plugins.codeformatter')
+require('plugins.aerial')
 
 -- colorscheme
 require('modules.colors.gruvbox')

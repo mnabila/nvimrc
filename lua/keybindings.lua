@@ -41,10 +41,6 @@ local function set_keybindings()
         {'n', '<A-9>', '<CMD>BufferGoto 9<CR>', {noremap = true, silent = true}},
         {'n', '<A-0>', '<CMD>BufferLast<CR>', {noremap = true, silent = true}},
 
-        -- line bubbling
-        {'n', '<A-j>', ']e', {noremap = false, silent = true}},
-        {'n', '<A-k>', '[e', {noremap = false, silent = true}},
-
         -- split window
         {'n', '<C-A-k>', '<C-w>t<C-w>K', {noremap = false, silent = true}},
         {'n', '<C-A-h>', '<C-w>t<C-w>H', {noremap = false, silent = true}},
@@ -90,12 +86,6 @@ local function set_keybindings()
 
         -- " Edit dotfiles
         -- nmap <leader>ed :cd ~/Dotfiles<cr>:LuaTreeToggle<cr>
-
-        -- TODO(mnabila): fix me :)
-        -- url encoder
-        -- {'v', '[u', '<CMD>lua require("modules.libs.url_encoder").url_encode(@)<CR>', {noremap = false, silent = false}},
-        -- {'v', ']u', '<CMD>lua require("modules.libs.url_encoder").url_decode(@)<CR>', {noremap = false, silent = false}},
-
     }
 
     for _, key in pairs(keybindings) do keymap(key[1], key[2], key[3], key[4]) end

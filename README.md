@@ -125,6 +125,12 @@ $ npm install -g typescript typescript-language-server
 $ npm install -g vim-language-server
 ```
 
+> intelephense
+
+```
+$ npm install -g intelephense
+```
+
 #### required by code formater
 
 > bash

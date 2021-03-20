@@ -44,7 +44,8 @@ packer.startup(function()
         'neovim/nvim-lspconfig',
         requires = {
             'glepnir/lspsaga.nvim',
-            'onsails/lspkind-nvim'
+            'onsails/lspkind-nvim',
+            'stevearc/aerial.nvim'
         }
     }
     use {
