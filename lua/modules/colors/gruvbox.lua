@@ -16,19 +16,8 @@ function _G.applyGruvbox()
         {'VertSplit',   {bg = '#282828', fg = '#282828'}},
 
         -- statusline colours
-        {'StatusLine',                {bg = '#282828',  fg = '#282828'}},
-        {'StatusLineNC',                {bg = '#282821',  fg = '#282821'}},
-        -- {'StatusLineActive',          {bg = '#3C3836',  fg = '#EBDBB2'}},
-        -- {'StatusLineInactive',        {bg = '#3C3836',  fg = '#928374'}},
-        -- {'StatusLineMode',            {bg = '#EBDBB2',  fg = '#282828',   gui = 'bold'}},
-        -- {'StatusLineFileManagerIcon', {bg = '#EBDBB2',  fg = '#3C3836'}},
-        -- {'StatusLineLineCol',         {bg = '#EBDBB2',  fg = '#3C3836',   gui = 'bold'}},
-        -- {'StatusLineFiletype',        {bg = '#BDAE93',  fg = '#3C3836'}},
-        -- {'StatusLineGit',             {bg = '#BDAE93',  fg = '#3C3836'}},
-        -- {'StatusLineFileManagerText', {bg = '#BDAE93',  fg = '#3C3836',   gui = 'bold'}},
-        -- {'StatusLineFilename',        {bg = '#3C3836',  fg = '#D5C4A1'}},
-        -- {'StatusLineError',           {bg = '#FB4934',  fg = '#3C3836'}},
-        -- {'StatusLineWarning',         {bg = '##fabd2f', fg = '#3C3836'}},
+        {'StatusLine',   {bg = '#282828',  fg = '#282828'}},
+        {'StatusLineNC', {bg = '#282821',  fg = '#282821'}},
 
         -- luatree
         {'NvimTreeFolderIcon',   {fg = '#D79921'}},
@@ -85,13 +74,11 @@ end
 -- italicize comments
 hl('Comment', {gui = 'italic'})
 
--- automatically override colourscheme
-vim.cmd('augroup NewColor')
-vim.cmd('au!')
-vim.cmd('au ColorScheme gruvbox8 call v:lua.applyGruvbox()')
-vim.cmd('augroup END')
-
--- disable invert selection for gruvbox
-vim.g.gruvbox_invert_selection = false
-
-vim.cmd('colorscheme gruvbox8')
+-- automatically override colorscheme
+vim.api.nvim_exec([[
+augroup NewColor
+au!
+au ColorScheme gruvbox8 call v:lua.applyGruvbox()
+augroup END
+colorscheme gruvbox8
+]], false)
