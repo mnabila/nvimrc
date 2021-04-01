@@ -1,4 +1,3 @@
-local actions = require('telescope.actions')
 local telescope = require('telescope')
 local previewers = require('telescope.previewers')
 

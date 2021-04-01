@@ -600,248 +600,94 @@
     "description": "HTML - Defines a visible heading for the detail element [limited support]",
     "scope": "text.html"
   },
-      "description": "HTML - Defines preformatted text",
-    "scope": "text.html"
-    },
-    "progress": {
-    "prefix": "progress",
-    "body": "<progress value=\"$1\" max=\"$2\">$3</progress>$4",
-    "description": "HTML - Defines progress of a task of any kind",
-    "scope": "text.html"
-    },
-    "q": {
-    "prefix": "q",
-    "body": "<q>$1</q>$2",
-    "description": "HTML - Defines a short quotation",
-    "scope": "text.html"
-    },
-    "rp": {
-    "prefix": "rp",
-    "body": "<rp>$1</rp>$2",
-    "description": "HTML - Used in ruby annotations to define what to show browsers that do not support the ruby element",
-    "scope": "text.html"
-    },
-    "rt": {
-    "prefix": "rt",
-    "body": "<rt>$1</rt>$2",
-    "description": "HTML - Defines explanation to ruby annotations",
-    "scope": "text.html"
-    },
-    "ruby": {
-    "prefix": "ruby",
-    "body": [
-        "<ruby>",
-        "$1",
-        "</ruby>"
-        ],
-    "description": "HTML - Defines ruby annotations",
-    "scope": "text.html"
-    },
-    "s": {
-    "prefix": "s",
-    "body": "<s>$1</s>$2",
-    "description": "HTML - Used to define strikethrough text",
-    "scope": "text.html"
-    },
-    "samp": {
-    "prefix": "samp",
-    "body": "<samp>$1</samp>$2",
-    "description": "HTML - Defines sample computer code",
-    "scope": "text.html"
-    },
-    "script": {
-    "prefix": "script",
-    "body": [
-        "<script>",
-        "\t$1",
-        "</script>"
-        ],
-    "description": "HTML - Defines a script",
-    "scope": "text.html"
-    },
-    "section": {
-    "prefix": "section",
-    "body": [
-        "<section>",
-        "\t$1",
-        "</section>"
-        ],
-    "description": "HTML - Defines a section",
-    "scope": "text.html"
-    },
-    "select": {
-    "prefix": "select",
-    "body": [
-        "<select>",
-        "\t$1",
-        "</select>"
-        ],
-    "description": "HTML - Defines a selectable list",
-    "scope": "text.html"
-    },
-    "small": {
-    "prefix": "small",
-    "body": "<small>$1</small>$2",
-    "description": "HTML - Defines small text",
-    "scope": "text.html"
-    },
-    "source": {
-    "prefix": "source",
-    "body": "<source src=\"$1\" type=\"$2\">$3",
-    "description": "HTML - Defines media resource",
-    "scope": "text.html"
-    },
-    "span": {
-    "prefix": "span",
-    "body": "<span>$1</span>$2",
-    "description": "HTML - Defines a section in a document",
-    "scope": "text.html"
-    },
-    "strong": {
-    "prefix": "strong",
-    "body": "<strong>$1</strong>$2",
-    "description": "HTML - Defines strong text",
-    "scope": "text.html"
-    },
-    "style": {
-    "prefix": "style",
-    "body": [
-        "<style>",
-        "$1",
-        "</style>"
-        ],
-    "description": "HTML - Defines a style definition",
-    "scope": "text.html"
-    },
-    "sub": {
-    "prefix": "sub",
-    "body": "<sub>$1</sub>$2",
-    "description": "HTML - Defines sub-scripted text",
-    "scope": "text.html"
-    },
-    "sup": {
-    "prefix": "sup",
-    "body": "<sup>$1</sup>$2",
-    "description": "HTML - Defines super-scripted text",
-    "scope": "text.html"
-    },
-    "summary": {
-    "prefix": "summary",
-    "body": "<summary>$1</summary>$2",
-    "description": "HTML - Defines a visible heading for the detail element [limited support]",
-    "scope": "text.html"
-    },
-    "table": {
+  "table": {
     "prefix": "table",
-    "body": [
-        "<table>",
-        "\t$1",
-        "</table>"
-        ],
+    "body": ["<table>", "\t$1", "</table>"],
     "description": "HTML - Defines a table",
     "scope": "text.html"
-    },
-    "tbody": {
+  },
+  "tbody": {
     "prefix": "tbody",
-    "body": [
-        "<tbody>",
-        "\t$1",
-        "</tbody>"
-        ],
+    "body": ["<tbody>", "\t$1", "</tbody>"],
     "description": "HTML - Defines a table body",
     "scope": "text.html"
-    },
-    "td": {
+  },
+  "td": {
     "prefix": "td",
     "body": "<td>$1</td>$2",
     "description": "HTML - Defines a table cell",
     "scope": "text.html"
-    },
-    "textarea": {
+  },
+  "textarea": {
     "prefix": "textarea",
     "body": "<textarea rows=\"$1\" cols=\"$2\">$3</textarea>$4",
     "description": "HTML - Defines a text area",
     "scope": "text.html"
-    },
-    "tfoot": {
+  },
+  "tfoot": {
     "prefix": "tfoot",
-    "body": [
-        "<tfoot>",
-        "\t$1",
-        "</tfoot>"
-        ],
+    "body": ["<tfoot>", "\t$1", "</tfoot>"],
     "description": "HTML - Defines a table footer",
     "scope": "text.html"
-    },
-    "thead": {
+  },
+  "thead": {
     "prefix": "thead",
-    "body": [
-        "<thead>",
-        "$1",
-        "</thead>"
-        ],
+    "body": ["<thead>", "$1", "</thead>"],
     "description": "HTML - Defines a table head",
     "scope": "text.html"
-    },
-    "th": {
+  },
+  "th": {
     "prefix": "th",
     "body": "<th>$1</th>$2",
     "description": "HTML - Defines a table header",
     "scope": "text.html"
-    },
-    "time": {
+  },
+  "time": {
     "prefix": "time",
     "body": "<time datetime=\"$1\">$2</time>$3",
     "description": "HTML - Defines a date/time",
     "scope": "text.html"
-    },
-    "title": {
+  },
+  "title": {
     "prefix": "title",
     "body": "<title>$1</title>$2",
     "description": "HTML - Defines the document title",
     "scope": "text.html"
-    },
-    "tr": {
+  },
+  "tr": {
     "prefix": "tr",
     "body": "<tr>$1</tr>$2",
     "description": "HTML - Defines a table row",
     "scope": "text.html"
-    },
-    "track": {
+  },
+  "track": {
     "prefix": "track",
     "body": "<track src=\"$1\" kind=\"$2\" srclang=\"$3\" label=\"$4\">$5",
     "description": "HTML - Defines a table row",
     "scope": "text.html"
-    },
-    "u": {
+  },
+  "u": {
     "prefix": "u",
     "body": "<u>$1</u>$2",
     "description": "HTML - Used to define underlined text",
     "scope": "text.html"
-    },
-    "ul": {
+  },
+  "ul": {
     "prefix": "ul",
-    "body": [
-        "<ul>",
-        "\t$1",
-        "</ul>"
-        ],
+    "body": ["<ul>", "\t$1", "</ul>"],
     "description": "HTML - Defines an unordered list",
     "scope": "text.html"
-    },
-    "var": {
+  },
+  "var": {
     "prefix": "var",
     "body": "<var>$1</var>$2",
     "description": "HTML - Defines a variable",
     "scope": "text.html"
-    },
-    "video": {
+  },
+  "video": {
     "prefix": "video",
-    "body": [
-        "<video width=\"$1\" height=\"$2\" controls>",
-        "\t$3",
-        "</video>"],
+    "body": ["<video width=\"$1\" height=\"$2\" controls>", "\t$3", "</video>"],
     "description": "HTML - Defines a video",
     "scope": "text.html"
-    }
+  }
 }

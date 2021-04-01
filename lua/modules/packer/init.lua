@@ -21,6 +21,7 @@ packer.startup(function()
     use 'voldikss/vim-translator'
     use 'windwp/nvim-autopairs'
     use 'terrortylor/nvim-comment'
+    use 'code-biscuits/nvim-biscuits'
 
     use { 'iamcco/markdown-preview.nvim', run = 'cd app && yarn install', ft={ 'markdown' }}
 
@@ -63,7 +64,7 @@ packer.startup(function()
     use 'lukas-reineke/format.nvim'
 
     -- snippet
-    use {'mattn/emmet-vim', ft={ 'css', 'html' }}
+    use {'mattn/emmet-vim'}
 
     -- statusline
     use { 'glepnir/galaxyline.nvim', branch = 'main', requires = {'kyazdani42/nvim-web-devicons'}

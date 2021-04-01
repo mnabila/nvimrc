@@ -66,6 +66,9 @@ function _G.applyGruvbox()
         {'GitSignAdd',    {bg = 'NONE', fg = '#458588'}},
         {'GitSignChange', {bg = 'NONE', fg = '#D79921'}},
         {'GitSignDelete', {bg = 'NONE', fg = '#928374'}},
+
+        -- nvim-biscuits
+        {'BiscuitColor', {bg = 'NONE', fg = '#665c64'}},
     }
 
     for _, highlight in pairs(highlights) do hl(highlight[1], highlight[2]) end
