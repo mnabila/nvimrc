@@ -14,6 +14,7 @@ require('compe').setup({
     max_abbr_width = 100,
     max_kind_width = 100,
     max_menu_width = 100,
+    documentation = true,
 
     source = {
         path = true,
@@ -22,8 +23,8 @@ require('compe').setup({
         vsnip = true,
         nvim_lsp = true,
         nvim_lua = true,
-        spell = true,
-        tags = true,
+        spell = false,
+        tags = false,
         snippets_nvim = false,
         treesitter = false,
     }

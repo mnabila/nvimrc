@@ -52,10 +52,6 @@ local function set_keybindings()
         {'n', '`', '<CMD>NvimTreeToggle<CR>', {noremap = true, silent = false}},
         {'n', '<A-`>', '<CMD>NvimTreeFindFile<CR>', {noremap = true, silent = false}},
 
-        -- code formatter
-        {'n', '<Leader>f', '<CMD>FormatWrite<CR>', {noremap = false, silent = false}},
-        {'v', '<Leader>f', '<CMD>FormatWrite<CR>', {noremap = false, silent = false}},
-
         -- telescope
         {'n', '<Leader><space>', '<CMD>lua require("telescope.builtin").oldfiles({file_ignore_patterns = {"/usr/share/nvim/runtime/*"}})<CR>', {noremap = true, silent = false}},
         {'n', '<Leader>b', '<CMD>lua require("telescope.builtin").buffers()<CR>', {noremap = true, silent = false}},

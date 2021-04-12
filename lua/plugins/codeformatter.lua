@@ -53,5 +53,6 @@ require('format').setup {
     lua = stylua,
     markdown = markdownfmt,
     json = prettier,
-    python = black
+    python = black,
+    scss = prettier
 }

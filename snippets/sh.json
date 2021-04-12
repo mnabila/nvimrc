@@ -153,7 +153,7 @@
   },
   "command.run": {
     "prefix": ["command", "cmd", "command substitution", "cmd substitution"],
-    "body": "${1:result}=$(${2:command})\n",
+    "body": "${1:result}=\"$(${2:command})\"\n",
     "description": "run command (command substitution)"
   },
   "command.success-check": {
@@ -1948,6 +1948,11 @@
     "prefix": "process list all",
     "body": "ps -A\n",
     "description": "list processes"
+  },
+  "process.process-name": {
+    "prefix": "process Name by ID",
+    "body": "${1:processName}=\\$(ps -p \\${${2:pid}\\} -o comm=)\n",
+    "description": "find process name by it's ID(s)"
   },
   "string.concat": {
     "prefix": ["string concat", "string + string"],
