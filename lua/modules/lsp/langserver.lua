@@ -1,10 +1,7 @@
 local lspconfig = require("lspconfig")
 local c = require("modules.lsp.custom")
 
-lspconfig.tsserver.setup({
-    on_init = c.custom_on_init,
-    on_attach = c.custom_on_attach,
-    capabilities = c.custom_capabilities(),
+lspconfig.tsserver.setup(c.default({
     root_dir = vim.loop.cwd,
     settings = {
         tsserver = {
@@ -15,14 +12,14 @@ lspconfig.tsserver.setup({
             suggest = {
                 autoImports = true,
             },
+            updateImportsOnFileMove = {
+                enable = true,
+            },
         },
     },
-})
+}))
 
-lspconfig.sumneko_lua.setup({
-    on_init = c.custom_on_init,
-    on_attach = c.custom_on_attach,
-    capabilities = c.custom_capabilities(),
+lspconfig.sumneko_lua.setup(c.default({
     cmd = { "lua-language-server" },
     settings = {
         Lua = {
@@ -41,11 +38,9 @@ lspconfig.sumneko_lua.setup({
             },
         },
     },
-})
+}))
 
-lspconfig.jedi_language_server.setup({
-    on_init = c.custom_on_init,
-    on_attach = c.custom_on_attach,
+lspconfig.jedi_language_server.setup(c.default({
     settings = {
         jedi = {
             enable = true,
@@ -59,8 +54,7 @@ lspconfig.jedi_language_server.setup({
             workspace = { extraPaths = {} },
         },
     },
-    capabilities = c.custom_capabilities(),
-})
+}))
 
 lspconfig.sqls.setup({
     cmd = { "sqls", "-config", os.getenv("HOME") .. "/.config/sqls/config.yml" },
@@ -72,11 +66,8 @@ lspconfig.sqls.setup({
     end,
 })
 
-lspconfig.gopls.setup({
+lspconfig.gopls.setup(c.default({
     cmd = { "gopls", "serve" },
-    on_init = c.custom_on_init,
-    on_attach = c.custom_on_attach,
-    capabilities = c.custom_capabilities(),
     root_dir = vim.loop.cwd,
     settings = {
         gopls = {
@@ -86,67 +77,17 @@ lspconfig.gopls.setup({
             staticcheck = true,
         },
     },
-})
+}))
 
-lspconfig.html.setup({
-    on_init = c.custom_on_init,
-    on_attach = c.custom_on_attach,
-    capabilities = c.custom_capabilities(),
-})
-
-lspconfig.cssls.setup({
-    on_init = c.custom_on_init,
-    on_attach = c.custom_on_attach,
-    capabilities = c.custom_capabilities(),
+lspconfig.cssls.setup(c.default({
     root_dir = vim.loop.cwd,
-})
+}))
 
-lspconfig.vimls.setup({
-    on_init = c.custom_on_init,
-    on_attach = c.custom_on_attach,
-    capabilities = c.custom_capabilities()
-})
-
-lspconfig.jsonls.setup({
-    on_init = c.custom_on_init,
-    on_attach = c.custom_on_attach,
-    capabilities = c.custom_capabilities()
-})
-
-lspconfig.bashls.setup({
-    on_init = c.custom_on_init,
-    on_attach = c.custom_on_attach,
-    capabilities = c.custom_capabilities()
-})
-
--- texlab not working if file or buffer is empty
-lspconfig.texlab.setup({
-    on_init = c.custom_on_init,
-    on_attach = c.custom_on_attach,
-    capabilities = c.custom_capabilities()
-})
-
-lspconfig.clangd.setup({
-    on_init = c.custom_on_init,
-    on_attach = c.custom_on_attach,
-    capabilities = c.custom_capabilities()
-})
-
-lspconfig.dockerls.setup({
-    on_init = c.custom_on_init,
-    on_attach = c.custom_on_attach,
-    capabilities = c.custom_capabilities()
-})
-
-lspconfig.yamlls.setup({
-    on_init = c.custom_on_init,
-    on_attach = c.custom_on_attach,
-    capabilities = c.custom_capabilities()
-})
-
-lspconfig.intelephense.setup({
-    on_init = c.custom_on_init,
-    on_attach = c.custom_on_attach,
-    capabilities = c.custom_capabilities(),
+lspconfig.intelephense.setup(c.default({
     root_dir = vim.loop.cwd,
-})
+}))
+
+local servers = { "yamlls", "dockerls", "clangd", "texlab", "bashls", "jsonls", "vimls", "html" }
+for _, lsp in ipairs(servers) do
+    lspconfig[lsp].setup(c.default())
+end

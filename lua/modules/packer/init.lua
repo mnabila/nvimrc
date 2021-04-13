@@ -55,7 +55,7 @@ packer.startup(function()
         requires = {
             'nvim-lua/popup.nvim',
             'nvim-lua/plenary.nvim',
-            'nvim-telescope/telescope-fzy-native.nvim'
+            'nvim-telescope/telescope-fzy-native.nvim',
         }
     }
     use { 'hrsh7th/nvim-compe', requires = { 'hrsh7th/vim-vsnip' } }

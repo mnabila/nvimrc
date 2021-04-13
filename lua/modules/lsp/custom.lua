@@ -57,12 +57,18 @@ function M.custom_on_attach(client, bufnr)
     end
 end
 
-function M.default()
-    return {
+function M.default(configs)
+    local custom_config = {
         on_init = M.custom_on_init,
         on_attach = M.custom_on_attach,
         capabilities = M.custom_capabilities(),
     }
+    if configs ~= nil then
+        for key, value in pairs(configs) do
+            custom_config[key] = value
+        end
+    end
+    return custom_config
 end
 
 return M
