@@ -9,5 +9,4 @@ neogit.setup({
         item = { "", "" },
         hunk = { "", "" },
     },
-
 })

@@ -9,10 +9,10 @@ vim.g.bufferline = {
     -- if set to 'numbers', will show buffer index in the tabline
     -- if set to 'both', will show buffer index and icons in the tabline
     icons = true,
-    icon_separator_active = '',
-    icon_separator_inactive = '',
-    icon_close_tab = '',
-    icon_close_tab_modified = ' ',
+    icon_separator_active = "",
+    icon_separator_inactive = "",
+    icon_close_tab = "",
+    icon_close_tab_modified = " ",
 
     -- Enable/disable close button
     closable = true,
@@ -32,5 +32,5 @@ vim.g.bufferline = {
     maximum_padding = 2,
 
     -- Sets the name of unsaved buffer
-    no_name_title = " empty"
+    no_name_title = " empty",
 }
