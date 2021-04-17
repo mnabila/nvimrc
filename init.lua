@@ -34,7 +34,7 @@ require('plugins.neogit')
 -- neovim code completion and code formater
 require('modules.lsp')
 require('plugins.completion')
-require('plugins.codeformatter')
+require('plugins.formatter')
 require('plugins.aerial')
 
 -- colorscheme

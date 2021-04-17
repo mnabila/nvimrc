@@ -11,7 +11,7 @@ packer.init({
 packer.startup(function()
     use({ "wbthomason/packer.nvim", opt = true })
 
-    use("glepnir/indent-guides.nvim")
+    use({"lukas-reineke/indent-blankline.nvim", branch="lua"})
     use("junegunn/vim-easy-align")
     use("mnabila/vim-header")
     use("nanotee/sqls.nvim")
@@ -37,8 +37,7 @@ packer.startup(function()
     use("TimUntersberger/neogit")
 
     -- colorsceme
-    use({ "morhetz/gruvbox", disable = true })
-    use({ "lifepillar/vim-gruvbox8", disable = false })
+    use({ "lifepillar/vim-gruvbox8" })
     use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate", requires = { "p00f/nvim-ts-rainbow" } })
 
     -- nvim-lsp
