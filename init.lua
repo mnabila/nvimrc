@@ -14,6 +14,7 @@ require('plugins.indentline')
 require('plugins.treesitter')
 require('plugins.nvimTree')
 require('plugins.galaxyline')
+require('plugins.neoscroll')
 
 -- neovim plugins for functionality
 require('plugins.translator')

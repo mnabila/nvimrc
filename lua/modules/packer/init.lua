@@ -11,19 +11,19 @@ packer.init({
 packer.startup(function()
     use({ "wbthomason/packer.nvim", opt = true })
 
-    use({"lukas-reineke/indent-blankline.nvim", branch="lua"})
+    -- helper
     use("junegunn/vim-easy-align")
     use("mnabila/vim-header")
-    use("nanotee/sqls.nvim")
-    use("psliwka/vim-smoothie")
-    use("rrethy/vim-hexokinase")
     use("tpope/vim-surround")
-    use("voldikss/vim-translator")
     use("windwp/nvim-autopairs")
     use("terrortylor/nvim-comment")
-    use("code-biscuits/nvim-biscuits")
+    use("rrethy/vim-hexokinase")
+    use("voldikss/vim-translator")
+    use("karb94/neoscroll.nvim")
+    use("nanotee/sqls.nvim")
 
-    use({ "iamcco/markdown-preview.nvim", run = "cd app && yarn install", ft = { "markdown" } })
+    -- indentline
+    use({ "lukas-reineke/indent-blankline.nvim", branch = "lua" })
 
     -- file namager
     use({ "kyazdani42/nvim-tree.lua", requires = { "kyazdani42/nvim-web-devicons" } })
@@ -58,6 +58,7 @@ packer.startup(function()
         },
     })
     use({ "hrsh7th/nvim-compe", requires = { "hrsh7th/vim-vsnip" } })
+    use("code-biscuits/nvim-biscuits")
 
     -- code formatter
     use("lukas-reineke/format.nvim")
@@ -67,6 +68,9 @@ packer.startup(function()
 
     -- statusline
     use({ "glepnir/galaxyline.nvim", branch = "main", requires = { "kyazdani42/nvim-web-devicons" } })
+
+    -- mardown
+    use({ "iamcco/markdown-preview.nvim", run = "cd app && yarn install", ft = { "markdown" } })
 end)
 
 return packer

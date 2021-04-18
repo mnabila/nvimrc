@@ -10,6 +10,7 @@ autocmd FileType scss,sass,css setlocal expandtab shiftwidth=2 softtabstop=2
 autocmd FileType tex setlocal conceallevel=0
 autocmd FileType vim setlocal expandtab shiftwidth=2 softtabstop=2
 autocmd FileType zsh setlocal filetype=sh
+autocmd FileType help setlocal statusline=0
 autocmd FileType * setlocal formatoptions-=cro
 
 
