@@ -14,7 +14,7 @@ packer.startup(function()
     -- helper
     use("junegunn/vim-easy-align")
     use("mnabila/vim-header")
-    use("tpope/vim-surround")
+    use({ "blackCauldron7/surround.nvim" })
     use("windwp/nvim-autopairs")
     use("terrortylor/nvim-comment")
     use("rrethy/vim-hexokinase")
@@ -67,7 +67,11 @@ packer.startup(function()
     use({ "mattn/emmet-vim" })
 
     -- statusline
-    use({ "glepnir/galaxyline.nvim", branch = "main", requires = { "kyazdani42/nvim-web-devicons" } })
+    use({
+        "glepnir/galaxyline.nvim",
+        branch = "main",
+        requires = { "kyazdani42/nvim-web-devicons" },
+    })
 
     -- mardown
     use({ "iamcco/markdown-preview.nvim", run = "cd app && yarn install", ft = { "markdown" } })

@@ -12,14 +12,6 @@ local function set_keybindings()
         { "n", "<Down>", "<Nop>", { noremap = true, silent = true } },
         { "n", "<C-z>", "<Nop>", { noremap = true, silent = true } },
 
-        -- reload configuration
-        {
-            "n",
-            "<Leader>r",
-            "<CMD>source ~/.config/nvim/init.lua<CR>",
-            { noremap = true, silent = false },
-        },
-
         -- resize window
         { "n", "<C-Left>", "<CMD>vertical resize +5<CR>", { noremap = true, silent = true } },
         { "n", "<C-Up>", "<CMD>resize -5<CR>", { noremap = true, silent = true } },

@@ -10,7 +10,7 @@
 urls='''
 [
     ["sh",         "https://github.com/yousefvand/shellman/raw/master/snippets/snippets.json"],
-    ["latex",      "https://github.com/sabertazimi/LaTeX-snippets/raw/master/snippets/snippets.json"],
+    ["tex",      "https://github.com/sabertazimi/LaTeX-snippets/raw/master/snippets/snippets.json"],
     ["sql",        "https://github.com/SadeghPM/sql-vscode-snipptes/raw/master/snippets/snippets.json"],
     ["javascript", "https://github.com/dsznajder/vscode-es7-javascript-react-snippets/raw/master/snippets/snippets.json"],
     ["html",       "https://github.com/abusaidm/html-snippets/raw/master/snippets/snippets.json"],

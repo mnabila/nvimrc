@@ -45,7 +45,7 @@ gls.left = {
     {
         GitIcon = {
             provider = function()
-                return "   "
+                return "   "
             end,
             condition = function()
                 return condition.check_git_workspace() and condition.hide_in_width()

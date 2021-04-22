@@ -21,5 +21,7 @@ vim.g.indent_blankline_filetype_exclude = {
     "vista",
     "packer",
     "aerial",
+    "lspinfo",
+    "lspsagafinder"
 }
 vim.g.indent_blankline_buftype_exclude = { "terminal" }
