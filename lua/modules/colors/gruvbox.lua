@@ -55,9 +55,12 @@ function _G.applyGruvbox()
 
         -- lspsaga
         { "LspFloatWinBorder", { bg = "NONE", fg = "#928374" } },
-        { "ProviderTruncateLine", { bg = "NONE", fg = "#928374" } },
-        { "LspSagaDocTruncateLine", { bg = "NONE", fg = "#928374" } },
-        { "LspSagaCodeActionTruncateLine", { bg = "NONE", fg = "#928374" } },
+        { "LspSagaRenameBorder", { bg = "NONE", fg = "#928374" } },
+        { "LspSagaHoverBorder", { bg = "NONE", fg = "#928374" } },
+        { "LspSagaSignatureHelpBorder", { bg = "NONE", fg = "#928374" } },
+        { "LspSagaCodeActionBorder", { bg = "NONE", fg = "#928374" } },
+        { "LspSagaDefPreviewBorder", { bg = "NONE", fg = "#928374" } },
+        { "LspLinesDiagBorder", { bg = "NONE", fg = "#928374" } },
 
         -- vim-translator
         { "TranslatorBorder", { bg = "NONE", fg = "#928374" } },
@@ -68,7 +71,7 @@ function _G.applyGruvbox()
         { "GitSignDelete", { bg = "NONE", fg = "#928374" } },
 
         -- nvim-biscuits
-        { "BiscuitColor", { bg = "NONE", fg = "#928374" } },
+        { "BiscuitColor", { bg = "NONE", fg = "#3c3836" } },
     }
 
     for _, highlight in pairs(highlights) do

@@ -17,11 +17,12 @@ vim.g.indent_blankline_filetype_exclude = {
     "sagahover",
     "startify",
     "terminal",
-    "trans",
+    "translator",
     "vista",
     "packer",
     "aerial",
     "lspinfo",
-    "lspsagafinder"
+    "lspsagafinder",
+    "lsptrouble"
 }
-vim.g.indent_blankline_buftype_exclude = { "terminal" }
+vim.g.indent_blankline_buftype_exclude = { "terminal", "man" }

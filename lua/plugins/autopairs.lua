@@ -12,4 +12,5 @@ require("nvim-autopairs").setup({
     check_line_pair = true,
     html_break_line_filetype = { "html", "vue", "typescriptreact", "svelte", "javascriptreact" },
     ignored_next_char = "%w",
+    check_ts = true,
 })
