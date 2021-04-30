@@ -87,7 +87,26 @@ lspconfig.intelephense.setup(c.default({
     root_dir = vim.loop.cwd,
 }))
 
-local servers = { "yamlls", "dockerls", "clangd", "texlab", "bashls", "jsonls", "vimls", "html" }
+lspconfig.yamlls.setup(c.default({
+    settings = {
+        yaml = {
+            format = {
+                enable = true,
+                singleQuote = true,
+                bracketSpacing = true,
+            },
+            editor = {
+                tabSize = 2,
+            },
+            schemas = {
+                ["https://json.schemastore.org/github-workflow.json"] = "ci.yml",
+                ["https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json"] = "docker-compose.yml",
+            },
+        },
+    },
+}))
+
+local servers = { "dockerls", "clangd", "texlab", "bashls", "jsonls", "vimls" }
 for _, lsp in ipairs(servers) do
     lspconfig[lsp].setup(c.default())
 end

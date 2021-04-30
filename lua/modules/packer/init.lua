@@ -55,7 +55,10 @@ packer.startup(function()
     use({
         "nvim-treesitter/nvim-treesitter",
         run = ":TSUpdate",
-        requires = { "p00f/nvim-ts-rainbow" },
+        requires = {
+            "p00f/nvim-ts-rainbow",
+            "windwp/nvim-ts-autotag",
+        },
     })
 
     -- nvim-lsp
@@ -109,7 +112,6 @@ packer.startup(function()
         branch = "main",
         requires = { "kyazdani42/nvim-web-devicons" },
     })
-
 end)
 
 return packer

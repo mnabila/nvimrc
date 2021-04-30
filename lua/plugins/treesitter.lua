@@ -10,5 +10,11 @@ require("nvim-treesitter.configs").setup({
     rainbow = {
         enable = true,
     },
-    autopairs = { enable = true },
+    autopairs = {
+        enable = true,
+    },
+    autotag = {
+        enable = true,
+        filetypes = { "html", "xml" },
+    },
 })
