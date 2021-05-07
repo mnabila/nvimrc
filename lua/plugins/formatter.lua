@@ -65,4 +65,5 @@ require("format").setup({
     json = prettier,
     python = black,
     scss = prettier,
+    yaml = prettier,
 })

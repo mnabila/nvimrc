@@ -6,6 +6,10 @@ packer.init({
     display = {
         open_cmd = "leftabove 80vnew [packer]",
     },
+    profile = {
+        enable = true,
+        threshold = 1,
+    },
 })
 
 packer.startup(function()
@@ -66,7 +70,6 @@ packer.startup(function()
         "neovim/nvim-lspconfig",
         requires = {
             "glepnir/lspsaga.nvim",
-            "onsails/lspkind-nvim",
             "stevearc/aerial.nvim",
         },
     })
@@ -102,7 +105,7 @@ packer.startup(function()
     -- mardown
     use({
         "iamcco/markdown-preview.nvim",
-        run = "cd app && yarn install",
+        run = "cd app && npm install",
         ft = { "markdown" },
     })
 
