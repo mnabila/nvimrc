@@ -15,7 +15,7 @@ configs.tailwindcss_ls = {
             "node",
             string.format(
                 "%s/.vscode-oss/extensions/bradlc.vscode-tailwindcss-0.5.10/dist/server/index.js",
-                os.getenv("HOME")
+                vim.loop.os_homedir()
             ),
             "--stdio",
         },

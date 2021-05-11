@@ -8,7 +8,7 @@ local prettier = {
     {
         cmd = {
             function(file)
-                local config = os.getenv("HOME") .. "/.config/nvim/.prettierrc"
+                local config = vim.loop.os_homedir() .. "/.config/nvim/.prettierrc"
                 return string.format('prettier --config %s --tab-width %s -w "%s"', config, vim.bo.shiftwidth, file)
             end,
         },
@@ -31,7 +31,7 @@ local stylua = {
     {
         cmd = {
             function(file)
-                local config = os.getenv("HOME") .. "/.config/nvim/.stylua.toml"
+                local config = vim.loop.os_homedir() .. "/.config/nvim/.stylua.toml"
                 return string.format("stylua --config-path %s %s %s ", config, file, file)
             end,
         },
