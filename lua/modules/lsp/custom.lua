@@ -43,6 +43,7 @@ function M.custom_on_attach(client, bufnr)
     keymap("v", "]]", '<CMD>lua require("aerial").next_item()<CR>zvzz')
     keymap("n", "<leader>F", "<CMD>FormatWrite<CR>")
     keymap("n", "<leader>d", "<CMD>LspTroubleToggle<CR>")
+    keymap("n", "<leader>D", "<CMD>LspTroubleWorkspaceToggle<CR>")
 
     -- Set some keybinds conditional on server capabilities
     if client.resolved_capabilities.document_formatting then

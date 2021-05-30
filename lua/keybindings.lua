@@ -46,8 +46,8 @@ local function set_keybindings()
         { "t", "<Esc>", "<C-\\><C-n>", { noremap = true, silent = true } },
 
         -- nvim tree.lua
-        { "n", "`", "<CMD>NvimTreeToggle<CR>", { noremap = true, silent = false } },
-        { "n", "<A-`>", "<CMD>NvimTreeFindFile<CR>", { noremap = true, silent = false } },
+        { "n", "`", "<CMD>NvimTreeToggle<CR>", { noremap = true, silent = true } },
+        { "n", "<A-`>", "<CMD>NvimTreeFindFile<CR>", { noremap = true, silent = true } },
 
         -- telescope
         {
