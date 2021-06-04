@@ -18,7 +18,6 @@ packer.startup(function()
     -- helper
     use({ "junegunn/vim-easy-align" })
     use({ "mnabila/vim-header" })
-    use({ "blackCauldron7/surround.nvim" })
     use({ "windwp/nvim-autopairs" })
     use({ "terrortylor/nvim-comment" })
     use({ "rrethy/vim-hexokinase" })
@@ -115,6 +114,8 @@ packer.startup(function()
         branch = "main",
         requires = { "kyazdani42/nvim-web-devicons" },
     })
+
+    use({ "machakann/vim-sandwich" })
 end)
 
 return packer

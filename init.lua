@@ -23,7 +23,6 @@ require('plugins.telescope')
 require('plugins.autopairs')
 require('plugins.comment')
 require('plugins.biscuits')
-require('plugins.surround')
 
 -- neovim language support
 require('plugins.markdown')

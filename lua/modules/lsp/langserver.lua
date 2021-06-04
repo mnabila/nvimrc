@@ -46,18 +46,15 @@ lspconfig.sumneko_lua.setup(c.default({
     },
 }))
 
-lspconfig.jedi_language_server.setup(c.default({
+lspconfig.pyright.setup(c.default({
     settings = {
-        jedi = {
-            enable = true,
-            startupMessage = true,
-            markupKindPreferred = "markdown",
-            jediSettings = {
-                autoImportModules = {},
-                completion = { disableSnippets = false },
-                diagnostics = { enable = true, didOpen = true, didSave = true, didChange = true },
+        python = {
+            analysis = {
+                useLibraryCodeForTypes = true,
+                autoSearchPaths = true,
+                diagnosticMode = "openFilesOnly",
+                typeCheckingMode = "basic",
             },
-            workspace = { extraPaths = {} },
         },
     },
 }))
