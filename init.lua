@@ -12,7 +12,7 @@ require('plugins.barbar')
 require('plugins.hexokinase')
 require('plugins.indentline')
 require('plugins.treesitter')
-require('plugins.nvimTree')
+require('plugins.nvimtree')
 require('plugins.galaxyline')
 require('plugins.neoscroll')
 

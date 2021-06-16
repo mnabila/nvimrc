@@ -2,9 +2,7 @@
 
 ## Preview
 
-![Text Editor](https://raw.githubusercontent.com/mnabila/nvimrc/master/preview/preview-4.png)
-![File Manager](https://raw.githubusercontent.com/mnabila/nvimrc/master/preview/preview-5.png)
-![Fuzzy Finder](https://raw.githubusercontent.com/mnabila/nvimrc/master/preview/preview-6.png)
+![Text Editor](./preview/preview-1.png)
 
 ## Instalation
 

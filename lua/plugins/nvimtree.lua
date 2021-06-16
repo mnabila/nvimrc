@@ -17,7 +17,7 @@ vim.g.nvim_tree_width_allow_resize  = 1
 vim.g.nvim_tree_group_empty = 0
 vim.g.nvim_tree_disable_window_picker = 1
 vim.g.nvim_tree_lsp_diagnostics=0
-vim.g.nvim_tree_hijack_cursor = 1
+vim.g.nvim_tree_hijack_cursor = 0
 vim.g.nvim_tree_show_icons = { git = 0, folders = 1, files = 1 }
 
 vim.g.nvim_tree_icons = {
