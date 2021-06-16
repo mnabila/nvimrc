@@ -73,5 +73,6 @@ vim.opt.winblend = 0
 vim.opt.wrap = true
 vim.opt.writebackup = true
 vim.cmd("syntax on")
+vim.cmd("colorscheme gruvboy")
 
 vim.g.python3_host_prog = "/usr/bin/python3"

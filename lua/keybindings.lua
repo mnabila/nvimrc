@@ -123,12 +123,8 @@ local function set_keybindings()
         -- Search for visually selected text
         { "v", "<Leader>v", "y/\\V<C-R>=escape(@\",'/\\')<CR><CR>", { noremap = false, silent = false } },
 
-        -- TODO: convert to lua
-        -- " Edit init.vim
-        -- nmap <leader>ev :cd ~/.config/nvim<cr>:LuaTreeToggle<cr>
-
-        -- " Edit dotfiles
-        -- nmap <leader>ed :cd ~/Dotfiles<cr>:LuaTreeToggle<cr>
+        -- format.nvim
+        { "n", "<leader>F", "<CMD>FormatWrite<CR>", { noremap = false, silent = false } },
     }
 
     for _, key in pairs(keybindings) do

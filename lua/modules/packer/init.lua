@@ -15,14 +15,29 @@ packer.init({
 packer.startup(function()
     use({ "wbthomason/packer.nvim", opt = true })
 
-    -- helper
-    use({ "junegunn/vim-easy-align" })
-    use({ "mnabila/vim-header" })
-    use({ "windwp/nvim-autopairs" })
-    use({ "terrortylor/nvim-comment" })
-    use({ "rrethy/vim-hexokinase" })
+    -- translate
     use({ "voldikss/vim-translator" })
+
+    -- smooth scroll
     use({ "karb94/neoscroll.nvim" })
+
+    -- color preview
+    use({ "rrethy/vim-hexokinase" })
+
+    -- comment
+    use({ "terrortylor/nvim-comment" })
+
+    -- autopair
+    use({ "windwp/nvim-autopairs" })
+
+    -- file header
+    use({ "mnabila/vim-header" })
+
+    -- auto align
+    use({ "junegunn/vim-easy-align" })
+
+    -- surround
+    use({ "machakann/vim-sandwich" })
 
     -- indentline
     use({
@@ -46,6 +61,7 @@ packer.startup(function()
     use({
         "mattn/gist-vim",
         requires = { "mattn/webapi-vim" },
+        opt = true,
     })
     use({
         "lewis6991/gitsigns.nvim",
@@ -54,7 +70,8 @@ packer.startup(function()
     use({ "TimUntersberger/neogit" })
 
     -- colorsceme
-    use({ "lifepillar/vim-gruvbox8" })
+    use("rktjmp/lush.nvim")
+    use("~/git/gruvboy.nvim") -- note: if you want use gruvboy.nvim please change to mnabila/gruvboy.nvim
     use({
         "nvim-treesitter/nvim-treesitter",
         run = ":TSUpdate",
@@ -115,7 +132,11 @@ packer.startup(function()
         requires = { "kyazdani42/nvim-web-devicons" },
     })
 
-    use({ "machakann/vim-sandwich" })
+    -- benchmark
+    use({
+        "tweekmonster/startuptime.vim",
+        opt = true,
+    })
 end)
 
 return packer

@@ -38,10 +38,6 @@ require('plugins.completion')
 require('plugins.formatter')
 require('plugins.aerial')
 
--- colorscheme
-require('modules.colors.gruvbox')
-require('plugins.gruvbox')
-
 -- neovim keybindings
 require('keybindings')
 

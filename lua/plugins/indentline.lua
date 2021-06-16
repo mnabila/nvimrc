@@ -23,6 +23,6 @@ vim.g.indent_blankline_filetype_exclude = {
     "aerial",
     "lspinfo",
     "lspsagafinder",
-    "lsptrouble"
+    "Trouble"
 }
-vim.g.indent_blankline_buftype_exclude = { "terminal", "man" }
+vim.g.indent_blankline_buftype_exclude = { "terminal", "man", "trouble" }
