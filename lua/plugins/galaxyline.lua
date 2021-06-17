@@ -7,25 +7,7 @@ local fileinfo = require("galaxyline.provider_fileinfo")
 local diagnostic = require("galaxyline.provider_diagnostic")
 local lspclient = require("galaxyline.provider_lsp")
 local icons = require("galaxyline.provider_fileinfo").define_file_icon()
-
-local colors = {
-    black = "#282828",
-    bblack = "#928374",
-    red = "#cc241d",
-    bred = "#fb4934",
-    green = "#98971a",
-    bgreen = "#b8bb26",
-    yellow = "#d79921",
-    byellow = "#fabd2f",
-    blue = "#458588",
-    bblue = "#83a598",
-    mangenta = "#b16286",
-    bmangenta = "#d3869b",
-    cyan = "#689d6a",
-    bcyan = "#8ec07c",
-    white = "#a89984",
-    bwhite = "#ebdbb2",
-}
+local colors = require("gruvboy.colors")
 
 icons["man"] = { colors.green, "" }
 
@@ -39,7 +21,7 @@ gls.left = {
                 end
                 return string.format("   %s ", alias[vim.fn.mode()])
             end,
-            highlight = { colors.black, colors.yellow, "bold" },
+            highlight = { colors.bg0, colors.yellow, "bold" },
         },
     },
     {
@@ -50,7 +32,7 @@ gls.left = {
             condition = function()
                 return condition.check_git_workspace() and condition.hide_in_width()
             end,
-            highlight = { colors.black, colors.bblack },
+            highlight = { colors.bg0, colors.gray },
         },
     },
     {
@@ -61,7 +43,7 @@ gls.left = {
             condition = function()
                 return condition.check_git_workspace() and condition.hide_in_width()
             end,
-            highlight = { colors.black, colors.bblack },
+            highlight = { colors.bg0, colors.gray },
         },
     },
     {
@@ -71,7 +53,7 @@ gls.left = {
             condition = function()
                 return condition.check_git_workspace() and condition.hide_in_width()
             end,
-            highlight = { colors.black, colors.bblack },
+            highlight = { colors.bg0, colors.gray },
         },
     },
     {
@@ -81,7 +63,7 @@ gls.left = {
             condition = function()
                 return condition.check_git_workspace() and condition.hide_in_width()
             end,
-            highlight = { colors.black, colors.bblack },
+            highlight = { colors.bg0, colors.gray },
         },
     },
     {
@@ -91,7 +73,7 @@ gls.left = {
             condition = function()
                 return condition.check_git_workspace() and condition.hide_in_width()
             end,
-            highlight = { colors.black, colors.bblack },
+            highlight = { colors.bg0, colors.gray },
         },
     },
     {
@@ -99,7 +81,7 @@ gls.left = {
             provider = function()
                 return " "
             end,
-            highlight = { colors.black, colors.black },
+            highlight = { colors.bg0, colors.bg0 },
         },
     },
     {
@@ -108,7 +90,7 @@ gls.left = {
             condition = condition.buffer_not_empty,
             highlight = {
                 fileinfo.get_file_icon_color,
-                colors.black,
+                colors.bg0,
             },
         },
     },
@@ -118,7 +100,7 @@ gls.left = {
                 return string.format("%s| %s ", fileinfo.get_file_size(), fileinfo.get_current_file_name())
             end,
             condition = condition.buffer_not_empty,
-            highlight = { colors.bwhite, colors.black },
+            highlight = { colors.fg1, colors.bg0 },
         },
     },
     {
@@ -126,7 +108,7 @@ gls.left = {
             provider = function()
                 return ""
             end,
-            highlight = { colors.black, colors.black },
+            highlight = { colors.bg0, colors.bg0 },
         },
     },
 }
@@ -139,7 +121,7 @@ gls.right = {
             condition = function()
                 return condition.check_active_lsp() and condition.hide_in_width()
             end,
-            highlight = { colors.red, colors.black },
+            highlight = { colors.red, colors.bg0 },
         },
     },
     {
@@ -149,7 +131,7 @@ gls.right = {
             condition = function()
                 return condition.check_active_lsp() and condition.hide_in_width()
             end,
-            highlight = { colors.yellow, colors.black },
+            highlight = { colors.yellow, colors.bg0 },
         },
     },
     {
@@ -159,7 +141,7 @@ gls.right = {
             condition = function()
                 return condition.check_active_lsp() and condition.hide_in_width()
             end,
-            highlight = { colors.cyan, colors.black },
+            highlight = { colors.aqua, colors.bg0 },
         },
     },
     {
@@ -169,7 +151,7 @@ gls.right = {
             condition = function()
                 return condition.check_active_lsp() and condition.hide_in_width()
             end,
-            highlight = { colors.cyan, colors.black },
+            highlight = { colors.aqua, colors.bg0 },
         },
     },
     {
@@ -181,7 +163,7 @@ gls.right = {
             condition = function()
                 return condition.check_active_lsp() and condition.hide_in_width()
             end,
-            highlight = { colors.white, colors.black },
+            highlight = { colors.fg4, colors.bg0 },
         },
     },
     {
@@ -192,7 +174,7 @@ gls.right = {
             condition = function()
                 return buffer.get_buffer_filetype() ~= ""
             end,
-            highlight = { colors.white, colors.black },
+            highlight = { colors.fg4, colors.bg0 },
         },
     },
     {
@@ -201,7 +183,7 @@ gls.right = {
                 return string.format("   %s ", fileinfo.get_file_format())
             end,
             condition = condition.hide_in_width,
-            highlight = { colors.black, colors.white },
+            highlight = { colors.bg0, colors.fg4 },
         },
     },
     {
@@ -210,7 +192,7 @@ gls.right = {
                 return string.format("   %s ", fileinfo.get_file_encode())
             end,
             condition = condition.hide_in_width,
-            highlight = { colors.black, colors.bblack },
+            highlight = { colors.bg0, colors.gray },
         },
     },
     {
@@ -218,7 +200,7 @@ gls.right = {
             provider = function()
                 return string.format("   %s ", fileinfo.line_column())
             end,
-            highlight = { colors.black, colors.yellow },
+            highlight = { colors.bg0, colors.yellow },
         },
     },
 }
@@ -233,7 +215,7 @@ gls.short_line_left = {
                     return string.format(" %s ", icon)
                 end
             end,
-            highlight = { colors.white, colors.black },
+            highlight = { colors.fg4, colors.bg0 },
         },
     },
     {
@@ -256,7 +238,7 @@ gls.short_line_left = {
                 end
             end,
             separator = "",
-            highlight = { colors.white, colors.black },
+            highlight = { colors.fg4, colors.bg0 },
         },
     },
 }
