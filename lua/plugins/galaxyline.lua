@@ -85,6 +85,17 @@ gls.left = {
         },
     },
     {
+        Blank = {
+            provider = function()
+                return ""
+            end,
+            highlight = { colors.bg0, colors.bg0 },
+        },
+    },
+}
+
+gls.mid = {
+    {
         FileIcon = {
             provider = fileinfo.get_file_icon,
             condition = condition.buffer_not_empty,
@@ -103,16 +114,7 @@ gls.left = {
             highlight = { colors.fg1, colors.bg0 },
         },
     },
-    {
-        Blank = {
-            provider = function()
-                return ""
-            end,
-            highlight = { colors.bg0, colors.bg0 },
-        },
-    },
 }
-
 gls.right = {
     {
         DiagnosticError = {

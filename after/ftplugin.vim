@@ -19,11 +19,3 @@ augroup Compe
   autocmd BufEnter * let g:compe_enabled = v:true
   autocmd FileType TelescopePrompt let g:compe_enabled = v:false
 augroup END
-
-" hide cursor on Nvim Tree
-" augroup HideCursor
-"   autocmd!
-"   autocmd BufLeave,WinLeave,FileType NvimTree set guicursor=n-v-c-sm:block,i-ci-ve:ver2u,r-cr-o:hor20,
-"   autocmd BufEnter,WinEnter,FileType NvimTree set guicursor=n-c-v:block-Cursor/Cursor-blinkon0,
-" augroup END
-" au FileType NvimTree hi Cursor blend=100
