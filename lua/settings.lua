@@ -19,9 +19,7 @@ vim.opt.fileencoding = "utf-8"
 vim.opt.fileencodings = "utf-8"
 vim.opt.fileformat = "unix"
 vim.opt.fillchars = "vert:┃"
-vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 vim.opt.foldlevel = 0
-vim.opt.foldmethod = "manual"
 vim.opt.formatoptions:remove("cro")
 vim.opt.gdefault = true
 vim.opt.hidden = true
