@@ -1,15 +1,7 @@
 local M = {}
 
-M.filetypes = {
-    "css",
-    "scss",
-    "sass",
-    "dosini",
-    "json",
-}
-
 function M.config()
-    require("colorizer").setup(M.filetypes, {
+    require("colorizer").setup({"*"}, {
         RGB = true,
         RRGGBB = true,
         names = false,

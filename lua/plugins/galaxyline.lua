@@ -28,23 +28,20 @@ function M.config()
             },
         },
         {
-            GitIcon = {
-                provider = function()
-                    return "   "
-                end,
-                condition = function()
-                    return condition.check_git_workspace() and condition.hide_in_width()
-                end,
-                highlight = { colors.bg0, colors.gray },
-            },
-        },
-        {
             GitBranch = {
-                provider = function()
-                    return string.format("%s ", vcs.get_git_branch())
-                end,
+                provider = {
+                    function()
+                        return "   "
+                    end,
+                    function()
+                        return string.format("%s ", vcs.get_git_branch())
+                    end,
+                },
                 condition = function()
-                    return condition.check_git_workspace() and condition.hide_in_width()
+                    local function is_empty()
+                        return vcs.get_git_branch() ~= nil
+                    end
+                    return condition.check_git_workspace() and condition.hide_in_width() and is_empty()
                 end,
                 highlight = { colors.bg0, colors.gray },
             },
