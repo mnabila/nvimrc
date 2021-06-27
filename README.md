@@ -18,16 +18,17 @@ $ nvim +PackerInstall
 
 ### Plugins
 
-|    Function    | Plugins                                                                                                   |
-| :------------: | --------------------------------------------------------------------------------------------------------- |
-| Plugin Manager | [packer.nvim](https://github.com/wbthomason/packer.nvim)                                                  |
-|  File Manager  | [nvim-tree.lua](https://github.com/kyazdani42/nvim-tree.lua)                                              |
-|  Status line   | [galaxyline.lua](https://github.com/glepnir/galaxyline.nvim)                                              |
-|  Colorscheme   | [gruvbox](https://github.com/morhetz/gruvbox) and [gruvbox8](https://github.com/lifepillar/vim-gruvbox8)  |
-|      Icon      | [Nvim-web-devicons](https://github.com/kyazdani42/nvim-web-devicons)                                      |
-|      Git       | [vim fugitive](https://github.com/tpope/vim-fugitive) [vim-signify](https://github.com/mhinz/vim-signify) |
-| Auto Complete  | [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)                                                |
-|     Others     | [packer/init](https://github.com/mnabila/nvimrc/blob/master/lua/modules/packer/init.lua)                  |
+|    Function    | Plugins                                                                                                       |
+| :------------: | ------------------------------------------------------------------------------------------------------------- |
+| Plugin Manager | [packer.nvim](https://github.com/wbthomason/packer.nvim)                                                      |
+|  File Manager  | [nvim-tree.lua](https://github.com/kyazdani42/nvim-tree.lua)                                                  |
+|  Status line   | [galaxyline.nvim](https://github.com/glepnir/galaxyline.nvim)                                                 |
+|  Buffer line   | [barbar.nvim](https://github.com/romgrk/barbar.nvim)                                                          |
+|  Colorscheme   | [gruvboy.nvim](https://github.com/mnabila/gruvboy.nvim)                                                       |
+|      Icon      | [nvim-web-devicons](https://github.com/kyazdani42/nvim-web-devicons)                                          |
+|      Git       | [neogit](https://github.com/TimUntersberger/neogit)<br> [gitsign](https://github.com/lewis6991/gitsigns.nvim) |
+| Auto Complete  | [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)                                                    |
+|     Others     | [packer/init](./lua/modules/packer/init.lua)                                                                  |
 
 ### Installing Dependency
 
@@ -39,91 +40,85 @@ $ paru -S git neovim-git nodejs npm yarn python-pynvim neovim-remote the_silver_
 
 #### required by language server protocol
 
-> bashls
+- bashls
 
 ```
 $ npm install -g bash-language-server
 ```
 
-> clangd
+- clangd
 
 ```
 $ paru -S clang
 ```
 
-> cssls
+- cssls
 
 ```
 $ npm install -g vscode-css-languageserver-bin
 ```
 
-> dockerls
+- dockerls
 
 ```
 $ npm install -g dockerfile-language-server-nodejs
 ```
 
-> gopls
+- gopls
 
 ```
 $ paru -S gopls
 ```
 
-> html
+- html
 
 ```
 $ npm install -g vscode-html-languageserver-bin
 ```
 
-> jedi_language_server
+- pyright
 
 ```
-$ paru -S jedi-language-server
+$ npm install -g pyright
 ```
 
-> jsonls
-
-```
-$ npm install -g vscode-json-languageserver
-```
-
-> jsonls
+- jsonls
 
 ```
 $ npm install -g vscode-json-languageserver
 ```
 
-> sqls
+- sqls
 
 ```
 $ paru -S sqls-git
 ```
 
-> sumneko_lua
+- sumneko_lua
 
 ```
 $ paru -S lua-language-server-git
 ```
 
-> texlab
+- texlab
 
 ```
 $ paru -S texlive-most texlab
 ```
 
-> tsserver
+- tsserver
 
 ```
 $ npm install -g typescript typescript-language-server
 ```
 
-> vimls
+- vimls
 
 ```
 $ npm install -g vim-language-server
 ```
 
-> intelephense
+- intelephense
 
 ```
 $ npm install -g intelephense
@@ -131,30 +126,30 @@ $ npm install -g intelephense
 
 #### required by code formater
 
-> bash
+- bash
 
 ```
 $ paru -S shfmt
 ```
 
-> html, json, js
+- html, json, js, markdown, css, scss, sass
 
 ```
 $ paru -S prettier
 ```
 
-> lua
+- lua
 
 ```
 $ paru -S stylua-git
 ```
 
-> python
+- python
 
 ```
 $ paru -S python-black
 ```
 
+## License
 
-## License 
 Source is available under the [Mit License](https://github.com/mnabila/nvimrc/blob/master/LICENSE)
