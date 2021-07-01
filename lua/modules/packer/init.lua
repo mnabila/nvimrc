@@ -19,7 +19,6 @@ packer.startup(function()
     -- translate
     use({
         "voldikss/vim-translator",
-        opt = true,
         config = require("plugins.translator").config(),
     })
 
