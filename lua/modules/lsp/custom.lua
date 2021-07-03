@@ -19,6 +19,13 @@ function M.custom_on_init()
     print("Language Server Protocol started!")
 end
 
+function M.custom_cwd()
+    if vim.loop.cwd() == vim.loop.os_homedir() then
+        return vim.fn.expand("%:p:h")
+    end
+    return vim.loop.cwd()
+end
+
 function M.custom_on_attach(client, bufnr)
     local aerial = require("aerial")
     aerial.on_attach(client)
@@ -31,7 +38,7 @@ function M.custom_on_attach(client, bufnr)
     keymap("n", "<C-j>", '<CMD>lua require("lspsaga.hover").smart_scroll_hover(1)<CR>')
     keymap("n", "<C-k>", '<CMD>lua require("lspsaga.hover").smart_scroll_hover(-1)<CR>')
     keymap("n", "ga", '<CMD>lua require("lspsaga.codeaction").code_action()<CR>')
-    keymap("v", "ga", "<CMD>'<, '>lua require(\"lspsaga.codeaction\").code_action()<CR>")
+    keymap("v", "ga", [[<CMD>'<, '>lua require("lspsaga.codeaction").code_action()<CR>]])
     keymap("n", "gd", '<CMD>lua require("lspsaga.provider").preview_definition()<CR>')
     keymap("n", "[e", '<CMD>lua require("lspsaga.diagnostic").lsp_jump_diagnostic_prev()<CR>')
     keymap("n", "]e", '<CMD>lua require("lspsaga.diagnostic").lsp_jump_diagnostic_next()<CR>')
@@ -60,6 +67,7 @@ end
 
 function M.default(configs)
     local custom_config = {
+        root_dir = M.custom_cwd,
         on_init = M.custom_on_init,
         on_attach = M.custom_on_attach,
         capabilities = M.custom_capabilities(),

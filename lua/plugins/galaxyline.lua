@@ -25,13 +25,15 @@ function M.config()
                     return string.format("   %s ", alias[vim.fn.mode()])
                 end,
                 highlight = { colors.bg0, colors.yellow, "bold" },
+                separator = " ",
+                separator_highlight = { colors.none, colors.none },
             },
         },
         {
             GitBranch = {
                 provider = {
                     function()
-                        return "   "
+                        return "  "
                     end,
                     function()
                         return string.format("%s ", vcs.get_git_branch())
@@ -199,10 +201,13 @@ function M.config()
         },
         {
             LineInfo = {
+                icon = "  ",
                 provider = function()
-                    return string.format("   %s ", fileinfo.line_column())
+                    return fileinfo.line_column()
                 end,
                 highlight = { colors.bg0, colors.yellow },
+                separator = " ",
+                separator_highlight = { colors.none, colors.none },
             },
         },
     }

@@ -2,7 +2,7 @@ local lspconfig = require("lspconfig")
 local c = require("modules.lsp.custom")
 
 lspconfig.tsserver.setup(c.default({
-    root_dir = vim.loop.cwd,
+    root_dir = c.custom_cwd,
     settings = {
         tsserver = {
             useBatchedBufferSync = true,
@@ -21,7 +21,7 @@ lspconfig.tsserver.setup(c.default({
 
 lspconfig.sumneko_lua.setup(c.default({
     cmd = { "lua-language-server", string.format("--logpath=%s/.cache/nvim/sumneko_lua", vim.loop.os_homedir()) },
-    root_dir = vim.loop.cwd,
+    root_dir = c.custom_cwd,
     settings = {
         Lua = {
             runtime = { version = "LuaJIT", path = vim.split(package.path, ";") },
@@ -71,7 +71,7 @@ lspconfig.sqls.setup({
 
 lspconfig.gopls.setup(c.default({
     cmd = { "gopls", "serve" },
-    root_dir = vim.loop.cwd,
+    root_dir = c.custom_cwd,
     settings = {
         gopls = {
             analyses = {
@@ -84,15 +84,15 @@ lspconfig.gopls.setup(c.default({
 
 lspconfig.cssls.setup(c.default({
     cmd = { "css-languageserver", "--stdio" },
-    root_dir = vim.loop.cwd,
+    root_dir = c.custom_cwd,
 }))
 lspconfig.jsonls.setup(c.default({
     cmd = { "vscode-json-languageserver", "--stdio" },
-    root_dir = vim.loop.cwd,
+    root_dir = c.custom_cwd,
 }))
 
 lspconfig.intelephense.setup(c.default({
-    root_dir = vim.loop.cwd,
+    root_dir = c.custom_cwd,
 }))
 
 lspconfig.yamlls.setup(c.default({

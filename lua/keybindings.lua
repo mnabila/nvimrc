@@ -101,6 +101,12 @@ local function set_keybindings()
             '<CMD>lua require("telescope.builtin").grep_string()<CR>',
             noremap_nosilent,
         },
+        {
+            "n",
+            "<Leader>c",
+            '<CMD>lua require("telescope.builtin").commands()<CR>',
+            noremap_nosilent,
+        },
 
         -- base64
         {
