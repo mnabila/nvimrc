@@ -50,7 +50,7 @@ lspconfig.pyright.setup(c.default({
     settings = {
         python = {
             analysis = {
-                useLibraryCodeForTypes = true,
+                useLibraryCodeForTypes = false,
                 autoSearchPaths = true,
                 diagnosticMode = "openFilesOnly",
                 typeCheckingMode = "basic",
@@ -58,6 +58,22 @@ lspconfig.pyright.setup(c.default({
         },
     },
 }))
+
+-- lspconfig.jedi_language_server.setup(c.default({
+--     settings = {
+--         jedi = {
+--             enable = true,
+--             startupMessage = true,
+--             markupKindPreferred = "markdown",
+--             jediSettings = {
+--                 autoImportModules = {},
+--                 completion = { disableSnippets = false },
+--                 diagnostics = { enable = true, didOpen = true, didSave = true, didChange = true },
+--             },
+--             workspace = { extraPaths = {} },
+--         },
+--     },
+-- }))
 
 lspconfig.sqls.setup({
     cmd = { "sqls", "-config", vim.loop.os_homedir() .. "/.config/sqls/config.yml" },

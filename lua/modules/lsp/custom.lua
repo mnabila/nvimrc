@@ -4,7 +4,7 @@ function _G.show_documentation()
     if vim.fn.index({ "vim", "help" }, vim.bo.filetype) >= 0 then
         vim.cmd("h " .. vim.fn.expand("<cword>"))
     else
-        vim.cmd('lua require("lspsaga.hover").render_hover_doc()')
+        vim.cmd("lua vim.lsp.buf.hover()")
     end
 end
 
@@ -27,6 +27,9 @@ function M.custom_cwd()
 end
 
 function M.custom_on_attach(client, bufnr)
+    vim.lsp.handlers["textDocument/hover"] =  vim.lsp.with(vim.lsp.handlers.hover, {border = M.border()})
+    vim.lsp.handlers["textDocument/signatureHelp"] =  vim.lsp.with(vim.lsp.handlers.hover, {border = M.border()})
+
     local aerial = require("aerial")
     aerial.on_attach(client)
 
@@ -35,19 +38,21 @@ function M.custom_on_attach(client, bufnr)
     end
 
     keymap("n", "K", "<CMD>lua show_documentation()<CR>")
-    keymap("n", "<C-j>", '<CMD>lua require("lspsaga.hover").smart_scroll_hover(1)<CR>')
-    keymap("n", "<C-k>", '<CMD>lua require("lspsaga.hover").smart_scroll_hover(-1)<CR>')
-    keymap("n", "ga", '<CMD>lua require("lspsaga.codeaction").code_action()<CR>')
-    keymap("v", "ga", [[<CMD>'<, '>lua require("lspsaga.codeaction").code_action()<CR>]])
-    keymap("n", "gd", '<CMD>lua require("lspsaga.provider").preview_definition()<CR>')
-    keymap("n", "[e", '<CMD>lua require("lspsaga.diagnostic").lsp_jump_diagnostic_prev()<CR>')
-    keymap("n", "]e", '<CMD>lua require("lspsaga.diagnostic").lsp_jump_diagnostic_next()<CR>')
-    keymap("n", "gr", '<CMD>lua require("lspsaga.rename").rename()<CR>')
+    keymap("n", "ga", '<CMD>lua require("telescope.builtin").lsp_code_actions()<CR>')
+    keymap("n", "ga", [[<CMD>'<, '>lua require("telescope.builtin").lsp_code_actions()<CR>]])
+    keymap("n", "gd", '<CMD>lua require("telescope.builtin").lsp_definitions()<CR>')
+    keymap("n", "[e", "<CMD>lua vim.lsp.diagnostic.goto_prev()<CR>")
+    keymap("n", "]e", "<CMD>lua vim.lsp.diagnostic.goto_next()<CR>")
+    keymap("n", "gr", "<CMD>lua vim.lsp.buf.rename()<CR>")
+
+    -- aerial
     keymap("n", "<leader>a", '<CMD>lua require"aerial".toggle()<CR>')
     keymap("n", "[[", '<CMD>lua require("aerial").prev_item()<CR>zvzz')
     keymap("v", "[[", '<CMD>lua require("aerial").prev_item()<CR>zvzz')
     keymap("n", "]]", '<CMD>lua require("aerial").next_item()<CR>zvzz')
     keymap("v", "]]", '<CMD>lua require("aerial").next_item()<CR>zvzz')
+
+    -- trouble
     keymap("n", "<leader>d", "<CMD>LspTroubleToggle<CR>")
     keymap("n", "<leader>D", "<CMD>LspTroubleWorkspaceToggle<CR>")
 
@@ -63,6 +68,20 @@ function M.custom_on_attach(client, bufnr)
     else
         keymap("v", "<leader>f", "<CMD>FormatWrite<CR>")
     end
+end
+
+function M.border()
+    local border = {
+        { "┌", "FloatBorder" },
+        { "─", "FloatBorder" },
+        { "┐", "FloatBorder" },
+        { "│", "FloatBorder" },
+        { "┘", "FloatBorder" },
+        { "─", "FloatBorder" },
+        { "└", "FloatBorder" },
+        { "│", "FloatBorder" },
+    }
+    return border
 end
 
 function M.default(configs)

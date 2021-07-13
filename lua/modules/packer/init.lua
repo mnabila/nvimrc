@@ -14,6 +14,7 @@ packer.init({
 })
 
 packer.startup(function()
+    -- package manager
     use({ "wbthomason/packer.nvim" })
 
     -- translate
@@ -61,7 +62,6 @@ packer.startup(function()
     -- indentline
     use({
         "lukas-reineke/indent-blankline.nvim",
-        branch = "lua",
         config = require("plugins.indentline").config(),
     })
 
@@ -91,10 +91,6 @@ packer.startup(function()
         requires = { "nvim-lua/plenary.nvim" },
         config = require("plugins.gitsigns").config(),
     })
-    use({
-        "TimUntersberger/neogit",
-        config = require("plugins.neogit").config(),
-    })
 
     -- colorsceme
     -- note: if you want use gruvboy.nvim please change to mnabila/gruvboy.nvim
@@ -118,7 +114,6 @@ packer.startup(function()
     use({
         "neovim/nvim-lspconfig",
         requires = {
-            "glepnir/lspsaga.nvim",
             {
                 "stevearc/aerial.nvim",
                 config = require("plugins.aerial").config(),
@@ -138,6 +133,7 @@ packer.startup(function()
     use({
         "folke/lsp-trouble.nvim",
         requires = { "kyazdani42/nvim-web-devicons" },
+        config = require("plugins.trouble").config(),
     })
 
     -- code formatter

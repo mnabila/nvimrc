@@ -25,8 +25,8 @@ local function set_keybindings()
         -- Buffers
         { "n", "<A-l>", "<CMD>BufferNext<CR>", noremap_silent },
         { "n", "<A-h>", "<CMD>BufferPrevious<CR>", noremap_silent },
-        { "n", "<A-L>", "<CMD>BufferMovePrevious<CR>", noremap_silent },
-        { "n", "<A-H>", "<CMD>BufferMoveNext<CR>", noremap_silent },
+        { "n", "<A-L>", "<CMD>BufferMoveNext<CR>", noremap_silent },
+        { "n", "<A-H>", "<CMD>BufferMovePrevious<CR>", noremap_silent },
         { "n", "<Leader>q", "<CMD>BufferClose<CR>", noremap_silent },
         { "n", "<Leader>qq", "<CMD>bufdo BufferClose<CR>", noremap_silent },
         { "n", "<Leader>qa", "<CMD>bufdo BufferClose!<CR>", noremap_silent },

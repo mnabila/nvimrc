@@ -13,7 +13,8 @@ function M.toggle()
         bfstate.set_offset(vim.g.nvim_tree_width)
         if vim.g.nvim_tree_follow == 1 then
             tree.find_file(true)
-        else
+        end
+        if not view.win_open() then
             lib.open()
         end
     end
