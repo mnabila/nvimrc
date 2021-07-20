@@ -56,7 +56,7 @@ local function set_keybindings()
         {
             "n",
             "<Leader><space>",
-            '<CMD>lua require("telescope.builtin").oldfiles({file_ignore_patterns = {"/usr/share/nvim/runtime/*"}})<CR>',
+            '<CMD>lua require("telescope.builtin").oldfiles({file_ignore_patterns = {"/usr/share/nvim/runtime/*"}, previewer = false})<CR>',
             noremap_nosilent,
         },
         {
@@ -68,7 +68,7 @@ local function set_keybindings()
         {
             "n",
             "<Leader>o",
-            '<CMD>lua require("telescope.builtin").find_files()<CR>',
+            '<CMD>lua require("telescope.builtin").find_files({previewer = false})<CR>',
             noremap_nosilent,
         },
         {

@@ -11,7 +11,9 @@ end
 function M.custom_capabilities()
     local capabilities = vim.lsp.protocol.make_client_capabilities()
     capabilities.textDocument.completion.completionItem.snippetSupport = true
-    capabilities.textDocument.completion.completionItem.resolveSupport = { properties = { "additionalTextEdits" } }
+    capabilities.textDocument.completion.completionItem.resolveSupport = {
+        properties = { "documentation", "detail", "additionalTextEdits" },
+    }
     return capabilities
 end
 
@@ -27,8 +29,8 @@ function M.custom_cwd()
 end
 
 function M.custom_on_attach(client, bufnr)
-    vim.lsp.handlers["textDocument/hover"] =  vim.lsp.with(vim.lsp.handlers.hover, {border = M.border()})
-    vim.lsp.handlers["textDocument/signatureHelp"] =  vim.lsp.with(vim.lsp.handlers.hover, {border = M.border()})
+    vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "single" })
+    vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "single" })
 
     local aerial = require("aerial")
     aerial.on_attach(client)
@@ -68,20 +70,6 @@ function M.custom_on_attach(client, bufnr)
     else
         keymap("v", "<leader>f", "<CMD>FormatWrite<CR>")
     end
-end
-
-function M.border()
-    local border = {
-        { "┌", "FloatBorder" },
-        { "─", "FloatBorder" },
-        { "┐", "FloatBorder" },
-        { "│", "FloatBorder" },
-        { "┘", "FloatBorder" },
-        { "─", "FloatBorder" },
-        { "└", "FloatBorder" },
-        { "│", "FloatBorder" },
-    }
-    return border
 end
 
 function M.default(configs)

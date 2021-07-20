@@ -6,6 +6,8 @@ packer.init({
         open_fn = function()
             return require("packer.util").float({ border = "single" })
         end,
+
+      header_sym = '─',
     },
     profile = {
         enable = true,
@@ -159,6 +161,7 @@ packer.startup(function()
             "nvim-lua/popup.nvim",
             "nvim-lua/plenary.nvim",
             "nvim-telescope/telescope-fzy-native.nvim",
+            "kyazdani42/nvim-web-devicons",
         },
         config = require("plugins.telescope").config(),
     })
