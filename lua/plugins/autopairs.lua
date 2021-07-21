@@ -1,7 +1,9 @@
 local M = {}
+local utils = require("utils.packer")
 
 function M.config()
-    require("nvim-autopairs").setup({
+    local plugin = "nvim-autopairs"
+    local options = {
         pairs_map = {
             ["'"] = "'",
             ['"'] = '"',
@@ -16,7 +18,8 @@ function M.config()
         html_break_line_filetype = { "html", "vue", "typescriptreact", "svelte", "javascriptreact" },
         ignored_next_char = "%w",
         check_ts = true,
-    })
+    }
+    utils.load(plugin, options)
 end
 
 return M

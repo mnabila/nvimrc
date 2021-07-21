@@ -1,7 +1,9 @@
 local M = {}
+local utils = require("utils.packer")
 
 function M.config()
-    require("trouble").setup({
+    local plugin = "trouble"
+    local options = {
         height = 7, -- height of the trouble list
         icons = true, -- use dev-icons for filenames
         mode = "document", -- "workspace" or "document"
@@ -32,7 +34,9 @@ function M.config()
             information = "",
         },
         use_lsp_diagnostic_signs = false, -- enabling this will use the signs defined in your lsp client
-    })
+    }
+
+    utils.load(plugin, options)
 end
 
 return M

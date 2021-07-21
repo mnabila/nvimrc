@@ -1,6 +1,6 @@
 local M = {}
 
-function M.config()
+function M.statusline()
     local gl = require("galaxyline")
     local gls = gl.section
     local condition = require("galaxyline.condition")
@@ -249,6 +249,14 @@ function M.config()
             },
         },
     }
+end
+
+function M.config()
+    local is_loaded, _ = pcall(require, "galaxyline")
+
+    if is_loaded then
+        return M.statusline()
+    end
 end
 
 return M

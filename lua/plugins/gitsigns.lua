@@ -1,7 +1,9 @@
 local M = {}
+local utils = require("utils.packer")
 
 function M.config()
-    require("gitsigns").setup({
+    local plugin = "gitsigns"
+    local options = {
         signs = {
             add = { hl = "GitSignAdd", text = "▍" },
             change = { hl = "GitSignChange", text = "▍" },
@@ -9,7 +11,8 @@ function M.config()
             topdelete = { hl = "GitSignDelete", text = "▍" },
             changedelete = { hl = "GitSignChange", text = "▍" },
         },
-    })
+    }
+    utils.load(plugin, options)
 end
 
 return M

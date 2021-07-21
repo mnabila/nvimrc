@@ -1,4 +1,5 @@
 local M = {}
+local utils = require("utils.packer")
 
 function M.config()
     local tempdir = "/tmp"
@@ -56,7 +57,9 @@ function M.config()
     local black = { { cmd = { "black" }, tempfile_dir = tempdir } }
 
     vim.g.format_debug = true
-    require("format").setup({
+
+    local plugin = "format"
+    local options = {
         ["*"] = remove_whitespace,
         javascript = prettier,
         typescript = prettier,
@@ -69,7 +72,8 @@ function M.config()
         python = black,
         scss = prettier,
         yaml = prettier,
-    })
+    }
+    utils.load(plugin, options)
 end
 
 return M

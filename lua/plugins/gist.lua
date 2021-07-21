@@ -1,7 +1,7 @@
 local M = {}
 
 function M.config()
-    vim.g.gist_browser_command = "qutebrowser %URL%"
+    vim.g.gist_browser_command = "xdg-open %URL%"
     vim.g.gist_clip_command = "xclip -selection clipboard"
     vim.g.gist_detect_filetype = 1
     vim.g.gist_get_multiplefile = 1

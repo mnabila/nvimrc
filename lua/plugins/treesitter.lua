@@ -1,7 +1,9 @@
 local M = {}
+local utils = require("utils.packer")
 
 function M.config()
-    require("nvim-treesitter.configs").setup({
+    local plugin = "nvim-treesitter.configs"
+    local options = {
         ensure_installed = "maintained",
         highlight = {
             enable = true,
@@ -24,7 +26,8 @@ function M.config()
             enable = true,
             filetypes = { "html", "xml" },
         },
-    })
+    }
+    utils.load(plugin, options)
 end
 
 return M
