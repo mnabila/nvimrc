@@ -14,6 +14,9 @@ function M.config()
     local keymap = vim.api.nvim_set_keymap
 
     vim.g.vsnip_snippet_dir = vim.fn.stdpath("config") .. "/snippets"
+    vim.g.vsnip_filetypes = {
+        javascriptreact = "javascript",
+    }
 
     require("compe").setup({
         enabled = true,

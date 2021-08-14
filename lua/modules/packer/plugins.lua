@@ -8,14 +8,7 @@ packer.startup(function()
     -- translate
     use({
         "voldikss/vim-translator",
-        event = "BufEnter",
         config = require("plugins.translator").config(),
-    })
-
-    -- smooth scroll
-    use({
-        "karb94/neoscroll.nvim",
-        config = require("plugins.neoscroll").config(),
     })
 
     -- color preview
@@ -40,39 +33,28 @@ packer.startup(function()
     -- file header
     use({
         "mnabila/vim-header",
-        event = "BufRead",
+        cmd = "AddMITLicense",
         config = require("plugins.header").config(),
     })
 
     -- auto align
-    use({ "junegunn/vim-easy-align", event = "BufEnter" })
+    use({ "junegunn/vim-easy-align", cmd = "EasyAlign" })
 
     -- surround
-    use({ "machakann/vim-sandwich", event = "BufEnter" })
+    use({ "machakann/vim-sandwich" })
 
     -- indentline
     use({
         "lukas-reineke/indent-blankline.nvim",
-        event = "BufEnter",
         config = require("plugins.indentline").config(),
     })
 
     -- file namager
     use({
         "kyazdani42/nvim-tree.lua",
-        event = "VimEnter",
         wants = "nvim-web-devicons",
         requires = { "kyazdani42/nvim-web-devicons", opt = true },
         config = require("plugins.nvimtree").config(),
-    })
-
-    -- buffer list
-    use({
-        "romgrk/barbar.nvim",
-        event = "VimEnter",
-        wants = "nvim-web-devicons",
-        requires = { "kyazdani42/nvim-web-devicons", opt = true },
-        config = require("plugins.barbar").config(),
     })
 
     -- git
@@ -121,10 +103,10 @@ packer.startup(function()
                 "stevearc/aerial.nvim",
                 config = require("plugins.aerial").config(),
             },
-            {
-                "code-biscuits/nvim-biscuits",
-                config = require("plugins.biscuits").config(),
-            },
+            -- {
+            --     "code-biscuits/nvim-biscuits",
+            --     config = require("plugins.biscuits").config(),
+            -- },
             {
                 "folke/lsp-trouble.nvim",
                 wants = "nvim-web-devicons",
@@ -144,7 +126,6 @@ packer.startup(function()
     -- code formatter
     use({
         "lukas-reineke/format.nvim",
-        -- event = "BufRead",
         config = require("plugins.formatter").config(),
     })
 
@@ -163,11 +144,15 @@ packer.startup(function()
     -- fuzzy finder
     use({
         "nvim-telescope/telescope.nvim",
+        wants = "nvim-web-devicons",
         requires = {
             "nvim-lua/popup.nvim",
             "nvim-lua/plenary.nvim",
             "nvim-telescope/telescope-fzy-native.nvim",
-            "kyazdani42/nvim-web-devicons",
+            {
+                "kyazdani42/nvim-web-devicons",
+                opt = true,
+            },
         },
         config = require("plugins.telescope").config(),
     })
@@ -188,10 +173,23 @@ packer.startup(function()
         config = require("plugins.galaxyline").config(),
     })
 
+    -- buffer list
+    use({
+        "romgrk/barbar.nvim",
+        event = "VimEnter",
+        wants = "nvim-web-devicons",
+        requires = { "kyazdani42/nvim-web-devicons", opt = true },
+        config = require("plugins.barbar").config(),
+    })
+
     -- benchmark
     use({
         "tweekmonster/startuptime.vim",
         cmd = "StartupTime",
+    })
+
+    use({
+        "rcarriga/nvim-notify",
     })
 end)
 

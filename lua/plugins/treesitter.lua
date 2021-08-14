@@ -4,7 +4,15 @@ local utils = require("utils.packer")
 function M.config()
     local plugin = "nvim-treesitter.configs"
     local options = {
-        ensure_installed = "maintained",
+        ensure_installed = {
+            "bash",
+            "lua",
+            "python",
+            "html",
+            "javascript",
+            "css",
+            "json",
+        },
         highlight = {
             enable = true,
             use_languagetree = true,

@@ -1,26 +1,38 @@
 local M = {}
 local utils = require("utils.packer")
+local tempdir = "/tmp"
 
-function M.config()
-    local tempdir = "/tmp"
-
-    local remove_whitespace = {
+local function remove_whitespace()
+    return {
         { cmd = { "sed -i 's/[ \t]*$//'" } },
     }
+end
 
-    local prettier = {
+local function prettier(params)
+    return {
         {
             cmd = {
                 function(file)
                     local config = vim.loop.os_homedir() .. "/.config/nvim/.prettierrc"
+                    if params ~= nil then
+                        return string.format(
+                            'prettier --config %s --tab-width %s -w "%s" %s',
+                            config,
+                            vim.bo.shiftwidth,
+                            file,
+                            params
+                        )
+                    end
                     return string.format('prettier --config %s --tab-width %s -w "%s"', config, vim.bo.shiftwidth, file)
                 end,
             },
             tempfile_dir = tempdir,
         },
     }
+end
 
-    local shfmt = {
+local function shfmt()
+    return {
         {
             cmd = {
                 function(file)
@@ -30,8 +42,10 @@ function M.config()
             tempfile_dir = tempdir,
         },
     }
+end
 
-    local stylua = {
+local function stylua()
+    return {
         {
             cmd = {
                 function(file)
@@ -42,8 +56,11 @@ function M.config()
             tempfile_dir = tempdir,
         },
     }
+end
 
-    local markdownfmt = {
+local function markdownfmt()
+    return {
+
         { cmd = { "prettier -w" }, tempfile_dir = tempdir },
         {
             cmd = { "black" },
@@ -53,25 +70,29 @@ function M.config()
             tempfile_dir = tempdir,
         },
     }
+end
 
-    local black = { { cmd = { "black" }, tempfile_dir = tempdir } }
+local function black()
+    return { { cmd = { "black" }, tempfile_dir = tempdir } }
+end
 
+function M.config()
     vim.g.format_debug = true
 
     local plugin = "format"
     local options = {
-        ["*"] = remove_whitespace,
-        javascript = prettier,
-        typescript = prettier,
-        html = prettier,
-        css = prettier,
-        sh = shfmt,
-        lua = stylua,
-        markdown = markdownfmt,
-        json = prettier,
-        python = black,
-        scss = prettier,
-        yaml = prettier,
+        ["*"] = remove_whitespace(),
+        javascript = prettier(),
+        typescript = prettier(),
+        html = prettier("--print-width 1000"),
+        css = prettier(),
+        sh = shfmt(),
+        lua = stylua(),
+        markdown = markdownfmt(),
+        json = prettier(),
+        python = black(),
+        scss = prettier(),
+        yaml = prettier(),
     }
     utils.load(plugin, options)
 end

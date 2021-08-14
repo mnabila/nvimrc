@@ -59,7 +59,7 @@ vim.opt.swapfile = false
 vim.opt.tabstop = 4
 vim.opt.termguicolors = true
 vim.opt.title = true
-vim.opt.ttimeoutlen = 50
+vim.opt.timeoutlen = 500
 vim.opt.undodir = vim.loop.os_homedir() .. "/.local/share/nvim/undo"
 vim.opt.undofile = true
 vim.opt.updatetime = 300
@@ -70,7 +70,34 @@ vim.opt.wildoptions = "pum"
 vim.opt.winblend = 0
 vim.opt.wrap = true
 vim.opt.writebackup = true
+
 vim.cmd("syntax on")
-vim.cmd("colorscheme gruvboy")
+vim.cmd("colorscheme gruvboy-compiled")
 
 vim.g.python3_host_prog = "/usr/bin/python3"
+
+local disable_plugin = {
+    "2html_plugin",
+    "getscript",
+    "getscriptPlugin",
+    "gzip",
+    "logipat",
+    "netrw",
+    "netrwFileHandlers",
+    "netrwPlugin",
+    "netrwSettings",
+    "rrhelper",
+    "spellfile_plugin",
+    "tar",
+    "tarPlugin",
+    "tutor_mode_plugin",
+    "vimball",
+    "vimballPlugin",
+    "zip",
+    "zipPlugin",
+    "man"
+}
+
+for _, plugin in pairs(disable_plugin) do
+    vim.g["loaded_" .. plugin] = 1
+end

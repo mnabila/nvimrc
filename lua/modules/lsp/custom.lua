@@ -1,3 +1,4 @@
+local notif = require("notify")
 local M = {}
 
 function _G.show_documentation()
@@ -18,7 +19,10 @@ function M.custom_capabilities()
 end
 
 function M.custom_on_init()
-    print("Language Server Protocol started!")
+    notif("Language Server Protocol started!", "info", {
+        title = "nvim-lspconfig",
+        timeout = 3000,
+    })
 end
 
 function M.custom_cwd()
