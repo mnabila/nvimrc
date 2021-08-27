@@ -11,45 +11,39 @@ function _G.completions()
 end
 
 function M.config()
-    local keymap = vim.api.nvim_set_keymap
+    local cmp = require("cmp")
 
     vim.g.vsnip_snippet_dir = vim.fn.stdpath("config") .. "/snippets"
-    vim.g.vsnip_filetypes = {
-        javascriptreact = "javascript",
-    }
 
-    require("compe").setup({
-        enabled = true,
-        autocomplete = true,
-        debug = false,
-        min_length = 1,
-        preselect = "disable",
-        throttle_time = 80,
-        source_timeout = 200,
-        incomplete_delay = 400,
-        max_abbr_width = 100,
-        max_kind_width = 100,
-        max_menu_width = 100,
-        documentation = true,
+    cmp.setup({
+        completion = {
+            autocomplete = { cmp.TriggerEvent.TextChanged },
+        },
 
-        source = {
-            path = true,
-            buffer = true,
-            calc = true,
-            vsnip = true,
-            nvim_lsp = true,
-            nvim_lua = true,
-            spell = false,
-            tags = false,
-            snippets_nvim = false,
-            treesitter = false,
+        documentation = {
+            border = "single",
+            winhighlight = "NormalFloat:CmpDocumentation,FloatBorder:CmpDocumentationBorder",
+        },
+
+        sources = {
+            { name = "nvim_lsp" },
+            { name = "path" },
+            { name = "buffer" },
+            { name = "nvim_lua" },
+            { name = "vsnip" },
+        },
+
+        mapping = {
+            ["<S-TAB>"] = cmp.mapping.select_prev_item(),
+            ["<TAB>"] = cmp.mapping.select_next_item(),
+            ["<C-Space>"] = cmp.mapping.complete(),
+            ["<C-e>"] = cmp.mapping.close(),
+            ["<CR>"] = cmp.mapping.confirm({
+                behavior = cmp.ConfirmBehavior.Replace,
+                select = true,
+            }),
         },
     })
-
-    keymap("i", "<C-space>", "compe#complete()", { expr = true })
-    keymap("i", "<CR>", "v:lua.completions()", { expr = true })
-    keymap("i", "<Tab>", 'pumvisible() ? "<C-n>" : "<Tab>"', { expr = true })
-    keymap("i", "<S-Tab>", 'pumvisible() ? "<C-p>" : "<S-Tab>"', { expr = true })
 end
 
 return M

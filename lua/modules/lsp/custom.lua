@@ -1,4 +1,5 @@
 local notif = require("notify")
+local cmp_lsp = require("cmp_nvim_lsp")
 local M = {}
 
 function _G.show_documentation()
@@ -11,10 +12,7 @@ end
 
 function M.custom_capabilities()
     local capabilities = vim.lsp.protocol.make_client_capabilities()
-    capabilities.textDocument.completion.completionItem.snippetSupport = true
-    capabilities.textDocument.completion.completionItem.resolveSupport = {
-        properties = { "documentation", "detail", "additionalTextEdits" },
-    }
+    capabilities = cmp_lsp.update_capabilities(capabilities)
     return capabilities
 end
 

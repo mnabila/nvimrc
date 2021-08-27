@@ -103,10 +103,6 @@ packer.startup(function()
                 "stevearc/aerial.nvim",
                 config = require("plugins.aerial").config(),
             },
-            -- {
-            --     "code-biscuits/nvim-biscuits",
-            --     config = require("plugins.biscuits").config(),
-            -- },
             {
                 "folke/lsp-trouble.nvim",
                 wants = "nvim-web-devicons",
@@ -117,9 +113,15 @@ packer.startup(function()
         config = require("modules.lsp").config(),
     })
     use({
-        "hrsh7th/nvim-compe",
-        wants = "vim-vsnip",
-        requires = { "hrsh7th/vim-vsnip", opt = true },
+        "hrsh7th/nvim-cmp",
+        requires = {
+            "hrsh7th/cmp-buffer",
+            "hrsh7th/cmp-nvim-lsp",
+            "hrsh7th/cmp-nvim-lua",
+            "hrsh7th/cmp-path",
+            "hrsh7th/cmp-vsnip",
+            "hrsh7th/vim-vsnip",
+        },
         config = require("plugins.completion").config,
     })
 

@@ -15,6 +15,9 @@ lspconfig.tsserver.setup(c.default({
             updateImportsOnFileMove = {
                 enable = true,
             },
+            suggestionActions = {
+                enabled = false,
+            },
         },
     },
 }))
@@ -105,10 +108,6 @@ lspconfig.cssls.setup(c.default({
 }))
 lspconfig.jsonls.setup(c.default({
     cmd = { "vscode-json-languageserver", "--stdio" },
-    root_dir = c.custom_cwd,
-}))
-
-lspconfig.intelephense.setup(c.default({
     root_dir = c.custom_cwd,
 }))
 
