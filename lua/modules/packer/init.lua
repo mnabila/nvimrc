@@ -1,19 +1,12 @@
 local is_installed, packer = pcall(require, "packer")
+local use = packer.use
 
 if not is_installed then
-    local install_path = vim.fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
-    if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
-        vim.fn.system({ "git", "clone", "https://github.com/wbthomason/packer.nvim", install_path })
-        vim.cmd("packadd packer.nvim")
-    end
+    require("modules.packer.bootstrap")()
 else
     packer.init({
         display = {
             open_cmd = "leftabove 80vnew [packer]",
-            open_fn = function()
-                return require("packer.util").float({ border = "single" })
-            end,
-
             header_sym = "─",
         },
         profile = {
@@ -21,5 +14,44 @@ else
             threshold = 1,
         },
     })
-    require("modules.packer.plugins")
+
+    packer.startup(function()
+        local ui = require("modules.ui")
+        local completion = require("modules.completion")
+        local editor = require("modules.editor")
+
+        use({ "wbthomason/packer.nvim" })
+
+        use({
+            "tweekmonster/startuptime.vim",
+            cmd = "StartupTime",
+        })
+
+        use(completion.lsp())
+        use(completion.cmp())
+        use(completion.emmet())
+
+        use(ui.bufferline())
+        use(ui.statusline())
+        use(ui.filemanager())
+        use(ui.indentline())
+        use(ui.telescope())
+        use(ui.colorizer())
+        use(ui.treesitter())
+        use(ui.colorscheme())
+
+        use(editor.aerial())
+        use(editor.formatter())
+        use(editor.comment())
+        use(editor.gist())
+        use(editor.gitsigns())
+        use(editor.diagnostic())
+        use(editor.header())
+        use(editor.translator())
+        use(editor.autopair())
+        use(editor.surround())
+        use(editor.sql())
+        use(editor.markdown())
+        use(editor.easyalign())
+    end)
 end

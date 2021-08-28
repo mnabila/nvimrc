@@ -1,9 +1,8 @@
 -- neovim basic configuration
-require('settings')
+require("modules.core.settings")
 
 -- neovim package manager
-require('modules.packer')
+require("modules.packer")
 
 -- neovim keybindings
-require('keybindings')
-
+require("modules.core.keymap")
