@@ -1,5 +1,3 @@
-local utils = require("utils.global")
-
 vim.opt.autoindent = true
 vim.opt.autoread = true
 vim.opt.backspace = "indent,eol,start"
@@ -75,7 +73,10 @@ vim.opt.writebackup = true
 
 vim.g.python3_host_prog = "/usr/bin/python3"
 
-vim.cmd("syntax on")
-vim.cmd("colorscheme gruvboy-compiled")
+local gu = require("gruvboy.utils")
+if gu.compile_is_exist() == false then
+    gu.compile()
+end
+vim.cmd("colorscheme gruvboy_compiled")
 
-utils.disable_distribution_plugins()
+require("utils.global").disable_distribution_plugins()
