@@ -29,8 +29,8 @@ function M.config()
         },
 
         mapping = {
-            ["<S-TAB>"] = cmp.mapping.select_prev_item(),
-            ["<TAB>"] = cmp.mapping.select_next_item(),
+            ["<TAB>"] =  cmp.mapping(cmp.mapping.select_next_item(), { 'i', 's' }),
+            ["<S-TAB>"] = cmp.mapping(cmp.mapping.select_prev_item(), { 'i', 's' }),
             ["<C-Space>"] = cmp.mapping.complete(),
             ["<C-e>"] = cmp.mapping.close(),
             ["<CR>"] = cmp.mapping.confirm({

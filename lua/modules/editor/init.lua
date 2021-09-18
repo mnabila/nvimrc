@@ -61,7 +61,10 @@ end
 function Editor.comment()
     return {
         "terrortylor/nvim-comment",
-        config = require("modules.editor.comment")(),
+        event = "BufRead",
+        config = function()
+            require("modules.editor.comment")()
+        end,
     }
 end
 
@@ -89,7 +92,10 @@ function Editor.sql()
 end
 
 function Editor.surround()
-    return { "machakann/vim-sandwich" }
+    return {
+        "machakann/vim-sandwich",
+        keys = { "sa", "sr", "sd" },
+    }
 end
 
 function Editor.easyalign()

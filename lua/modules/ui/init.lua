@@ -21,7 +21,10 @@ end
 function Ui.indentline()
     return {
         "lukas-reineke/indent-blankline.nvim",
-        config = require("modules.ui.indentline")(),
+        event = "BufRead",
+        setup = function()
+            require("modules.ui.indentline")()
+        end,
     }
 end
 
@@ -69,7 +72,6 @@ function Ui.treesitter()
 end
 
 function Ui.colorizer()
-
     return {
         "norcalli/nvim-colorizer.lua",
         config = require("modules.ui.colorizer")(),
@@ -83,7 +85,6 @@ function Ui.colorscheme()
         wants = "gruvboy.nvim",
         requires = { "~/git/gruvboy.nvim", opt = true },
     }
-    
 end
 
 return Ui

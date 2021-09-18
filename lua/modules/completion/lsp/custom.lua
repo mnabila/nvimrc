@@ -1,4 +1,3 @@
-local cmp_lsp = require("cmp_nvim_lsp")
 local M = {}
 
 function _G.show_documentation()
@@ -10,6 +9,7 @@ function _G.show_documentation()
 end
 
 function M.custom_capabilities()
+    local cmp_lsp = require("cmp_nvim_lsp")
     local capabilities = vim.lsp.protocol.make_client_capabilities()
     capabilities = cmp_lsp.update_capabilities(capabilities)
     return capabilities
