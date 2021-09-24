@@ -29,4 +29,13 @@ function Completion.emmet()
     }
 end
 
+
+function Completion.autopair()
+    return {
+        "windwp/nvim-autopairs",
+        config = require("modules.completion.autopairs")(),
+    }
+end
+
+
 return Completion

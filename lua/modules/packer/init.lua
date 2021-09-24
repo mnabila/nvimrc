@@ -30,6 +30,7 @@ else
         use(completion.lsp())
         use(completion.cmp())
         use(completion.emmet())
+        use(completion.autopair())
 
         use(ui.bufferline())
         use(ui.statusline())
@@ -48,7 +49,6 @@ else
         use(editor.diagnostic())
         use(editor.header())
         use(editor.translator())
-        use(editor.autopair())
         use(editor.surround())
         use(editor.sql())
         use(editor.markdown())

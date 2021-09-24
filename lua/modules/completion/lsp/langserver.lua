@@ -97,7 +97,7 @@ lspconfig.gopls.setup(c.default({
                 unusedparams = true,
             },
             staticcheck = true,
-            usePlaceholders = true,
+            usePlaceholders = false,
         },
     },
 }))

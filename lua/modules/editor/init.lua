@@ -51,13 +51,6 @@ function Editor.translator()
     }
 end
 
-function Editor.autopair()
-    return {
-        "windwp/nvim-autopairs",
-        config = require("modules.editor.autopairs")(),
-    }
-end
-
 function Editor.comment()
     return {
         "terrortylor/nvim-comment",
