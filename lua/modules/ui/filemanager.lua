@@ -1,6 +1,6 @@
 local M = {}
 
-function M.config()
+function M.oldconfig()
     vim.g.nvim_tree_side = "left"
     vim.g.nvim_tree_width = 35
     vim.g.nvim_tree_ignore = { ".git", "node_modules", ".cache" }
@@ -34,6 +34,44 @@ function M.config()
     vim.cmd("autocmd FileType LuaTree setlocal nowrap")
 end
 
+function M.config()
+    vim.g.nvim_tree_respect_buf_cwd = 1
+    require("nvim-tree").setup({
+        disable_netrw = true,
+        hijack_netrw = true,
+        open_on_setup = false,
+        ignore_ft_on_setup = {},
+        auto_close = false,
+        open_on_tab = false,
+        update_to_buf_dir = {
+            enable = true,
+            auto_open = true,
+        },
+        hijack_cursor = false,
+        update_cwd = true,
+        diagnostics = {
+            enable = false,
+        },
+        update_focused_file = {
+            enable = true,
+            update_cwd = true,
+            ignore_list = {},
+        },
+        system_open = {
+            cmd = nil,
+            args = {},
+        },
+        view = {
+            width = 35,
+            side = "left",
+            auto_resize = false,
+            mappings = {
+                custom_only = false,
+                list = {},
+            },
+        },
+    })
+end
 return setmetatable({}, {
     __call = function()
         return M.config()

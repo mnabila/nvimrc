@@ -75,6 +75,10 @@ local function black()
     return { { cmd = { "black" }, tempfile_dir = tempdir } }
 end
 
+local function fish_indent()
+    return { { cmd = { "fish_indent -w" }, tempfile_dir = tempdir } }
+end
+
 function M.config()
     vim.g.format_debug = true
 
@@ -91,6 +95,7 @@ function M.config()
         python = black(),
         scss = prettier(),
         yaml = prettier(),
+        fish = fish_indent(),
     })
 end
 

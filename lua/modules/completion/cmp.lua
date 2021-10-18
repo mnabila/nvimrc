@@ -13,7 +13,6 @@ function M.config()
 
         completion = {
             autocomplete = { cmp.TriggerEvent.TextChanged },
-            completeopt = vim.opt.completeopt,
         },
 
         documentation = {
