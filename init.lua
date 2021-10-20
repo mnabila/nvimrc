@@ -1,3 +1,6 @@
+-- set neovim mapleader
+vim.cmd('let mapleader=","')
+
 -- neovim basic configuration
 require("modules.core.settings")
 

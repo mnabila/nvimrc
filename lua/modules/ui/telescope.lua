@@ -48,6 +48,72 @@ function M.config()
     })
 
     telescope.load_extension("fzy_native")
+
+    M.keymap()
+end
+
+function M.keymap()
+    local keybindings = {
+
+        -- telescope
+        {
+            "n",
+            "<Leader><space>",
+            '<CMD>lua require("telescope.builtin").oldfiles({file_ignore_patterns = {"/usr/share/nvim/runtime/*"}, previewer = false})<CR>',
+            { noremap = true, silent = true },
+        },
+        {
+            "n",
+            "<Leader>b",
+            '<CMD>lua require("telescope.builtin").buffers()<CR>',
+            { noremap = true, silent = true },
+        },
+        {
+            "n",
+            "<Leader>o",
+            '<CMD>lua require("telescope.builtin").find_files({previewer = false})<CR>',
+            { noremap = true, silent = true },
+        },
+        {
+            "n",
+            "<Leader>m",
+            '<cmd>lua require("telescope.builtin").marks()<cr>',
+            { noremap = true, silent = true },
+        },
+        {
+            "n",
+            "<Leader><Leader>",
+            '<CMD>lua require("telescope.builtin").builtin({previewer = false})<CR>',
+            { noremap = true, silent = true },
+        },
+        {
+            "n",
+            "<Leader>k",
+            '<CMD>lua require("telescope.builtin").keymaps()<CR>',
+            { noremap = true, silent = true },
+        },
+        {
+            "n",
+            "<Leader>/",
+            '<CMD>lua require("telescope.builtin").current_buffer_fuzzy_find()<CR>',
+            { noremap = true, silent = true },
+        },
+        {
+            "n",
+            "<Leader>?",
+            '<CMD>lua require("telescope.builtin").grep_string()<CR>',
+            { noremap = true, silent = true },
+        },
+        {
+            "n",
+            "<Leader>c",
+            '<CMD>lua require("telescope.builtin").commands()<CR>',
+            { noremap = true, silent = true },
+        },
+    }
+    for _, key in pairs(keybindings) do
+        vim.api.nvim_set_keymap(key[1], key[2], key[3], key[4])
+    end
 end
 
 return setmetatable({}, {
