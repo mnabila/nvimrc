@@ -95,4 +95,11 @@ function Editor.easyalign()
     return { "junegunn/vim-easy-align", cmd = "EasyAlign" }
 end
 
+function Editor.golang()
+    return {
+        "ray-x/go.nvim",
+        config = require("modules.editor.go")(),
+    }
+end
+
 return Editor

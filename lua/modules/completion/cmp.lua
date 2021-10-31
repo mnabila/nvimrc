@@ -29,8 +29,20 @@ function M.config()
         },
 
         mapping = {
-            ["<TAB>"] = cmp.mapping(cmp.mapping.select_next_item(), { "i", "s" }),
-            ["<S-TAB>"] = cmp.mapping(cmp.mapping.select_prev_item(), { "i", "s" }),
+            ["<Tab>"] = function(fallback)
+                if cmp.visible() then
+                    cmp.select_next_item()
+                else
+                    fallback()
+                end
+            end,
+            ["<S-Tab>"] = function(fallback)
+                if cmp.visible() then
+                    cmp.select_prev_item()
+                else
+                    fallback()
+                end
+            end,
             ["<C-Space>"] = cmp.mapping.complete(),
             ["<C-e>"] = cmp.mapping.close(),
             ["<CR>"] = cmp.mapping.confirm({
@@ -40,16 +52,9 @@ function M.config()
         },
     })
 
-    require("nvim-autopairs.completion.cmp").setup({
-        map_cr = true,
-        map_complete = true,
-        auto_select = true,
-        insert = false,
-        map_char = {
-            all = "(",
-            tex = "{",
-        },
-    })
+    -- If you want insert `(` after select function or method item
+    local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+    cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
 end
 
 return setmetatable({}, {

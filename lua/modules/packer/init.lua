@@ -61,5 +61,6 @@ else
         use(editor.sql())
         use(editor.markdown())
         use(editor.easyalign())
+        use(editor.golang())
     end)
 end
