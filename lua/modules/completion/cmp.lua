@@ -26,6 +26,7 @@ function M.config()
             { name = "buffer" },
             { name = "nvim_lua" },
             { name = "vsnip" },
+            { name = "copilot" },
         },
 
         mapping = {
