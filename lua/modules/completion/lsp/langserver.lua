@@ -54,9 +54,10 @@ lspconfig.pyright.setup(c.default({
         python = {
             analysis = {
                 useLibraryCodeForTypes = false,
+                autoImportCompletions = true,
                 autoSearchPaths = true,
                 diagnosticMode = "openFilesOnly",
-                typeCheckingMode = "basic",
+                typeCheckingMode = "strict",
             },
         },
     },

@@ -62,5 +62,6 @@ else
         use(editor.markdown())
         use(editor.easyalign())
         use(editor.golang())
+        use(editor.copilot())
     end)
 end

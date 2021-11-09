@@ -4,14 +4,3 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagn
     underline = false,
     update_in_insert = true,
 })
-
-local signs = {
-    { highlight = "LspDiagnosticsSignError", sign = "▊" },
-    { highlight = "LspDiagnosticsSignWarning", sign = "▊" },
-    { highlight = "LspDiagnosticsSignInformation", sign = "▊" },
-    { highlight = "LspDiagnosticsSignHint", sign = "▊" },
-}
-
-for _, sign in ipairs(signs) do
-    vim.fn.sign_define(sign.highlight, { text = sign.sign, texthl = sign.highlight, linehl = "NONE" })
-end
