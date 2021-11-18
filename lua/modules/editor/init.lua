@@ -12,7 +12,6 @@ function Editor.diagnostic()
     return {
         "folke/lsp-trouble.nvim",
         wants = { "nvim-web-devicons", "nvim-lspconfig" },
-        requires = { "kyazdani42/nvim-web-devicons", opt = true },
         config = require("modules.editor.diagnostic")(),
     }
 end
@@ -110,6 +109,7 @@ function Editor.copilot()
             vim.g.copilot_assume_mapped = true
             vim.g.copilot_tab_fallback = ""
         end,
+        ft = { "python", "go", "javascript", "bash", "lua" },
     }
 end
 

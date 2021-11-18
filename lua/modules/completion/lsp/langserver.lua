@@ -57,7 +57,7 @@ lspconfig.pyright.setup(c.default({
                 autoImportCompletions = true,
                 autoSearchPaths = true,
                 diagnosticMode = "openFilesOnly",
-                typeCheckingMode = "strict",
+                typeCheckingMode = "basic",
             },
         },
     },

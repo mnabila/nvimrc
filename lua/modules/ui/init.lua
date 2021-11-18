@@ -1,10 +1,14 @@
 local Ui = {}
 
+function Ui.devicons()
+    return { "kyazdani42/nvim-web-devicons", opt = true }
+end
+
 function Ui.bufferline()
     return {
         "romgrk/barbar.nvim",
         wants = "nvim-web-devicons",
-        requires = { "kyazdani42/nvim-web-devicons", opt = true },
+        requires = Ui.devicons(),
         config = require("modules.ui.bufferline")(),
     }
 end
@@ -13,7 +17,7 @@ function Ui.statusline()
     return {
         "glepnir/galaxyline.nvim",
         wants = "nvim-web-devicons",
-        requires = { "kyazdani42/nvim-web-devicons", opt = true },
+        requires = Ui.devicons(),
         config = require("modules.ui.statusline")(),
     }
 end
@@ -21,10 +25,7 @@ end
 function Ui.indentline()
     return {
         "lukas-reineke/indent-blankline.nvim",
-        event = "BufRead",
-        setup = function()
-            require("modules.ui.indentline")()
-        end,
+        setup = require("modules.ui.indentline")(),
     }
 end
 
@@ -32,7 +33,7 @@ function Ui.filemanager()
     return {
         "kyazdani42/nvim-tree.lua",
         wants = "nvim-web-devicons",
-        requires = { "kyazdani42/nvim-web-devicons", opt = true },
+        requires = Ui.devicons(),
         config = require("modules.ui.filemanager")(),
     }
 end
@@ -45,10 +46,7 @@ function Ui.telescope()
             "nvim-lua/popup.nvim",
             "nvim-lua/plenary.nvim",
             "nvim-telescope/telescope-fzy-native.nvim",
-            {
-                "kyazdani42/nvim-web-devicons",
-                opt = true,
-            },
+            Ui.devicons(),
         },
         config = require("modules.ui.telescope")(),
     }
@@ -66,6 +64,7 @@ function Ui.treesitter()
         requires = {
             { "p00f/nvim-ts-rainbow", opt = true },
             { "windwp/nvim-ts-autotag", opt = true },
+            { "nvim-treesitter/playground", cmd = "TSPlaygroundToggle" },
         },
         config = require("modules.ui.treesitter")(),
     }

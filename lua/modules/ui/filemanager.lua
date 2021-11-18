@@ -35,7 +35,11 @@ function M.oldconfig()
 end
 
 function M.config()
+    vim.g.nvim_tree_show_icons = { git = 0, folders = 1, files = 1 }
     vim.g.nvim_tree_respect_buf_cwd = 1
+    vim.g.nvim_tree_indent_markers = 1
+    vim.g.nvim_tree_git_hl = 1
+
     require("nvim-tree").setup({
         disable_netrw = true,
         hijack_netrw = true,
@@ -60,6 +64,10 @@ function M.config()
         system_open = {
             cmd = nil,
             args = {},
+        },
+        filters = {
+            dotfiles = false,
+            custom = {},
         },
         view = {
             width = 35,

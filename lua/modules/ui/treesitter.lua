@@ -32,6 +32,10 @@ function M.config()
             enable = true,
             filetypes = { "html", "xml" },
         },
+        -- nvim-treesitter/playground
+        playground = {
+            enable = true,
+        },
     }
 
     require("nvim-treesitter.configs").setup(options)
