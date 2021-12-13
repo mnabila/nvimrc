@@ -39,6 +39,7 @@ else
         use(completion.cmp())
         use(completion.emmet())
         use(completion.autopair())
+        use(completion.copilot())
 
         use(ui.bufferline())
         use(ui.statusline())
@@ -49,12 +50,11 @@ else
         use(ui.treesitter())
         use(ui.colorscheme())
 
-        use(editor.aerial())
         use(editor.formatter())
         use(editor.comment())
         use(editor.gist())
         use(editor.gitsigns())
-        use(editor.diagnostic())
+        -- use(editor.diagnostic())
         use(editor.header())
         use(editor.translator())
         use(editor.surround())
@@ -62,6 +62,5 @@ else
         use(editor.markdown())
         use(editor.easyalign())
         use(editor.golang())
-        use(editor.copilot())
     end)
 end

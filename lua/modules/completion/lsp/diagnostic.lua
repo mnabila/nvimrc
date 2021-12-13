@@ -1,5 +1,5 @@
 vim.diagnostic.config({
-    underline = false,
+    underline = true,
     signs = true,
     -- virtual_text = { spacing = 8, prefix = "❰" },
     virtual_text = false,
@@ -10,7 +10,7 @@ vim.diagnostic.config({
         focusable = false,
     },
     update_in_insert = true,
-    severity_sort = false,
+    severity_sort = true,
 })
 
-vim.cmd([[ autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics() ]])
+vim.cmd([[ autocmd CursorHold * lua vim.diagnostic.open_float() ]])

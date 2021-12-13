@@ -64,7 +64,6 @@ function Ui.treesitter()
         requires = {
             { "p00f/nvim-ts-rainbow", opt = true },
             { "windwp/nvim-ts-autotag", opt = true },
-            { "nvim-treesitter/playground", cmd = "TSPlaygroundToggle" },
         },
         config = require("modules.ui.treesitter")(),
     }

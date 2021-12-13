@@ -4,7 +4,7 @@ function M.config()
     local telescope = require("telescope")
     local previewers = require("telescope.previewers")
 
-    telescope.setup({
+    local options = {
         defaults = {
             vimgrep_arguments = {
                 "rg",
@@ -36,17 +36,30 @@ function M.config()
             generic_sorter = require("telescope.sorters").get_generic_fuzzy_sorter,
             path_display = { "absolute" },
             winblend = 0,
-            border = {},
             borderchars = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
             color_devicons = true,
             use_less = false,
-            set_env = { ["COLORTERM"] = "truecolor" }, -- default { }, currently unsupported for shells like cmd.exe / powershell.exe
             file_previewer = previewers.vim_buffer_cat.new,
             grep_previewer = previewers.vim_buffer_vimgrep.new,
             qflist_previewer = previewers.vim_buffer_qflist.new,
         },
-    })
+        pickers = {
+            diagnostics = {
+                previewer = false,
+            },
+            find_files = {
+                previewer = false,
+            },
+            oldfiles = {
+                previewer = false,
+            },
+            builtin = {
+                previewer = false,
+            },
+        },
+    }
 
+    telescope.setup(options)
     telescope.load_extension("fzy_native")
 
     M.keymap()
@@ -58,8 +71,8 @@ function M.keymap()
         -- telescope
         {
             "n",
-            "<Leader><space>",
-            '<CMD>lua require("telescope.builtin").oldfiles({file_ignore_patterns = {"/usr/share/nvim/runtime/*"}, previewer = false})<CR>',
+            "<Leader>0",
+            '<CMD>lua require("telescope.builtin").oldfiles()<CR>',
             { noremap = true, silent = true },
         },
         {
@@ -71,7 +84,7 @@ function M.keymap()
         {
             "n",
             "<Leader>o",
-            '<CMD>lua require("telescope.builtin").find_files({previewer = false})<CR>',
+            '<CMD>lua require("telescope.builtin").find_files()<CR>',
             { noremap = true, silent = true },
         },
         {
@@ -83,7 +96,7 @@ function M.keymap()
         {
             "n",
             "<Leader><Leader>",
-            '<CMD>lua require("telescope.builtin").builtin({previewer = false})<CR>',
+            '<CMD>lua require("telescope.builtin").builtin()<CR>',
             { noremap = true, silent = true },
         },
         {
@@ -94,20 +107,26 @@ function M.keymap()
         },
         {
             "n",
-            "<Leader>/",
-            '<CMD>lua require("telescope.builtin").current_buffer_fuzzy_find()<CR>',
-            { noremap = true, silent = true },
-        },
-        {
-            "n",
-            "<Leader>?",
-            '<CMD>lua require("telescope.builtin").grep_string()<CR>',
-            { noremap = true, silent = true },
-        },
-        {
-            "n",
             "<Leader>c",
             '<CMD>lua require("telescope.builtin").commands()<CR>',
+            { noremap = true, silent = true },
+        },
+        {
+            "n",
+            "<Leader>s",
+            '<CMD>lua require("telescope.builtin").lsp_document_symbols()<CR>',
+            { noremap = true, silent = true },
+        },
+        {
+            "n",
+            "<Leader>d",
+            '<CMD>lua require("telescope.builtin").diagnostics({bufnr=0})<CR>',
+            { noremap = true, silent = true },
+        },
+        {
+            "n",
+            "<Leader>D",
+            '<CMD>lua require("telescope.builtin").diagnostics()<CR>',
             { noremap = true, silent = true },
         },
     }

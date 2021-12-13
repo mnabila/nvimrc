@@ -26,7 +26,7 @@ function M.config()
             { name = "buffer" },
             { name = "nvim_lua" },
             { name = "vsnip" },
-            { name = "copilot" },
+            -- { name = "copilot" },
         },
 
         mapping = {
@@ -42,12 +42,6 @@ function M.config()
                     cmp.select_prev_item()
                 else
                     fallback()
-                    local copilot_keys = vim.fn["copilot#Accept"]()
-                    if copilot_keys ~= "" then
-                        vim.api.nvim_feedkeys(copilot_keys, "i", true)
-                    else
-                        fallback()
-                    end
                 end
             end,
             ["<C-Space>"] = cmp.mapping.complete(),

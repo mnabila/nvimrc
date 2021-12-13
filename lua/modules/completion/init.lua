@@ -10,7 +10,6 @@ function Completion.cmp()
             "hrsh7th/cmp-path",
             "hrsh7th/cmp-vsnip",
             "hrsh7th/vim-vsnip",
-            "hrsh7th/cmp-copilot",
         },
         config = require("modules.completion.cmp")(),
     }
@@ -34,6 +33,22 @@ function Completion.autopair()
     return {
         "windwp/nvim-autopairs",
         config = require("modules.completion.autopairs")(),
+    }
+end
+
+function Completion.copilot()
+    return {
+        "github/copilot.vim",
+        required = {
+            "hrsh7th/cmp-copilot",
+        },
+        config = function()
+            vim.g.copilot_no_tab_map = true
+            vim.g.copilot_assume_mapped = true
+            vim.g.copilot_tab_fallback = ""
+        end,
+        ft = { "python", "go", "javascript", "bash", "lua" },
+        disable = true,
     }
 end
 

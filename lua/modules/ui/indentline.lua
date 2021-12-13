@@ -38,8 +38,9 @@ function M.config()
             "table",
             "dictionary",
             "list",
-            "parameters"
-
+            "parameters",
+            "expression_list",
+            "for_statement"
         },
     })
 end

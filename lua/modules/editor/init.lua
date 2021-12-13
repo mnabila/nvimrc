@@ -1,18 +1,11 @@
 local Editor = {}
 
-function Editor.aerial()
-    return {
-        "stevearc/aerial.nvim",
-        wants = { "nvim-lspconfig" },
-        config = require("modules.editor.aerial")(),
-    }
-end
-
 function Editor.diagnostic()
     return {
         "folke/lsp-trouble.nvim",
         wants = { "nvim-web-devicons", "nvim-lspconfig" },
         config = require("modules.editor.diagnostic")(),
+        disable = true,
     }
 end
 
@@ -52,10 +45,9 @@ end
 
 function Editor.comment()
     return {
-        "terrortylor/nvim-comment",
-        event = "BufRead",
+        "numToStr/Comment.nvim",
         config = function()
-            require("modules.editor.comment")()
+            require("Comment").setup()
         end,
     }
 end
@@ -98,18 +90,6 @@ function Editor.golang()
     return {
         "ray-x/go.nvim",
         config = require("modules.editor.go")(),
-    }
-end
-
-function Editor.copilot()
-    return {
-        "github/copilot.vim",
-        config = function()
-            vim.g.copilot_no_tab_map = true
-            vim.g.copilot_assume_mapped = true
-            vim.g.copilot_tab_fallback = ""
-        end,
-        ft = { "python", "go", "javascript", "bash", "lua" },
     }
 end
 

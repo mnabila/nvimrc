@@ -1,44 +1,11 @@
 local M = {}
 
-function M.oldconfig()
-    vim.g.nvim_tree_side = "left"
-    vim.g.nvim_tree_width = 35
-    vim.g.nvim_tree_ignore = { ".git", "node_modules", ".cache" }
-    vim.g.nvim_tree_gitignore = 0
-    vim.g.nvim_tree_auto_open = 0
-    vim.g.nvim_tree_auto_close = 0
-    vim.g.nvim_tree_auto_ignore_ft = {}
-    vim.g.nvim_tree_quit_on_open = 0
-    vim.g.nvim_tree_follow = 1
-    vim.g.nvim_tree_indent_markers = 1
-    vim.g.nvim_tree_hide_dotfiles = 1
-    vim.g.nvim_tree_git_hl = 1
-    vim.g.nvim_tree_highlight_opened_files = 1
-    vim.g.nvim_tree_root_folder_modifier = ":~"
-    vim.g.nvim_tree_tab_open = 1
-    vim.g.nvim_tree_width_allow_resize = 1
-    vim.g.nvim_tree_group_empty = 0
-    vim.g.nvim_tree_disable_window_picker = 1
-    vim.g.nvim_tree_lsp_diagnostics = 0
-    vim.g.nvim_tree_hijack_cursor = 0
-    vim.g.nvim_tree_show_icons = { git = 0, folders = 1, files = 1 }
-
-    vim.g.nvim_tree_icons = {
-        default = "",
-        symlink = "",
-        git = { unstaged = "✗", staged = "✓", unmerged = "", renamed = "➜", untracked = "★" },
-        folder = { default = " ", open = " " },
-    }
-
-    -- disable word wrap
-    vim.cmd("autocmd FileType LuaTree setlocal nowrap")
-end
-
 function M.config()
     vim.g.nvim_tree_show_icons = { git = 0, folders = 1, files = 1 }
     vim.g.nvim_tree_respect_buf_cwd = 1
     vim.g.nvim_tree_indent_markers = 1
     vim.g.nvim_tree_git_hl = 1
+    vim.g.nvim_tree_highlight_opened_files = 1
 
     require("nvim-tree").setup({
         disable_netrw = true,
@@ -46,7 +13,7 @@ function M.config()
         open_on_setup = false,
         ignore_ft_on_setup = {},
         auto_close = false,
-        open_on_tab = false,
+        open_on_tab = true,
         update_to_buf_dir = {
             enable = true,
             auto_open = true,
@@ -67,12 +34,12 @@ function M.config()
         },
         filters = {
             dotfiles = false,
-            custom = {},
+            custom = { ".git", "node_modules", ".cache", "__pycache__" },
         },
         view = {
             width = 35,
             side = "left",
-            auto_resize = false,
+            auto_resize = true,
             mappings = {
                 custom_only = false,
                 list = {},
