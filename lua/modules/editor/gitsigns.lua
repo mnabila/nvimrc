@@ -3,11 +3,11 @@ local M = {}
 function M.config()
     local options = {
         signs = {
-            add = { hl = "GitSignAdd", text = "▍" },
-            change = { hl = "GitSignChange", text = "▍" },
-            delete = { hl = "GitSignDelete", text = "▍" },
-            topdelete = { hl = "GitSignDelete", text = "▍" },
-            changedelete = { hl = "GitSignChange", text = "▍" },
+            add = { hl = "GitSignAdd", text = "┃" },
+            change = { hl = "GitSignChange", text = "┃" },
+            delete = { hl = "GitSignDelete", text = "┃" },
+            topdelete = { hl = "GitSignDelete", text = "┃" },
+            changedelete = { hl = "GitSignChange", text = "┃" },
         },
     }
 

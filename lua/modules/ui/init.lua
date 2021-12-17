@@ -1,3 +1,4 @@
+local lc = require("utils.packer").loadConfig
 local Ui = {}
 
 function Ui.devicons()
@@ -9,7 +10,7 @@ function Ui.bufferline()
         "romgrk/barbar.nvim",
         wants = "nvim-web-devicons",
         requires = Ui.devicons(),
-        config = require("modules.ui.bufferline")(),
+        config = lc(require("modules.ui.bufferline")),
     }
 end
 
@@ -18,14 +19,14 @@ function Ui.statusline()
         "glepnir/galaxyline.nvim",
         wants = "nvim-web-devicons",
         requires = Ui.devicons(),
-        config = require("modules.ui.statusline")(),
+        config = lc(require("modules.ui.statusline")),
     }
 end
 
 function Ui.indentline()
     return {
         "lukas-reineke/indent-blankline.nvim",
-        setup = require("modules.ui.indentline")(),
+        setup = lc(require("modules.ui.indentline")),
     }
 end
 
@@ -34,7 +35,7 @@ function Ui.filemanager()
         "kyazdani42/nvim-tree.lua",
         wants = "nvim-web-devicons",
         requires = Ui.devicons(),
-        config = require("modules.ui.filemanager")(),
+        config = lc(require("modules.ui.filemanager")),
     }
 end
 
@@ -48,7 +49,7 @@ function Ui.telescope()
             "nvim-telescope/telescope-fzy-native.nvim",
             Ui.devicons(),
         },
-        config = require("modules.ui.telescope")(),
+        config = lc(require("modules.ui.telescope")),
     }
 end
 
@@ -65,14 +66,14 @@ function Ui.treesitter()
             { "p00f/nvim-ts-rainbow", opt = true },
             { "windwp/nvim-ts-autotag", opt = true },
         },
-        config = require("modules.ui.treesitter")(),
+        config = lc(require("modules.ui.treesitter")),
     }
 end
 
 function Ui.colorizer()
     return {
         "norcalli/nvim-colorizer.lua",
-        config = require("modules.ui.colorizer")(),
+        config = lc(require("modules.ui.colorizer")),
     }
 end
 

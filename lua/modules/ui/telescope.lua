@@ -55,6 +55,9 @@ function M.config()
             builtin = {
                 previewer = false,
             },
+            current_buffer_fuzzy_find = {
+                previewer = false,
+            },
         },
     }
 

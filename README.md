@@ -12,6 +12,8 @@
 $ git clone https://github.com/mnabila/nvimrc ~/.config/nvim
 ```
 
+before execute PackerInstall, make sure you change `installMode` to `true` in init.lua, after finish installation revert to false.
+if `installMode` value is `true`  all configuration in this nvimrc can't loaded
 ```
 $ nvim +PackerInstall
 ```

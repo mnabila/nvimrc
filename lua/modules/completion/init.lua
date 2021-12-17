@@ -1,3 +1,4 @@
+local lc = require("utils.packer").loadConfig
 local Completion = {}
 
 function Completion.cmp()
@@ -7,18 +8,21 @@ function Completion.cmp()
             "hrsh7th/cmp-buffer",
             "hrsh7th/cmp-nvim-lsp",
             "hrsh7th/cmp-nvim-lua",
-            "hrsh7th/cmp-path",
+            {
+                "hrsh7th/cmp-path",
+                commit = "d83839a",
+            },
             "hrsh7th/cmp-vsnip",
             "hrsh7th/vim-vsnip",
         },
-        config = require("modules.completion.cmp")(),
+        config = lc(require("modules.completion.cmp")),
     }
 end
 
 function Completion.lsp()
     return {
         "neovim/nvim-lspconfig",
-        config = require("modules.completion.lsp")(),
+        config = lc(require("modules.completion.lsp")),
     }
 end
 
@@ -32,7 +36,7 @@ end
 function Completion.autopair()
     return {
         "windwp/nvim-autopairs",
-        config = require("modules.completion.autopairs")(),
+        config = lc(require("modules.completion.autopairs")),
     }
 end
 

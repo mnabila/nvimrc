@@ -1,3 +1,6 @@
+-- installMode
+require("utils.packer").installMode(false)
+
 -- set neovim mapleader
 vim.cmd('let mapleader=" "')
 
