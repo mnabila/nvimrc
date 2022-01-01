@@ -16,7 +16,7 @@ end
 
 function Ui.statusline()
     return {
-        "glepnir/galaxyline.nvim",
+        "NTBBloodbath/galaxyline.nvim",
         wants = "nvim-web-devicons",
         requires = Ui.devicons(),
         config = lc(require("modules.ui.statusline")),

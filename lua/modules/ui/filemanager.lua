@@ -36,6 +36,10 @@ function M.config()
             dotfiles = false,
             custom = { ".git", "node_modules", ".cache", "__pycache__" },
         },
+        git = {
+            enable = true,
+            ignore = false,
+        },
         view = {
             width = 35,
             side = "left",

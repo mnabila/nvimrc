@@ -28,6 +28,7 @@ function M.config()
             "lspinfo",
             "lspsagafinder",
             "Trouble",
+            "qf",
         },
         buftype_exclude = { "terminal", "man", "trouble" },
         context_patterns = {
@@ -40,7 +41,11 @@ function M.config()
             "list",
             "parameters",
             "expression_list",
-            "for_statement"
+            "for_statement",
+
+            -- json
+            "array",
+            "object",
         },
     })
 end

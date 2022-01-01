@@ -4,15 +4,14 @@ function M.config()
     local gl = require("galaxyline")
     local gls = gl.section
     local condition = require("galaxyline.condition")
-    local vcs = require("galaxyline.provider_vcs")
-    local buffer = require("galaxyline.provider_buffer")
-    local fileinfo = require("galaxyline.provider_fileinfo")
-    local diagnostic = require("galaxyline.provider_diagnostic")
-    local lspclient = require("galaxyline.provider_lsp")
-    local icons = require("galaxyline.provider_fileinfo").define_file_icon()
+    local vcs = require("galaxyline.providers.vcs")
+    local buffer = require("galaxyline.providers.buffer")
+    local fileinfo = require("galaxyline.providers.fileinfo")
+    local diagnostic = require("galaxyline.providers.diagnostic")
+    local lspclient = require("galaxyline.providers.lsp")
     local colors = require("gruvboy.colors")
 
-    icons["man"] = { colors.green, "" }
+    gl.short_line_list = { "NvimTree" }
 
     gls.left = {
         {
@@ -212,13 +211,12 @@ function M.config()
         },
     }
 
-    gl.short_line_list = { "NvimTree" }
     gls.short_line_left = {
         {
             BufferIcon = {
                 provider = function()
                     local icon = buffer.get_buffer_type_icon()
-                    if icon ~= nil then
+                    if icon ~= nil and vim.bo.filetype ~= "NvimTree" then
                         return string.format(" %s ", icon)
                     end
                 end,
@@ -228,20 +226,13 @@ function M.config()
         {
             BufferName = {
                 provider = function()
-                    if vim.fn.index(gl.short_line_list, vim.bo.filetype) ~= -1 then
-                        local filetype = vim.bo.filetype
-                        if filetype == "NvimTree" then
-                            return " Explorer "
-                        end
-                    else
-                        if fileinfo.get_current_file_name() ~= "" then
-                            return string.format(
-                                " %s %s| %s ",
-                                fileinfo.get_file_icon(),
-                                fileinfo.get_file_size(),
-                                fileinfo.get_current_file_name()
-                            )
-                        end
+                    if fileinfo.get_current_file_name() ~= "" and vim.bo.filetype ~= "NvimTree" then
+                        return string.format(
+                            " %s %s| %s ",
+                            fileinfo.get_file_icon(),
+                            fileinfo.get_file_size(),
+                            fileinfo.get_current_file_name()
+                        )
                     end
                 end,
                 separator = "",

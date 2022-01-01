@@ -1,12 +1,6 @@
 local M = {}
 local tempdir = "/tmp"
 
-local function remove_whitespace()
-    return {
-        { cmd = { "sed -i 's/[ \t]*$//'" } },
-    }
-end
-
 local function prettier(params)
     return {
         {
@@ -83,7 +77,6 @@ function M.config()
     vim.g.format_debug = true
 
     require("format").setup({
-        ["*"] = remove_whitespace(),
         javascript = prettier(),
         typescript = prettier(),
         html = prettier("--print-width 1000"),

@@ -85,7 +85,8 @@ lspconfig.sqls.setup({
     capabilities = c.custom_capabilities(),
     on_attach = function(client)
         client.resolved_capabilities.execute_command = true
-        require("sqls").setup({ picker = "default" })
+        client.commands = require("sqls").commands
+        require("sqls").setup({ picker = "telescope" })
     end,
 })
 

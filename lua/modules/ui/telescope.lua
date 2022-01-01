@@ -58,6 +58,9 @@ function M.config()
             current_buffer_fuzzy_find = {
                 previewer = false,
             },
+            autocommands = {
+                previewer = false,
+            },
         },
     }
 
