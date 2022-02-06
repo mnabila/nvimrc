@@ -211,7 +211,7 @@ function M.config()
         },
     }
 
-    gls.short_line_left = {
+    gls.short_line_mid = {
         {
             BufferIcon = {
                 provider = function()

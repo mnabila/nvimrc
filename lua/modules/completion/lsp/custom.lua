@@ -41,6 +41,7 @@ function M.custom_on_attach(client, bufnr)
     keymap("n", "[e", "<CMD>lua vim.lsp.diagnostic.goto_prev()<CR>")
     keymap("n", "]e", "<CMD>lua vim.lsp.diagnostic.goto_next()<CR>")
     keymap("n", "gr", "<CMD>lua vim.lsp.buf.rename()<CR>")
+    keymap("n", "gR", "<CMD>lua vim.lsp.buf.references()<CR>")
 
     -- Set some keybinds conditional on server capabilities
     if client.resolved_capabilities.document_formatting then

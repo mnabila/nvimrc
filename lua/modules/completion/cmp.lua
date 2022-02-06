@@ -23,9 +23,17 @@ function M.config()
         sources = {
             { name = "nvim_lsp" },
             { name = "path" },
-            { name = "buffer" },
+            {
+                name = "buffer",
+                option = {
+                    get_bufnrs = function()
+                        return vim.api.nvim_list_bufs()
+                    end,
+                },
+            },
             { name = "nvim_lua" },
             { name = "vsnip" },
+            { name = "emoji" },
             -- { name = "copilot" },
         },
 
@@ -44,7 +52,7 @@ function M.config()
                     fallback()
                 end
             end,
-            ["<C-Space>"] = cmp.mapping.complete(),
+            ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
             ["<C-e>"] = cmp.mapping.close(),
             ["<CR>"] = cmp.mapping.confirm({
                 behavior = cmp.ConfirmBehavior.Replace,
