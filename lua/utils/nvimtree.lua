@@ -7,7 +7,7 @@ local M = {}
 function M.toggle()
     if view.win_open() then
         bfstate.set_offset(0)
-        tree.close()
+        view.close()
     else
         bfstate.set_offset(35)
         tree.find_file(true)
