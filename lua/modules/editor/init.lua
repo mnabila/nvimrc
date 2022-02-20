@@ -1,12 +1,19 @@
 local lc = require("utils.packer").loadConfig
 local Editor = {}
 
+function Editor.aerial()
+    return {
+        "stevearc/aerial.nvim",
+        wants = { "nvim-lspconfig" },
+        config = lc(require("modules.editor.aerial")),
+    }
+end
+
 function Editor.diagnostic()
     return {
         "folke/lsp-trouble.nvim",
         wants = { "nvim-web-devicons", "nvim-lspconfig" },
         config = lc(require("modules.editor.diagnostic")),
-        disable = true,
     }
 end
 

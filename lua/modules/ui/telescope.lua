@@ -122,12 +122,12 @@ function M.keymap()
             '<CMD>lua require("telescope.builtin").lsp_document_symbols()<CR>',
             { noremap = true, silent = true },
         },
-        {
-            "n",
-            "<Leader>d",
-            '<CMD>lua require("telescope.builtin").diagnostics({bufnr=0})<CR>',
-            { noremap = true, silent = true },
-        },
+        -- {
+        --     "n",
+        --     "<Leader>d",
+        --     '<CMD>lua require("telescope.builtin").diagnostics({bufnr=0})<CR>',
+        --     { noremap = true, silent = true },
+        -- },
         {
             "n",
             "<Leader>D",

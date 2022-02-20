@@ -79,16 +79,16 @@ lspconfig.pyright.setup(c.default({
 --     },
 -- }))
 
-lspconfig.sqls.setup({
-    cmd = { "sqls", "-config", vim.loop.os_homedir() .. "/.config/sqls/config.yml" },
-    on_init = c.custom_on_init,
-    capabilities = c.custom_capabilities(),
-    on_attach = function(client)
-        client.resolved_capabilities.execute_command = true
-        client.commands = require("sqls").commands
-        require("sqls").setup({ picker = "telescope" })
-    end,
-})
+-- lspconfig.sqls.setup({
+--     cmd = { "sqls", "-config", vim.loop.os_homedir() .. "/.config/sqls/config.yml" },
+--     on_init = c.custom_on_init,
+--     capabilities = c.custom_capabilities(),
+--     on_attach = function(client)
+--         client.resolved_capabilities.execute_command = true
+--         client.commands = require("sqls").commands
+--         require("sqls").setup({ picker = "telescope" })
+--     end,
+-- })
 
 lspconfig.gopls.setup(c.default({
     cmd = { "gopls", "serve" },

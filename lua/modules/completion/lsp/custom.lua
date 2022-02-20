@@ -55,6 +55,14 @@ function M.custom_on_attach(client, bufnr)
     else
         keymap("v", "<leader>f", "<CMD>FormatWrite<CR>")
     end
+
+    -- diagnostic
+    keymap("n", "<leader>d", "<CMD>TroubleToggle document_diagnostics<CR>")
+    keymap("n", "<leader>D", "<CMD>TroubleToggle workspace_diagnostics<CR>")
+
+    -- load aerial
+    require("aerial").on_attach(client, bufnr)
+    keymap("n", "<leader>a", '<CMD>lua require"aerial".toggle()<CR>')
 end
 
 function M.default(configs)
