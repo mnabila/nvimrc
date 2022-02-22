@@ -4,7 +4,7 @@ if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
     vim.cmd("packadd packer.nvim")
 end
 
-local packer  = require("packer")
+local packer = require("packer")
 
 packer.init({
     display = {
@@ -18,9 +18,9 @@ packer.init({
 })
 
 packer.startup(function()
-    local ui = require("modules.ui")
-    local completion = require("modules.completion")
-    local editor = require("modules.editor")
+    local ui = require("modules.packer.ui")
+    local completion = require("modules.packer.completion")
+    local editor = require("modules.packer.editor")
 
     use({ "wbthomason/packer.nvim" })
 
@@ -59,4 +59,5 @@ packer.startup(function()
     use(editor.glow())
     use(editor.filetype())
     use(editor.formatter())
+    -- use(editor.norg())
 end)

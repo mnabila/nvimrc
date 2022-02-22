@@ -11,7 +11,7 @@ function M.toggle()
     else
         bfstate.set_offset(35)
         tree.find_file(true)
-        tree.open()
+        view.open()
     end
 end
 

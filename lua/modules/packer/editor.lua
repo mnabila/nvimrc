@@ -118,4 +118,11 @@ function Editor.filetype()
     }
 end
 
+function Editor.norg()
+    return {
+        "nvim-neorg/neorg",
+        config = require("modules.editor.norg")(),
+    }
+end
+
 return Editor

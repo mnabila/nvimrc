@@ -35,6 +35,7 @@ function Ui.filemanager()
         "kyazdani42/nvim-tree.lua",
         wants = "nvim-web-devicons",
         requires = Ui.devicons(),
+        commit = "99d65af",
         config = lc(require("modules.ui.filemanager")),
     }
 end
