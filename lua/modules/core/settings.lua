@@ -91,9 +91,3 @@ vim.g.loaded_netrwSettings = 1
 vim.g.loaded_netrwfilehandlers = 1
 
 vim.g.python3_host_prog = "/usr/bin/python3"
-
-local gu = require("gruvboy.utils")
-if gu.compile_is_exist() == false then
-    gu.compile()
-end
-vim.cmd("colorscheme gruvboy_compiled")
