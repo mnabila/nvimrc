@@ -22,10 +22,8 @@ jetpack.setup({
     "mnabila/gruvboy.nvim",
 
     -- editor
-    "stevearc/aerial.nvim",
-    "folke/lsp-trouble.nvim",
-    "mattn/gist-vim",
     "mattn/webapi-vim",
+    "mattn/gist-vim",
     "lewis6991/gitsigns.nvim",
     "mnabila/vim-header",
     "voldikss/vim-translator",
@@ -33,7 +31,7 @@ jetpack.setup({
     "lukas-reineke/format.nvim",
     "machakann/vim-sandwich",
     "junegunn/vim-easy-align",
-    "ray-x/go.nvim",
+    { "ray-x/go.nvim", ft = "go" },
     { "ellisonleao/glow.nvim", ft = "markdown" },
     "nathom/filetype.nvim",
 
@@ -46,11 +44,13 @@ jetpack.setup({
     "hrsh7th/cmp-path",
     "hrsh7th/cmp-vsnip",
     "hrsh7th/vim-vsnip",
-    "neovim/nvim-lspconfig",
-    "mattn/emmet-vim",
+    { "mattn/emmet-vim", ft = "html" },
     "windwp/nvim-autopairs",
 
-    { "dstein64/vim-startuptime", opt = true },
+    -- lsp
+    "neovim/nvim-lspconfig",
+    "stevearc/aerial.nvim",
+    "folke/lsp-trouble.nvim",
 })
 
 require("modules.ui.colorscheme")()
@@ -65,7 +65,6 @@ require("modules.ui.colorizer")()
 require("modules.editor.formatter")()
 require("modules.editor.gist")()
 require("modules.editor.gitsigns")()
-require("modules.editor.go")()
 require("modules.editor.header")()
 require("modules.editor.translator")()
 require("Comment").setup()
