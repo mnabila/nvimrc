@@ -1,7 +1,7 @@
 local M = {}
 
 function M.map(key, command)
-    vim.api.nvim_set_keymap("n", key, command, { noremap = false })
+    vim.api.nvim_set_keymap("n", key, command, { noremap = false, silent = true })
 end
 
 function M.vmap(key, command)

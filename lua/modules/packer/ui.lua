@@ -7,7 +7,7 @@ end
 
 function Ui.bufferline()
     return {
-        "romgrk/barbar.nvim",
+        "noib3/nvim-cokeline",
         wants = "nvim-web-devicons",
         requires = Ui.devicons(),
         config = lc(require("modules.ui.bufferline")),

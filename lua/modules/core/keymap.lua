@@ -22,7 +22,7 @@ key.map("<C-A-h>", "<C-w>t<C-w>H")
 key.tmap("<Esc>", "<C-\\><C-n>")
 
 -- nvim tree.lua
-key.map("`", '<CMD>lua require("utils.nvimtree").toggle()<CR>')
+key.map("`", '<CMD>NvimTreeToggle<CR>')
 
 -- base64
 key.vmap("<Leader>d6", "c<C-r>=system('base64 -d', @\")<CR><ESC>")

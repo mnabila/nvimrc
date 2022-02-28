@@ -8,10 +8,9 @@ jetpack.setup({
 
     -- interface
     "kyazdani42/nvim-web-devicons",
-    "romgrk/barbar.nvim",
     "NTBBloodbath/galaxyline.nvim",
     "lukas-reineke/indent-blankline.nvim",
-    { "kyazdani42/nvim-tree.lua", commit = "99d65af" },
+    "kyazdani42/nvim-tree.lua",
     "nvim-telescope/telescope.nvim",
     "nvim-lua/popup.nvim",
     "nvim-lua/plenary.nvim",
@@ -21,6 +20,7 @@ jetpack.setup({
     "norcalli/nvim-colorizer.lua",
     "rktjmp/lush.nvim",
     "mnabila/gruvboy.nvim",
+    "noib3/nvim-cokeline",
 
     -- editor
     "mattn/webapi-vim",
@@ -54,5 +54,4 @@ jetpack.setup({
     "folke/lsp-trouble.nvim",
 })
 
-require("modules.ui.bufferline")()
 require("modules.editor.header")()
