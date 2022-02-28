@@ -1,67 +1,42 @@
-local keymap = vim.api.nvim_set_keymap
+local key = require("utils.keymap")
 
-local function set_keybindings()
-    local noremap_silent = { noremap = true, silent = true }
-    local remap_silent = { noremap = false, silent = true }
-    local remap_nosilent = { noremap = false, silent = true }
-    local keybindings = {
-        -- {'mode', 'keybindings', 'command', '{noremap=bool', 'silent=bool', expr=bool}}
+-- disable keys
+key.map("Q", "<Nop>")
+key.map("<Left>", "<Nop>")
+key.map("<Right>", "<Nop>")
+key.map("<Up>", "<Nop>")
+key.map("<Down>", "<Nop>")
+key.map("<C-z>", "<Nop>")
 
-        -- disable keys
-        { "n", "Q", "<Nop>", noremap_silent },
-        { "n", "<Left>", "<Nop>", noremap_silent },
-        { "n", "<Right>", "<Nop>", noremap_silent },
-        { "n", "<Up>", "<Nop>", noremap_silent },
-        { "n", "<Down>", "<Nop>", noremap_silent },
-        { "n", "<C-z>", "<Nop>", noremap_silent },
+-- resize window
+key.map("<C-Left>", "<CMD>vertical resize +5<CR>")
+key.map("<C-Up>", "<CMD>resize -5<CR>")
+key.map("<C-Right>", "<CMD>vertical resize -5<CR>")
+key.map("<C-Down>", "<CMD>resize +5<CR>")
 
-        -- resize window
-        { "n", "<C-Left>", "<CMD>vertical resize +5<CR>", noremap_silent },
-        { "n", "<C-Up>", "<CMD>resize -5<CR>", noremap_silent },
-        { "n", "<C-Right>", "<CMD>vertical resize -5<CR>", noremap_silent },
-        { "n", "<C-Down>", "<CMD>resize +5<CR>", noremap_silent },
+-- split window
+key.map("<C-A-k>", "<C-w>t<C-w>K")
+key.map("<C-A-h>", "<C-w>t<C-w>H")
 
+-- terminal mode
+key.tmap("<Esc>", "<C-\\><C-n>")
 
-        -- split window
-        { "n", "<C-A-k>", "<C-w>t<C-w>K", remap_silent },
-        { "n", "<C-A-h>", "<C-w>t<C-w>H", remap_silent },
+-- nvim tree.lua
+key.map("`", '<CMD>lua require("utils.nvimtree").toggle()<CR>')
 
-        -- terminal mode
-        { "t", "<Esc>", "<C-\\><C-n>", noremap_silent },
+-- base64
+key.vmap("<Leader>d6", "c<C-r>=system('base64 -d', @\")<CR><ESC>")
+key.vmap("<Leader>e6", "c<C-r>=system('base64', @\")<CR><ESC>")
 
-        -- nvim tree.lua
-        { "n", "`", '<CMD>lua require("utils.nvimtree").toggle()<CR>', noremap_silent },
+-- emmet-vim
+key.imap("<A-Tab>", "<C-y>,")
+key.vmap("<A-Tab>", "<C-y>,")
 
-        -- base64
-        {
-            "v",
-            "<Leader>d6",
-            "c<C-r>=system('base64 -d', @\")<CR><ESC>",
-            remap_nosilent,
-        },
-        {
-            "v",
-            "<Leader>e6",
-            "c<C-r>=system('base64', @\")<CR><ESC>",
-            remap_nosilent,
-        },
+-- Delete in search result
+key.map("<Leader>x", "<CMD>%s///<CR>")
 
-        -- emmet-vim
-        { "i", "<A-Tab>", "<C-y>,", remap_silent },
-        { "v", "<A-Tab>", "<C-y>,", remap_silent },
+-- Search for visually selected text
+key.vmap("<Leader>v", "y/\\V<C-R>=escape(@\",'/\\')<CR><CR>")
 
-        -- Delete in search result
-        { "n", "<Leader>x", "<CMD>%s///<CR>", remap_silent },
-
-        -- Search for visually selected text
-        { "v", "<Leader>v", "y/\\V<C-R>=escape(@\",'/\\')<CR><CR>", remap_silent },
-
-        -- format.nvim
-        { "n", "<leader>F", "<CMD>FormatWrite<CR>", remap_silent },
-    }
-
-    for _, key in pairs(keybindings) do
-        keymap(key[1], key[2], key[3], key[4])
-    end
-end
-set_keybindings()
+-- format.nvim
+key.map("<leader>F", "<CMD>FormatWrite<CR>")

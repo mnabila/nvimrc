@@ -1,0 +1,7 @@
+require("modules.ui.colorscheme")()
+require("modules.ui.statusline")()
+require("modules.ui.filemanager")()
+require("modules.ui.indentline")()
+require("modules.ui.telescope")()
+require("modules.ui.treesitter")()
+require("modules.ui.colorizer")()

@@ -1,8 +1,9 @@
 vim.cmd("packadd vim-jetpack")
+vim.cmd("let g:jetpack#optimization=2")
 
 local jetpack = require("jetpack")
 jetpack.setup({
-    { "tani/vim-jetpack", opt = 1 },
+    { "tani/vim-jetpack", opt = true },
     { "dstein64/vim-startuptime", opt = true },
 
     -- interface
@@ -53,22 +54,5 @@ jetpack.setup({
     "folke/lsp-trouble.nvim",
 })
 
-require("modules.ui.colorscheme")()
 require("modules.ui.bufferline")()
-require("modules.ui.statusline")()
-require("modules.ui.filemanager")()
-require("modules.ui.indentline")()
-require("modules.ui.telescope")()
-require("modules.ui.treesitter")()
-require("modules.ui.colorizer")()
-
-require("modules.editor.formatter")()
-require("modules.editor.gist")()
-require("modules.editor.gitsigns")()
 require("modules.editor.header")()
-require("modules.editor.translator")()
-require("Comment").setup()
-
-require("modules.completion.lsp")()
-require("modules.completion.cmp")()
-require("modules.completion.autopairs")()

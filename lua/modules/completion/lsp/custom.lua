@@ -27,42 +27,40 @@ function M.custom_cwd()
 end
 
 function M.custom_on_attach(client, bufnr)
+    print(bufnr)
+    local key = require("utils.keymap")
     vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "single" })
     vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "single" })
 
-    local keymap = function(mode, key, result)
-        vim.api.nvim_buf_set_keymap(bufnr, mode, key, result, { noremap = true, silent = true })
-    end
-
-    keymap("n", "K", "<CMD>lua show_documentation()<CR>")
-    keymap("n", "ga", '<CMD>lua require("telescope.builtin").lsp_code_actions()<CR>')
-    keymap("n", "ga", [[<CMD>'<, '>lua require("telescope.builtin").lsp_code_actions()<CR>]])
-    keymap("n", "gd", '<CMD>lua require("telescope.builtin").lsp_definitions()<CR>')
-    keymap("n", "[e", "<CMD>lua vim.lsp.diagnostic.goto_prev()<CR>")
-    keymap("n", "]e", "<CMD>lua vim.lsp.diagnostic.goto_next()<CR>")
-    keymap("n", "gr", "<CMD>lua vim.lsp.buf.rename()<CR>")
-    keymap("n", "gR", "<CMD>lua vim.lsp.buf.references()<CR>")
+    key.bufmap("K", "<CMD>lua show_documentation()<CR>")
+    key.bufmap("ga", '<CMD>lua require("telescope.builtin").lsp_code_actions()<CR>')
+    key.bufmap("ga", [[<CMD>'<, '>lua require("telescope.builtin").lsp_code_actions()<CR>]])
+    key.bufmap("gd", '<CMD>lua require("telescope.builtin").lsp_definitions()<CR>')
+    key.bufmap("[e", "<CMD>lua vim.lsp.diagnostic.goto_prev()<CR>")
+    key.bufmap("]e", "<CMD>lua vim.lsp.diagnostic.goto_next()<CR>")
+    key.bufmap("gr", "<CMD>lua vim.lsp.buf.rename()<CR>")
+    key.bufmap("gR", "<CMD>lua vim.lsp.buf.references()<CR>")
 
     -- Set some keybinds conditional on server capabilities
     if client.resolved_capabilities.document_formatting then
-        keymap("n", "<leader>f", "<CMD>lua vim.lsp.buf.formatting()<CR>")
+        key.bufmap("<leader>f", "<CMD>lua vim.lsp.buf.formatting()<CR>")
     else
-        keymap("n", "<leader>f", "<CMD>FormatWrite<CR>")
+        key.bufmap("<leader>f", "<CMD>FormatWrite<CR>")
     end
 
     if client.resolved_capabilities.document_range_formatting then
-        keymap("v", "<leader>f", "<CMD>lua vim.lsp.buf.range_formatting()<CR>")
+        key.bufvmap("<leader>f", "<CMD>lua vim.lsp.buf.range_formatting()<CR>")
     else
-        keymap("v", "<leader>f", "<CMD>FormatWrite<CR>")
+        key.bufvmap("<leader>f", "<CMD>FormatWrite<CR>")
     end
 
     -- diagnostic
-    keymap("n", "<leader>d", "<CMD>TroubleToggle document_diagnostics<CR>")
-    keymap("n", "<leader>D", "<CMD>TroubleToggle workspace_diagnostics<CR>")
+    key.bufmap("<leader>d", "<CMD>TroubleToggle document_diagnostics<CR>")
+    key.bufmap("<leader>D", "<CMD>TroubleToggle workspace_diagnostics<CR>")
 
     -- load aerial
     require("aerial").on_attach(client, bufnr)
-    keymap("n", "<leader>a", '<CMD>lua require"aerial".toggle()<CR>')
+    key.bufmap("<leader>a", '<CMD>lua require"aerial".toggle()<CR>')
 end
 
 function M.default(configs)

@@ -67,77 +67,16 @@ function M.config()
     telescope.setup(options)
     -- telescope.load_extension("fzy_native")
 
-    M.keymap()
-end
-
-function M.keymap()
-    local keybindings = {
-
-        -- telescope
-        {
-            "n",
-            "<Leader>0",
-            '<CMD>lua require("telescope.builtin").oldfiles()<CR>',
-            { noremap = true, silent = true },
-        },
-        {
-            "n",
-            "<Leader>b",
-            '<CMD>lua require("telescope.builtin").buffers()<CR>',
-            { noremap = true, silent = true },
-        },
-        {
-            "n",
-            "<Leader>o",
-            '<CMD>lua require("telescope.builtin").find_files()<CR>',
-            { noremap = true, silent = true },
-        },
-        {
-            "n",
-            "<Leader>m",
-            '<cmd>lua require("telescope.builtin").marks()<cr>',
-            { noremap = true, silent = true },
-        },
-        {
-            "n",
-            "<Leader><Leader>",
-            '<CMD>lua require("telescope.builtin").builtin()<CR>',
-            { noremap = true, silent = true },
-        },
-        {
-            "n",
-            "<Leader>k",
-            '<CMD>lua require("telescope.builtin").keymaps()<CR>',
-            { noremap = true, silent = true },
-        },
-        {
-            "n",
-            "<Leader>c",
-            '<CMD>lua require("telescope.builtin").commands()<CR>',
-            { noremap = true, silent = true },
-        },
-        {
-            "n",
-            "<Leader>s",
-            '<CMD>lua require("telescope.builtin").lsp_document_symbols()<CR>',
-            { noremap = true, silent = true },
-        },
-        -- {
-        --     "n",
-        --     "<Leader>d",
-        --     '<CMD>lua require("telescope.builtin").diagnostics({bufnr=0})<CR>',
-        --     { noremap = true, silent = true },
-        -- },
-        {
-            "n",
-            "<Leader>D",
-            '<CMD>lua require("telescope.builtin").diagnostics()<CR>',
-            { noremap = true, silent = true },
-        },
-    }
-    for _, key in pairs(keybindings) do
-        vim.api.nvim_set_keymap(key[1], key[2], key[3], key[4])
-    end
+    local key = require("utils.keymap")
+    key.map("<Leader>0", '<CMD>lua require("telescope.builtin").oldfiles()<CR>')
+    key.map("<Leader>b", '<CMD>lua require("telescope.builtin").buffers()<CR>')
+    key.map("<Leader>o", '<CMD>lua require("telescope.builtin").find_files()<CR>')
+    key.map("<Leader>m", '<cmd>lua require("telescope.builtin").marks()<cr>')
+    key.map("<Leader><Leader>", '<CMD>lua require("telescope.builtin").builtin()<CR>')
+    key.map("<Leader>k", '<CMD>lua require("telescope.builtin").keymaps()<CR>')
+    key.map("<Leader>c", '<CMD>lua require("telescope.builtin").commands()<CR>')
+    key.map("<Leader>s", '<CMD>lua require("telescope.builtin").lsp_document_symbols()<CR>')
+    key.map("<Leader>D", '<CMD>lua require("telescope.builtin").diagnostics()<CR>')
 end
 
 return setmetatable({}, {
