@@ -1,4 +1,4 @@
-require("modules.ui.colorscheme")()
+require("modules.ui.bufferline")()
 require("modules.ui.statusline")()
 require("modules.ui.filemanager")()
 require("modules.ui.indentline")()
