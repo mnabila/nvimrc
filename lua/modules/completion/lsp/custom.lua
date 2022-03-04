@@ -27,11 +27,17 @@ function M.custom_cwd()
 end
 
 function M.custom_on_attach(client, bufnr)
-    print(bufnr)
-    local key = require("utils.keymap")
     vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "single" })
     vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "single" })
+    -- load aerial
+    require("aerial").on_attach(client, bufnr)
 
+    -- load buffer keymap
+    M.keymap(client)
+end
+
+function M.keymap(client)
+    local key = require("utils.keymap")
     key.bufmap("K", "<CMD>lua show_documentation()<CR>")
     key.bufmap("ga", '<CMD>lua require("telescope.builtin").lsp_code_actions()<CR>')
     key.bufmap("ga", [[<CMD>'<, '>lua require("telescope.builtin").lsp_code_actions()<CR>]])
@@ -44,22 +50,17 @@ function M.custom_on_attach(client, bufnr)
     -- Set some keybinds conditional on server capabilities
     if client.resolved_capabilities.document_formatting then
         key.bufmap("<leader>f", "<CMD>lua vim.lsp.buf.formatting()<CR>")
-    else
-        key.bufmap("<leader>f", "<CMD>FormatWrite<CR>")
     end
 
     if client.resolved_capabilities.document_range_formatting then
         key.bufvmap("<leader>f", "<CMD>lua vim.lsp.buf.range_formatting()<CR>")
-    else
-        key.bufvmap("<leader>f", "<CMD>FormatWrite<CR>")
     end
 
     -- diagnostic
     key.bufmap("<leader>d", "<CMD>TroubleToggle document_diagnostics<CR>")
     key.bufmap("<leader>D", "<CMD>TroubleToggle workspace_diagnostics<CR>")
 
-    -- load aerial
-    require("aerial").on_attach(client, bufnr)
+    -- aerial
     key.bufmap("<leader>a", '<CMD>lua require"aerial".toggle()<CR>')
 end
 

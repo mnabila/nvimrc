@@ -29,7 +29,7 @@ jetpack.setup({
     "mnabila/vim-header",
     "voldikss/vim-translator",
     "numToStr/Comment.nvim",
-    "lukas-reineke/format.nvim",
+    -- "lukas-reineke/format.nvim",
     "machakann/vim-sandwich",
     "junegunn/vim-easy-align",
     { "ray-x/go.nvim", ft = "go" },
@@ -52,6 +52,7 @@ jetpack.setup({
     "neovim/nvim-lspconfig",
     "stevearc/aerial.nvim",
     "folke/lsp-trouble.nvim",
+    "jose-elias-alvarez/null-ls.nvim",
 })
 
 require("modules.editor.header")()

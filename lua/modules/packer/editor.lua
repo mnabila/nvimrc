@@ -56,13 +56,6 @@ function Editor.comment()
     }
 end
 
-function Editor.formatter()
-    return {
-        "lukas-reineke/format.nvim",
-        config = lc(require("modules.editor.formatter")),
-    }
-end
-
 function Editor.markdown()
     return {
         "iamcco/markdown-preview.nvim",

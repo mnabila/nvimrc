@@ -3,8 +3,9 @@ local M = {}
 function M.config()
     require("modules.completion.lsp.langserver")
     require("modules.completion.lsp.diagnostic")
-    require("modules.completion.lsp.aerial")()
-    require("modules.completion.lsp.trouble")()
+    require("modules.completion.lsp.nulls")
+    require("modules.completion.lsp.aerial")
+    require("modules.completion.lsp.trouble")
 end
 
 return setmetatable({}, {

@@ -57,4 +57,10 @@ function Completion.copilot()
     }
 end
 
+function Completion.nulls()
+    return {
+        "jose-elias-alvarez/null-ls.nvim",
+    }
+end
+
 return Completion
