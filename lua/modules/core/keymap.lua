@@ -37,6 +37,3 @@ key.map("<Leader>x", "<CMD>%s///<CR>")
 
 -- Search for visually selected text
 key.vmap("<Leader>v", "y/\\V<C-R>=escape(@\",'/\\')<CR><CR>")
-
--- format.nvim
-key.map("<leader>F", "<CMD>FormatWrite<CR>")

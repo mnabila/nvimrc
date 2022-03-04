@@ -29,7 +29,7 @@ function M.bufmap(key, command)
 end
 
 function M.bufvmap(key, command)
-    vim.api.nvim_buf_set_keymap(vim.fn.bufnr(), "n", key, command, { noremap = true, silent = true })
+    vim.api.nvim_buf_set_keymap(vim.fn.bufnr(), "v", key, command, { noremap = true, silent = true })
 end
 
 return M

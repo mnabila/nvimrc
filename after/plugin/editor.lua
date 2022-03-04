@@ -1,4 +1,3 @@
-require("modules.editor.formatter")()
 require("modules.editor.gist")()
 require("modules.editor.gitsigns")()
 require("modules.editor.translator")()

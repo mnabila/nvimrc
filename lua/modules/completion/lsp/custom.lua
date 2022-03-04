@@ -33,10 +33,10 @@ function M.custom_on_attach(client, bufnr)
     require("aerial").on_attach(client, bufnr)
 
     -- load buffer keymap
-    M.keymap(client)
+    M.keymap()
 end
 
-function M.keymap(client)
+function M.keymap()
     local key = require("utils.keymap")
     key.bufmap("K", "<CMD>lua show_documentation()<CR>")
     key.bufmap("ga", '<CMD>lua require("telescope.builtin").lsp_code_actions()<CR>')
@@ -46,15 +46,6 @@ function M.keymap(client)
     key.bufmap("]e", "<CMD>lua vim.lsp.diagnostic.goto_next()<CR>")
     key.bufmap("gr", "<CMD>lua vim.lsp.buf.rename()<CR>")
     key.bufmap("gR", "<CMD>lua vim.lsp.buf.references()<CR>")
-
-    -- Set some keybinds conditional on server capabilities
-    if client.resolved_capabilities.document_formatting then
-        key.bufmap("<leader>f", "<CMD>lua vim.lsp.buf.formatting()<CR>")
-    end
-
-    if client.resolved_capabilities.document_range_formatting then
-        key.bufvmap("<leader>f", "<CMD>lua vim.lsp.buf.range_formatting()<CR>")
-    end
 
     -- diagnostic
     key.bufmap("<leader>d", "<CMD>TroubleToggle document_diagnostics<CR>")
