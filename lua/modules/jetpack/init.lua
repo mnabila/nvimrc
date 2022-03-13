@@ -21,6 +21,7 @@ jetpack.setup({
     "rktjmp/lush.nvim",
     "mnabila/gruvboy.nvim",
     "noib3/nvim-cokeline",
+    "elkowar/yuck.vim",
 
     -- editor
     "mattn/webapi-vim",
@@ -47,6 +48,9 @@ jetpack.setup({
     "hrsh7th/vim-vsnip",
     { "mattn/emmet-vim", ft = "html" },
     "windwp/nvim-autopairs",
+
+    -- notepad
+    { "nvim-neorg/neorg", ft = "norg" },
 
     -- lsp
     "neovim/nvim-lspconfig",

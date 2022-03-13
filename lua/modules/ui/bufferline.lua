@@ -90,26 +90,21 @@ function M.config()
             cycle_prev_next = true,
         },
 
-        rendering = {
-            left_sidebar = {
-                filetype = "NvimTree",
-                components = {
-                    C.nvimtree,
-                },
+        sidebar = {
+            filetype = "NvimTree",
+            components = {
+                C.nvimtree,
             },
         },
         default_hl = {
-            focused = {
-                fg = colors.fg1,
-                bg = colors.bg0,
-                style = "bold",
-            },
-
-            unfocused = {
-                fg = colors.fg4,
-                bg = colors.bg0,
-                style = "NONE",
-            },
+            fg = colors.fg1,
+            bg = colors.bg0,
+            style = function(buffer)
+                if buffer.is_focused then
+                    return "bold"
+                end
+                return "NONE"
+            end,
         },
 
         components = {
