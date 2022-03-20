@@ -65,18 +65,17 @@ function M.config()
     }
 
     telescope.setup(options)
-    -- telescope.load_extension("fzy_native")
 
-    local key = require("utils.keymap")
-    key.map("<Leader>0", '<CMD>lua require("telescope.builtin").oldfiles()<CR>')
-    key.map("<Leader>b", '<CMD>lua require("telescope.builtin").buffers()<CR>')
-    key.map("<Leader>o", '<CMD>lua require("telescope.builtin").find_files()<CR>')
-    key.map("<Leader>m", '<cmd>lua require("telescope.builtin").marks()<cr>')
-    key.map("<Leader><Leader>", '<CMD>lua require("telescope.builtin").builtin()<CR>')
-    key.map("<Leader>k", '<CMD>lua require("telescope.builtin").keymaps()<CR>')
-    key.map("<Leader>c", '<CMD>lua require("telescope.builtin").commands()<CR>')
-    key.map("<Leader>s", '<CMD>lua require("telescope.builtin").lsp_document_symbols()<CR>')
-    key.map("<Leader>D", '<CMD>lua require("telescope.builtin").diagnostics()<CR>')
+    local keymap = vim.keymap
+    keymap.set("n", "<Leader>0", require("telescope.builtin").oldfiles)
+    keymap.set("n", "<Leader>b", require("telescope.builtin").buffers)
+    keymap.set("n", "<Leader>o", require("telescope.builtin").find_files)
+    keymap.set("n", "<Leader>m", require("telescope.builtin").marks)
+    keymap.set("n", "<Leader><Leader>", require("telescope.builtin").builtin)
+    keymap.set("n", "<Leader>k", require("telescope.builtin").keymaps)
+    keymap.set("n", "<Leader>c", require("telescope.builtin").commands)
+    keymap.set("n", "<Leader>s", require("telescope.builtin").lsp_document_symbols)
+    keymap.set("n", "<Leader>D", require("telescope.builtin").diagnostics)
 end
 
 return setmetatable({}, {

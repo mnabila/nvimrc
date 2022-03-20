@@ -123,18 +123,16 @@ function M.config()
         },
     })
 
-    local map = require("utils.keymap").map
-
-    map("<A-h>", "<Plug>(cokeline-focus-prev)")
-    map("<A-l>", "<Plug>(cokeline-focus-next)")
-    map("<A-H>", "<Plug>(cokeline-switch-prev)")
-    map("<A-L>", "<Plug>(cokeline-switch-next)")
-    map("<Leader>q", "<CMD>bd<CR>")
-    map("<Leader>qq", "<CMD>bufdo bd<CR>")
-    map("<Leader>qa", "<CMD>bufdo bd!<CR>")
+    vim.keymap.set("n", "<A-h>", "<Plug>(cokeline-focus-prev)")
+    vim.keymap.set("n", "<A-l>", "<Plug>(cokeline-focus-next)")
+    vim.keymap.set("n", "<A-H>", "<Plug>(cokeline-switch-prev)")
+    vim.keymap.set("n", "<A-L>", "<Plug>(cokeline-switch-next)")
+    vim.keymap.set("n", "<Leader>q", "<CMD>bd<CR>")
+    vim.keymap.set("n", "<Leader>qq", "<CMD>bufdo bd<CR>")
+    vim.keymap.set("n", "<Leader>qa", "<CMD>bufdo bd!<CR>")
 
     for i = 1, 9 do
-        map(("<A-%s>"):format(i), ("<Plug>(cokeline-focus-%s)"):format(i))
+        vim.keymap.set("n", ("<A-%s>"):format(i), ("<Plug>(cokeline-focus-%s)"):format(i))
     end
 end
 

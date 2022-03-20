@@ -90,7 +90,7 @@ M.encode = {
 M.cursor_position = {
     provider = "position",
     opts = {
-        padding = false,
+        padding = true,
     },
     left_sep = {
         str = "  ",

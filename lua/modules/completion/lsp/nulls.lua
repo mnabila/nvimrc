@@ -1,5 +1,4 @@
 local nulls = require("null-ls")
-local key = require("utils.keymap")
 
 nulls.setup({
     sources = {
@@ -13,5 +12,5 @@ nulls.setup({
 })
 
 -- keymap
-key.map("<leader>f", "<CMD>lua vim.lsp.buf.formatting()<CR>")
-key.vmap("<leader>f", "<CMD>lua vim.lsp.buf.range_formatting()<CR>")
+vim.keymap.set("n", "<leader>f", vim.lsp.buf.formatting)
+vim.keymap.set("v", "<leader>f", vim.lsp.buf.range_formatting)

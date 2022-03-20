@@ -1,10 +1,10 @@
 local M = {}
 
-function _G.show_documentation()
+function M.show_documentation()
     if vim.fn.index({ "vim", "help" }, vim.bo.filetype) >= 0 then
         vim.cmd("h " .. vim.fn.expand("<cword>"))
     else
-        vim.cmd("lua vim.lsp.buf.hover()")
+        vim.lsp.buf.hover()
     end
 end
 
@@ -37,22 +37,22 @@ function M.custom_on_attach(client, bufnr)
 end
 
 function M.keymap()
-    local key = require("utils.keymap")
-    key.bufmap("K", "<CMD>lua show_documentation()<CR>")
-    key.bufmap("ga", '<CMD>lua require("telescope.builtin").lsp_code_actions()<CR>')
-    key.bufmap("ga", [[<CMD>'<, '>lua require("telescope.builtin").lsp_code_actions()<CR>]])
-    key.bufmap("gd", '<CMD>lua require("telescope.builtin").lsp_definitions()<CR>')
-    key.bufmap("[e", "<CMD>lua vim.lsp.diagnostic.goto_prev()<CR>")
-    key.bufmap("]e", "<CMD>lua vim.lsp.diagnostic.goto_next()<CR>")
-    key.bufmap("gr", "<CMD>lua vim.lsp.buf.rename()<CR>")
-    key.bufmap("gR", "<CMD>lua vim.lsp.buf.references()<CR>")
+    local keymap = vim.keymap
+    keymap.set("n", "K", M.show_documentation, { buffer = true })
+    keymap.set("n", "ga", require("telescope.builtin").lsp_code_actions)
+    -- keymap.set("n","ga", [[<CMD>'<, '>lua require("telescope.builtin").lsp_code_actions()<CR>]])
+    keymap.set("n", "gd", require("telescope.builtin").lsp_definitions, { buffer = true })
+    keymap.set("n", "[e", vim.lsp.diagnostic.goto_prev, { buffer = true })
+    keymap.set("n", "]e", vim.lsp.diagnostic.goto_next, { buffer = true })
+    keymap.set("n", "gr", vim.lsp.buf.rename, { buffer = true })
+    keymap.set("n", "gR", vim.lsp.buf.references, { buffer = true })
 
     -- diagnostic
-    key.bufmap("<leader>d", "<CMD>TroubleToggle document_diagnostics<CR>")
-    key.bufmap("<leader>D", "<CMD>TroubleToggle workspace_diagnostics<CR>")
+    keymap.set("n", "<leader>d", "<CMD>TroubleToggle document_diagnostics<CR>", { buffer = true })
+    keymap.set("n", "<leader>D", "<CMD>TroubleToggle workspace_diagnostics<CR>", { buffer = true })
 
     -- aerial
-    key.bufmap("<leader>a", '<CMD>lua require"aerial".toggle()<CR>')
+    keymap.set("n", "<leader>a", require("aerial").toggle, { buffer = true })
 end
 
 function M.default(configs)
