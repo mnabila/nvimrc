@@ -34,7 +34,7 @@ C.devicon = {
 
 C.filename = {
     text = function(buffer)
-        local name = buffer.filename
+        local name = buffer.unique_prefix .. buffer.filename
         if name == "[No Name]" then
             name = "empty"
         end
@@ -97,7 +97,12 @@ function M.config()
             },
         },
         default_hl = {
-            fg = colors.fg1,
+            fg = function(buffer)
+                if buffer.is_focused then
+                    return colors.fg1
+                end
+                return colors.bg4
+            end,
             bg = colors.bg0,
             style = function(buffer)
                 if buffer.is_focused then

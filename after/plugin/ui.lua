@@ -1,5 +1,5 @@
 require("modules.ui.bufferline")()
-require("modules.ui.statusline")()
+require("modules.ui.feline")()
 require("modules.ui.filemanager")()
 require("modules.ui.indentline")()
 require("modules.ui.telescope")()

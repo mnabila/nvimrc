@@ -8,7 +8,7 @@ jetpack.setup({
 
     -- interface
     "kyazdani42/nvim-web-devicons",
-    "NTBBloodbath/galaxyline.nvim",
+    "feline-nvim/feline.nvim",
     "lukas-reineke/indent-blankline.nvim",
     "kyazdani42/nvim-tree.lua",
     "nvim-telescope/telescope.nvim",

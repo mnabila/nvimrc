@@ -29,6 +29,7 @@ function M.config()
             "lspsagafinder",
             "Trouble",
             "qf",
+            "",
         },
         buftype_exclude = { "terminal", "man", "trouble" },
         context_patterns = {
