@@ -1,1 +1,1 @@
-lua require("modules.editor.norg")()
+lua require("configs.editor.norg")()

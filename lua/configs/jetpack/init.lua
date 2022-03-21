@@ -59,4 +59,4 @@ jetpack.setup({
     "jose-elias-alvarez/null-ls.nvim",
 })
 
-require("modules.editor.header")()
+require("configs.editor.header")()

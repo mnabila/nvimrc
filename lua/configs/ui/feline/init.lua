@@ -1,7 +1,7 @@
 local colors = require("gruvboy.colors")
-local lsp = require("modules.ui.feline.components.lsp")
-local buffer = require("modules.ui.feline.components.buffer")
-local git = require("modules.ui.feline.components.git")
+local lsp = require("configs.ui.feline.components.lsp")
+local buffer = require("configs.ui.feline.components.buffer")
+local git = require("configs.ui.feline.components.git")
 
 local blank = {
     provider = "",

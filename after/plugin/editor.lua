@@ -1,4 +1,4 @@
-require("modules.editor.gist")()
-require("modules.editor.gitsigns")()
-require("modules.editor.translator")()
+require("configs.editor.gist")()
+require("configs.editor.gitsigns")()
+require("configs.editor.translator")()
 require("Comment").setup()

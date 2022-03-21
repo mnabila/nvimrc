@@ -2,10 +2,10 @@
 vim.g.mapleader = " "
 
 -- neovim basic configuration
-require("modules.core.settings")
+require("configs.core.settings")
 
 -- neovim package manager
-require("modules.jetpack")
+require("configs.jetpack")
 
 -- neovim keybindings
-require("modules.core.keymap")
+require("configs.core.keymap")

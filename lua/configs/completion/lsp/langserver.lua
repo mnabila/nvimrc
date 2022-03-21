@@ -1,5 +1,5 @@
 local lspconfig = require("lspconfig")
-local c = require("modules.completion.lsp.custom")
+local c = require("configs.completion.lsp.custom")
 
 lspconfig.tsserver.setup(c.default({
     root_dir = c.custom_cwd,
@@ -70,7 +70,7 @@ lspconfig.pyright.setup(c.default({
 --             startupMessage = true,
 --             markupKindPreferred = "markdown",
 --             jediSettings = {
---                 autoImportModules = {},
+--                 autoImportconfigs = {},
 --                 completion = { disableSnippets = false },
 --                 diagnostics = { enable = true, didOpen = true, didSave = true, didChange = true },
 --             },

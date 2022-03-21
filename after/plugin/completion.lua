@@ -1,3 +1,3 @@
-require("modules.completion.lsp")()
-require("modules.completion.cmp")()
-require("modules.completion.autopairs")()
+require("configs.completion.lsp")()
+require("configs.completion.cmp")()
+require("configs.completion.autopairs")()
