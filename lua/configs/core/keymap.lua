@@ -1,7 +1,6 @@
 local keymap = vim.keymap
 
 -- disable keys
-keymap.set("n", "Q", "<Nop>")
 keymap.set("n", "<Left>", "<Nop>")
 keymap.set("n", "<Right>", "<Nop>")
 keymap.set("n", "<Up>", "<Nop>")
@@ -21,19 +20,14 @@ keymap.set("n", "<C-A-h>", "<C-w>t<C-w>H")
 -- terminal mode
 keymap.set("t", "<Esc>", "<C-\\><C-n>")
 
--- nvim tree.lua
-keymap.set("n", "`", "<CMD>NvimTreeToggle<CR>")
-
 -- base64
-keymap.set("v","<Leader>d6", "c<C-r>=system('base64 -d', @\")<CR><ESC>")
-keymap.set("v","<Leader>e6", "c<C-r>=system('base64', @\")<CR><ESC>")
+keymap.set("v", "<Leader>d6", "c<C-r>=system('base64 -d', @\")<CR><ESC>", { desc = "Decode base64 string" })
+keymap.set("v", "<Leader>e6", "c<C-r>=system('base64', @\")<CR><ESC>", { desc = "Encode to base64 string" })
 
 -- emmet-vim
-keymap.set("i","<A-Tab>", "<C-y>,")
-keymap.set("v","<A-Tab>", "<C-y>,")
+keymap.set("i", "<A-Tab>", "<C-y>,", { desc = "Emmet: Expand abbreviation" })
+keymap.set("v", "<A-Tab>", "<C-y>,", { desc = "Emmet: Expand abbreviation" })
 
--- Delete in search result
-keymap.set("n", "<Leader>x", "<CMD>%s///<CR>")
+keymap.set("n", "<Leader>x", "<CMD>%s///<CR>", { desc = "Delete in search result" })
 
--- Search for visually selected text
-keymap.set("v","<Leader>v", "y/\\V<C-R>=escape(@\",'/\\')<CR><CR>")
+keymap.set("v", "<Leader>v", "y/\\V<C-R>=escape(@\",'/\\')<CR><CR>", { desc = "Search for visually selected text" })

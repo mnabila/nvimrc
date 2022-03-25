@@ -1,16 +1,4 @@
 {
-  "todo": {
-    "prefix": ["todo"],
-    "body": ["TODO(${1:Name}): ${0:Summary}"],
-    "description": "TODO reminder"
-  },
-  "fixme": {
-    "prefix": ["fixme"],
-    "body": [
-      "FIXME(${VIM:system('git config github.user | tr -d \"\n\"')}): ${0:Summary}"
-    ],
-    "description": "FIXME reminder"
-  },
   "pwgen16": {
     "prefix": ["pwgen16"],
     "body": ["${VIM:system('pwgen -s 16 -1 | tr -d \"\n\"')}"],

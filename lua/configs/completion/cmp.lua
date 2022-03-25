@@ -2,12 +2,11 @@ local M = {}
 
 function M.config()
     local cmp = require("cmp")
-    vim.g.vsnip_snippet_dir = vim.fn.stdpath("config") .. "/snippets"
 
     cmp.setup({
         snippet = {
             expand = function(args)
-                vim.fn["vsnip#anonymous"](args.body)
+                require("luasnip").lsp_expand(args.body)
             end,
         },
 
@@ -32,8 +31,9 @@ function M.config()
                 },
             },
             { name = "nvim_lua" },
-            { name = "vsnip" },
+            -- { name = "vsnip" },
             { name = "emoji" },
+            { name = "luasnip" },
             -- { name = "copilot" },
         },
 

@@ -38,21 +38,55 @@ end
 
 function M.keymap()
     local keymap = vim.keymap
-    keymap.set("n", "K", M.show_documentation, { buffer = true })
-    keymap.set("n", "ga", require("telescope.builtin").lsp_code_actions)
-    -- keymap.set("n","ga", [[<CMD>'<, '>lua require("telescope.builtin").lsp_code_actions()<CR>]])
-    keymap.set("n", "gd", require("telescope.builtin").lsp_definitions, { buffer = true })
-    keymap.set("n", "[e", vim.lsp.diagnostic.goto_prev, { buffer = true })
-    keymap.set("n", "]e", vim.lsp.diagnostic.goto_next, { buffer = true })
-    keymap.set("n", "gr", vim.lsp.buf.rename, { buffer = true })
-    keymap.set("n", "gR", vim.lsp.buf.references, { buffer = true })
+    keymap.set("n", "K", M.show_documentation, { buffer = true, desc = "LSP: Show documentation" })
+    keymap.set(
+        "n",
+        "ga",
+        require("telescope.builtin").lsp_code_actions,
+        { buffer = true, desc = "LSP: Lists any LSP actions for the word under the cursor which can be triggered" }
+    )
+    keymap.set(
+        "n",
+        "gd",
+        require("telescope.builtin").lsp_definitions,
+        { buffer = true, desc = "LSP: Goto the definition of the word under the cursor" }
+    )
+    keymap.set("n", "[e", vim.lsp.diagnostic.goto_prev, { buffer = true, desc = "LSP: Goto previous diagnostic" })
+    keymap.set("n", "]e", vim.lsp.diagnostic.goto_next, { buffer = true, desc = "LSP: Goto next diagnostic" })
+    keymap.set(
+        "n",
+        "gr",
+        vim.lsp.buf.rename,
+        { buffer = true, desc = "LSP: Renames all references to the symbol under the cursor." }
+    )
+    keymap.set(
+        "n",
+        "gR",
+        vim.lsp.buf.references,
+        { buffer = true, desc = "LSP: Lists all the references to the symbol under the cursor in the quickfix window." }
+    )
 
     -- diagnostic
-    keymap.set("n", "<leader>d", "<CMD>TroubleToggle document_diagnostics<CR>", { buffer = true })
-    keymap.set("n", "<leader>D", "<CMD>TroubleToggle workspace_diagnostics<CR>", { buffer = true })
+    keymap.set(
+        "n",
+        "<leader>d",
+        "<CMD>TroubleToggle document_diagnostics<CR>",
+        { buffer = true, desc = "LSP: Show diagnostic from current buffer" }
+    )
+    keymap.set(
+        "n",
+        "<leader>D",
+        "<CMD>TroubleToggle workspace_diagnostics<CR>",
+        { buffer = true, desc = "LSP: Show diagnostic from current workspace" }
+    )
 
     -- aerial
-    keymap.set("n", "<leader>a", require("aerial").toggle, { buffer = true })
+    keymap.set(
+        "n",
+        "<leader>a",
+        require("aerial").toggle,
+        { buffer = true, desc = "LSP: Open quick navigation for LSP document symbols" }
+    )
 end
 
 function M.default(configs)

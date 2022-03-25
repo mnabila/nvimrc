@@ -30,7 +30,6 @@ jetpack.setup({
     "mnabila/vim-header",
     "voldikss/vim-translator",
     "numToStr/Comment.nvim",
-    -- "lukas-reineke/format.nvim",
     "machakann/vim-sandwich",
     "junegunn/vim-easy-align",
     { "ray-x/go.nvim", ft = "go" },
@@ -44,13 +43,10 @@ jetpack.setup({
     "hrsh7th/cmp-nvim-lua",
     "hrsh7th/cmp-emoji",
     "hrsh7th/cmp-path",
-    "hrsh7th/cmp-vsnip",
-    "hrsh7th/vim-vsnip",
+    "L3MON4D3/LuaSnip",
+    "saadparwaiz1/cmp_luasnip",
     { "mattn/emmet-vim", ft = "html" },
     "windwp/nvim-autopairs",
-
-    -- notepad
-    { "nvim-neorg/neorg", ft = "norg" },
 
     -- lsp
     "neovim/nvim-lspconfig",

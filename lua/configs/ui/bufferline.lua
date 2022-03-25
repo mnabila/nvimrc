@@ -123,16 +123,21 @@ function M.config()
         },
     })
 
-    vim.keymap.set("n", "<A-h>", "<Plug>(cokeline-focus-prev)")
-    vim.keymap.set("n", "<A-l>", "<Plug>(cokeline-focus-next)")
-    vim.keymap.set("n", "<A-H>", "<Plug>(cokeline-switch-prev)")
-    vim.keymap.set("n", "<A-L>", "<Plug>(cokeline-switch-next)")
-    vim.keymap.set("n", "<Leader>q", "<CMD>bd<CR>")
-    vim.keymap.set("n", "<Leader>qq", "<CMD>bufdo bd<CR>")
-    vim.keymap.set("n", "<Leader>qa", "<CMD>bufdo bd!<CR>")
+    vim.keymap.set("n", "<A-h>", "<Plug>(cokeline-focus-prev)", { desc = "Buffer: focus to previous buffer" })
+    vim.keymap.set("n", "<A-l>", "<Plug>(cokeline-focus-next)", { desc = "Buffer: focus to next buffer" })
+    vim.keymap.set("n", "<A-H>", "<Plug>(cokeline-switch-prev)", { desc = "Buffer: switch to previous buffer" })
+    vim.keymap.set("n", "<A-L>", "<Plug>(cokeline-switch-next)", { desc = "Buffer: switch to next buffer" })
+    vim.keymap.set("n", "<Leader>q", "<CMD>bd<CR>", { desc = "Buffer: delete buffer" })
+    vim.keymap.set("n", "<Leader>qq", "<CMD>bufdo bd<CR>", { desc = "Buffer: delete all buffer" })
+    vim.keymap.set("n", "<Leader>qa", "<CMD>bufdo bd!<CR>", { desc = "Buffer: force delete all buffer" })
 
     for i = 1, 9 do
-        vim.keymap.set("n", ("<A-%s>"):format(i), ("<Plug>(cokeline-focus-%s)"):format(i))
+        vim.keymap.set(
+            "n",
+            ("<A-%s>"):format(i),
+            ("<Plug>(cokeline-focus-%s)"):format(i),
+            { desc = ("Buffer: focus to buffer %s"):format(i) }
+        )
     end
 end
 

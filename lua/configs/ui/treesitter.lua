@@ -35,7 +35,9 @@ function M.config()
     }
 
     require("nvim-treesitter.configs").setup(options)
-    vim.cmd([[command! TSPrintNode lua print(require("nvim-treesitter.ts_utils").get_node_at_cursor():type())]])
+    vim.api.nvim_add_user_command("TSPrintNode", function()
+        print(require("nvim-treesitter.ts_utils").get_node_at_cursor():type())
+    end, { nargs = 0 })
 end
 
 return setmetatable({}, {

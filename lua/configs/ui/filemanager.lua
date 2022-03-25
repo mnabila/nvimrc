@@ -50,6 +50,7 @@ function M.config()
             },
         },
     })
+    vim.keymap.set("n", "`", "<CMD>NvimTreeToggle<CR>", { desc = "open file manager" })
 end
 
 return setmetatable({}, {

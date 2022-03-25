@@ -12,5 +12,5 @@ nulls.setup({
 })
 
 -- keymap
-vim.keymap.set("n", "<leader>f", vim.lsp.buf.formatting)
-vim.keymap.set("v", "<leader>f", vim.lsp.buf.range_formatting)
+vim.keymap.set("n", "<leader>f", vim.lsp.buf.formatting, { desc = "LSP: Formats the current buffer" })
+vim.keymap.set("v", "<leader>f", vim.lsp.buf.range_formatting, { desc = "LSP: Formats a given range" })
