@@ -36,7 +36,6 @@ jetpack.setup({
     { "ray-x/go.nvim", ft = "go" },
     { "ellisonleao/glow.nvim", ft = "markdown" },
     "nathom/filetype.nvim",
-    "nanotee/sqls.nvim",
 
     -- completion
     "hrsh7th/nvim-cmp",

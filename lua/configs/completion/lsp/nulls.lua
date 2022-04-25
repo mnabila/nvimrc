@@ -8,6 +8,13 @@ nulls.setup({
         nulls.builtins.formatting.fish_indent,
         nulls.builtins.formatting.shfmt,
         nulls.builtins.formatting.pg_format,
+        nulls.builtins.formatting.prettierd.with({
+            generator_opts = {
+                command = "prettierd",
+                args = { "$FILENAME" },
+                to_stdin = true,
+            },
+        }),
     },
 })
 
