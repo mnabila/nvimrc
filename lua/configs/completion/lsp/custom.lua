@@ -26,11 +26,11 @@ function M.custom_cwd()
     return vim.loop.cwd()
 end
 
-function M.custom_on_attach(client, bufnr)
+function M.custom_on_attach()
     vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "single" })
     vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "single" })
     -- load aerial
-    require("aerial").on_attach(client, bufnr)
+    -- require("aerial").on_attach(client, bufnr)
 
     -- load buffer keymap
     M.keymap()
@@ -81,12 +81,12 @@ function M.keymap()
     )
 
     -- aerial
-    keymap.set(
-        "n",
-        "<leader>a",
-        require("aerial").toggle,
-        { buffer = true, desc = "LSP: Open quick navigation for LSP document symbols" }
-    )
+    -- keymap.set(
+    --     "n",
+    --     "<leader>a",
+    --     require("aerial").toggle,
+    --     { buffer = true, desc = "LSP: Open quick navigation for LSP document symbols" }
+    -- )
 end
 
 function M.default(configs)

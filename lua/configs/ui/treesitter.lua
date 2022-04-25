@@ -35,7 +35,7 @@ function M.config()
     }
 
     require("nvim-treesitter.configs").setup(options)
-    vim.api.nvim_add_user_command("TSPrintNode", function()
+    vim.api.nvim_create_user_command("TSPrintNode", function()
         print(require("nvim-treesitter.ts_utils").get_node_at_cursor():type())
     end, { nargs = 0 })
 end

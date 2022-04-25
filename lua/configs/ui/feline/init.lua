@@ -17,7 +17,7 @@ local vimode = {
     end,
     hl = {
         bg = "yellow",
-        fg = "bg",
+        fg = "black",
         style = "bold",
     },
 }
@@ -73,6 +73,7 @@ function M.config()
         red = colors.red,
         aqua = colors.aqua,
         blue = colors.blue,
+        black = colors.bg0,
     })
 end
 

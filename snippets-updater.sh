@@ -6,7 +6,6 @@
 # Last Modified Date: Jumat, 26/02/2021 18:31 WIB
 # Last Modified By  : M. Nabil Adani <nblid48@gmail.com>
 
-
 urls='''
 [
     ["sh",         "https://github.com/yousefvand/shellman/raw/master/snippets/snippets.json"],
@@ -19,27 +18,26 @@ urls='''
 '''
 
 function download() {
-    if [ `command -v aria2c` ]; then
-        aria2c --allow-overwrite -o $1 $2
-    elif [ `command -v wget` ]; then
-        wget -o $1 $2
-    elif [ `command -v curl` ]; then
-        curl -o $1 $2
-    else
-        echo "please install aria2 or wget or curl"
-    fi
+	if [ $(command -v aria2c) ]; then
+		aria2c --allow-overwrite -o $1 $2
+	elif [ $(command -v wget) ]; then
+		wget -o $1 $2
+	elif [ $(command -v curl) ]; then
+		curl -o $1 $2
+	else
+		echo "please install aria2 or wget or curl"
+	fi
 }
 
-function autoformat(){
-    sed -i 's/^\/\/ //g' $1
-    prettier -w $1
+function autoformat() {
+	sed -i 's/^\/\/ //g' $1
+	prettier -w $1
 }
 
-echo $urls | jq -c '.[]' | while read i;
-do
-    filename=$(echo $i| jq -r '.[0]')
-    output="./snippets/$filename.json"
-    url=$(echo $i| jq -r '.[1]')
-    download $output $url
-    autoformat $output
+echo $urls | jq -c '.[]' | while read i; do
+	filename=$(echo $i | jq -r '.[0]')
+	output="./snippets/$filename.json"
+	url=$(echo $i | jq -r '.[1]')
+	download $output $url
+	autoformat $output
 done

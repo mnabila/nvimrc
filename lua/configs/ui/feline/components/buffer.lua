@@ -46,7 +46,7 @@ M.type = {
         return vim.api.nvim_win_get_width(0) > 80 and vim.api.nvim_buf_get_name(0) ~= ""
     end,
     hl = {
-        fg = "bg",
+         fg = "black",
         bg = "altgray",
     },
 }
@@ -68,7 +68,7 @@ M.format = {
         return vim.api.nvim_win_get_width(0) > 80
     end,
     hl = {
-        fg = "bg",
+         fg = "black",
         bg = "gray",
     },
 }
@@ -82,7 +82,7 @@ M.encode = {
         return vim.api.nvim_win_get_width(0) > 80
     end,
     hl = {
-        fg = "bg",
+         fg = "black",
         bg = "altgray",
     },
 }
@@ -96,19 +96,19 @@ M.cursor_position = {
         str = "  ",
         hl = {
             bg = "yellow",
-            fg = "bg",
+             fg = "black",
         },
     },
     right_sep = {
         str = " ",
         hl = {
             bg = "yellow",
-            fg = "bg",
+             fg = "black",
         },
     },
     hl = {
         bg = "yellow",
-        fg = "bg",
+         fg = "black",
     },
 }
 return M

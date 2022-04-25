@@ -1,4 +1,4 @@
-local command = vim.api.nvim_add_user_command
+local command = vim.api.nvim_create_user_command
 local bo = vim.bo
 
 command("WriteAndReload", function()

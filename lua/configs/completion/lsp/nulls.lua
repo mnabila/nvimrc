@@ -7,7 +7,7 @@ nulls.setup({
         nulls.builtins.formatting.black,
         nulls.builtins.formatting.fish_indent,
         nulls.builtins.formatting.shfmt,
-        nulls.builtins.formatting.prettier,
+        nulls.builtins.formatting.pg_format,
     },
 })
 

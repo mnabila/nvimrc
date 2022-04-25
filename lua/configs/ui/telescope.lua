@@ -50,7 +50,7 @@ function M.config()
             },
             oldfiles = {
                 previewer = false,
-                file_ignore_patterns = { "/usr/share/nvim/runtime/*" },
+                file_ignore_patterns = { "/usr/share/nvim/runtime/*", vim.fn.stdpath("data") },
             },
             builtin = {
                 previewer = false,

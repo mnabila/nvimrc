@@ -1,5 +1,5 @@
 vim.cmd("packadd vim-jetpack")
-vim.cmd("let g:jetpack#optimization=2")
+vim.g["jetpack#optimization"] = 1
 
 local jetpack = require("jetpack")
 jetpack.setup({
@@ -10,7 +10,6 @@ jetpack.setup({
     "kyazdani42/nvim-web-devicons",
     "feline-nvim/feline.nvim",
     "lukas-reineke/indent-blankline.nvim",
-    "kyazdani42/nvim-tree.lua",
     "nvim-telescope/telescope.nvim",
     "nvim-lua/popup.nvim",
     "nvim-lua/plenary.nvim",
@@ -22,6 +21,8 @@ jetpack.setup({
     "mnabila/gruvboy.nvim",
     "noib3/nvim-cokeline",
     "elkowar/yuck.vim",
+    { "nvim-neo-tree/neo-tree.nvim", branch = "v2.x" },
+    "MunifTanjim/nui.nvim",
 
     -- editor
     "mattn/webapi-vim",
@@ -35,13 +36,13 @@ jetpack.setup({
     { "ray-x/go.nvim", ft = "go" },
     { "ellisonleao/glow.nvim", ft = "markdown" },
     "nathom/filetype.nvim",
+    "nanotee/sqls.nvim",
 
     -- completion
     "hrsh7th/nvim-cmp",
     "hrsh7th/cmp-buffer",
     "hrsh7th/cmp-nvim-lsp",
     "hrsh7th/cmp-nvim-lua",
-    "hrsh7th/cmp-emoji",
     "hrsh7th/cmp-path",
     "L3MON4D3/LuaSnip",
     "saadparwaiz1/cmp_luasnip",
@@ -50,7 +51,7 @@ jetpack.setup({
 
     -- lsp
     "neovim/nvim-lspconfig",
-    "stevearc/aerial.nvim",
+    -- "stevearc/aerial.nvim",
     "folke/lsp-trouble.nvim",
     "jose-elias-alvarez/null-ls.nvim",
 })

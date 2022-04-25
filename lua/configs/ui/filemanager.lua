@@ -1,56 +1,82 @@
 local M = {}
 
 function M.config()
-    vim.g.nvim_tree_show_icons = { git = 0, folders = 1, files = 1 }
-    vim.g.nvim_tree_respect_buf_cwd = 1
-    vim.g.nvim_tree_indent_markers = 1
-    vim.g.nvim_tree_git_hl = 1
-    vim.g.nvim_tree_highlight_opened_files = 1
-
-    require("nvim-tree").setup({
-        disable_netrw = true,
-        hijack_netrw = true,
-        open_on_setup = false,
-        ignore_ft_on_setup = {},
-        auto_close = false,
-        open_on_tab = true,
-        update_to_buf_dir = {
-            enable = true,
-            auto_open = true,
+    require("neo-tree").setup({
+        close_if_last_window = true,
+        popup_border_style = "single",
+        enable_git_status = false,
+        enable_diagnostics = false,
+        default_component_configs = {
+            indent = {
+                indent_size = 2,
+                padding = 1,
+                with_markers = true,
+                indent_marker = "│",
+                last_indent_marker = "└",
+                highlight = "NeoTreeIndentMarker",
+                with_expanders = nil,
+                expander_collapsed = "",
+                expander_expanded = "",
+                expander_highlight = "NeoTreeExpander",
+            },
+            icon = {
+                folder_closed = " ",
+                folder_open = " ",
+                folder_empty = " ",
+                default = " ",
+            },
+            modified = {
+                symbol = " ",
+                highlight = "NeoTreeModified",
+            },
         },
-        hijack_cursor = false,
-        update_cwd = true,
-        diagnostics = {
-            enable = false,
-        },
-        update_focused_file = {
-            enable = true,
-            update_cwd = true,
-            ignore_list = {},
-        },
-        system_open = {
-            cmd = nil,
-            args = {},
-        },
-        filters = {
-            dotfiles = false,
-            custom = { ".git", "node_modules", ".cache", "__pycache__" },
-        },
-        git = {
-            enable = true,
-            ignore = false,
-        },
-        view = {
-            width = 35,
-            side = "left",
-            auto_resize = true,
+        window = {
+            position = "left",
+            width = 40,
             mappings = {
-                custom_only = false,
-                list = {},
+                ["o"] = "toggle_node",
+            },
+        },
+        nesting_rules = {},
+        filesystem = {
+            filtered_items = {
+                visible = false,
+                hide_dotfiles = true,
+                hide_gitignored = false,
+                hide_by_name = {
+                    ".DS_Store",
+                    "thumbs.db",
+                },
+            },
+            follow_current_file = true,
+            hijack_netrw_behavior = "open_default",
+            use_libuv_file_watcher = false,
+        },
+        buffers = {
+            show_unloaded = true,
+            window = {
+                mappings = {
+                    ["bd"] = "buffer_delete",
+                },
+            },
+        },
+        git_status = {
+            window = {
+                position = "float",
+                mappings = {
+                    ["A"] = "git_add_all",
+                    ["gu"] = "git_unstage_file",
+                    ["ga"] = "git_add_file",
+                    ["gr"] = "git_revert_file",
+                    ["gc"] = "git_commit",
+                    ["gp"] = "git_push",
+                    ["gg"] = "git_commit_and_push",
+                },
             },
         },
     })
-    vim.keymap.set("n", "`", "<CMD>NvimTreeToggle<CR>", { desc = "open file manager" })
+
+    vim.keymap.set("n", "`", "<CMD>NeoTreeFocusToggle<CR>", { desc = "open file manager" })
 end
 
 return setmetatable({}, {

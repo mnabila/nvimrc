@@ -83,10 +83,8 @@ lspconfig.pyright.setup(c.default({
 --     cmd = { "sqls", "-config", vim.loop.os_homedir() .. "/.config/sqls/config.yml" },
 --     on_init = c.custom_on_init,
 --     capabilities = c.custom_capabilities(),
---     on_attach = function(client)
---         client.resolved_capabilities.execute_command = true
---         client.commands = require("sqls").commands
---         require("sqls").setup({ picker = "telescope" })
+--     on_attach = function(client, bufnr)
+--         require("sqls").on_attach(client, bufnr)
 --     end,
 -- })
 

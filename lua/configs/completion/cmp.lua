@@ -2,6 +2,10 @@ local M = {}
 
 function M.config()
     local cmp = require("cmp")
+    local window = cmp.config.window.bordered({
+        border = "single",
+        winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:IncSearch",
+    })
 
     cmp.setup({
         snippet = {
@@ -14,9 +18,9 @@ function M.config()
             autocomplete = { cmp.TriggerEvent.TextChanged },
         },
 
-        documentation = {
-            border = "single",
-            winhighlight = "NormalFloat:CmpDocumentation,FloatBorder:CmpDocumentationBorder",
+        window = {
+            completion = window,
+            documentation = window,
         },
 
         sources = {
@@ -31,10 +35,7 @@ function M.config()
                 },
             },
             { name = "nvim_lua" },
-            -- { name = "vsnip" },
-            { name = "emoji" },
             { name = "luasnip" },
-            -- { name = "copilot" },
         },
 
         mapping = {
