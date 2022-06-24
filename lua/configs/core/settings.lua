@@ -69,6 +69,7 @@ vim.opt.wildoptions = "pum"
 vim.opt.winblend = 0
 vim.opt.wrap = true
 vim.opt.writebackup = true
+vim.opt.signcolumn = "yes"
 
 -- disable distribution plugins
 vim.g.loaded_gzip = 1

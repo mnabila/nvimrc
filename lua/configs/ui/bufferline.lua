@@ -109,8 +109,9 @@ function M.config()
     vim.keymap.set("n", "<A-H>", "<Plug>(cokeline-switch-prev)", { desc = "Buffer: switch to previous buffer" })
     vim.keymap.set("n", "<A-L>", "<Plug>(cokeline-switch-next)", { desc = "Buffer: switch to next buffer" })
     vim.keymap.set("n", "<Leader>q", "<CMD>bd<CR>", { desc = "Buffer: delete buffer" })
-    vim.keymap.set("n", "<Leader>qq", "<CMD>bufdo bd<CR>", { desc = "Buffer: delete all buffer" })
-    vim.keymap.set("n", "<Leader>qa", "<CMD>bufdo bd!<CR>", { desc = "Buffer: force delete all buffer" })
+    vim.keymap.set("n", "<Leader>qq", "<CMD>%bd<CR>", { desc = "Buffer: delete all buffer" })
+    vim.keymap.set("n", "<Leader>qa", "<CMD>%bd!<CR>", { desc = "Buffer: force delete all buffer" })
+    vim.keymap.set("n", "<Leader>qo", "<CMD>%bd|e#<CR>", { desc = "Buffer: delete all buffer except this one" })
 
     for i = 1, 9 do
         vim.keymap.set(

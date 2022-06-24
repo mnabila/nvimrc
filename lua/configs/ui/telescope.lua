@@ -15,6 +15,7 @@ function M.config()
                 "--column",
                 "--smart-case",
             },
+            results_title = "",
             prompt_prefix = "❱❱ ",
             selection_caret = "❱ ",
             initial_mode = "insert",
@@ -62,9 +63,15 @@ function M.config()
                 previewer = false,
             },
         },
+        extensions = {
+            ["ui-select"] = {
+                require("telescope.themes").get_cursor({}),
+            },
+        },
     }
 
     telescope.setup(options)
+    telescope.load_extension("ui-select")
 
     local keymap = vim.keymap
     keymap.set(
@@ -96,7 +103,7 @@ function M.config()
     keymap.set("n", "<Leader>c", require("telescope.builtin").commands, { desc = "Telescope: Lists vim autocommands" })
     keymap.set(
         "n",
-        "<Leader>s",
+        "<Leader>a",
         require("telescope.builtin").lsp_document_symbols,
         { desc = "Telescope: Lists LSP document symbols in the current buffer" }
     )

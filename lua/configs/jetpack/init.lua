@@ -7,12 +7,10 @@ jetpack.setup({
     { "dstein64/vim-startuptime", opt = true },
 
     -- interface
-    "kyazdani42/nvim-web-devicons",
     "feline-nvim/feline.nvim",
     "lukas-reineke/indent-blankline.nvim",
     "nvim-telescope/telescope.nvim",
-    "nvim-lua/popup.nvim",
-    "nvim-lua/plenary.nvim",
+    "nvim-telescope/telescope-ui-select.nvim",
     "nvim-treesitter/nvim-treesitter",
     "p00f/nvim-ts-rainbow",
     "windwp/nvim-ts-autotag",
@@ -20,12 +18,10 @@ jetpack.setup({
     "rktjmp/lush.nvim",
     "mnabila/gruvboy.nvim",
     "noib3/nvim-cokeline",
-    "elkowar/yuck.vim",
     { "nvim-neo-tree/neo-tree.nvim", branch = "v2.x" },
-    "MunifTanjim/nui.nvim",
+    "lmburns/lf.nvim",
 
     -- editor
-    "mattn/webapi-vim",
     "mattn/gist-vim",
     "lewis6991/gitsigns.nvim",
     "mnabila/vim-header",
@@ -36,6 +32,8 @@ jetpack.setup({
     { "ray-x/go.nvim", ft = "go" },
     { "ellisonleao/glow.nvim", ft = "markdown" },
     "nathom/filetype.nvim",
+    "gpanders/nvim-parinfer",
+    "elkowar/yuck.vim",
 
     -- completion
     "hrsh7th/nvim-cmp",
@@ -50,9 +48,20 @@ jetpack.setup({
 
     -- lsp
     "neovim/nvim-lspconfig",
-    -- "stevearc/aerial.nvim",
     "folke/lsp-trouble.nvim",
     "jose-elias-alvarez/null-ls.nvim",
+    "stevearc/aerial.nvim",
+
+    -- debugger
+    "mfussenegger/nvim-dap",
+    "rcarriga/nvim-dap-ui",
+
+    --dependencies
+    "mattn/webapi-vim",
+    "kyazdani42/nvim-web-devicons",
+    "nvim-lua/popup.nvim",
+    "nvim-lua/plenary.nvim",
+    "MunifTanjim/nui.nvim",
 })
 
 require("configs.editor.header")()

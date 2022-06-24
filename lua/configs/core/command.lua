@@ -10,3 +10,7 @@ command("WriteAndReload", function()
         vim.cmd("luafile %")
     end
 end, { nargs = 0 })
+
+command("LF", function()
+    os.execute('tmux display-popup -E "lf ' .. vim.loop.cwd() .. '"')
+end, { nargs = 0 })

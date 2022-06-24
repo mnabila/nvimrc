@@ -1,4 +1,10 @@
+local ls = require("luasnip")
 local M = {}
+
+local function has_words_before()
+    local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+    return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+end
 
 function M.config()
     local cmp = require("cmp")
@@ -39,20 +45,26 @@ function M.config()
         },
 
         mapping = {
-            ["<Tab>"] = function(fallback)
+            ["<Tab>"] = cmp.mapping(function(fallback)
                 if cmp.visible() then
                     cmp.select_next_item()
+                elseif ls.expand_or_jumpable() then
+                    ls.expand_or_jump()
+                elseif has_words_before() then
+                    cmp.complete()
                 else
                     fallback()
                 end
-            end,
-            ["<S-Tab>"] = function(fallback)
+            end, { "i", "s" }),
+            ["<S-Tab>"] = cmp.mapping(function(fallback)
                 if cmp.visible() then
                     cmp.select_prev_item()
+                elseif ls.jumpable(-1) then
+                    ls.jump(-1)
                 else
                     fallback()
                 end
-            end,
+            end, { "i", "s" }),
             ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
             ["<C-e>"] = cmp.mapping.close(),
             ["<CR>"] = cmp.mapping.confirm({
