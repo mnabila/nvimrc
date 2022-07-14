@@ -52,8 +52,8 @@ function M.keymap()
         require("telescope.builtin").lsp_definitions,
         { buffer = true, desc = "LSP: Goto the definition of the word under the cursor" }
     )
-    keymap.set("n", "[e", vim.lsp.diagnostic.goto_prev, { buffer = true, desc = "LSP: Goto previous diagnostic" })
-    keymap.set("n", "]e", vim.lsp.diagnostic.goto_next, { buffer = true, desc = "LSP: Goto next diagnostic" })
+    keymap.set("n", "[e", vim.diagnostic.goto_prev, { buffer = true, desc = "LSP: Goto previous diagnostic" })
+    keymap.set("n", "]e", vim.diagnostic.goto_next, { buffer = true, desc = "LSP: Goto next diagnostic" })
     keymap.set(
         "n",
         "gr",

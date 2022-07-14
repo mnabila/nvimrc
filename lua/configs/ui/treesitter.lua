@@ -27,11 +27,6 @@ function M.config()
         autopairs = {
             enable = true,
         },
-        -- windwp/nvim-ts-autotag
-        autotag = {
-            enable = true,
-            filetypes = { "html", "xml" },
-        },
     }
 
     require("nvim-treesitter.configs").setup(options)

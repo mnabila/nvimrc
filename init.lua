@@ -5,7 +5,7 @@ vim.g.mapleader = " "
 require("configs.core.settings")
 
 -- neovim package manager
-require("configs.jetpack")
+require("configs.packer")
 
 -- neovim keybindings
 require("configs.core.keymap")
