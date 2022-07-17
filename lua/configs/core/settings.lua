@@ -92,4 +92,3 @@ vim.g.loaded_netrwSettings = 1
 vim.g.loaded_netrwfilehandlers = 1
 
 vim.g.python3_host_prog = "/usr/bin/python3"
-vim.cmd("colorscheme gruvboy")

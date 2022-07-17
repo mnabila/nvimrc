@@ -1,4 +1,10 @@
-return require("packer").startup(function()
+-- bootstraping
+local install_path = vim.fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
+if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
+    vim.fn.system({ "git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path })
+end
+
+require("packer").startup(function()
     -- Packer can manage itself
     use("wbthomason/packer.nvim")
 
@@ -6,14 +12,20 @@ return require("packer").startup(function()
     use({
         "feline-nvim/feline.nvim",
         config = function()
-            require("configs.ui.feline")()
+            if _G.InstallMode ~= true then
+                require("configs.ui.feline")()
+            end
         end,
+        event = "VimEnter",
     })
     use({
         "lukas-reineke/indent-blankline.nvim",
         config = function()
-            require("configs.ui.indentline")()
+            if _G.InstallMode ~= true then
+                require("configs.ui.indentline")()
+            end
         end,
+        event = "BufRead",
     })
     use({
         "nvim-telescope/telescope.nvim",
@@ -21,36 +33,57 @@ return require("packer").startup(function()
             "nvim-telescope/telescope-ui-select.nvim",
         },
         config = function()
-            require("configs.ui.telescope")()
+            if _G.InstallMode ~= true then
+                require("configs.ui.telescope")()
+            end
         end,
     })
     use({
         "nvim-treesitter/nvim-treesitter",
         requires = "p00f/nvim-ts-rainbow",
         config = function()
-            require("configs.ui.telescope")()
+            if _G.InstallMode ~= true then
+                require("configs.ui.telescope")()
+            end
         end,
     })
     use({
         "norcalli/nvim-colorizer.lua",
         config = function()
-            require("configs.ui.colorizer")()
+            if _G.InstallMode ~= true then
+                require("configs.ui.colorizer")()
+            end
         end,
     })
-    use({ "rktjmp/lush.nvim", requires = "~/git/gruvboy.nvim" })
+    use({
+        "rktjmp/lush.nvim",
+        requires = "~/git/gruvboy.nvim",
+        config = function()
+            if _G.InstallMode ~= true then
+                vim.cmd("colorscheme gruvboy")
+            end
+        end,
+    })
 
     use({
         "noib3/nvim-cokeline",
         config = function()
-            require("configs.ui.bufferline")()
+            if _G.InstallMode ~= true then
+                require("configs.ui.bufferline")()
+            end
         end,
     })
     use({
         "nvim-neo-tree/neo-tree.nvim",
         branch = "v2.x",
+        requires = "MunifTanjim/nui.nvim",
+        keys = "`",
         config = function()
-            require("configs.ui.filemanager")()
+            if _G.InstallMode ~= true then
+                require("configs.ui.filemanager")()
+            end
         end,
+        after = "nui.nvim",
     })
 
     -- editor
@@ -58,34 +91,44 @@ return require("packer").startup(function()
         "mattn/gist-vim",
         requires = "mattn/webapi-vim",
         config = function()
-            require("configs.editor.gist")()
+            if _G.InstallMode ~= true then
+                require("configs.editor.gist")()
+            end
         end,
     })
     use({
         "lewis6991/gitsigns.nvim",
         config = function()
-            require("configs.editor.gitsigns")()
+            if _G.InstallMode ~= true then
+                require("configs.editor.gitsigns")()
+            end
         end,
     })
     use({
         "voldikss/vim-translator",
         config = function()
-            require("configs.editor.translator")()
+            if _G.InstallMode ~= true then
+                require("configs.editor.translator")()
+            end
         end,
+        cmd = "Translate",
     })
     use({
         "numToStr/Comment.nvim",
+        keys = { "gc", "gb", "gcc" },
         config = function()
-            require("Comment").setup()
+            if _G.InstallMode ~= true then
+                require("Comment").setup()
+            end
         end,
     })
     use("machakann/vim-sandwich")
-    use("junegunn/vim-easy-align")
+    use({ "junegunn/vim-easy-align", cmd = "EasyAlign" })
     use({ "ray-x/go.nvim", ft = "go" })
     use({ "ellisonleao/glow.nvim", ft = "markdown" })
     use("nathom/filetype.nvim")
     use("gpanders/nvim-parinfer")
-    use("elkowar/yuck.vim")
+    use({ "elkowar/yuck.vim", ft = "yuck" })
 
     -- completion
     use({
@@ -100,35 +143,36 @@ return require("packer").startup(function()
             "windwp/nvim-autopairs",
         },
         config = function()
-            require("configs.completion.snippet")()
-            require("configs.completion.cmp")()
-            require("configs.completion.autopairs")()
+            if _G.InstallMode ~= true then
+                require("configs.completion.snippet")()
+                require("configs.completion.cmp")()
+                require("configs.completion.autopairs")()
+            end
         end,
     })
 
     -- lsp
     use({
         "neovim/nvim-lspconfig",
+        requires = {
+            "folke/trouble.nvim",
+        },
         config = function()
-            require("configs.completion.lsp")()
+            if _G.InstallMode ~= true then
+                require("configs.completion.lsp")()
+            end
         end,
     })
-    use("folke/lsp-trouble.nvim")
     use("jose-elias-alvarez/null-ls.nvim")
     use("stevearc/aerial.nvim")
-
-    -- debugger
-    use("mfussenegger/nvim-dap")
-    use("rcarriga/nvim-dap-ui")
 
     --dependencies
     use("kyazdani42/nvim-web-devicons")
     use("nvim-lua/popup.nvim")
     use("nvim-lua/plenary.nvim")
-    use("MunifTanjim/nui.nvim")
 
     -- other stff
     use("nvim-treesitter/playground")
 
-    use({ "dstein64/vim-startuptime", opt = true })
+    use({ "dstein64/vim-startuptime", cmd = "StartupTime" })
 end)

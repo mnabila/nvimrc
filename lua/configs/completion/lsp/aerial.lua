@@ -34,4 +34,3 @@ local options = {
 }
 
 require("aerial").setup(options)
-require("telescope").load_extension("aerial")
