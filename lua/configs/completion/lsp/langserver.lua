@@ -106,6 +106,7 @@ lspconfig.cssls.setup(c.default({
     cmd = { "css-languageserver", "--stdio" },
     root_dir = c.custom_cwd,
 }))
+
 lspconfig.jsonls.setup(c.default({
     cmd = { "vscode-json-languageserver", "--stdio" },
     root_dir = c.custom_cwd,
@@ -130,7 +131,7 @@ lspconfig.yamlls.setup(c.default({
     },
 }))
 
-local servers = { "dockerls", "clangd", "texlab", "bashls", "vimls" }
+local servers = { "dockerls", "clangd", "bashls", "vimls" }
 for _, lsp in ipairs(servers) do
     lspconfig[lsp].setup(c.default())
 end
