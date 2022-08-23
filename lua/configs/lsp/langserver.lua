@@ -1,5 +1,5 @@
 local lspconfig = require("lspconfig")
-local c = require("configs.completion.lsp.custom")
+local c = require("configs.lsp.custom")
 
 lspconfig.tsserver.setup(c.default({
     root_dir = c.custom_cwd,
@@ -63,21 +63,21 @@ lspconfig.sumneko_lua.setup(c.default({
 --     },
 -- }))
 
-lspconfig.jedi_language_server.setup(c.default({
-    settings = {
-        jedi = {
-            enable = true,
-            startupMessage = true,
-            markupKindPreferred = "markdown",
-            jediSettings = {
-                autoImportconfigs = {},
-                completion = { disableSnippets = false },
-                diagnostics = { enable = true, didOpen = true, didSave = true, didChange = true },
-            },
-            workspace = { extraPaths = {} },
-        },
-    },
-}))
+-- lspconfig.jedi_language_server.setup(c.default({
+--     settings = {
+--         jedi = {
+--             enable = true,
+--             startupMessage = true,
+--             markupKindPreferred = "markdown",
+--             jediSettings = {
+--                 autoImportconfigs = {},
+--                 completion = { disableSnippets = false },
+--                 diagnostics = { enable = true, didOpen = true, didSave = true, didChange = true },
+--             },
+--             workspace = { extraPaths = {} },
+--         },
+--     },
+-- }))
 
 -- lspconfig.sqls.setup({
 --     cmd = { "sqls", "-config", vim.loop.os_homedir() .. "/.config/sqls/config.yml" },
@@ -131,7 +131,20 @@ lspconfig.yamlls.setup(c.default({
     },
 }))
 
-local servers = { "dockerls", "clangd", "bashls", "vimls" }
+lspconfig.emmet_ls.setup(c.default({
+    filetypes = {
+        "html",
+        "typescriptreact",
+        "javascriptreact",
+        "css",
+        "sass",
+        "scss",
+        "less",
+        "gohtmltmpl",
+    },
+}))
+
+local servers = { "dockerls", "bashls", "vimls" }
 for _, lsp in ipairs(servers) do
     lspconfig[lsp].setup(c.default())
 end

@@ -14,17 +14,6 @@
         ],
         "path": "./sh.json"
       },
-      {
-        "language": [
-          "plaintex",
-          "tex"
-        ],
-        "path": "./tex.json"
-      },
-      {
-        "language": "sql",
-        "path": "./sql.json"
-      }
     ]
   }
 }

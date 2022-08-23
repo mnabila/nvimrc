@@ -25,6 +25,7 @@ function M.config()
             "qf",
             "terminal",
             "translator",
+            "mason.nvim",
         },
         buftype_exclude = { "terminal", "man", "trouble" },
         context_patterns = {
@@ -40,6 +41,7 @@ function M.config()
             "for_statement",
             "array",
             "object",
+            "table_constructor",
         },
     })
 end

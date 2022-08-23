@@ -42,6 +42,13 @@ function M.keymap()
     keymap.set("n", "K", M.show_documentation, { buffer = true, desc = "LSP: Show documentation" })
     keymap.set(
         "n",
+        "gi",
+        vim.lsp.buf.implementation,
+        { buffer = true, desc = "LSP: Lists all the implementations for the symbol under the cursor in the quickfix window." }
+
+    )
+    keymap.set(
+        "n",
         "ga",
         vim.lsp.buf.code_action,
         { buffer = true, desc = "LSP: Lists any LSP actions for the word under the cursor which can be triggered" }
@@ -70,13 +77,13 @@ function M.keymap()
     -- diagnostic
     keymap.set(
         "n",
-        "<leader>d",
+        "<leader>t",
         "<CMD>TroubleToggle document_diagnostics<CR>",
         { buffer = true, desc = "LSP: Show diagnostic from current buffer" }
     )
     keymap.set(
         "n",
-        "<leader>D",
+        "<leader>T",
         "<CMD>TroubleToggle workspace_diagnostics<CR>",
         { buffer = true, desc = "LSP: Show diagnostic from current workspace" }
     )

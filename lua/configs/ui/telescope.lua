@@ -107,7 +107,7 @@ function M.config()
         require("telescope.builtin").lsp_document_symbols,
         { desc = "Telescope: Lists LSP document symbols in the current buffer" }
     )
-    keymap.set("n", "<Leader>D", require("telescope.builtin").diagnostics, { desc = "Telescope: Lists diagnostics" })
+    keymap.set("n", "<Leader>d", require("telescope.builtin").diagnostics, { desc = "Telescope: Lists diagnostics" })
 end
 
 return setmetatable({}, {

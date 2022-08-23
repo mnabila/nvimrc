@@ -48,7 +48,7 @@ function M.config()
             ["<Tab>"] = cmp.mapping(function(fallback)
                 if cmp.visible() then
                     cmp.select_next_item()
-                elseif ls.expand_or_jumpable() then
+                elseif ls.expand_or_locally_jumpable() then
                     ls.expand_or_jump()
                 elseif has_words_before() then
                     cmp.complete()
@@ -56,6 +56,7 @@ function M.config()
                     fallback()
                 end
             end, { "i", "s" }),
+
             ["<S-Tab>"] = cmp.mapping(function(fallback)
                 if cmp.visible() then
                     cmp.select_prev_item()
@@ -65,8 +66,11 @@ function M.config()
                     fallback()
                 end
             end, { "i", "s" }),
+
             ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
+
             ["<C-e>"] = cmp.mapping.close(),
+
             ["<CR>"] = cmp.mapping.confirm({
                 behavior = cmp.ConfirmBehavior.Replace,
                 select = true,

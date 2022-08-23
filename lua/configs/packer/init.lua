@@ -35,11 +35,7 @@ require("packer").startup(function()
         "norcalli/nvim-colorizer.lua",
         config = [[require("configs.ui.colorizer")()]],
     })
-    use({
-        "rktjmp/lush.nvim",
-        requires = "~/git/gruvboy.nvim",
-        config = [[vim.cmd("colorscheme gruvboy")]],
-    })
+    use({ "~/git/gruvboy.nvim", config = [[vim.cmd("colorscheme gruvboy")]] })
 
     use({
         "noib3/nvim-cokeline",
@@ -55,11 +51,6 @@ require("packer").startup(function()
     })
 
     -- editor
-    use({
-        "mattn/gist-vim",
-        requires = "mattn/webapi-vim",
-        setup = [[require("configs.editor.gist")()]],
-    })
     use({
         "lewis6991/gitsigns.nvim",
         config = [[require("configs.editor.gitsigns")()]],
@@ -79,10 +70,12 @@ require("packer").startup(function()
     use({
         "ray-x/go.nvim",
         ft = "go",
-        config = [[lua require("configs.languages.go")()]],
+        config = [[require("configs.languages.go")()]],
     })
     use({ "ellisonleao/glow.nvim", ft = "markdown" })
     use("nathom/filetype.nvim")
+
+    -- autoformat for yck file
     use("gpanders/nvim-parinfer")
     use({ "elkowar/yuck.vim", ft = "yuck" })
 
@@ -112,20 +105,25 @@ require("packer").startup(function()
 
     -- lsp
     use({
+        "williamboman/mason.nvim",
+        cmd = { "Mason", "MasonInstall", "MasonUninstall" },
+        config = [[require("configs.lsp.installer")]],
+    })
+    use({
         "neovim/nvim-lspconfig",
         requires = {
             "jose-elias-alvarez/null-ls.nvim",
         },
-        config = [[require("configs.completion.lsp")()]],
+        config = [[require("configs.lsp")()]],
     })
     use({
         "stevearc/aerial.nvim",
-        config = [[require("configs.completion.lsp.aerial")]],
+        config = [[require("configs.lsp.aerial")]],
         after = "nvim-lspconfig",
     })
     use({
         "folke/trouble.nvim",
-        config = [[require("configs.completion.lsp.trouble")]],
+        config = [[require("configs.lsp.trouble")]],
         after = "nvim-lspconfig",
     })
 
@@ -135,7 +133,5 @@ require("packer").startup(function()
     use("nvim-lua/plenary.nvim")
 
     -- other stff
-    use("nvim-treesitter/playground")
-
     use({ "dstein64/vim-startuptime", cmd = "StartupTime" })
 end)

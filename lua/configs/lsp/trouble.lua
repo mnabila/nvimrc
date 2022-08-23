@@ -11,7 +11,7 @@ local options = {
     action_keys = { -- key mappings for actions in the trouble list
         -- map to {} to remove a mapping, for example:
         -- close = {},
-        close = "<Leader>d", -- close the list
+        close = "<Leader>t", -- close the list
         cancel = "<esc>", -- cancel the preview and get back to your last window / buffer / cursor
         refresh = "r", -- manually refresh
         jump = { "<cr>", "<tab>" }, -- jump to the diagnostic or open / close folds
