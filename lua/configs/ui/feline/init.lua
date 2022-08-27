@@ -1,7 +1,7 @@
-local colors = require("gruvboy.colors")
 local lsp = require("configs.ui.feline.components.lsp")
 local buffer = require("configs.ui.feline.components.buffer")
 local git = require("configs.ui.feline.components.git")
+local hlprop = require("configs.core.utils").hlprop
 
 local blank = {
     provider = "",
@@ -65,15 +65,15 @@ function M.config()
     })
 
     feline.use_theme({
-        bg = colors.bg0,
-        fg = colors.fg1,
-        yellow = colors.yellow,
-        gray = colors.gray,
-        altgray = colors.fg3,
-        red = colors.red,
-        aqua = colors.aqua,
-        blue = colors.blue,
-        black = colors.bg0,
+        bg = hlprop("Normal").bg,
+        fg = hlprop("Normal").fg,
+        yellow = hlprop("Type").fg,
+        gray = hlprop("LineNr").fg,
+        altgray = hlprop("Todo").fg,
+        red = hlprop("Debug").bg,
+        aqua = hlprop("Title").bg,
+        blue = hlprop("Identifier").fg,
+        black = hlprop("Comment").bg,
     })
 end
 

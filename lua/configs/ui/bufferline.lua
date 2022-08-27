@@ -1,11 +1,11 @@
 local mappings = require("cokeline.mappings")
-local colors = require("gruvboy.colors")
+local hlprop = require("configs.core.utils").hlprop
 
 local C = {}
 
 C.file_manager = {
     text = "File Browser",
-    fg = colors.yellow,
+    fg = hlprop("Type").fg,
     style = "bold",
 }
 
@@ -34,11 +34,11 @@ C.filename = {
         return name
     end,
     fg = function(buffer)
-        return (buffer.is_focused ~= true and colors.gray)
-            or (buffer.diagnostics.errors ~= 0 and colors.bright_red)
-            or (buffer.diagnostics.warnings ~= 0 and colors.bright_orange)
-            or (buffer.diagnostics.infos ~= 0 and colors.bright_yellow)
-            or (buffer.diagnostics.hints ~= 0 and colors.bright_blue)
+        return (buffer.is_focused ~= true and hlprop("Comment").fg)
+            or (buffer.diagnostics.errors ~= 0 and hlprop("DiagnosticError").fg)
+            or (buffer.diagnostics.warnings ~= 0 and hlprop("DiagnosticWarn").fg)
+            or (buffer.diagnostics.infos ~= 0 and hlprop("DiagnosticInfo").fg)
+            or (buffer.diagnostics.hints ~= 0 and hlprop("DiagnosticHint").fg)
             or nil
     end,
     style = function(buffer)
@@ -58,7 +58,7 @@ C.close_or_unsaved = {
         return buffer.is_modified and "●" or ""
     end,
     fg = function(buffer)
-        return (buffer.is_modified and colors.green) or nil
+        return (buffer.is_modified and hlprop("TSStringRegex").fg) or nil
     end,
     delete_buffer_on_left_click = true,
     truncation = { priority = 1 },
@@ -88,9 +88,9 @@ function M.config()
         },
         default_hl = {
             fg = function(buffer)
-                return buffer.is_focused ~= true and colors.gray
+                return buffer.is_focused ~= true and hlprop("Comment").fg
             end,
-            bg = colors.bg0,
+            bg = hlprop("Comment").bg,
         },
 
         components = {

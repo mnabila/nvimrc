@@ -12,7 +12,7 @@ require("packer").startup(function()
     use({
         "feline-nvim/feline.nvim",
         config = [[require("configs.ui.feline")()]],
-        event = "VimEnter",
+        after = "gruvboy.nvim",
     })
     use({
         "lukas-reineke/indent-blankline.nvim",
@@ -35,11 +35,18 @@ require("packer").startup(function()
         "norcalli/nvim-colorizer.lua",
         config = [[require("configs.ui.colorizer")()]],
     })
-    use({ "~/git/gruvboy.nvim", config = [[vim.cmd("colorscheme gruvboy")]] })
+
+    -- use mnabila/gruvboy.nvim
+    use({
+        "~/git/gruvboy.nvim",
+        event = "VimEnter",
+        config = [[vim.cmd("colorscheme gruvboy")]],
+    })
 
     use({
         "noib3/nvim-cokeline",
         config = [[require("configs.ui.bufferline")()]],
+        after = "gruvboy.nvim",
     })
     use({
         "nvim-neo-tree/neo-tree.nvim",
@@ -75,8 +82,8 @@ require("packer").startup(function()
     use({ "ellisonleao/glow.nvim", ft = "markdown" })
     use("nathom/filetype.nvim")
 
-    -- autoformat for yck file
-    use("gpanders/nvim-parinfer")
+    -- autoformat for yuck file
+    use({ "gpanders/nvim-parinfer", ft = "yuck" })
     use({ "elkowar/yuck.vim", ft = "yuck" })
 
     -- completion
