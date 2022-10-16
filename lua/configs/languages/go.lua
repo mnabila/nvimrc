@@ -80,7 +80,7 @@ function M.config()
         textobjects = true, -- enable default text jobects through treesittter-text-objects
         test_runner = "go", -- one of {`go`, `richgo`, `dlv`, `ginkgo`}
         verbose_tests = true, -- set to add verbose flag to tests
-        run_in_floaterm = false, -- set to true to run in float window. :GoTermClose closes the floatterm
+        run_in_floaterm = true, -- set to true to run in float window. :GoTermClose closes the floatterm
         -- float term recommand if you use richgo/ginkgo with terminal color
 
         trouble = true, -- true: use trouble to open quickfix

@@ -36,14 +36,16 @@ lspconfig.sumneko_lua.setup(c.default({
                 globals = { "vim", "awesome", "use", "client", "root", "s", "screen" },
             },
             workspace = {
-                library = {
-                    [vim.fn.expand("$VIMRUNTIME/lua")] = true,
-                    [vim.fn.expand("$VIMRUNTIME/lua/vim/lsp")] = true,
-                    ["/usr/share/awesome/lib"] = true,
-                    ["/usr/share/lua/5.1"] = true,
-                    ["/usr/share/lua/5.3"] = true,
-                    ["/usr/share/lua/5.4"] = true,
-                },
+                -- library = {
+                --     -- [vim.fn.expand("$VIMRUNTIME/lua")] = true,
+                --     -- [vim.fn.expand("$VIMRUNTIME/lua/vim/lsp")] = true,
+                --     -- ["/usr/share/awesome/lib"] = true,
+                --     -- ["/usr/share/lua/5.1"] = true,
+                --     -- ["/usr/share/lua/5.3"] = true,
+                --     -- ["/usr/share/lua/5.4"] = true,
+                -- },
+                --
+                library = vim.api.nvim_get_runtime_file("", true),
             },
         },
     },
@@ -107,11 +109,6 @@ lspconfig.cssls.setup(c.default({
     root_dir = c.custom_cwd,
 }))
 
-lspconfig.jsonls.setup(c.default({
-    cmd = { "vscode-json-languageserver", "--stdio" },
-    root_dir = c.custom_cwd,
-}))
-
 lspconfig.yamlls.setup(c.default({
     settings = {
         yaml = {
@@ -144,7 +141,7 @@ lspconfig.emmet_ls.setup(c.default({
     },
 }))
 
-local servers = { "dockerls", "bashls", "vimls" }
+local servers = { "dockerls", "bashls", "vimls", "prismals" }
 for _, lsp in ipairs(servers) do
     lspconfig[lsp].setup(c.default())
 end

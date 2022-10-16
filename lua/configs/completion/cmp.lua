@@ -1,4 +1,3 @@
-local ls = require("luasnip")
 local M = {}
 
 local function has_words_before()
@@ -14,12 +13,6 @@ function M.config()
     })
 
     cmp.setup({
-        snippet = {
-            expand = function(args)
-                require("luasnip").lsp_expand(args.body)
-            end,
-        },
-
         completion = {
             autocomplete = { cmp.TriggerEvent.TextChanged },
         },
@@ -41,7 +34,6 @@ function M.config()
                 },
             },
             { name = "nvim_lua" },
-            { name = "luasnip" },
         },
 
         mapping = {

@@ -18,7 +18,16 @@ vim.opt.expandtab = true
 vim.opt.fileencoding = "utf-8"
 vim.opt.fileencodings = "utf-8"
 vim.opt.fileformat = "unix"
-vim.opt.fillchars = "vert:┃,eob: "
+vim.opt.fillchars = {
+    horiz = "━",
+    horizup = "┻",
+    horizdown = "┳",
+    vert = "┃",
+    vertleft = "┫",
+    vertright = "┣",
+    verthoriz = "╋",
+    eob = " ",
+}
 vim.opt.foldlevel = 0
 vim.opt.formatoptions:remove("cro")
 vim.opt.gdefault = true

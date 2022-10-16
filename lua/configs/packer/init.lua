@@ -57,7 +57,7 @@ require("packer").startup(function()
         after = "nui.nvim",
     })
 
-    -- editor
+    -- -- editor
     use({
         "lewis6991/gitsigns.nvim",
         config = [[require("configs.editor.gitsigns")()]],
@@ -76,17 +76,14 @@ require("packer").startup(function()
     use({ "junegunn/vim-easy-align", cmd = "EasyAlign" })
     use({
         "ray-x/go.nvim",
+        requires = "ray-x/guihua.lua",
         ft = "go",
         config = [[require("configs.languages.go")()]],
     })
     use({ "ellisonleao/glow.nvim", ft = "markdown" })
     use("nathom/filetype.nvim")
 
-    -- autoformat for yuck file
-    use({ "gpanders/nvim-parinfer", ft = "yuck" })
-    use({ "elkowar/yuck.vim", ft = "yuck" })
-
-    -- completion
+    -- -- completion
     use({
         "hrsh7th/nvim-cmp",
         requires = {
@@ -104,13 +101,13 @@ require("packer").startup(function()
         config = [[require("configs.completion.autopairs")()]],
     })
 
-    use({
-        "saadparwaiz1/cmp_luasnip",
-        requires = "L3MON4D3/LuaSnip",
-        config = [[require("configs.completion.snippet")()]],
-    })
+    -- use({
+    --     "saadparwaiz1/cmp_luasnip",
+    --     requires = "L3MON4D3/LuaSnip",
+    --     config = [[require("configs.completion.snippet")()]],
+    -- })
 
-    -- lsp
+    -- -- lsp
     use({
         "williamboman/mason.nvim",
         cmd = { "Mason", "MasonInstall", "MasonUninstall" },
@@ -134,11 +131,11 @@ require("packer").startup(function()
         after = "nvim-lspconfig",
     })
 
-    --dependencies
+    -- --dependencies
     use("kyazdani42/nvim-web-devicons")
     use("nvim-lua/popup.nvim")
     use("nvim-lua/plenary.nvim")
 
-    -- other stff
+    -- -- other stff
     use({ "dstein64/vim-startuptime", cmd = "StartupTime" })
 end)

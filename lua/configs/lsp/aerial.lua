@@ -1,5 +1,9 @@
 local options = {
     backends = { "lsp", "markdown" },
+    layout = {
+        default_direction = "prefer_right",
+        placement = "edge",
+    },
     filter_kind = {
         "Array",
         "Class",
@@ -16,20 +20,25 @@ local options = {
     },
     highlight_mode = "full_width",
     highlight_closest = true,
-    highlight_on_hover = true,
+    highlight_on_hover = false,
     link_folds_to_tree = true,
-    link_tree_to_folds = true,
-    manage_folds = false,
-    max_width = 0.4,
+    max_width = 0.3,
     min_width = 0.2,
-    placement_editor_edge = true,
-    show_guides = false,
+    nerd_font = "auto",
+    update_events = "TextChanged,InsertLeave",
     float = {
         border = "single",
         relative = "editor",
-        max_height = 0.5,
+        max_height = 0.9,
         height = nil,
-        min_height = { 8, 0.1 },
+        min_height = { 8, 0.4 },
+    },
+    show_guides = true,
+    guides = {
+        mid_item = "├─",
+        last_item = "└─",
+        nested_top = "│ ",
+        whitespace = "  ",
     },
 }
 

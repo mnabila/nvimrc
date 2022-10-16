@@ -32,7 +32,7 @@ function M.config()
         },
         window = {
             position = "left",
-            width = 40,
+            width = 70,
             mappings = {
                 ["o"] = "toggle_node",
             },
@@ -46,11 +46,12 @@ function M.config()
                 hide_by_name = {
                     ".DS_Store",
                     "thumbs.db",
+                    "node_modules",
                 },
             },
             follow_current_file = true,
             hijack_netrw_behavior = "open_default",
-            use_libuv_file_watcher = false,
+            use_libuv_file_watcher = true,
         },
         buffers = {
             show_unloaded = true,
@@ -76,7 +77,7 @@ function M.config()
         },
     })
 
-    vim.keymap.set("n", "`", "<CMD>NeoTreeFocusToggle<CR>", { desc = "open file manager" })
+    vim.keymap.set("n", "`", "<CMD>NeoTreeFocusToggle<CR>", { desc = "open file manager", silent = true })
 end
 
 return setmetatable({}, {

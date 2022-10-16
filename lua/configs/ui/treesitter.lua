@@ -3,13 +3,11 @@ local M = {}
 function M.config()
     local options = {
         ensure_installed = {
-            "bash",
             "lua",
-            "python",
-            "html",
-            "javascript",
-            "css",
-            "json",
+            "vim",
+            "go",
+            "gomod",
+            "typescript",
         },
         highlight = {
             enable = true,
