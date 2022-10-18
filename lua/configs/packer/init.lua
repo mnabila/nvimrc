@@ -57,7 +57,7 @@ require("packer").startup(function()
         after = "nui.nvim",
     })
 
-    -- -- editor
+    -- editor
     use({
         "lewis6991/gitsigns.nvim",
         config = [[require("configs.editor.gitsigns")()]],
@@ -101,11 +101,11 @@ require("packer").startup(function()
         config = [[require("configs.completion.autopairs")()]],
     })
 
-    -- use({
-    --     "saadparwaiz1/cmp_luasnip",
-    --     requires = "L3MON4D3/LuaSnip",
-    --     config = [[require("configs.completion.snippet")()]],
-    -- })
+    use({
+        "hrsh7th/cmp-vsnip",
+        requires = "hrsh7th/vim-vsnip",
+        config = [[vim.g.vsnip_snippet_dir = vim.fn.stdpath("config") .. "/snippets"]],
+    })
 
     -- -- lsp
     use({

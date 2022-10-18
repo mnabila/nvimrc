@@ -13,6 +13,11 @@ function M.config()
     })
 
     cmp.setup({
+        snippet = {
+            expand = function(args)
+                vim.fn["vsnip#anonymous"](args.body)
+            end,
+        },
         completion = {
             autocomplete = { cmp.TriggerEvent.TextChanged },
         },
@@ -34,14 +39,13 @@ function M.config()
                 },
             },
             { name = "nvim_lua" },
+            { name = "vsnip" },
         },
 
         mapping = {
             ["<Tab>"] = cmp.mapping(function(fallback)
                 if cmp.visible() then
                     cmp.select_next_item()
-                elseif ls.expand_or_locally_jumpable() then
-                    ls.expand_or_jump()
                 elseif has_words_before() then
                     cmp.complete()
                 else
@@ -52,8 +56,6 @@ function M.config()
             ["<S-Tab>"] = cmp.mapping(function(fallback)
                 if cmp.visible() then
                     cmp.select_prev_item()
-                elseif ls.jumpable(-1) then
-                    ls.jump(-1)
                 else
                     fallback()
                 end
