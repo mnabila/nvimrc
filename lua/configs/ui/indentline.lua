@@ -26,6 +26,7 @@ function M.config()
             "terminal",
             "translator",
             "mason.nvim",
+            "Outline",
         },
         buftype_exclude = { "terminal", "man", "trouble" },
         context_patterns = {

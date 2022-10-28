@@ -30,6 +30,7 @@ function M.config()
         sources = {
             { name = "nvim_lsp" },
             { name = "path" },
+            { name = "vsnip" },
             {
                 name = "buffer",
                 option = {
@@ -39,7 +40,6 @@ function M.config()
                 },
             },
             { name = "nvim_lua" },
-            { name = "vsnip" },
         },
 
         mapping = {

@@ -45,13 +45,24 @@ function M.config()
         pickers = {
             diagnostics = {
                 previewer = false,
+                line_width = 0.7,
+                no_unlisted = true,
+                path_display = {
+                    "hidden",
+                },
             },
             find_files = {
                 previewer = false,
             },
             oldfiles = {
                 previewer = false,
-                file_ignore_patterns = { "/usr/share/nvim/runtime/*", vim.fn.stdpath("data") },
+                file_ignore_patterns = {
+                    "/usr/share/nvim/runtime/*",
+                    vim.fn.stdpath("data"),
+                    vim.fn.stdpath("cache"),
+                    vim.fn.stdpath("log"),
+                    "^node_modules/",
+                },
             },
             builtin = {
                 previewer = false,
@@ -60,6 +71,17 @@ function M.config()
                 previewer = false,
             },
             autocommands = {
+                previewer = false,
+            },
+            lsp_document_symbols = {
+                previewer = false,
+                symbol_width = 0.7,
+            },
+            lsp_workspace_symbols = {
+                previewer = false,
+                symbol_width = 0.7,
+            },
+            buffers = {
                 previewer = false,
             },
         },

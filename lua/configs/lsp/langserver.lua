@@ -16,7 +16,7 @@ lspconfig.tsserver.setup(c.default({
                 enable = true,
             },
             suggestionActions = {
-                enabled = false,
+                enabled = true,
             },
         },
     },

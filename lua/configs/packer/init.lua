@@ -81,7 +81,6 @@ require("packer").startup(function()
         config = [[require("configs.languages.go")()]],
     })
     use({ "ellisonleao/glow.nvim", ft = "markdown" })
-    use("nathom/filetype.nvim")
 
     -- -- completion
     use({
@@ -121,8 +120,8 @@ require("packer").startup(function()
         config = [[require("configs.lsp")()]],
     })
     use({
-        "stevearc/aerial.nvim",
-        config = [[require("configs.lsp.aerial")]],
+        "simrat39/symbols-outline.nvim",
+        config = [[require("configs.lsp.symbols")]],
         after = "nvim-lspconfig",
     })
     use({
