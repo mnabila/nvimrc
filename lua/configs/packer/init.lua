@@ -23,6 +23,7 @@ require("packer").startup(function()
         "nvim-telescope/telescope.nvim",
         requires = {
             "nvim-telescope/telescope-ui-select.nvim",
+            "nvim-telescope/telescope-fzy-native.nvim",
         },
         config = [[require("configs.ui.telescope")()]],
     })

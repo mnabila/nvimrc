@@ -3,6 +3,7 @@ local M = {}
 function M.config()
     local telescope = require("telescope")
     local previewers = require("telescope.previewers")
+    local sorters = require("telescope.sorters")
 
     local options = {
         defaults = {
@@ -20,27 +21,30 @@ function M.config()
             selection_caret = "❱ ",
             initial_mode = "insert",
             selection_strategy = "reset",
-            sorting_strategy = "descending",
-            layout_strategy = "bottom_pane",
-            layout_config = {
-                height = 0.6,
-                prompt_position = "bottom",
-            },
-            file_sorter = require("telescope.sorters").get_fuzzy_file,
             file_ignore_patterns = { "^node_modules/" },
-            generic_sorter = require("telescope.sorters").get_generic_fuzzy_sorter,
+            file_sorter = sorters.get_fzy_sorter,
+            generic_sorter = sorters.get_generic_fzy_sorter,
             path_display = { "absolute" },
             winblend = 0,
-            borderchars = {
-                prompt = { "─", " ", " ", " ", "─", "─", " ", " " },
-                results = { "─", " ", " ", " ", "─", "─", " ", " " },
-                preview = { "─", " ", " ", "│", "┬", " ", " ", "│" },
-            },
             color_devicons = true,
             use_less = false,
             file_previewer = previewers.vim_buffer_cat.new,
             grep_previewer = previewers.vim_buffer_vimgrep.new,
             qflist_previewer = previewers.vim_buffer_qflist.new,
+
+            -- custom theme
+            sorting_strategy = "descending",
+            layout_strategy = "bottom_pane",
+            layout_config = {
+                preview_cutoff = 1,
+                height = 0.6,
+                prompt_position = "bottom",
+            },
+            borderchars = {
+                prompt = { "─", " ", " ", " ", "─", "─", " ", " " },
+                results = { "─", " ", " ", " ", "─", "─", " ", " " },
+                preview = { "─", " ", " ", "│", "┬", " ", " ", "│" },
+            },
         },
         pickers = {
             diagnostics = {
@@ -61,7 +65,6 @@ function M.config()
                     vim.fn.stdpath("data"),
                     vim.fn.stdpath("cache"),
                     vim.fn.stdpath("log"),
-                    "^node_modules/",
                 },
             },
             builtin = {
@@ -86,15 +89,21 @@ function M.config()
             },
         },
         extensions = {
-            ["ui-select"] = {
-                require("telescope.themes").get_cursor({}),
+            fzy_native = {
+                override_generic_sorter = true,
+                override_file_sorter = true,
             },
         },
     }
 
     telescope.setup(options)
     telescope.load_extension("ui-select")
+    telescope.load_extension("fzy_native")
 
+    M.keymap()
+end
+
+function M.keymap()
     local keymap = vim.keymap
     keymap.set(
         "n",
