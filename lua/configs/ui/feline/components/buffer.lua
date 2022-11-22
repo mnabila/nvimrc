@@ -30,8 +30,8 @@ M.name = {
         return vim.api.nvim_win_get_width(0) > 50 and vim.api.nvim_buf_get_name(0) ~= ""
     end,
     hl = {
-        fg = "fg",
-        bg = "bg",
+        fg = "white",
+        bg = "black",
     },
 }
 
@@ -46,8 +46,8 @@ M.type = {
         return vim.api.nvim_win_get_width(0) > 80 and vim.api.nvim_buf_get_name(0) ~= ""
     end,
     hl = {
-         fg = "black",
-        bg = "altgray",
+        fg = "black",
+        bg = "white",
     },
 }
 
@@ -68,22 +68,22 @@ M.format = {
         return vim.api.nvim_win_get_width(0) > 80
     end,
     hl = {
-         fg = "black",
-        bg = "gray",
+        fg = "black",
+        bg = "white",
     },
 }
 
 M.encode = {
     provider = function()
         local encode = vim.bo.fenc ~= "" and vim.bo.fenc or vim.o.enc
-        return string.format("  %s ", encode:upper())
+        return string.format("   %s ", encode:upper())
     end,
     enabled = function()
         return vim.api.nvim_win_get_width(0) > 80
     end,
     hl = {
-         fg = "black",
-        bg = "altgray",
+        fg = "black",
+        bg = "white",
     },
 }
 
@@ -93,22 +93,22 @@ M.cursor_position = {
         padding = true,
     },
     left_sep = {
-        str = "  ",
+        str = "   ",
         hl = {
             bg = "yellow",
-             fg = "black",
+            fg = "black",
         },
     },
     right_sep = {
         str = " ",
         hl = {
             bg = "yellow",
-             fg = "black",
+            fg = "black",
         },
     },
     hl = {
         bg = "yellow",
-         fg = "black",
+        fg = "black",
     },
 }
 return M

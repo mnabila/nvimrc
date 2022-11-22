@@ -15,21 +15,21 @@ M.branch = {
         return vim.api.nvim_win_get_width(0) > 80
     end,
     hl = {
-         fg = "black",
-        bg = "gray",
+        fg = "black",
+        bg = "white",
     },
     left_sep = {
         str = " ",
         hl = {
-             fg = "black",
-            bg = "gray",
+            fg = "black",
+            bg = "white",
         },
     },
     right_sep = {
         str = " ",
         hl = {
-             fg = "black",
-            bg = "gray",
+            fg = "black",
+            bg = "white",
         },
     },
 }
@@ -42,8 +42,8 @@ M.diff_add = {
         return vim.api.nvim_win_get_width(0) > 80 and git_diff("added") ~= ""
     end,
     hl = {
-         fg = "black",
-        bg = "gray",
+        fg = "black",
+        bg = "white",
     },
 }
 
@@ -55,8 +55,8 @@ M.diff_remove = {
         return vim.api.nvim_win_get_width(0) > 80 and git_diff("removed") ~= ""
     end,
     hl = {
-         fg = "black",
-        bg = "gray",
+        fg = "black",
+        bg = "white",
     },
 }
 
@@ -68,8 +68,8 @@ M.diff_changed = {
         return vim.api.nvim_win_get_width(0) > 80 and git_diff("changed") ~= ""
     end,
     hl = {
-         fg = "black",
-        bg = "gray",
+        fg = "black",
+        bg = "white",
     },
 }
 return M

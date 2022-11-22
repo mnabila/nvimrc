@@ -6,8 +6,8 @@ local hlprop = require("configs.core.utils").hlprop
 local blank = {
     provider = "",
     hl = {
-        bg = "bg",
-        fg = "fg",
+        bg = "black",
+        fg = "white",
     },
 }
 
@@ -65,15 +65,13 @@ function M.config()
     })
 
     feline.use_theme({
-        bg = hlprop("Normal").bg,
-        fg = hlprop("Normal").fg,
-        yellow = hlprop("Type").fg,
-        gray = hlprop("LineNr").fg,
-        altgray = hlprop("Todo").fg,
-        red = hlprop("Debug").bg,
-        aqua = hlprop("Title").bg,
-        blue = hlprop("Identifier").fg,
-        black = hlprop("Comment").bg,
+        black = hlprop("Normal").bg,
+        altblack= hlprop("Comment").fg,
+        red = hlprop("DiagnosticError").fg,
+        green = hlprop("String").fg,
+        yellow = hlprop("DiagnosticWarn").fg,
+        blue = hlprop("DiagnosticInfo").fg,
+        white = hlprop("Normal").fg,
     })
 end
 

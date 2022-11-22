@@ -5,13 +5,16 @@ local C = {}
 
 C.file_manager = {
     text = "File Browser",
-    fg = hlprop("Type").fg,
+    fg = hlprop("Normal").fg,
+    bg = hlprop("Normal").bg,
     style = "bold",
 }
 
 C.space = {
     text = " ",
     truncation = { priority = 1 },
+    fg = hlprop("Normal").bg,
+    bg = hlprop("Normal").bg,
 }
 
 C.devicon = {
@@ -22,6 +25,7 @@ C.devicon = {
     fg = function(buffer)
         return buffer.is_focused and buffer.devicon.color
     end,
+    bg = hlprop("Normal").bg,
     truncation = { priority = 1 },
 }
 
@@ -34,13 +38,14 @@ C.filename = {
         return name
     end,
     fg = function(buffer)
-        return (buffer.is_focused ~= true and hlprop("Comment").fg)
+        return (buffer.is_focused and hlprop("Normal").fg)
             or (buffer.diagnostics.errors ~= 0 and hlprop("DiagnosticError").fg)
             or (buffer.diagnostics.warnings ~= 0 and hlprop("DiagnosticWarn").fg)
             or (buffer.diagnostics.infos ~= 0 and hlprop("DiagnosticInfo").fg)
             or (buffer.diagnostics.hints ~= 0 and hlprop("DiagnosticHint").fg)
             or nil
     end,
+    bg = hlprop("Normal").bg,
     style = function(buffer)
         return ((buffer.is_focused and buffer.diagnostics.errors ~= 0) and "bold")
             or (buffer.is_focused and "bold")
@@ -58,8 +63,9 @@ C.close_or_unsaved = {
         return buffer.is_modified and "●" or ""
     end,
     fg = function(buffer)
-        return (buffer.is_modified and hlprop("TSStringRegex").fg) or nil
+        return (buffer.is_modified and hlprop("Visual").fg) or nil
     end,
+    bg = hlprop("Normal").bg,
     delete_buffer_on_left_click = true,
     truncation = { priority = 1 },
 }

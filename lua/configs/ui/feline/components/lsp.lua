@@ -13,7 +13,7 @@ local function diagnostic(severity, icon, fg)
                 and vim.api.nvim_win_get_width(0) > 100
         end,
 
-        hl = { bg = "bg", fg = fg },
+        hl = { bg = "black", fg = fg },
     }
 end
 
@@ -34,8 +34,8 @@ M.name = {
         return next(vim.lsp.buf_get_clients(0)) ~= nil
     end,
     hl = {
-        fg = "fg",
-        bg = "bg",
+        fg = "white",
+        bg = "black",
     },
 }
 
@@ -43,6 +43,6 @@ M.diagnostic = {
     errors = diagnostic(1, " ", "red"),
     warn = diagnostic(2, " ", "yellow"),
     info = diagnostic(3, " ", "blue"),
-    hint = diagnostic(4, " ", "aqua"),
+    hint = diagnostic(4, " ", "green"),
 }
 return M
