@@ -24,15 +24,20 @@ function M.config()
                 folder_open = " ",
                 folder_empty = " ",
                 default = " ",
+                highlight = "Directory",
             },
             modified = {
-                symbol = " ",
-                highlight = "NeoTreeModified",
+                symbol = "●",
+                highlight = "DiffChange",
+            },
+            name = {
+                trailing_slash = false,
+                highlight = "Normal",
             },
         },
         window = {
             position = "left",
-            width = 70,
+            width = 40,
             mappings = {
                 ["o"] = "toggle_node",
             },

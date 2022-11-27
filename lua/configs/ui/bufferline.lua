@@ -63,7 +63,7 @@ C.close_or_unsaved = {
         return buffer.is_modified and "●" or ""
     end,
     fg = function(buffer)
-        return (buffer.is_modified and hlprop("Visual").fg) or nil
+        return (buffer.is_modified and hlprop("DiffChange").fg) or nil
     end,
     bg = hlprop("Normal").bg,
     delete_buffer_on_left_click = true,

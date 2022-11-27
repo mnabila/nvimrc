@@ -12,7 +12,7 @@ require("packer").startup(function()
     use({
         "feline-nvim/feline.nvim",
         config = [[require("configs.ui.feline")()]],
-        after = "ayu.nvim",
+        after = "ayune.nvim",
     })
     use({
         "lukas-reineke/indent-blankline.nvim",
@@ -37,18 +37,18 @@ require("packer").startup(function()
         config = [[require("configs.ui.colorizer")()]],
     })
 
-    -- use mnabila/ayu.nvim
+    -- use mnabila/ayune.nvim
     use({
-        "~/git/ayu.nvim",
+        "~/git/ayune.nvim",
         event = "VimEnter",
-        config = [[vim.cmd("colorscheme ayu")]],
+        config = [[vim.cmd("colorscheme ayune")]],
     })
 
-    use({
-        "noib3/nvim-cokeline",
-        config = [[require("configs.ui.bufferline")()]],
-        after = "ayu.nvim",
-    })
+    -- use({
+    --     "noib3/nvim-cokeline",
+    --     config = [[require("configs.ui.bufferline")()]],
+    --     after = "ayune.nvim",
+    -- })
     use({
         "nvim-neo-tree/neo-tree.nvim",
         branch = "v2.x",
