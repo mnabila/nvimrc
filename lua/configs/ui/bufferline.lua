@@ -32,42 +32,22 @@ C.devicon = {
 C.filename = {
     text = function(buffer)
         local name = buffer.unique_prefix .. buffer.filename
-        if name == "[No Name]" then
-            name = "empty"
-        end
         return name
     end,
     fg = function(buffer)
-        return (buffer.is_focused and hlprop("Normal").fg)
-            or (buffer.diagnostics.errors ~= 0 and hlprop("DiagnosticError").fg)
-            or (buffer.diagnostics.warnings ~= 0 and hlprop("DiagnosticWarn").fg)
-            or (buffer.diagnostics.infos ~= 0 and hlprop("DiagnosticInfo").fg)
-            or (buffer.diagnostics.hints ~= 0 and hlprop("DiagnosticHint").fg)
-            or nil
+        return (buffer.is_focused and hlprop("Normal").fg) or (buffer.is_modified and hlprop("DiffChange").fg) or nil
     end,
     bg = hlprop("Normal").bg,
     style = function(buffer)
-        return ((buffer.is_focused and buffer.diagnostics.errors ~= 0) and "bold")
+        return ((buffer.is_focused and buffer.is_modified) and "bold,strikethrough")
             or (buffer.is_focused and "bold")
-            or (buffer.diagnostics.errors ~= 0 and "underline")
+            or (buffer.is_modified and "strikethrough")
             or nil
     end,
     truncation = {
         priority = 2,
         direction = "left",
     },
-}
-
-C.close_or_unsaved = {
-    text = function(buffer)
-        return buffer.is_modified and "●" or ""
-    end,
-    fg = function(buffer)
-        return (buffer.is_modified and hlprop("DiffChange").fg) or nil
-    end,
-    bg = hlprop("Normal").bg,
-    delete_buffer_on_left_click = true,
-    truncation = { priority = 1 },
 }
 
 local M = {}
@@ -105,7 +85,6 @@ function M.config()
             C.space,
             C.filename,
             C.space,
-            C.close_or_unsaved,
             C.space,
         },
     })

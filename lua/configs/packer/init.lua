@@ -44,11 +44,11 @@ require("packer").startup(function()
         config = [[vim.cmd("colorscheme ayune")]],
     })
 
-    -- use({
-    --     "noib3/nvim-cokeline",
-    --     config = [[require("configs.ui.bufferline")()]],
-    --     after = "ayune.nvim",
-    -- })
+    use({
+        "noib3/nvim-cokeline",
+        config = [[require("configs.ui.bufferline")()]],
+        after = "ayune.nvim",
+    })
     use({
         "nvim-neo-tree/neo-tree.nvim",
         branch = "v2.x",
