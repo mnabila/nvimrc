@@ -3,11 +3,17 @@ local M = {}
 function M.config()
     local options = {
         ensure_installed = {
-            "lua",
-            "vim",
             "go",
             "gomod",
+            "help",
+            "json",
+            "lua",
+            "markdown",
+            "sql",
+            "tsx",
             "typescript",
+            "vim",
+            "yaml",
         },
         highlight = {
             enable = true,
@@ -25,12 +31,14 @@ function M.config()
         autopairs = {
             enable = true,
         },
+        playground = {
+            enable = true,
+            updatetime = 25,
+            persist_queries = false,
+        },
     }
 
     require("nvim-treesitter.configs").setup(options)
-    vim.api.nvim_create_user_command("TSPrintNode", function()
-        print(require("nvim-treesitter.ts_utils").get_node_at_cursor():type())
-    end, { nargs = 0 })
 end
 
 return setmetatable({}, {

@@ -14,11 +14,11 @@ require("packer").startup(function()
         config = [[require("configs.ui.feline")()]],
         after = "ayune.nvim",
     })
-    use({
-        "lukas-reineke/indent-blankline.nvim",
-        config = [[require("configs.ui.indentline")()]],
-        event = "BufRead",
-    })
+    -- use({
+    --     "lukas-reineke/indent-blankline.nvim",
+    --     config = [[require("configs.ui.indentline")()]],
+    --     event = "BufRead",
+    -- })
     use({
         "nvim-telescope/telescope.nvim",
         requires = {
@@ -138,4 +138,5 @@ require("packer").startup(function()
 
     -- -- other stff
     use({ "dstein64/vim-startuptime", cmd = "StartupTime" })
+    use({ "nvim-treesitter/playground", cmd = { "TSPlaygroundToggle", "TSHighlightCapturesUnderCursor" } })
 end)

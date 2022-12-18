@@ -28,6 +28,10 @@ vim.opt.fillchars = {
     verthoriz = "╋",
     eob = " ",
 }
+vim.opt.listchars = {
+    tab = "  ",
+    space = " ",
+}
 vim.opt.foldlevel = 0
 vim.opt.formatoptions:remove("cro")
 vim.opt.gdefault = true
@@ -42,7 +46,7 @@ vim.opt.linebreak = true
 vim.opt.linespace = 0
 vim.opt.list = true
 vim.opt.mouse = "a"
-vim.opt.number = true
+vim.opt.number = false
 vim.opt.pumblend = 10
 vim.opt.pumheight = 15
 vim.opt.pyxversion = 3

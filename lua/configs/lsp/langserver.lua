@@ -141,7 +141,7 @@ lspconfig.emmet_ls.setup(c.default({
     },
 }))
 
-local servers = { "dockerls", "bashls", "vimls", "prismals"}
+local servers = { "dockerls", "bashls", "vimls", "prismals", "intelephense"}
 for _, lsp in ipairs(servers) do
     lspconfig[lsp].setup(c.default())
 end

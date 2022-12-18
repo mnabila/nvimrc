@@ -23,7 +23,8 @@ nulls.setup({
         }),
         -- golang
         nulls.builtins.formatting.goimports,
-
+        -- php
+        nulls.builtins.formatting.phpcbf,
 
         -- linter
         -- nulls.builtins.diagnostics.eslint,
@@ -35,4 +36,3 @@ local function format()
 end
 -- keymap
 vim.keymap.set("n", "<leader>f", format, { desc = "LSP: Formats the current buffer" })
--- vim.keymap.set("v", "<leader>f", vim.lsp.formatexpr, { desc = "LSP: Formats a given range" })
