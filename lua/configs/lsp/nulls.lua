@@ -24,7 +24,7 @@ nulls.setup({
         -- golang
         nulls.builtins.formatting.goimports,
         -- php
-        nulls.builtins.formatting.phpcbf,
+        nulls.builtins.formatting.phpcsfixer,
 
         -- linter
         -- nulls.builtins.diagnostics.eslint,
