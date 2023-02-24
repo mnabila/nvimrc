@@ -22,7 +22,7 @@ lspconfig.tsserver.setup(c.default({
     },
 }))
 
-lspconfig.sumneko_lua.setup(c.default({
+lspconfig.lua_ls.setup(c.default({
     cmd = { "lua-language-server", string.format("--logpath=%s/.cache/nvim/sumneko_lua", vim.loop.os_homedir()) },
     root_dir = c.custom_cwd,
     settings = {
@@ -122,7 +122,7 @@ lspconfig.yamlls.setup(c.default({
             },
             schemas = {
                 ["https://json.schemastore.org/github-workflow.json"] = "ci.yml",
-                ["https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json"] = "docker-compose.yml",
+                ["https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json"] = "compose.yml",
             },
         },
     },

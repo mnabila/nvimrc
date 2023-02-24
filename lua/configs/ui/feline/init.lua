@@ -1,26 +1,8 @@
 local lsp = require("configs.ui.feline.components.lsp")
 local buffer = require("configs.ui.feline.components.buffer")
 local git = require("configs.ui.feline.components.git")
+local others = require("configs.ui.feline.components.others")
 local hlprop = require("configs.core.utils").hlprop
-
-local blank = {
-    provider = "",
-    hl = {
-        bg = "black",
-        fg = "white",
-    },
-}
-
-local vimode = {
-    provider = function()
-        return string.format("  %s ", require("feline.providers.vi_mode").get_vim_mode())
-    end,
-    hl = {
-        bg = "yellow",
-        fg = "black",
-        style = "bold",
-    },
-}
 
 local M = {}
 function M.config()
@@ -28,13 +10,13 @@ function M.config()
     local active = {
         -- left
         {
-            vimode,
+            others.vimode,
             git.branch,
             git.diff_add,
             git.diff_changed,
             git.diff_remove,
             buffer.name,
-            blank,
+            others.blank,
         },
         -- right
         {
@@ -66,7 +48,7 @@ function M.config()
 
     feline.use_theme({
         black = hlprop("Normal").bg,
-        altblack= hlprop("Comment").fg,
+        altblack = hlprop("Comment").fg,
         red = hlprop("DiagnosticError").fg,
         green = hlprop("String").fg,
         yellow = hlprop("DiagnosticWarn").fg,

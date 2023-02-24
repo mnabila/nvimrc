@@ -16,7 +16,7 @@ function M.custom_capabilities()
 end
 
 function M.custom_on_init()
-    print("Language Server Protocol started!")
+    vim.notify("Language Server Protocol started!", vim.log.levels.INFO)
 end
 
 function M.custom_cwd()
