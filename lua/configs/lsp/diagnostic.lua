@@ -16,10 +16,10 @@ vim.diagnostic.config({
 -- vim.cmd([[ autocmd CursorHold * lua vim.diagnostic.open_float() ]])
 
 local signs = {
-    Error = "",
-    Warn = "",
-    Hint = "",
-    Info = "",
+    Error = "",
+    Warn = "",
+    Hint = "",
+    Info = "",
 }
 for type, icon in pairs(signs) do
     local hl = "DiagnosticSign" .. type

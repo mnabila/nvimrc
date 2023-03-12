@@ -9,16 +9,9 @@ require("packer").startup(function()
     use("wbthomason/packer.nvim")
 
     -- interface
-    use({
-        "feline-nvim/feline.nvim",
-        config = [[require("configs.ui.feline")()]],
-        after = "ayune.nvim",
+    use({ "rebelot/heirline.nvim",
+        config = [[require("configs.ui.heirline")()]],
     })
-    -- use({
-    --     "lukas-reineke/indent-blankline.nvim",
-    --     config = [[require("configs.ui.indentline")()]],
-    --     event = "BufRead",
-    -- })
     use({
         "nvim-telescope/telescope.nvim",
         requires = {
@@ -37,17 +30,17 @@ require("packer").startup(function()
         config = [[require("configs.ui.colorizer")()]],
     })
 
-    -- use mnabila/ayune.nvim
+    -- use mnabila/gruvboy.nvim
     use({
-        "~/git/ayune.nvim",
+        "~/git/gruvboy.nvim",
         event = "VimEnter",
-        config = [[vim.cmd("colorscheme ayune")]],
+        config = [[vim.cmd("colorscheme gruvboy")]],
     })
 
     use({
         "noib3/nvim-cokeline",
         config = [[require("configs.ui.bufferline")()]],
-        after = "ayune.nvim",
+        after = "gruvboy.nvim",
     })
     use({
         "nvim-neo-tree/neo-tree.nvim",
