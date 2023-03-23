@@ -9,7 +9,8 @@ require("packer").startup(function()
     use("wbthomason/packer.nvim")
 
     -- interface
-    use({ "rebelot/heirline.nvim",
+    use({
+        "rebelot/heirline.nvim",
         config = [[require("configs.ui.heirline")()]],
     })
     use({
@@ -37,11 +38,6 @@ require("packer").startup(function()
         config = [[vim.cmd("colorscheme gruvboy")]],
     })
 
-    use({
-        "noib3/nvim-cokeline",
-        config = [[require("configs.ui.bufferline")()]],
-        after = "gruvboy.nvim",
-    })
     use({
         "nvim-neo-tree/neo-tree.nvim",
         branch = "v2.x",
@@ -114,13 +110,12 @@ require("packer").startup(function()
         config = [[require("configs.lsp")()]],
     })
     use({
-        "simrat39/symbols-outline.nvim",
-        config = [[require("configs.lsp.symbols")]],
+        "folke/trouble.nvim",
+        config = [[require("configs.lsp.trouble")]],
         after = "nvim-lspconfig",
     })
     use({
-        "folke/trouble.nvim",
-        config = [[require("configs.lsp.trouble")]],
+        "SmiteshP/nvim-navic",
         after = "nvim-lspconfig",
     })
 

@@ -21,12 +21,6 @@ M.Diagnostics = {
     condition = function()
         return conditions.has_diagnostics() and vim.api.nvim_win_get_width(0) > 80
     end,
-    static = {
-        error_icon = vim.fn.sign_getdefined("DiagnosticSignError")[1].text,
-        warn_icon = vim.fn.sign_getdefined("DiagnosticSignWarn")[1].text,
-        info_icon = vim.fn.sign_getdefined("DiagnosticSignInfo")[1].text,
-        hint_icon = vim.fn.sign_getdefined("DiagnosticSignHint")[1].text,
-    },
     init = function(self)
         self.errors = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.ERROR })
         self.warnings = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.WARN })
@@ -36,22 +30,23 @@ M.Diagnostics = {
     update = { "DiagnosticChanged", "BufEnter" },
     {
         provider = function(self)
-            return self.errors > 0 and string.format(" %s %s ", self.error_icon, self.errors)
+            local icon = vim.fn.sign_getdefined("DiagnosticSignError")[1].text
+            return self.errors > 0 and string.format(" %s %s ", icon, self.errors)
         end,
-        hl = { fg = colors.red },
     },
     {
         provider = function(self)
-            return self.errors > 0 and string.format(" %s %s ", self.warn_icon, self.warnings)
+            local icon = vim.fn.sign_getdefined("DiagnosticSignWarn")[1].text
+            return self.errors > 0 and string.format(" %s %s ", icon, self.warnings)
         end,
-        hl = { fg = colors.yellow },
     },
     {
         provider = function(self)
-            return self.errors > 0 and string.format(" %s %s ", self.info_icon, self.info)
+            local icon = vim.fn.sign_getdefined("DiagnosticSignInfo")[1].text
+            return self.errors > 0 and string.format(" %s %s ", icon, self.info)
         end,
-        hl = { fg = colors.blue },
     },
+    hl = { fg = colors.black, bg = colors.white },
 }
 
 return M

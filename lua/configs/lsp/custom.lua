@@ -30,6 +30,10 @@ function M.custom_on_attach(client, bufnr)
     vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "single" })
     vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "single" })
 
+    if client.server_capabilities.documentSymbolProvider then
+        require("nvim-navic").attach(client, bufnr)
+    end
+
     -- load buffer keymap
     M.keymap()
 end
@@ -37,13 +41,10 @@ end
 function M.keymap()
     local keymap = vim.keymap
     keymap.set("n", "K", M.show_documentation, { buffer = true, desc = "LSP: Show documentation" })
-    keymap.set(
-        "n",
-        "gi",
-        vim.lsp.buf.implementation,
-        { buffer = true, desc = "LSP: Lists all the implementations for the symbol under the cursor in the quickfix window." }
-
-    )
+    keymap.set("n", "gi", vim.lsp.buf.implementation, {
+        buffer = true,
+        desc = "LSP: Lists all the implementations for the symbol under the cursor in the quickfix window.",
+    })
     keymap.set(
         "n",
         "ga",
@@ -83,20 +84,6 @@ function M.keymap()
         "<leader>T",
         "<CMD>TroubleToggle workspace_diagnostics<CR>",
         { buffer = true, desc = "LSP: Show diagnostic from current workspace" }
-    )
-
-    -- aerial
-    -- keymap.set(
-    --     "n",
-    --     "<leader>A",
-    --     require("aerial").toggle,
-    --     { buffer = true, desc = "LSP: Open quick navigation for LSP document symbols" }
-    -- )
-    keymap.set(
-        "n",
-        "<leader>A",
-        "<CMD>SymbolsOutline<CR>",
-        { buffer = true, desc = "LSP: Open quick navigation for LSP document symbols" }
     )
 end
 

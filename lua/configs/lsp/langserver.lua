@@ -35,18 +35,6 @@ lspconfig.lua_ls.setup(c.default({
                 enable = true,
                 globals = { "vim", "awesome", "use", "client", "root", "s", "screen" },
             },
-            workspace = {
-                -- library = {
-                --     -- [vim.fn.expand("$VIMRUNTIME/lua")] = true,
-                --     -- [vim.fn.expand("$VIMRUNTIME/lua/vim/lsp")] = true,
-                --     -- ["/usr/share/awesome/lib"] = true,
-                --     -- ["/usr/share/lua/5.1"] = true,
-                --     -- ["/usr/share/lua/5.3"] = true,
-                --     -- ["/usr/share/lua/5.4"] = true,
-                -- },
-                --
-                library = vim.api.nvim_get_runtime_file("", true),
-            },
         },
     },
 }))
@@ -104,10 +92,10 @@ lspconfig.gopls.setup(c.default({
     },
 }))
 
-lspconfig.cssls.setup(c.default({
-    cmd = { "css-languageserver", "--stdio" },
-    root_dir = c.custom_cwd,
-}))
+-- lspconfig.cssls.setup(c.default({
+--     cmd = { "css-languageserver", "--stdio" },
+--     root_dir = c.custom_cwd,
+-- }))
 
 lspconfig.yamlls.setup(c.default({
     settings = {
@@ -141,7 +129,7 @@ lspconfig.emmet_ls.setup(c.default({
     },
 }))
 
-local servers = { "dockerls", "bashls", "vimls", "prismals", "intelephense"}
+local servers = { "dockerls", "bashls", "vimls", "prismals", "intelephense", "cssls"}
 for _, lsp in ipairs(servers) do
     lspconfig[lsp].setup(c.default())
 end

@@ -33,7 +33,6 @@ function M.config()
             file_previewer = previewers.vim_buffer_cat.new,
             grep_previewer = previewers.vim_buffer_vimgrep.new,
             qflist_previewer = previewers.vim_buffer_qflist.new,
-
             -- custom theme
             sorting_strategy = "descending",
             layout_strategy = "bottom_pane",
@@ -88,6 +87,7 @@ function M.config()
             },
             buffers = {
                 previewer = false,
+                initial_mode = "normal",
             },
         },
         extensions = {

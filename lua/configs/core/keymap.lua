@@ -28,9 +28,10 @@ keymap.set("n", "<Leader>x", "<CMD>%s///<CR>", { desc = "Delete in search result
 
 keymap.set("v", "<Leader>v", "y/\\V<C-R>=escape(@\",'/\\')<CR><CR>", { desc = "Search for visually selected text" })
 
---- jump betweenn split
--- keymap.set("n", "<A-h>", "<C-w>h", { desc = "Split: jump to left" })
--- keymap.set("n", "<A-j>", "<C-w>j", { desc = "Split: jump to down" })
--- keymap.set("n", "<A-k>", "<C-w>k", { desc = "Split: jump to up" })
--- keymap.set("n", "<A-l>", "<C-w>l", { desc = "Split: jump to right" })
--- keymap.set("n", "<A-w>", "<C-w>w", { desc = "Split: jump to last accessed" })
+-- buffer
+keymap.set("n", "<C-k>", "<CMD>bprevious<CR>", { desc = "Buffer: focus to previous buffer" })
+keymap.set("n", "<C-j>", "<CMD>bnext<CR>", { desc = "Buffer: focus to next buffer" })
+keymap.set("n", "<Leader>q", "<CMD>bd<CR>", { desc = "Buffer: delete buffer" })
+keymap.set("n", "<Leader>qq", "<CMD>%bd<CR>", { silent = true, desc = "Buffer: delete all buffer" })
+keymap.set("n", "<Leader>qa", "<CMD>%bd!<CR>", { silent = true, desc = "Buffer: force delete all buffer" })
+keymap.set("n", "<Leader>qo", "<CMD>%bd|e#<CR>", { silent = true, desc = "Buffer: delete all buffer except this one" })
