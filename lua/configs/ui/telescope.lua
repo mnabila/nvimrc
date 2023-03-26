@@ -87,7 +87,6 @@ function M.config()
             },
             buffers = {
                 previewer = false,
-                initial_mode = "normal",
             },
         },
         extensions = {

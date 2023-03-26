@@ -1,47 +1,32 @@
 local colors = require("configs.ui.heirline.color")
 local M = {}
 
-M.FileIcon = {
-    init = function(self)
-        self.extension = vim.fn.fnamemodify(self.filename, ":e")
-        self.icon, self.icon_color =
-            require("nvim-web-devicons").get_icon_color(self.filename, self.extension, { default = true })
+M.FilePath = {
+    provider = function()
+        local filename = vim.api.nvim_buf_get_name(0)
+        local filepath = vim.fn.fnamemodify(filename, ":.")
+        if filepath ~= "" then
+            return filepath
+        end
+        return "unsaved"
     end,
-    provider = function(self)
-        return " " .. self.icon
-    end,
+    hl = {
+        bold = false,
+    },
 }
 
-M.FileName = {
-    provider = function(self)
-        local filename = vim.fn.fnamemodify(self.filename, ":t")
-        if filename == "" then
-            return " untitled"
-        end
-        return " " .. filename
+M.FileIcon = {
+    provider = function()
+        local filename = vim.api.nvim_buf_get_name(0)
+        local extension = vim.fn.fnamemodify(filename, ":e")
+        local icon, _ = require("nvim-web-devicons").get_icon_color(filename, extension, { default = true })
+        return icon .. " "
     end,
 }
 
 M.LineNumber = {
     provider = "   %l:%L ",
     hl = { fg = colors.black, bg = colors.white, bold = true },
-}
-
-M.BufBlock = {
-    init = function(self)
-        self.filename = vim.api.nvim_buf_get_name(self.bufnr)
-    end,
-    M.FileIcon,
-    M.FileName,
-    {
-        provider = " ",
-    },
-    hl = function(self)
-        if self.is_active then
-            return { fg = colors.white, bold = true }
-        end
-        return { fg = colors.gray }
-    end,
 }
 
 return M
