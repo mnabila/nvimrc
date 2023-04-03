@@ -9,6 +9,3 @@ require("configs.plugins")
 
 -- neovim keybindings
 require("configs.core.keymap")
-
--- neovim user command
-require("configs.core.command")

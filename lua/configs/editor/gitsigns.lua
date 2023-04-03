@@ -5,5 +5,6 @@ require("gitsigns").setup({
         delete = { hl = "GitSignDelete", text = "┃" },
         topdelete = { hl = "GitSignDelete", text = "┃" },
         changedelete = { hl = "GitSignChange", text = "┃" },
+        untracked = { hl = "GitSignAdd", text = "┃" },
     },
 })

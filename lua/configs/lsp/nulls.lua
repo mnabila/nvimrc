@@ -33,5 +33,6 @@ nulls.setup({
 local function format()
     vim.lsp.buf.format({ async = true })
 end
+
 -- keymap
 vim.keymap.set("n", "<leader>f", format, { desc = "LSP: Formats the current buffer" })

@@ -18,6 +18,7 @@ local plugins = {
     -- colorschem
     {
         dir = "~/git/gruvboy.nvim", -- use mnabila/gruvboy.nvim
+        priority = 1000,
         config = function()
             vim.cmd("colorscheme gruvboy")
         end,
@@ -28,8 +29,8 @@ local plugins = {
         "hrsh7th/nvim-cmp",
         event = "InsertEnter",
         dependencies = {
-            "hrsh7th/cmp-buffer",
             "hrsh7th/cmp-nvim-lsp",
+            "hrsh7th/cmp-buffer",
             "hrsh7th/cmp-nvim-lua",
             "hrsh7th/cmp-path",
             {
@@ -85,7 +86,9 @@ local plugins = {
     {
         "voldikss/vim-translator",
         cmd = "Translate",
-        config = require("configs.editor.translator"),
+        init = function()
+            require("configs.editor.translator")
+        end,
     },
     {
         "numToStr/Comment.nvim",
@@ -93,18 +96,19 @@ local plugins = {
             require("Comment").setup()
         end,
     },
-
-    { "machakann/vim-sandwich" },
+    {
+        "machakann/vim-sandwich",
+        event = "InsertEnter",
+    },
     { "junegunn/vim-easy-align", cmd = "EasyAlign" },
     {
         "ray-x/go.nvim",
         dependencies = { "ray-x/guihua.lua" },
-        ft = "go",
+        ft = { "go", "gomod" },
         config = function()
             require("configs.languages.go")
         end,
     },
-
     {
         "rebelot/heirline.nvim",
         dependencies = { "SmiteshP/nvim-navic" },
@@ -123,7 +127,6 @@ local plugins = {
             require("configs.ui.telescope")
         end,
     },
-
     {
         "nvim-treesitter/nvim-treesitter",
         dependencies = { "p00f/nvim-ts-rainbow" },
@@ -131,14 +134,6 @@ local plugins = {
             require("configs.ui.treesitter")
         end,
     },
-
-    {
-        "norcalli/nvim-colorizer.lua",
-        config = function()
-            require("configs.ui.colorizer")
-        end,
-    },
-
     {
         "nvim-neo-tree/neo-tree.nvim",
         branch = "v2.x",
@@ -148,8 +143,15 @@ local plugins = {
             require("configs.ui.filemanager")
         end,
     },
-
+    {
+        "norcalli/nvim-colorizer.lua",
+        cmd = { "ColorizerToggle" },
+        config = function()
+            require("configs.ui.colorizer")
+        end,
+    },
     { "nvim-treesitter/playground", cmd = { "TSPlaygroundToggle", "TSHighlightCapturesUnderCursor" } },
+    { "dstein64/vim-startuptime", cmd = "StartupTime" },
 }
 
 require("lazy").setup(plugins, {
