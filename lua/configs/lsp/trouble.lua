@@ -1,4 +1,4 @@
-local options = {
+require("trouble").setup({
     position = "bottom", -- position of the list can be: bottom, top, left, right
     height = 7, -- height of the trouble list when position is top or bottom
     width = 50, -- width of the list when position is left or right
@@ -8,7 +8,8 @@ local options = {
     fold_closed = "", -- icon used for closed folds
     group = true, -- group results by file
     padding = true, -- add an extra new line on top of the list
-    action_keys = { -- key mappings for actions in the trouble list
+    action_keys = {
+        -- key mappings for actions in the trouble list
         -- map to {} to remove a mapping, for example:
         -- close = {},
         close = "<Leader>t", -- close the list
@@ -44,6 +45,4 @@ local options = {
         other = "﫠",
     },
     use_diagnostic_signs = false, -- enabling this will use the signs defined in your lsp client
-}
-
-require("trouble").setup(options)
+})

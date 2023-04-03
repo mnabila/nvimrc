@@ -46,7 +46,7 @@ M.Diagnostics = {
             return self.errors > 0 and string.format(" %s %s ", icon, self.info)
         end,
     },
-    hl = { fg = colors.black, bg = colors.white },
+    hl = { fg = colors.white },
 }
 
 return M

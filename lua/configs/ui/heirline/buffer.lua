@@ -12,6 +12,7 @@ M.FilePath = {
     end,
     hl = {
         bold = false,
+        strikethrough = vim.bo.modified,
     },
 }
 

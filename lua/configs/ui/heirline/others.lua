@@ -5,6 +5,13 @@ M.Separator = {
     provider = "%=",
 }
 
+M.SeparatorWhite = {
+    provider = "%=",
+    hl = {
+        bg = colors.white,
+    },
+}
+
 M.ViMode = {
     init = function(self)
         self.mode = vim.fn.mode(1) -- :h mode()
@@ -18,11 +25,11 @@ M.ViMode = {
     end,
     static = {
         mode_names = {
-            n = "NURUL",
-            i = "INSERET",
-            c = "COMAN",
-            V = "PISUAL",
-            t = "TERMINUL",
+            n = "NORMAL",
+            i = "INSERT",
+            c = "COMMAND",
+            V = "VISUAL",
+            t = "TERMINAL",
         },
     },
     provider = function(self)

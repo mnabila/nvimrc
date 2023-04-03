@@ -142,8 +142,4 @@ function M.keymap()
     keymap.set("n", "<Leader>d", require("telescope.builtin").diagnostics, { desc = "Telescope: Lists diagnostics" })
 end
 
-return setmetatable({}, {
-    __call = function()
-        return M.config()
-    end,
-})
+return M.config()
