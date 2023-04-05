@@ -54,13 +54,6 @@ local plugins = {
 
     -- languages server protocol
     {
-        "williamboman/mason.nvim",
-        cmd = { "Mason", "MasonInstall", "MasonUninstall" },
-        config = function()
-            require("configs.lsp.installer")
-        end,
-    },
-    {
         "neovim/nvim-lspconfig",
         dependencies = {
             "jose-elias-alvarez/null-ls.nvim",

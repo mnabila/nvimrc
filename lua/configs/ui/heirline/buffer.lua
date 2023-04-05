@@ -3,10 +3,24 @@ local M = {}
 
 M.FilePath = {
     provider = function()
+        local readonly, modifier
         local filename = vim.api.nvim_buf_get_name(0)
         local filepath = vim.fn.fnamemodify(filename, ":.")
+
+        if vim.bo.readonly then
+            readonly = " "
+        else
+            readonly = ""
+        end
+
+        if vim.bo.modified then
+            modifier = ""
+        else
+            modifier = ""
+        end
+
         if filepath ~= "" then
-            return filepath
+            return string.format(" %s %s %s ", filename, readonly, modifier)
         end
         return "unsaved"
     end,

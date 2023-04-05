@@ -24,8 +24,8 @@ require("neo-tree").setup({
             highlight = "Directory",
         },
         modified = {
-            symbol = "●",
-            highlight = "DiffChange",
+            symbol = "",
+            highlight = "GitSignChange",
         },
         name = {
             trailing_slash = false,
@@ -75,6 +75,15 @@ require("neo-tree").setup({
                 ["gp"] = "git_push",
                 ["gg"] = "git_commit_and_push",
             },
+        },
+    },
+    source_selector = {
+        winbar = true,
+        tab_labels = {
+            filesystem = "   Files ",
+            buffers = "   Buffers ",
+            git_status = "   Git ",
+            diagnostics = " 裂 Diagnostics ",
         },
     },
 })
