@@ -1,0 +1,70 @@
+{
+  "text-size": {
+    "prefix": "text-s",
+    "body": "text-${1|xs,sm,md,lg,xl,2xl,3xl,4xl|};"
+  },
+  "text-style": {
+    "prefix": "font-s",
+    "body": "font-${1|tight,normal,medium,semobold,bold|};"
+  },
+  "aspect ration": {
+    "prefix": "aspect",
+    "body": "aspect-${1|auto,square,video,[${1:val}]|};"
+  },
+  "display": {
+    "prefix": "display",
+    "body": "${1|flex,grid,block,inline,hidden|};"
+  },
+  "object fit": {
+    "prefix": "object",
+    "body": "object-${1|contain,cover,fill,none,scale-down|};"
+  },
+  "object position": {
+    "prefix": "object position",
+    "body": "object-${1|bottom,center,left,left-bottom,left-top,right,right-bottom,right-top,top|};"
+  },
+  "overflow": {
+    "prefix": "overflow",
+    "body": "overflow-${1|auto,hidden,clip,visible,scroll,x-auto,y-auto,x-hidden,y-hidden,x-clip,y-xlip,x-visible,y-visible,x-scroll,y-scroll|};"
+  },
+  "overscroll": {
+    "prefix": "overscroll",
+    "body": "overscroll-${1|auto,contain,none,y-auto,x-auto,x-contain,y-contain,x-none,y-none|};"
+  },
+  "position": {
+    "prefix": "position",
+    "body": "position-${1|fixed,relative,static,sticky,absolute|};"
+  },
+  "z-index": {
+    "prefix": "z",
+    "body": "z-${1|10,20,30,40,50,auto|}"
+  },
+  "flex direction": {
+    "prefix": "flex-di",
+    "body": "flex-${1|row,col,row-reverse,col-reverse|}"
+  },
+  "order": {
+    "prefix": "order",
+    "body": "order-${1|1,2,3,4,5,6,7,8,9,10,11,12,first,last,none|}"
+  },
+  "grid template columns": {
+    "prefix": "gc",
+    "body": "grid-col-${1|1,2,3,4,5,6,7,8,9,10,11,12,none|}"
+  },
+  "grid column start": {
+    "prefix": "col",
+    "body": "col-${1|span-auto,span-1,span-2,span-3,span-4,span-5,span-6,span-7,span-8,span-9,span-10,span-11,span-12,span-full,start-1,start-2,start-3,start-4,start-5,start-6,start-7,start-8,start-9,start-10,start-11,start-12,start-13,start-auto,end-1,end-2,end-3,end-4,end-5,end-6,end-7,end-8,end-9,end-10,end-11,end-12,end-13,end-auto|}"
+  },
+  "grid template rows": {
+    "prefix": "gr",
+    "body": "grid-row-${1|1,2,3,4,5,6,none|}"
+  },
+  "gap": {
+    "prefix": "gap",
+    "body": "gap-${1|0,px,1,2,3,4,5,6,7,8,9,10,11,12,14,16,20,24,28,32,36,40,44,48,52,56,60,64,70,72,80,96,x-0,x-px,x-1,x-2,x-3,x-4,x-5,x-6,x-7,x-8,x-9,x-10,x-11,x-12,x-14,x-16,x-20,x-24,x-28,x-32,x-36,x-40,x-42,x-44,x-48,x-52,x-56,x-60,x-64,x-70,x-72,x-80,x-96,y-0,y-px,y-1,y-2,y-3,y-4,y-5,y-6,y-7,y-8,y-9,y-10,y-11,y-12,y-14,y-16,y-20,y-24,y-28,y-32,y-36,y-40,y-44,y-48,y-52,y-56,y-60,y-64,y-70,y-72,y-80,y-96|}"
+  },
+  "justify content": {
+    "prefix": "jc",
+    "body": "gap-${1|0,px,1,2,3,4,5,6,7,8,9,10,11,12,14,16,20,24,28,32,36,40,44,48,52,56,60,64,70,72,80,96,x-0,x-px,x-1,x-2,x-3,x-4,x-5,x-6,x-7,x-8,x-9,x-10,x-11,x-12,x-14,x-16,x-20,x-24,x-28,x-32,x-36,x-40,x-42,x-44,x-48,x-52,x-56,x-60,x-64,x-70,x-72,x-80,x-96,y-0,y-px,y-1,y-2,y-3,y-4,y-5,y-6,y-7,y-8,y-9,y-10,y-11,y-12,y-14,y-16,y-20,y-24,y-28,y-32,y-36,y-40,y-44,y-48,y-52,y-56,y-60,y-64,y-70,y-72,y-80,y-96|}"
+  }
+}

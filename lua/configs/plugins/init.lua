@@ -38,6 +38,9 @@ local plugins = {
                 dependencies = "hrsh7th/vim-vsnip",
                 init = function()
                     vim.g.vsnip_snippet_dir = vim.fn.stdpath("config") .. "/snippets"
+                    vim.g.vsnip_filetypes = {
+                        typescriptreact = { "tailwindcss" },
+                    }
                 end,
             },
             {
