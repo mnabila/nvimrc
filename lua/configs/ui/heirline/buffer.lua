@@ -1,47 +1,62 @@
-local colors = require("configs.ui.heirline.color")
 local M = {}
 
 M.FilePath = {
-    provider = function()
-        local readonly, modifier
-        local filename = vim.api.nvim_buf_get_name(0)
-        local filepath = vim.fn.fnamemodify(filename, ":.")
-
-        if vim.bo.readonly then
-            readonly = " "
-        else
-            readonly = ""
-        end
-
-        if vim.bo.modified then
-            modifier = ""
-        else
-            modifier = ""
-        end
-
-        if filepath ~= "" then
-            return string.format(" %s %s %s ", filename, readonly, modifier)
-        end
-        return "unsaved"
+    init = function(self)
+        self.filename = vim.api.nvim_buf_get_name(0)
     end,
-    hl = {
-        bold = false,
-        strikethrough = vim.bo.modified,
+    condition = function()
+        return vim.api.nvim_buf_get_name(0) ~= ""
+    end,
+    {
+        provider = function(self)
+            local extension = vim.fn.fnamemodify(self.filename, ":e")
+            local icon, _ = require("nvim-web-devicons").get_icon_color(self.filename, extension, { default = true })
+            return " " .. icon
+        end,
     },
-}
-
-M.FileIcon = {
-    provider = function()
-        local filename = vim.api.nvim_buf_get_name(0)
-        local extension = vim.fn.fnamemodify(filename, ":e")
-        local icon, _ = require("nvim-web-devicons").get_icon_color(filename, extension, { default = true })
-        return icon .. " "
-    end,
+    {
+        provider = function(self)
+            if self.filename ~= "" then
+                local filepath = vim.fn.fnamemodify(self.filename, ":~:.")
+                return " " .. filepath
+            end
+        end,
+    },
+    {
+        provider = function()
+            return vim.bo.readonly and "  "
+        end,
+    },
+    {
+        provider = function()
+            return vim.bo.modified and "  "
+        end,
+    },
 }
 
 M.LineNumber = {
     provider = "   %l:%L ",
-    hl = { fg = colors.black, bg = colors.white, bold = true },
+}
+
+M.FileType = {
+    init = function(self)
+        self.filename = vim.api.nvim_buf_get_name(0)
+    end,
+    condition = function()
+        return vim.api.nvim_buf_get_name(0) ~= ""
+    end,
+    {
+        provider = function(self)
+            local extension = vim.fn.fnamemodify(self.filename, ":e")
+            local icon, _ = require("nvim-web-devicons").get_icon_color(self.filename, extension, { default = true })
+            return " " .. icon
+        end,
+    },
+    {
+        provider = function()
+            return " " .. string.upper(vim.bo.filetype)
+        end,
+    },
 }
 
 return M

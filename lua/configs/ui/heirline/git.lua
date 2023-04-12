@@ -1,5 +1,4 @@
 local conditions = require("heirline.conditions")
-local colors = require("configs.ui.heirline.color")
 local M = {}
 
 M.Branch = {
@@ -8,7 +7,7 @@ M.Branch = {
         self.status_dict = vim.b.gitsigns_status_dict
         self.has_changes = self.status_dict.added ~= 0 or self.status_dict.removed ~= 0 or self.status_dict.changed ~= 0
     end,
-    hl = { fg = colors.black, bg = colors.white },
+    hl = { fg = "black", bg = "white" },
     {
         -- git branch name
         provider = function(self)

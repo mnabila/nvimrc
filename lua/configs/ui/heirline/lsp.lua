@@ -1,5 +1,4 @@
 local conditions = require("heirline.conditions")
-local colors = require("configs.ui.heirline.color")
 local M = {}
 
 M.LSPActive = {
@@ -14,7 +13,7 @@ M.LSPActive = {
         end
         return string.format(" 󰌘  %s", table.concat(names, " "))
     end,
-    hl = { fg = colors.black, bg = colors.white, bold = true },
+    hl = { fg = "black", bg = "white", bold = true },
 }
 
 M.Diagnostics = {
@@ -46,7 +45,6 @@ M.Diagnostics = {
             return self.errors > 0 and string.format(" %s %s ", icon, self.info)
         end,
     },
-    hl = { fg = colors.white },
 }
 
 return M

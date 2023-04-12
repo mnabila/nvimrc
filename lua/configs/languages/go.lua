@@ -4,4 +4,10 @@ require("go").setup({
     tag_options = "json=omitempty",
     dap_debug = false,
     trouble = true,
+    run_in_floaterm = true,
+    floaterm = {
+        posititon = "bottom",
+        width = 0.40,
+        height = 0.40,
+    },
 })

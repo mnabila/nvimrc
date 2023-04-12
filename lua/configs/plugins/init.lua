@@ -39,7 +39,7 @@ local plugins = {
                 init = function()
                     vim.g.vsnip_snippet_dir = vim.fn.stdpath("config") .. "/snippets"
                     vim.g.vsnip_filetypes = {
-                        typescriptreact = { "tailwindcss" },
+                        typescriptreact = { "typescriptreact", "tailwindcss" },
                     }
                 end,
             },
@@ -107,7 +107,17 @@ local plugins = {
     },
     {
         "rebelot/heirline.nvim",
-        dependencies = { "SmiteshP/nvim-navic" },
+        dependencies = {
+            {
+                "SmiteshP/nvim-navic",
+                config = function()
+                    require("nvim-navic").setup({
+                        depth_limit = 4,
+                        separator = " ❱ ",
+                    })
+                end,
+            },
+        },
         config = function()
             require("configs.ui.heirline")
         end,

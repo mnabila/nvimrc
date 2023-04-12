@@ -9,23 +9,40 @@ local StatusLine = {
     git.Branch,
 
     -- center section
-    others.SeparatorWhite,
+    others.Separator,
 
     -- right section
+    -- lsp.Diagnostics,
     lsp.LSPActive,
+    buffer.FileType,
     buffer.LineNumber,
 }
 
+-- local TabLine = {
+--     others.TabLineOffset,
+--     buffer.FilePath,
+-- }
+
 local WinBar = {
-    buffer.FileIcon,
     buffer.FilePath,
-    others.Separator,
     lsp.Diagnostics,
+    others.Separator,
     others.Separator,
     others.Navic,
 }
 
 require("heirline").setup({
     statusline = StatusLine,
+    -- tabline = TabLine,
     winbar = WinBar,
+    opts = {
+        colors = {
+            black = "#282828",
+            white = "#ebdbb2",
+            gray = "#a89984",
+            red = "#fb4934",
+            yellow = "#fabd2f",
+            blue = "#83a598",
+        },
+    },
 })
