@@ -96,7 +96,7 @@ local plugins = {
         "machakann/vim-sandwich",
         event = "InsertEnter",
     },
-    { "junegunn/vim-easy-align", cmd = "EasyAlign" },
+    { "junegunn/vim-easy-align",     cmd = "EasyAlign" },
     {
         "ray-x/go.nvim",
         dependencies = { "ray-x/guihua.lua" },
@@ -156,8 +156,6 @@ local plugins = {
             require("configs.ui.colorizer")
         end,
     },
-    { "nvim-treesitter/playground", cmd = { "TSPlaygroundToggle", "TSHighlightCapturesUnderCursor" } },
-    { "dstein64/vim-startuptime", cmd = "StartupTime" },
 }
 
 require("lazy").setup(plugins, {

@@ -62,15 +62,6 @@ require("neo-tree").setup({
             },
         },
     },
-    source_selector = {
-        winbar = true,
-        tab_labels = {
-            filesystem = "   Files ",
-            buffers = "   Buffers ",
-            git_status = "   Git ",
-            diagnostics = " 裂 Diagnostics ",
-        },
-    },
 })
 
 vim.keymap.set("n", "`", "<CMD>NeoTreeFocusToggle<CR>", { desc = "open file manager", silent = true })

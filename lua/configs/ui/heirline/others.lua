@@ -41,6 +41,9 @@ M.Navic = {
         return " " .. require("nvim-navic").get_location({ highlight = false })
     end,
     update = "CursorMoved",
+    hl = {
+        fg = "gray",
+    },
 }
 
 M.TabLineOffset = {

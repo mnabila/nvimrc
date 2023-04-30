@@ -32,18 +32,27 @@ M.Diagnostics = {
             local icon = vim.fn.sign_getdefined("DiagnosticSignError")[1].text
             return self.errors > 0 and string.format(" %s %s ", icon, self.errors)
         end,
+        hl = {
+            fg = "red",
+        },
     },
     {
         provider = function(self)
             local icon = vim.fn.sign_getdefined("DiagnosticSignWarn")[1].text
             return self.errors > 0 and string.format(" %s %s ", icon, self.warnings)
         end,
+        hl = {
+            fg = "yellow",
+        },
     },
     {
         provider = function(self)
             local icon = vim.fn.sign_getdefined("DiagnosticSignInfo")[1].text
             return self.errors > 0 and string.format(" %s %s ", icon, self.info)
         end,
+        hl = {
+            fg = "blue",
+        },
     },
 }
 

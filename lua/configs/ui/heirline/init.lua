@@ -12,28 +12,20 @@ local StatusLine = {
     others.Separator,
 
     -- right section
-    -- lsp.Diagnostics,
     lsp.LSPActive,
     buffer.FileType,
     buffer.LineNumber,
 }
 
--- local TabLine = {
---     others.TabLineOffset,
---     buffer.FilePath,
--- }
-
 local WinBar = {
     buffer.FilePath,
-    lsp.Diagnostics,
-    others.Separator,
-    others.Separator,
     others.Navic,
+    others.Separator,
+    lsp.Diagnostics,
 }
 
 require("heirline").setup({
     statusline = StatusLine,
-    -- tabline = TabLine,
     winbar = WinBar,
     opts = {
         colors = {
@@ -46,7 +38,7 @@ require("heirline").setup({
         },
         disable_winbar_cb = function(args)
             local buf = args.buf
-            local buftype = vim.tbl_contains({ "prompt", "nofile", "help", "quickfix" }, vim.bo[buf].buftype)
+            local buftype = vim.tbl_contains({ "prompt", "nofile", "help", "quickfix", "terminal" }, vim.bo[buf].buftype)
             local filetype = vim.tbl_contains({ "gitcommit", "Trouble" }, vim.bo[buf].filetype)
             return buftype or filetype
         end,

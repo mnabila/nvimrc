@@ -7,6 +7,11 @@ M.FilePath = {
     condition = function()
         return vim.api.nvim_buf_get_name(0) ~= ""
     end,
+    hl = function()
+        if vim.bo.modified then
+            return { link = "DiffAdd" }
+        end
+    end,
     {
         provider = function(self)
             local extension = vim.fn.fnamemodify(self.filename, ":e")
@@ -25,11 +30,6 @@ M.FilePath = {
     {
         provider = function()
             return vim.bo.readonly and "  "
-        end,
-    },
-    {
-        provider = function()
-            return vim.bo.modified and "  "
         end,
     },
 }
