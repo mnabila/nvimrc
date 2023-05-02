@@ -2,7 +2,7 @@
 
 ## Preview
 
-![Text Editor](./preview/screenshot_2023-05-02-07-11-07.png
+![Text Editor](./preview/screenshot_2023-05-02-07-11-07.png)
 
 ## Instalation
 
