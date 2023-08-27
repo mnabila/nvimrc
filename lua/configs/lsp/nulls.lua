@@ -27,6 +27,8 @@ nulls.setup({
         -- nulls.builtins.diagnostics.sqlfluff.with({
         --     extra_args = { "--dialect", "postgres" },
         -- }), -- postgres
+
+		nulls.builtins.diagnostics.eslint
     },
 })
 

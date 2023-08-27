@@ -68,4 +68,5 @@ M.TabLineOffset = {
         bold = true,
     },
 }
+
 return M

@@ -24,6 +24,8 @@ local WinBar = {
     lsp.Diagnostics,
 }
 
+local TabLine = { others.TabLineOffset, BufferLine, TabPages }
+
 require("heirline").setup({
     statusline = StatusLine,
     winbar = WinBar,

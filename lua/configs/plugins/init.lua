@@ -14,6 +14,7 @@ vim.opt.rtp:prepend(lazypath)
 local plugins = {
     -- dependencies
     { "nvim-tree/nvim-web-devicons", lazy = true },
+    { "nvim-lua/plenary.nvim", lazy = true },
 
     -- colorschem
     {
@@ -39,7 +40,7 @@ local plugins = {
                 init = function()
                     vim.g.vsnip_snippet_dir = vim.fn.stdpath("config") .. "/snippets"
                     vim.g.vsnip_filetypes = {
-                        typescriptreact = { "typescriptreact", "tailwindcss" },
+                        typescriptreact = { "typescriptreact" },
                     }
                 end,
             },
@@ -96,7 +97,7 @@ local plugins = {
         "machakann/vim-sandwich",
         event = "InsertEnter",
     },
-    { "junegunn/vim-easy-align",     cmd = "EasyAlign" },
+    { "junegunn/vim-easy-align", cmd = "EasyAlign" },
     {
         "ray-x/go.nvim",
         dependencies = { "ray-x/guihua.lua" },
@@ -125,7 +126,6 @@ local plugins = {
     {
         "nvim-telescope/telescope.nvim",
         dependencies = {
-            "nvim-lua/plenary.nvim",
             "nvim-telescope/telescope-ui-select.nvim",
             "nvim-telescope/telescope-fzy-native.nvim",
         },
@@ -135,7 +135,6 @@ local plugins = {
     },
     {
         "nvim-treesitter/nvim-treesitter",
-        dependencies = { "p00f/nvim-ts-rainbow" },
         config = function()
             require("configs.ui.treesitter")
         end,

@@ -19,10 +19,6 @@ local options = {
         enable = true,
         disable = { "python" },
     },
-    -- p00f/nvim-ts-rainbow
-    rainbow = {
-        enable = true,
-    },
     -- windwp/nvim-autopairs
     autopairs = {
         enable = true,
