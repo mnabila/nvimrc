@@ -85,8 +85,8 @@ local options = {
         },
         buffers = {
             previewer = false,
-			ignore_current_buffer=true,
-			sort_lastused=true,
+            ignore_current_buffer = true,
+            sort_lastused = true,
         },
     },
     extensions = {
@@ -104,7 +104,7 @@ telescope.load_extension("fzy_native")
 keymap.set("n", "<Leader>0", require("telescope.builtin").oldfiles, { desc = "Telescope: Lists previously open files" })
 keymap.set(
     "n",
-    "<Leader>b",
+    "<Leader>l",
     require("telescope.builtin").buffers,
     { desc = "Telescope: Lists open buffers in current neovim instance" }
 )
@@ -118,10 +118,4 @@ keymap.set(
     { desc = "Telescope: Lists normal mode keymappings" }
 )
 keymap.set("n", "<Leader>c", require("telescope.builtin").commands, { desc = "Telescope: Lists vim autocommands" })
-keymap.set(
-    "n",
-    "<Leader>a",
-    require("telescope.builtin").lsp_document_symbols,
-    { desc = "Telescope: Lists LSP document symbols in the current buffer" }
-)
 keymap.set("n", "<Leader>d", require("telescope.builtin").diagnostics, { desc = "Telescope: Lists diagnostics" })

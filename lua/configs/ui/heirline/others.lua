@@ -33,19 +33,6 @@ M.ViMode = {
     },
 }
 
-M.Navic = {
-    condition = function()
-        return require("nvim-navic").is_available()
-    end,
-    provider = function()
-        return " " .. require("nvim-navic").get_location({ highlight = false })
-    end,
-    update = "CursorMoved",
-    hl = {
-        fg = "gray",
-    },
-}
-
 M.TabLineOffset = {
     condition = function(self)
         local win = vim.api.nvim_tabpage_list_wins(0)[1]

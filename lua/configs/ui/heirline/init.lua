@@ -2,6 +2,7 @@ local lsp = require("configs.ui.heirline.lsp")
 local buffer = require("configs.ui.heirline.buffer")
 local git = require("configs.ui.heirline.git")
 local others = require("configs.ui.heirline.others")
+local winbar = require("lspsaga.symbol.winbar")
 
 local StatusLine = {
     -- left section
@@ -19,7 +20,7 @@ local StatusLine = {
 
 local WinBar = {
     buffer.FilePath,
-    others.Navic,
+    winbar.get_bar(),
     others.Separator,
     lsp.Diagnostics,
 }
@@ -40,7 +41,8 @@ require("heirline").setup({
         },
         disable_winbar_cb = function(args)
             local buf = args.buf
-            local buftype = vim.tbl_contains({ "prompt", "nofile", "help", "quickfix", "terminal" }, vim.bo[buf].buftype)
+            local buftype =
+                vim.tbl_contains({ "prompt", "nofile", "help", "quickfix", "terminal" }, vim.bo[buf].buftype)
             local filetype = vim.tbl_contains({ "gitcommit", "Trouble" }, vim.bo[buf].filetype)
             return buftype or filetype
         end,

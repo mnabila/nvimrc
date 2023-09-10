@@ -67,6 +67,13 @@ local plugins = {
                     require("configs.lsp.trouble")
                 end,
             },
+            {
+
+                "nvimdev/lspsaga.nvim",
+                config = function()
+                    require("configs.lsp.saga")
+                end,
+            },
         },
         config = function()
             require("configs.lsp")
@@ -108,17 +115,6 @@ local plugins = {
     },
     {
         "rebelot/heirline.nvim",
-        dependencies = {
-            {
-                "SmiteshP/nvim-navic",
-                config = function()
-                    require("nvim-navic").setup({
-                        depth_limit = 4,
-                        separator = " ❱ ",
-                    })
-                end,
-            },
-        },
         config = function()
             require("configs.ui.heirline")
         end,
@@ -154,6 +150,10 @@ local plugins = {
         config = function()
             require("configs.ui.colorizer")
         end,
+    },
+    {
+        "NeogitOrg/neogit",
+        config = true,
     },
 }
 

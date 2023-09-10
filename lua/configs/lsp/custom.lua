@@ -27,12 +27,7 @@ function M.custom_cwd()
 end
 
 function M.custom_on_attach(client, bufnr)
-    vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "single" })
     vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "single" })
-
-    if client.server_capabilities.documentSymbolProvider then
-        require("nvim-navic").attach(client, bufnr)
-    end
 
     -- load buffer keymap
     M.keymap()
@@ -40,36 +35,42 @@ end
 
 function M.keymap()
     local keymap = vim.keymap
-    keymap.set("n", "K", M.show_documentation, { buffer = true, desc = "LSP: Show documentation" })
-    keymap.set("n", "gi", vim.lsp.buf.implementation, {
-        buffer = true,
-        desc = "LSP: Lists all the implementations for the symbol under the cursor in the quickfix window.",
-    })
+    keymap.set("n", "K", "<CMD>Lspsaga hover_doc<CR>", { buffer = true, desc = "LSP: Show documentation" })
+    keymap.set(
+        "n",
+        "<Leader>a",
+        "<CMD>Lspsaga outline<CR>",
+        { desc = "LSP: Lists LSP document symbols in the current buffer" }
+    )
     keymap.set(
         "n",
         "ga",
-        vim.lsp.buf.code_action,
+        "<CMD>Lspsaga code_action<CR>",
         { buffer = true, desc = "LSP: Lists any LSP actions for the word under the cursor which can be triggered" }
     )
     keymap.set(
         "n",
         "gd",
-        require("telescope.builtin").lsp_definitions,
+        "<CMD>Lspsaga goto_definition<CR>",
         { buffer = true, desc = "LSP: Goto the definition of the word under the cursor" }
     )
-    keymap.set("n", "[e", vim.diagnostic.goto_prev, { buffer = true, desc = "LSP: Goto previous diagnostic" })
-    keymap.set("n", "]e", vim.diagnostic.goto_next, { buffer = true, desc = "LSP: Goto next diagnostic" })
     keymap.set(
         "n",
-        "gr",
-        vim.lsp.buf.rename,
-        { buffer = true, desc = "LSP: Renames all references to the symbol under the cursor." }
+        "[e",
+        "<CMD>Lspsaga diagnostic_jump_prev<CR>",
+        { buffer = true, desc = "LSP: Goto previous diagnostic" }
+    )
+    keymap.set(
+        "n",
+        "]e",
+        "<CMD>Lspsaga diagnostic_jump_next<CR>",
+        { buffer = true, desc = "LSP: Goto next diagnostic" }
     )
     keymap.set(
         "n",
         "gR",
-        vim.lsp.buf.references,
-        { buffer = true, desc = "LSP: Lists all the references to the symbol under the cursor in the quickfix window." }
+        "<CMD>Lspsaga rename<CR>",
+        { buffer = true, desc = "LSP: Renames all references to the symbol under the cursor." }
     )
 
     -- diagnostic
