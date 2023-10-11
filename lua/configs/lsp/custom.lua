@@ -1,13 +1,6 @@
-local M = {}
+local M = {} -- Define a Lua module named M
 
-function M.show_documentation()
-    if vim.fn.index({ "vim", "help" }, vim.bo.filetype) >= 0 then
-        vim.cmd("h " .. vim.fn.expand("<cword>"))
-    else
-        vim.lsp.buf.hover()
-    end
-end
-
+-- Function to customize LSP (Language Server Protocol) capabilities
 function M.custom_capabilities()
     local cmp_lsp = require("cmp_nvim_lsp")
     local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -15,10 +8,12 @@ function M.custom_capabilities()
     return capabilities
 end
 
+-- Function to run custom code when LSP is initialized
 function M.custom_on_init()
     vim.notify("Language Server Protocol started!", vim.log.levels.INFO)
 end
 
+-- Function to customize the current working directory
 function M.custom_cwd()
     if vim.loop.cwd() == vim.loop.os_homedir() then
         return vim.fn.expand("%:p:h")
@@ -26,20 +21,28 @@ function M.custom_cwd()
     return vim.loop.cwd()
 end
 
-function M.custom_on_attach(client, bufnr)
+-- Function to customize behavior when LSP is attached to a buffer
+function M.custom_on_attach()
     vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "single" })
+    vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+        underline = true,
+        signs = false,
+        virtual_text = { spacing = 4, prefix = "❰" },
+    })
 
-    -- load buffer keymap
+    -- Load buffer-specific keymaps
     M.keymap()
 end
 
+-- Function to define key mappings
 function M.keymap()
     local keymap = vim.keymap
+
     keymap.set("n", "K", "<CMD>Lspsaga hover_doc<CR>", { buffer = true, desc = "LSP: Show documentation" })
     keymap.set(
         "n",
         "<Leader>a",
-        "<CMD>Lspsaga outline<CR>",
+        require("telescope.builtin").lsp_document_symbols,
         { desc = "LSP: Lists LSP document symbols in the current buffer" }
     )
     keymap.set(
@@ -73,7 +76,6 @@ function M.keymap()
         { buffer = true, desc = "LSP: Renames all references to the symbol under the cursor." }
     )
 
-    -- diagnostic
     keymap.set(
         "n",
         "<leader>t",
@@ -88,6 +90,7 @@ function M.keymap()
     )
 end
 
+-- Function to create a default LSP configuration
 function M.default(configs)
     local custom_config = {
         root_dir = M.custom_cwd,
@@ -95,11 +98,14 @@ function M.default(configs)
         on_attach = M.custom_on_attach,
         capabilities = M.custom_capabilities(),
     }
+
+    -- Merge custom configurations if provided
     if configs ~= nil then
         for key, value in pairs(configs) do
             custom_config[key] = value
         end
     end
+
     return custom_config
 end
 

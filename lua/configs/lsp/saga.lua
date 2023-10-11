@@ -1,6 +1,14 @@
 require("lspsaga").setup({
-	outline = {
-		left_width = 0.5,
-		layout = "float",
-	},
+    lightbulb = {
+        sign = false,
+    },
+    outline = {
+        left_width = 0.5,
+        layout = "float",
+    },
+    symbol_in_winbar = {
+        enable = true,
+        folder_level = 1,
+        color_mode = true,
+    },
 })

@@ -20,6 +20,7 @@ nulls.setup({
         }), -- css, html, js, json and other stuff (lol)
         nulls.builtins.formatting.goimports, -- golang
         nulls.builtins.formatting.phpcsfixer, -- php
+        nulls.builtins.formatting.buf, -- proto
 
         --
         -- DIAGNOSTICS
@@ -28,7 +29,8 @@ nulls.setup({
         --     extra_args = { "--dialect", "postgres" },
         -- }), -- postgres
 
-		nulls.builtins.diagnostics.eslint
+        nulls.builtins.diagnostics.eslint, -- javascript, typescript
+        -- nulls.builtins.diagnostics.buf, -- proto
     },
 })
 
