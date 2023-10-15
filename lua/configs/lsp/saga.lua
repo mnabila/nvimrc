@@ -10,5 +10,6 @@ require("lspsaga").setup({
         enable = true,
         folder_level = 1,
         color_mode = true,
+        separator = " ❱ ",
     },
 })

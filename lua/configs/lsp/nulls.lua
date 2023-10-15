@@ -1,6 +1,11 @@
 local nulls = require("null-ls")
 
 nulls.setup({
+    -- diagnostic_config = {
+    --     underline = true,
+    --     signs = false,
+    --     virtual_text = { spacing = 4, prefix = "❰" },
+    -- },
     sources = {
         --
         -- FORMATTER

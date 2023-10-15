@@ -12,7 +12,7 @@ require("gruvbox").setup({
         GruvboxOrangeSign = { link = "GruvboxOrange" },
 
         TroubleFoldIcon = { link = "Normal" },
-        TroubleCount = { link = "GruvboxOrange", reverse=true },
+        TroubleCount = { link = "GruvboxOrange", reverse = true },
     },
 })
 

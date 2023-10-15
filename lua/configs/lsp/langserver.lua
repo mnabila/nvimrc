@@ -39,45 +39,6 @@ lspconfig.lua_ls.setup(c.default({
     },
 }))
 
--- lspconfig.pyright.setup(c.default({
---     settings = {
---         python = {
---             analysis = {
---                 useLibraryCodeForTypes = false,
---                 autoImportCompletions = true,
---                 autoSearchPaths = true,
---                 diagnosticMode = "openFilesOnly",
---                 typeCheckingMode = "basic",
---             },
---         },
---     },
--- }))
-
--- lspconfig.jedi_language_server.setup(c.default({
---     settings = {
---         jedi = {
---             enable = true,
---             startupMessage = true,
---             markupKindPreferred = "markdown",
---             jediSettings = {
---                 autoImportconfigs = {},
---                 completion = { disableSnippets = false },
---                 diagnostics = { enable = true, didOpen = true, didSave = true, didChange = true },
---             },
---             workspace = { extraPaths = {} },
---         },
---     },
--- }))
-
--- lspconfig.sqls.setup({
---     cmd = { "sqls", "-config", vim.loop.os_homedir() .. "/.config/sqls/config.yml" },
---     on_init = c.custom_on_init,
---     capabilities = c.custom_capabilities(),
---     on_attach = function(client, bufnr)
---         require("sqls").on_attach(client, bufnr)
---     end,
--- })
-
 lspconfig.gopls.setup(c.default({
     cmd = { "gopls", "serve" },
     root_dir = c.custom_cwd,
@@ -91,11 +52,6 @@ lspconfig.gopls.setup(c.default({
         },
     },
 }))
-
--- lspconfig.cssls.setup(c.default({
---     cmd = { "css-languageserver", "--stdio" },
---     root_dir = c.custom_cwd,
--- }))
 
 lspconfig.yamlls.setup(c.default({
     settings = {

@@ -7,7 +7,6 @@ require("configs.core.settings")
 -- neovim package manager
 require("configs.plugins")
 
-
 -- neovim command
 require("configs.core.command")
 

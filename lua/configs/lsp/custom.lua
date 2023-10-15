@@ -1,4 +1,4 @@
-local M = {} -- Define a Lua module named M
+local M = {}
 
 -- Function to customize LSP (Language Server Protocol) capabilities
 function M.custom_capabilities()
@@ -15,10 +15,9 @@ end
 
 -- Function to customize the current working directory
 function M.custom_cwd()
-    if vim.loop.cwd() == vim.loop.os_homedir() then
-        return vim.fn.expand("%:p:h")
-    end
-    return vim.loop.cwd()
+    local cwd = vim.loop.cwd()
+    local home_dir = vim.loop.os_homedir()
+    return cwd == home_dir and vim.fn.expand("%:p:h") or cwd
 end
 
 -- Function to customize behavior when LSP is attached to a buffer
@@ -38,55 +37,36 @@ end
 function M.keymap()
     local keymap = vim.keymap
 
-    keymap.set("n", "K", "<CMD>Lspsaga hover_doc<CR>", { buffer = true, desc = "LSP: Show documentation" })
-    keymap.set(
-        "n",
-        "<Leader>a",
-        require("telescope.builtin").lsp_document_symbols,
-        { desc = "LSP: Lists LSP document symbols in the current buffer" }
-    )
-    keymap.set(
-        "n",
-        "ga",
-        "<CMD>Lspsaga code_action<CR>",
-        { buffer = true, desc = "LSP: Lists any LSP actions for the word under the cursor which can be triggered" }
-    )
-    keymap.set(
-        "n",
-        "gd",
-        "<CMD>Lspsaga goto_definition<CR>",
-        { buffer = true, desc = "LSP: Goto the definition of the word under the cursor" }
-    )
-    keymap.set(
-        "n",
-        "[e",
-        "<CMD>Lspsaga diagnostic_jump_prev<CR>",
-        { buffer = true, desc = "LSP: Goto previous diagnostic" }
-    )
-    keymap.set(
-        "n",
-        "]e",
-        "<CMD>Lspsaga diagnostic_jump_next<CR>",
-        { buffer = true, desc = "LSP: Goto next diagnostic" }
-    )
-    keymap.set(
-        "n",
-        "gR",
-        "<CMD>Lspsaga rename<CR>",
-        { buffer = true, desc = "LSP: Renames all references to the symbol under the cursor." }
-    )
+    local lsp_cmds = {
+        hover_doc = "<CMD>Lspsaga hover_doc<CR>",
+        lsp_document_symbols = require("telescope.builtin").lsp_document_symbols,
+        code_action = "<CMD>Lspsaga code_action<CR>",
+        goto_definition = "<CMD>Lspsaga goto_definition<CR>",
+        diagnostic_jump_prev = "<CMD>Lspsaga diagnostic_jump_prev<CR>",
+        diagnostic_jump_next = "<CMD>Lspsaga diagnostic_jump_next<CR>",
+        rename = "<CMD>Lspsaga rename<CR>",
+        trouble_toggle_doc = "<CMD>TroubleToggle document_diagnostics<CR>",
+        trouble_toggle_workspace = "<CMD>TroubleToggle workspace_diagnostics<CR>",
+    }
 
+    keymap.set("n", "K", lsp_cmds.hover_doc, { buffer = true, desc = "LSP: Show documentation" })
+    keymap.set("n", "<Leader>a", lsp_cmds.lsp_document_symbols, { desc = "LSP: List LSP document symbols" })
+    keymap.set("n", "ga", lsp_cmds.code_action, { buffer = true, desc = "LSP: List LSP actions" })
+    keymap.set("n", "gd", lsp_cmds.goto_definition, { buffer = true, desc = "LSP: Goto definition" })
+    keymap.set("n", "[e", lsp_cmds.diagnostic_jump_prev, { buffer = true, desc = "LSP: Goto previous diagnostic" })
+    keymap.set("n", "]e", lsp_cmds.diagnostic_jump_next, { buffer = true, desc = "LSP: Goto next diagnostic" })
+    keymap.set("n", "gR", lsp_cmds.rename, { buffer = true, desc = "LSP: Rename references" })
     keymap.set(
         "n",
         "<leader>t",
-        "<CMD>TroubleToggle document_diagnostics<CR>",
-        { buffer = true, desc = "LSP: Show diagnostic from current buffer" }
+        lsp_cmds.trouble_toggle_doc,
+        { buffer = true, desc = "LSP: Show document diagnostics" }
     )
     keymap.set(
         "n",
         "<leader>T",
-        "<CMD>TroubleToggle workspace_diagnostics<CR>",
-        { buffer = true, desc = "LSP: Show diagnostic from current workspace" }
+        lsp_cmds.trouble_toggle_workspace,
+        { buffer = true, desc = "LSP: Show workspace diagnostics" }
     )
 end
 
