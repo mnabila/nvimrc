@@ -1,67 +1,76 @@
-require("neo-tree").setup({
-    close_if_last_window = true,
-    popup_border_style = "single",
-    enable_git_status = false,
-    enable_diagnostics = false,
-    default_component_configs = {
-        indent = {
-            indent_size = 2,
-            padding = 1,
-            with_markers = true,
-            indent_marker = "│",
-            last_indent_marker = "└",
-            highlight = "NeoTreeIndentMarker",
-            with_expanders = nil,
-            expander_collapsed = "",
-            expander_expanded = "",
-            expander_highlight = "NeoTreeExpander",
-        },
-        icon = {
-            folder_closed = " ",
-            folder_open = " ",
-            folder_empty = " ",
-            default = " ",
-            highlight = "Directory",
-        },
-        modified = {
-            symbol = "",
-            highlight = "GitSignChange",
-        },
-        name = {
-            trailing_slash = false,
-            highlight = "Normal",
-        },
+local sfm = require("sfm").setup({
+    view = {
+        side = "left",
+        width = 40,
+        selection_render_method = "highlight",
     },
-    window = {
-        position = "left",
-        width = 50,
-        mappings = {
-            ["o"] = "toggle_node",
-        },
-    },
-    filesystem = {
-        filtered_items = {
-            visible = false,
-            hide_dotfiles = true,
-            hide_gitignored = false,
-            hide_by_name = {
-                ".DS_Store",
-                "thumbs.db",
-                "node_modules",
+    mappings = {
+        custom_only = true,
+        list = {
+            {
+                key = "a",
+                action = "create",
             },
-        },
-        follow_current_file = true,
-        hijack_netrw_behavior = "open_default",
-        use_libuv_file_watcher = true,
-    },
-    buffers = {
-        show_unloaded = true,
-        window = {
-            mappings = {
-                ["bd"] = "buffer_delete",
+            {
+                key = "o",
+                action = "edit",
+            },
+            {
+                key = "<CR>",
+                action = "edit",
+            },
+            {
+                key = "c",
+                action = "copy",
+            },
+            {
+                key = "x",
+                action = "move",
+            },
+            {
+                key = "d",
+                action = "delete",
+            },
+            {
+                key = "]",
+                action = "change_root_to_entry",
+            },
+            {
+                key = "[",
+                action = "change_root_to_parent",
+            },
+            {
+                key = "O",
+                action = "system_open",
+            },
+            {
+                key = "<Tab>",
+                action = "toggle_selection",
+            },
+            {
+                key = "R",
+                action = "reload",
+            },
+            {
+                key = "<C-h>",
+                action = "split",
+            },
+            {
+                key = "<C-v>",
+                action = "vsplit",
             },
         },
     },
 })
 
-vim.keymap.set("n", "`", "<CMD>NeoTreeFocusToggle<CR>", { desc = "open file manager", silent = true })
+sfm:load_extension("sfm-filter", {
+    show_hidden = false,
+    ignore_names = {
+        "node_modules",
+    },
+    mappings = {
+        toggle_filter = { "." },
+    },
+})
+
+vim.keymap.set("n", "`", "<CMD>SFMToggle<CR>", { desc = "Simple File Manager" })

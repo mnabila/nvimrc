@@ -35,7 +35,7 @@ nulls.setup({
         -- }), -- postgres
 
         nulls.builtins.diagnostics.eslint, -- javascript, typescript
-        -- nulls.builtins.diagnostics.buf, -- proto
+        nulls.builtins.diagnostics.selene, -- lua
     },
 })
 

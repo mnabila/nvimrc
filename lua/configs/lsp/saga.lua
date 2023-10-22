@@ -8,7 +8,7 @@ require("lspsaga").setup({
     },
     symbol_in_winbar = {
         enable = true,
-        folder_level = 1,
+        folder_level = 0,
         color_mode = true,
         separator = " ❱ ",
     },

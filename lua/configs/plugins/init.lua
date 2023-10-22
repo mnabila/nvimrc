@@ -94,10 +94,10 @@ local plugins = {
         end,
     },
     {
-        "nvim-neo-tree/neo-tree.nvim",
-        branch = "v3.x",
-        dependencies = { "MunifTanjim/nui.nvim" },
-        keys = "`",
+        "dinhhuy258/sfm.nvim",
+        dependencies = {
+            "dinhhuy258/sfm-filter.nvim",
+        },
         config = function()
             require("configs.editor.filemanager")
         end,
@@ -149,12 +149,9 @@ local plugins = {
 
     -- languages
     {
-        "ray-x/go.nvim",
-        dependencies = { "ray-x/guihua.lua" },
+        "olexsmir/gopher.nvim",
         ft = { "go", "gomod" },
-        config = function()
-            require("configs.languages.go")
-        end,
+        config = true,
     },
 }
 
