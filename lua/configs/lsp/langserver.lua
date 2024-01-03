@@ -1,27 +1,6 @@
 local lspconfig = require("lspconfig")
 local c = require("configs.lsp.custom")
 
-lspconfig.tsserver.setup(c.default({
-    root_dir = c.custom_cwd,
-    settings = {
-        tsserver = {
-            useBatchedBufferSync = true,
-        },
-        javascript = {
-            autoClosingTags = true,
-            suggest = {
-                autoImports = true,
-            },
-            updateImportsOnFileMove = {
-                enable = true,
-            },
-            suggestionActions = {
-                enabled = true,
-            },
-        },
-    },
-}))
-
 lspconfig.lua_ls.setup(c.default({
     cmd = { "lua-language-server", string.format("--logpath=%s/.cache/nvim/sumneko_lua", vim.loop.os_homedir()) },
     root_dir = c.custom_cwd,
@@ -77,6 +56,7 @@ lspconfig.emmet_ls.setup(c.default({
         "html",
         "typescriptreact",
         "javascriptreact",
+        "javascript",
         "css",
         "sass",
         "scss",
@@ -85,7 +65,7 @@ lspconfig.emmet_ls.setup(c.default({
     },
 }))
 
-local servers = { "dockerls", "bashls", "vimls", "cssls", "bufls"}
+local servers = { "dockerls", "bashls", "vimls", "cssls", "bufls", "tsserver" }
 for _, lsp in ipairs(servers) do
     lspconfig[lsp].setup(c.default())
 end

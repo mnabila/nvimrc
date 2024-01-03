@@ -85,7 +85,6 @@ local options = {
         },
         buffers = {
             previewer = false,
-            ignore_current_buffer = true,
             sort_lastused = true,
         },
     },

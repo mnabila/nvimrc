@@ -25,5 +25,5 @@ require("lualine").setup({
         lualine_y = { "filetype" },
         lualine_z = { "location" },
     },
-    extensions = { "trouble", "man" },
+    extensions = { "trouble", "man", "fugitive" },
 })

@@ -125,6 +125,19 @@ local plugins = {
             require("configs.editor.telescope")
         end,
     },
+    {
+        "tpope/vim-fugitive",
+    },
+    {
+        "wakatime/vim-wakatime",
+    },
+    {
+        "ellisonleao/glow.nvim",
+        config = function()
+            require("configs.editor.glow")
+        end,
+        cmd = "Glow",
+    },
 
     -- interfaces
     {
@@ -139,18 +152,12 @@ local plugins = {
             require("configs.interfaces.treesitter")
         end,
     },
-    {
-        "norcalli/nvim-colorizer.lua",
-        cmd = { "ColorizerToggle" },
-        config = function()
-            require("configs.interfaces.colorizer")
-        end,
-    },
 
     -- languages
     {
         "olexsmir/gopher.nvim",
         ft = { "go", "gomod" },
+        branch = "develop",
         config = true,
     },
 }
@@ -158,5 +165,21 @@ local plugins = {
 require("lazy").setup(plugins, {
     ui = {
         border = "single",
+    },
+    performance = {
+        rtp = {
+            disabled_plugins = {
+                "gzip",
+                "tar",
+                "tarPlugin",
+                "zip",
+                "zipPlugin",
+                "getscript",
+                "getscriptPlugin",
+                "vimball",
+                "vimballPlugin",
+                "tohtml",
+            },
+        },
     },
 })

@@ -69,7 +69,7 @@ sfm:load_extension("sfm-filter", {
         "node_modules",
     },
     mappings = {
-        toggle_filter = { "." },
+        toggle_filter = { "H" },
     },
 })
 

@@ -14,8 +14,8 @@ nulls.setup({
         nulls.builtins.formatting.black, -- python
         nulls.builtins.formatting.shfmt, -- bash,sh,zsh
         nulls.builtins.formatting.sqlfluff.with({
-            extra_args = { "--dialect", "postgres" },
-        }), -- postgresql
+            extra_args = { "--dialect", "mysql" },
+        }), -- sql
         nulls.builtins.formatting.prettierd.with({
             generator_opts = {
                 command = "prettierd",
@@ -30,12 +30,7 @@ nulls.setup({
         --
         -- DIAGNOSTICS
         --
-        -- nulls.builtins.diagnostics.sqlfluff.with({
-        --     extra_args = { "--dialect", "postgres" },
-        -- }), -- postgres
-
         nulls.builtins.diagnostics.eslint, -- javascript, typescript
-        nulls.builtins.diagnostics.selene, -- lua
     },
 })
 
