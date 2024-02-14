@@ -1,14 +1,17 @@
+-- experimental feature
+vim.loader.enable()
+
 -- set neovim mapleader
 vim.g.mapleader = " "
 
 -- neovim basic configuration
-require("configs.core.settings")
+require("configs.options")
 
 -- neovim package manager
-require("configs.plugins")
+require("configs.plugins.lazy.setup")
 
 -- neovim command
-require("configs.core.command")
+require("configs.commands")
 
 -- neovim keybindings
-require("configs.core.keymap")
+require("configs.keymaps")
