@@ -1,3 +1,3 @@
 require("configs.options.general")
-require("configs.options.display")
-require("configs.options.formatting")
+require("configs.options.appearance")
+require("configs.options.buffer")

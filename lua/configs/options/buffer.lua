@@ -1,0 +1,20 @@
+vim.opt.autoindent = true
+vim.opt.autoread = true
+vim.opt.backup = true
+vim.opt.backupdir = vim.fn.stdpath("data") .. "/backup"
+vim.opt.bomb = true
+vim.opt.encoding = "utf-8"
+vim.opt.expandtab = false
+vim.opt.fileencoding = "utf-8"
+vim.opt.fileencodings = "utf-8"
+vim.opt.fileformat = "unix"
+vim.opt.foldlevel = 0
+vim.opt.formatoptions:remove("cro")
+vim.opt.shiftwidth = 4
+vim.opt.softtabstop = 4
+vim.opt.swapfile = false
+vim.opt.tabstop = 4
+vim.opt.undodir = vim.fn.stdpath("data") .. "/undo"
+vim.opt.undofile = true
+vim.opt.wrap = true
+vim.opt.writebackup = true

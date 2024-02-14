@@ -38,14 +38,14 @@ Utils.keymap = function()
 	local keymap = vim.keymap
 
 	local lsp_cmds = {
-		hover_doc = "<CUtilsD>Lspsaga hover_doc<CR>",
-		code_action = "<CUtilsD>Lspsaga code_action<CR>",
-		goto_definition = "<CUtilsD>Lspsaga goto_definition<CR>",
-		diagnostic_jump_prev = "<CUtilsD>Lspsaga diagnostic_jump_prev<CR>",
-		diagnostic_jump_next = "<CUtilsD>Lspsaga diagnostic_jump_next<CR>",
-		rename = "<CUtilsD>Lspsaga rename<CR>",
-		trouble_toggle_doc = "<CUtilsD>TroubleToggle document_diagnostics<CR>",
-		trouble_toggle_workspace = "<CUtilsD>TroubleToggle workspace_diagnostics<CR>",
+		hover_doc = "<CMD>Lspsaga hover_doc<CR>",
+		code_action = "<CMD>Lspsaga code_action<CR>",
+		goto_definition = "<CMD>Lspsaga goto_definition<CR>",
+		diagnostic_jump_prev = "<CMD>Lspsaga diagnostic_jump_prev<CR>",
+		diagnostic_jump_next = "<CMD>Lspsaga diagnostic_jump_next<CR>",
+		rename = "<CMD>Lspsaga rename<CR>",
+		trouble_toggle_doc = "<CMD>TroubleToggle document_diagnostics<CR>",
+		trouble_toggle_workspace = "<CMD>TroubleToggle workspace_diagnostics<CR>",
 	}
 
 	keymap.set("n", "K", lsp_cmds.hover_doc, { buffer = true, desc = "LSP: Show documentation" })
