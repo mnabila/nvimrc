@@ -2,9 +2,12 @@ local Utils = {}
 
 -- Function to customize LSP (Language Server Protocol) capabilities
 Utils.custom_capabilities = function()
-	local cmp_lsp = require("cmp_nvim_lsp")
+	local ok, cmp = pcall(require, "cmp_nvim_lsp")
+	if not ok then
+		return nil
+	end
 	local capabilities = vim.lsp.protocol.make_client_capabilities()
-	capabilities = cmp_lsp.default_capabilities(capabilities)
+	capabilities = cmp.default_capabilities(capabilities)
 	return capabilities
 end
 
