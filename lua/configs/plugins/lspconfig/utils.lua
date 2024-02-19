@@ -11,11 +11,6 @@ Utils.custom_capabilities = function()
 	return capabilities
 end
 
--- Function to run custom code when LSP is initialized
-Utils.custom_on_init = function()
-	vim.notify("Language Server Protocol started!", vim.log.levels.INFO)
-end
-
 -- Function to customize the current working directory
 Utils.custom_cwd = function()
 	local cwd = vim.loop.cwd()
@@ -75,7 +70,6 @@ end
 Utils.default = function(configs)
 	local custom_config = {
 		root_dir = Utils.custom_cwd,
-		on_init = Utils.custom_on_init,
 		on_attach = Utils.custom_on_attach,
 		capabilities = Utils.custom_capabilities(),
 	}

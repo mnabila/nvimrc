@@ -9,4 +9,6 @@ return {
 	"vimball",
 	"vimballPlugin",
 	"tohtml",
+	"netrwPlugin",
+	"tutor",
 }

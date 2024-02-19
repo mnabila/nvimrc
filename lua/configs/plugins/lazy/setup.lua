@@ -20,6 +20,7 @@ local plugins = {
 
 	-- languages server protocol
 	require("configs.plugins.lspconfig.lazyspec"),
+	require("configs.plugins.fidget.lazyspec"),
 
 	-- editor
 	require("configs.plugins.gitsigns.lazyspec"),

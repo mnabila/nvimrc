@@ -7,9 +7,6 @@ vim.g.mapleader = " "
 -- neovim basic configuration
 require("configs.options")
 
--- neovim command
-require("configs.commands")
-
 -- neovim keybindings
 require("configs.keymaps")
 
