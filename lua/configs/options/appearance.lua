@@ -16,7 +16,7 @@ vim.opt.lazyredraw = true
 vim.opt.linebreak = true
 vim.opt.linespace = 0
 vim.opt.list = true
-vim.opt.listchars = { tab = "  ", space = " " }
+vim.opt.listchars = { tab = "-->", space = " " }
 vim.opt.number = false
 vim.opt.pumblend = 10
 vim.opt.pumheight = 15

@@ -7,6 +7,5 @@ require("nvim-autopairs").setup({
 local ok, cmp = pcall(require, "cmp")
 if ok then
 	local autopairs = require("nvim-autopairs.completion.cmp")
-	local cmp = require("cmp")
 	cmp.event:on("confirm_done", autopairs.on_confirm_done())
 end
