@@ -1,4 +1,4 @@
 return {
-    "machakann/vim-sandwich",
-    event = "InsertEnter",
+	"machakann/vim-sandwich",
+	event = "InsertEnter",
 }

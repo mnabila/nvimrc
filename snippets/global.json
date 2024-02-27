@@ -39,10 +39,10 @@
     "description": "Snippet to put copyright"
   },
 
-  "unixtime":{
-	"prefix": "unixtime",
-	"body":["${CURRENT_SECONDS_UNIX}"],
-	"description": "unix timestamp"
+  "unixtime": {
+    "prefix": "unixtime",
+    "body": ["${CURRENT_SECONDS_UNIX}"],
+    "description": "unix timestamp"
   },
 
   "timestamp": {

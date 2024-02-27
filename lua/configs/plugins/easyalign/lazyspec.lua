@@ -1,1 +1,4 @@
-return { "junegunn/vim-easy-align", cmd = "EasyAlign" }
+return {
+	"junegunn/vim-easy-align",
+	cmd = "EasyAlign",
+}
