@@ -9,11 +9,11 @@ M.textDocument.completion.completionItem.preselectSupport = true
 M.textDocument.completion.completionItem.insertReplaceSupport = true
 M.textDocument.completion.completionItem.labelDetailsSupport = true
 M.textDocument.completion.completionItem.resolveSupport = {
-	properties = {
-		"documentation",
-		"detail",
-		"additionalTextEdits",
-	},
+  properties = {
+    "documentation",
+    "detail",
+    "additionalTextEdits",
+  },
 }
 
 return M

@@ -1,8 +1,9 @@
 -- Indentation
 vim.opt.autoindent = true
-vim.opt.tabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.softtabstop = 4
+vim.opt.tabstop = 2
+vim.opt.shiftwidth = 2
+vim.opt.softtabstop = 0
+vim.opt.expandtab = true -- true = space as indentation, false = tab as indentation
 
 -- Backup
 vim.opt.backup = true
@@ -37,16 +38,15 @@ vim.opt.compatible = false
 vim.opt.completeopt = "menu,menuone,noselect"
 vim.opt.conceallevel = 0
 vim.opt.errorbells = false
-vim.opt.expandtab = false
 vim.opt.fillchars = {
-	horiz = "━",
-	horizup = "┻",
-	horizdown = "┳",
-	vert = "┃",
-	vertleft = "┫",
-	vertright = "┣",
-	verthoriz = "╋",
-	eob = " ",
+    horiz = "━",
+    horizup = "┻",
+    horizdown = "┳",
+    vert = "┃",
+    vertleft = "┫",
+    vertright = "┣",
+    verthoriz = "╋",
+    eob = " ",
 }
 vim.opt.formatoptions:remove("cro")
 vim.opt.gdefault = true
@@ -60,7 +60,7 @@ vim.opt.lazyredraw = true
 vim.opt.linebreak = true
 vim.opt.linespace = 0
 vim.opt.list = true
-vim.opt.listchars = { tab = "-->", space = " " }
+vim.opt.listchars = { tab = "‧‧>", space = "‧" }
 vim.opt.mouse = "a"
 vim.opt.number = false
 vim.opt.pumblend = 10

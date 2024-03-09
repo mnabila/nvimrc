@@ -1,5 +1,5 @@
 return {
-	"sindrets/diffview.nvim",
-	cmd = "DiffviewFiles",
-	config = true,
+  "sindrets/diffview.nvim",
+  cmd = "DiffviewFiles",
+  config = true,
 }
