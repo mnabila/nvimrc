@@ -1,3 +1,5 @@
+local winbar = require("lspsaga.symbol.winbar")
+
 require("lualine").setup({
   options = {
     icons_enabled = true,
@@ -20,7 +22,7 @@ require("lualine").setup({
   sections = {
     lualine_a = { "mode" },
     lualine_b = { "branch", "diff" },
-    lualine_c = { "filename", require("lspsaga.symbol.winbar").get_bar() },
+    lualine_c = { { "filename", path = 1 }, winbar.get_bar() },
     lualine_x = { "diagnostics" },
     lualine_y = { "filetype" },
     lualine_z = { "location" },

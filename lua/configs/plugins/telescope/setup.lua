@@ -47,6 +47,7 @@ telescope.setup({
   },
   pickers = {
     diagnostics = {
+      initial_mode = "normal",
       previewer = false,
       line_width = 0.7,
       no_unlisted = true,

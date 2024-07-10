@@ -7,9 +7,9 @@ return function(client, bufnr)
     virtual_text = { spacing = 2, prefix = "❰" },
   })
 
-  if client.supports_method("textDocument/inlayHint") then
-    vim.lsp.inlay_hint.enable(bufnr, true)
-  end
+  -- if client.supports_method("textDocument/inlayHint") then
+  --   vim.lsp.inlay_hint.enable(bufnr, true)
+  -- end
 
   require("configs.plugins.lspconfig.on_attach.with_keymap").attach()
 end

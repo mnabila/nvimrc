@@ -21,11 +21,8 @@ require("lspconfig").gopls.setup({
       usePlaceholders = false,
       hints = {
         -- Ref: https://github.com/golang/tools/blob/master/gopls/doc/inlayHints.md
-        assignVariableTypes = true,
-        compositeLiteralFields = true,
         constantValues = true,
         parameterNames = true,
-        rangeVariableTypes = true,
       },
     },
   },

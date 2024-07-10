@@ -13,22 +13,11 @@ Keymap.attach = function()
     "<CMD>Lspsaga diagnostic_jump_prev<CR>",
     { buffer = true, desc = "LSP: Goto previous diagnostic" }
   )
-  keymap.set(
-    "n",
-    "]e",
-    "<CMD>Lspsaga diagnostic_jump_next<CR>",
-    { buffer = true, desc = "LSP: Goto next diagnostic" }
-  )
+  keymap.set("n", "]e", "<CMD>Lspsaga diagnostic_jump_next<CR>", { buffer = true, desc = "LSP: Goto next diagnostic" })
   keymap.set(
     "n",
     "<leader>t",
-    "<CMD>TroubleToggle document_diagnostics<CR>",
-    { buffer = true, desc = "LSP: Show document diagnostics" }
-  )
-  keymap.set(
-    "n",
-    "<leader>T",
-    "<CMD>TroubleToggle workspace_diagnostics<CR>",
+    "<CMD>Trouble diagnostics<CR>",
     { buffer = true, desc = "LSP: Show workspace diagnostics" }
   )
 end

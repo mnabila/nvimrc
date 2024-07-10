@@ -28,7 +28,7 @@ cmp.setup({
           local bufs = {}
           for _, buf in ipairs(vim.api.nvim_list_bufs()) do
             local byte_size = vim.api.nvim_buf_get_offset(buf, vim.api.nvim_buf_line_count(buf))
-            if byte_size <= 1024 * 1024 then             -- 1 Megabyte max
+            if byte_size <= 1024 * 1024 then
               bufs[buf] = true
             end
           end
@@ -43,7 +43,7 @@ cmp.setup({
         cmp.select_next_item()
       elseif vim.fn["vsnip#available"](1) == 1 then
         utils.feedkeys("<Plug>(vsnip-expand-or-jump)", "")
-      elseif utils.is_cursor_at_beginning_of_line() then
+      elseif utils.has_words_before() then
         cmp.complete()
       else
         fallback()

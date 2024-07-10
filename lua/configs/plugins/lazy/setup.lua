@@ -5,7 +5,7 @@ if not vim.loop.fs_stat(lazypath) then
     "clone",
     "--filter=blob:none",
     "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable",     -- latest stable release
+    "--branch=stable", -- latest stable release
     lazypath,
   })
 end
@@ -21,6 +21,7 @@ local plugins = {
   -- languages server protocol
   require("configs.plugins.lspconfig.lazyspec"),
   require("configs.plugins.fidget.lazyspec"),
+  require("configs.plugins.trouble.lazyspec"),
 
   -- editor
   require("configs.plugins.gitsigns.lazyspec"),
@@ -33,14 +34,15 @@ local plugins = {
   require("configs.plugins.fugitive.lazyspec"),
   require("configs.plugins.wakatime.lazyspec"),
   require("configs.plugins.glow.lazyspec"),
-  require("configs.plugins.comment.lazyspec"),
 
   -- interfaces
   require("configs.plugins.lualine.lazyspec"),
   require("configs.plugins.treesitter.lazyspec"),
 
   -- languages
+  -- golang
   require("configs.plugins.gopher.lazyspec"),
+  require("configs.plugins.gotest.lazyspec"),
 }
 
 require("lazy").setup(plugins, {
