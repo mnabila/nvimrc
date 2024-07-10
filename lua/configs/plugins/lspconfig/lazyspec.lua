@@ -7,7 +7,7 @@ return {
   },
   config = function()
     require("configs.plugins.lspconfig.server.common")
-    -- require("configs.plugins.lspconfig.server.emmetls")
+    require("configs.plugins.lspconfig.server.emmetls")
     require("configs.plugins.lspconfig.server.gopls")
     require("configs.plugins.lspconfig.server.luals")
     require("configs.plugins.lspconfig.server.yammls")
