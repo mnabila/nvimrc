@@ -1,5 +1,5 @@
 require("trouble").setup({
-  auto_preview = false,
+  auto_preview = true,
   auto_jump = false,
   focus = true,
 })

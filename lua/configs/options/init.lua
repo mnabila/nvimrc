@@ -3,7 +3,7 @@ vim.opt.autoindent = true
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.softtabstop = 0
-vim.opt.expandtab = true -- true = space as indentation, false = tab as indentation
+vim.opt.expandtab = false -- true = space as indentation, false = tab as indentation
 
 -- Backup
 vim.opt.backup = true
@@ -39,14 +39,14 @@ vim.opt.completeopt = "menu,menuone,noselect"
 vim.opt.conceallevel = 0
 vim.opt.errorbells = false
 vim.opt.fillchars = {
-    horiz = "━",
-    horizup = "┻",
-    horizdown = "┳",
-    vert = "┃",
-    vertleft = "┫",
-    vertright = "┣",
-    verthoriz = "╋",
-    eob = " ",
+  horiz = "━",
+  horizup = "┻",
+  horizdown = "┳",
+  vert = "┃",
+  vertleft = "┫",
+  vertright = "┣",
+  verthoriz = "╋",
+  eob = " ",
 }
 vim.opt.formatoptions:remove("cro")
 vim.opt.gdefault = true

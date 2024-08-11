@@ -19,6 +19,7 @@ local plugins = {
   require("configs.plugins.cmp.lazyspec"),
 
   -- languages server protocol
+  require("configs.plugins.mason.lazyspec"),
   require("configs.plugins.lspconfig.lazyspec"),
   require("configs.plugins.fidget.lazyspec"),
   require("configs.plugins.trouble.lazyspec"),
