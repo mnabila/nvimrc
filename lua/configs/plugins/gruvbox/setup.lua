@@ -14,6 +14,8 @@ require("gruvbox").setup({
 
     TroubleFoldIcon = { link = "Normal" },
     TroubleCount = { link = "GruvboxOrange", reverse = true },
+
+    LspInfoBorder = { link = "Normal" },
   },
 })
 

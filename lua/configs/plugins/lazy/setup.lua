@@ -44,6 +44,9 @@ local plugins = {
   -- golang
   require("configs.plugins.gopher.lazyspec"),
   require("configs.plugins.gotest.lazyspec"),
+
+  -- java
+  require("configs.plugins.jdtls.lazyspec"),
 }
 
 require("lazy").setup(plugins, {

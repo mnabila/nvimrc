@@ -6,6 +6,9 @@ return {
     require("configs.plugins.lspsaga.lazyspec"),
   },
   config = function()
+    local windows = require("lspconfig.ui.windows")
+    windows.default_options.border = "single"
+
     require("configs.plugins.lspconfig.server.common")
     require("configs.plugins.lspconfig.server.gopls")
     require("configs.plugins.lspconfig.server.luals")

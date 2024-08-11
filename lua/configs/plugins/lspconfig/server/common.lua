@@ -9,8 +9,9 @@ local servers = {
   "dockerls",
   "emmet_language_server",
   "html",
+  "jdtls",
   "vimls",
-  "pyright"
+  "pyright",
 }
 
 for _, lsp in ipairs(servers) do
