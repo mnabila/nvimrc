@@ -5,8 +5,9 @@ Keymap.attach = function()
 
   keymap.set("n", "K", "<CMD>Lspsaga hover_doc<CR>", { buffer = true, desc = "LSP: Show documentation" })
   keymap.set("n", "ga", "<CMD>Lspsaga code_action<CR>", { buffer = true, desc = "LSP: List LSP actions" })
-  keymap.set("n", "gd", "<CMD>Lspsaga goto_definition<CR>", { buffer = true, desc = "LSP: Goto definition" })
-  keymap.set("n", "gR", "<CMD>Lspsaga rename<CR>", { buffer = true, desc = "LSP: Rename references" })
+  keymap.set("n", "gd", "<CMD>Lspsaga definition<CR>", { buffer = true, desc = "LSP: Goto definition" })
+  keymap.set("n", "gi", vim.lsp.buf.implementation, { buffer = true, desc = "LSP: Goto implementation" })
+  keymap.set("n", "gr", vim.lsp.buf.references, { buffer = true, desc = "LSP: Goto reference" })
   keymap.set(
     "n",
     "[e",
