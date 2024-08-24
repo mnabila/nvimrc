@@ -1,9 +1,9 @@
 return {
   "neovim/nvim-lspconfig",
   dependencies = {
+    require("configs.plugins.navic.lazyspec"),
     require("configs.plugins.nonels.lazyspec"),
     require("configs.plugins.trouble.lazyspec"),
-    require("configs.plugins.lspsaga.lazyspec"),
   },
   config = function()
     local windows = require("lspconfig.ui.windows")

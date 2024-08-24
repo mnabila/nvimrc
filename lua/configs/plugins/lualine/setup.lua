@@ -1,5 +1,3 @@
-local winbar = require("lspsaga.symbol.winbar")
-
 require("lualine").setup({
   options = {
     icons_enabled = true,
@@ -8,7 +6,9 @@ require("lualine").setup({
     section_separators = { left = " ", right = " " },
     disabled_filetypes = {
       statusline = {},
-      winbar = {},
+      winbar = {
+        "sfm",
+      },
     },
     ignore_focus = {},
     always_divide_middle = true,
@@ -22,10 +22,18 @@ require("lualine").setup({
   sections = {
     lualine_a = { "mode" },
     lualine_b = { "branch", "diff" },
-    lualine_c = { { "filename", path = 1 }, winbar.get_bar() },
+    lualine_c = {},
     lualine_x = { "diagnostics" },
     lualine_y = { "filetype" },
     lualine_z = { "location" },
+  },
+  winbar = {
+    lualine_a = {},
+    lualine_b = {},
+    lualine_c = { { "filename", path = 1 }, { "navic" } },
+    lualine_x = {},
+    lualine_y = {},
+    lualine_z = {},
   },
   extensions = { "trouble", "man", "fugitive" },
 })
