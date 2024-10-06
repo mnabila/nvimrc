@@ -12,4 +12,7 @@ require("lspsaga").setup({
     color_mode = true,
     separator = " ❱ ",
   },
+  implement = {
+    enable = true,
+  },
 })

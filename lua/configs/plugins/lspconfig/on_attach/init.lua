@@ -13,10 +13,5 @@ return function(client, bufnr)
   --   vim.lsp.inlay_hint.enable(bufnr, true)
   -- end
 
-  if client.server_capabilities.documentSymbolProvider then
-    local navic = require("nvim-navic")
-    navic.attach(client, bufnr)
-  end
-
   require("configs.plugins.lspconfig.on_attach.with_keymap").attach()
 end
