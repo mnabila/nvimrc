@@ -5,7 +5,7 @@ if not vim.loop.fs_stat(lazypath) then
     "clone",
     "--filter=blob:none",
     "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable", -- latest stable release
+    "--branch=stable",
     lazypath,
   })
 end
@@ -18,35 +18,40 @@ local plugins = {
   -- completion
   require("configs.plugins.cmp.lazyspec"),
 
-  -- languages server protocol
+  -- package management for neovim dependency
   require("configs.plugins.mason.lazyspec"),
+
+  -- languages server protocol
   require("configs.plugins.lspconfig.lazyspec"),
   require("configs.plugins.fidget.lazyspec"),
   require("configs.plugins.trouble.lazyspec"),
 
   -- editor
-  require("configs.plugins.gitsigns.lazyspec"),
   require("configs.plugins.translator.lazyspec"),
   require("configs.plugins.sfm.lazyspec"),
   require("configs.plugins.sandwich.lazyspec"),
   require("configs.plugins.easyalign.lazyspec"),
-  require("configs.plugins.diffview.lazyspec"),
   require("configs.plugins.telescope.lazyspec"),
-  require("configs.plugins.fugitive.lazyspec"),
   require("configs.plugins.wakatime.lazyspec"),
-  require("configs.plugins.glow.lazyspec"),
+
+  -- git
+  require("configs.plugins.gitsigns.lazyspec"),
+  require("configs.plugins.diffview.lazyspec"),
+  require("configs.plugins.fugitive.lazyspec"),
 
   -- interfaces
   require("configs.plugins.lualine.lazyspec"),
   require("configs.plugins.treesitter.lazyspec"),
 
-  -- languages
   -- golang
   require("configs.plugins.gopher.lazyspec"),
   require("configs.plugins.gotest.lazyspec"),
 
   -- java
-  require("configs.plugins.jdtls.lazyspec"),
+  require("configs.plugins.java.lazyspec"),
+
+  -- markdown
+  require("configs.plugins.glow.lazyspec"),
 }
 
 require("lazy").setup(plugins, {
@@ -57,5 +62,9 @@ require("lazy").setup(plugins, {
     rtp = {
       disabled_plugins = require("configs.enums.disabled_plugins"),
     },
+  },
+  rocks = {
+    hererocks = false,
+    enabled = false,
   },
 })

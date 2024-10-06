@@ -12,7 +12,7 @@ local inlayHints = {
   includeInlayEnumMemberValueHints = true,
 }
 
-require("lspconfig").tsserver.setup({
+require("lspconfig").ts_ls.setup({
   capabilities = capabilities,
   on_attach = on_attach,
   settings = {

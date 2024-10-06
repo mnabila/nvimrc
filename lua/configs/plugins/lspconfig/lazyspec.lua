@@ -12,7 +12,7 @@ return {
     require("configs.plugins.lspconfig.server.common")
     require("configs.plugins.lspconfig.server.gopls")
     require("configs.plugins.lspconfig.server.luals")
-    require("configs.plugins.lspconfig.server.tsserver")
+    require("configs.plugins.lspconfig.server.tsls")
     require("configs.plugins.lspconfig.server.yammls")
   end,
 }

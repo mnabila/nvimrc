@@ -3,6 +3,7 @@ local previewers = require("telescope.previewers")
 local sorters = require("telescope.sorters")
 
 telescope.load_extension("fzy_native")
+telescope.load_extension("ui-select")
 telescope.setup({
   defaults = {
     vimgrep_arguments = {
@@ -36,7 +37,7 @@ telescope.setup({
     layout_strategy = "bottom_pane",
     layout_config = {
       preview_cutoff = 1,
-      height = 0.6,
+      height = 0.4,
       prompt_position = "bottom",
     },
     borderchars = {

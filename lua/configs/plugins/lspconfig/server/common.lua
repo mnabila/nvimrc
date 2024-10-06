@@ -9,7 +9,6 @@ local servers = {
   "dockerls",
   "emmet_language_server",
   "html",
-  "jdtls",
   "vimls",
   "pyright",
 }
