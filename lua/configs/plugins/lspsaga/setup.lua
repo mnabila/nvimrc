@@ -1,10 +1,10 @@
 require("lspsaga").setup({
   lightbulb = {
-    sign = false,
+    virtual_text = false,
   },
   outline = {
     left_width = 0.5,
-    layout = "float",
+    layout = "normal",
   },
   symbol_in_winbar = {
     enable = true,
@@ -12,7 +12,7 @@ require("lspsaga").setup({
     color_mode = true,
     separator = " ❱ ",
   },
-  implement = {
-    enable = true,
+  hover = {
+    open_cmd = "!xdg-open",
   },
 })

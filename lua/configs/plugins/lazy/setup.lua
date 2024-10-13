@@ -36,8 +36,7 @@ local plugins = {
 
   -- git
   require("configs.plugins.gitsigns.lazyspec"),
-  require("configs.plugins.diffview.lazyspec"),
-  require("configs.plugins.fugitive.lazyspec"),
+  require("configs.plugins.neogit.lazyspec"),
 
   -- interfaces
   require("configs.plugins.lualine.lazyspec"),

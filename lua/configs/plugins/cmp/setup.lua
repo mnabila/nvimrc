@@ -21,6 +21,7 @@ cmp.setup({
     { name = "path" },
     { name = "vsnip" },
     { name = "nvim_lua" },
+    { name = "emoji" },
     {
       name = "buffer",
       option = {
