@@ -5,10 +5,10 @@ vim.loader.enable()
 vim.g.mapleader = " "
 
 -- neovim basic configuration
-require("configs.options")
+require("config.option")
 
 -- neovim keybindings
-require("configs.keymaps")
+require("config.keymap")
 
 -- neovim package manager
-require("configs.plugins.lazy.setup")
+require("config.plugin.lazy.setup")
