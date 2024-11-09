@@ -8,6 +8,7 @@ require("gruvbox").setup({
     NormalFloat = { link = "Normal" },
     Search = { fg = p.dark0, bg = p.bright_yellow },
     IncSearch = { fg = p.dark0, bg = p.bright_orange },
+    WinSeparator = { fg = p.light0 },
 
     GruvboxRedSign = { link = "GruvboxRed" },
     GruvboxGreenSign = { link = "GruvboxGreen" },

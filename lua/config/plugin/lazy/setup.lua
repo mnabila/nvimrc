@@ -38,7 +38,7 @@ local plugins = {
   require("config.plugin.neogit.lazyspec"),
 
   -- interfaces
-  require("config.plugin.lualine.lazyspec"),
+  require("config.plugin.feline.lazyspec"),
   require("config.plugin.treesitter.lazyspec"),
 
   -- golang
