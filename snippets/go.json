@@ -116,7 +116,7 @@
   },
   "if err != nil": {
     "prefix": "ir",
-    "body": "if err != nil {\n\t${1:return ${2:nil, }${3:err}}\n}",
+    "body": "if err != nil {\n\treturn ${1:nil}, ${2:err}\n}",
     "description": "Snippet for if err != nil"
   },
   "fmt.Println": {
@@ -279,8 +279,13 @@
     "body": "`json:\"$1\"`",
     "description": "Snippet for struct json tag"
   },
+  "xml tag": {
+    "prefix": "xml",
+    "body": "`xml:\"$1\"`",
+    "description": "Snippet for struct xml tag"
+  },
   "if key in a map": {
     "prefix": "om",
-    "body": "if ${1:value}, ok := ${2:map}[${3:key}]; ok == true {\n\t$4\n}"
+    "body": "if ${1:value}, ok := ${2:map}[${3:key}]; ok {\n\t$4\n}"
   }
 }

@@ -2,7 +2,7 @@
   "todo": {
     "prefix": ["todo"],
     "body": [
-      "TODO(${VIM:system('git config github.user | tr -d \"\n\"')}): ${0:Summary}"
+      "TODO(${VIM:system('git config github.name | tr -d \"\n\"')}): ${0:Summary}"
     ],
     "description": "TODO reminder"
   },
@@ -10,7 +10,7 @@
   "fixme": {
     "prefix": ["fixme"],
     "body": [
-      "FIXME(${VIM:system('git config github.user | tr -d \"\n\"')}): ${0:Summary}"
+      "FIXME(${VIM:system('git config github.name | tr -d \"\n\"')}): ${0:Summary}"
     ],
     "description": "FIXME reminder"
   },
