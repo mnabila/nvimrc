@@ -19,14 +19,13 @@ $ git clone https://github.com/mnabila/nvimrc ~/.config/nvim
 |    Function    | Plugins                                                             |
 | :------------: | ------------------------------------------------------------------- |
 | Plugin Manager | [lazy.nvim](https://github.com/folke/lazy.nvim)                     |
-|  File Manager  | [neo-tree](https://github.com/nvim-neo-tree/neo-tree.nvim)          |
-|  Status line   | [heirline.nvim](https://github.com/rebelot/heirline.nvim)           |
-|     Winbar     | [heirline.nvim](https://github.com/rebelot/heirline.nvim)           |
-|  Colorscheme   | [gruvboy.nvim](https://github.com/mnabila/gruvboy.nvim)             |
+|  File Manager  | [sfm.nvim](https://github.com/dinhhuy258/sfm.nvim)          |
+|  Status line   | [feline.nvim](https://github.com/freddiehaddad/feline.nvim)           |
+|  Colorscheme   | [gruvbox.nvim](https://github.com/ellisonleao/gruvbox.nvim)             |
 |      Icon      | [nvim-web-devicons](https://github.com/nvim-tree/nvim-web-devicons) |
-|      Git       | [gitsign](https://github.com/lewis6991/gitsigns.nvim)               |
-| Auto Complete  | [nvim-cmp](https://github.com/hrsh7th/nvim-cmp)                     |
-|     Others     | [configs/plugins](./lua/configs/plugins/init.lua)                   |
+|      Git       | [gitsign](https://github.com/lewis6991/gitsigns.nvim), [neogit](https://github.com/NeogitOrg/neogit)               |
+| Auto Complete  | [blink.cmp](https://github.com/Saghen/blink.cmp)                     |
+|     Others     | [configs/plugins](./lua/config/plugin/lazy/setup.lua)                   |
 
 ## License
 
