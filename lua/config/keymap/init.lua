@@ -26,7 +26,6 @@ keymap.set("v", "<Leader>e6", "c<C-r>=system('base64', @\")<CR><ESC>", { desc = 
 
 -- others
 keymap.set("n", "<Leader>x", "<CMD>%s///<CR>", { desc = "Delete in search result" })
-keymap.set("v", "<Leader>v", "y/\\V<C-R>=escape(@\",'/\\')<CR><CR>", { desc = "Search for visually selected text" })
 
 -- buffer
 keymap.set("n", "<C-k>", "<CMD>bprevious<CR>", { desc = "Buffer: focus to previous buffer" })

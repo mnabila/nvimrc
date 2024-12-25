@@ -11,7 +11,7 @@ local theme = {
   aqua = palette.bright_aqua,
 }
 
-local components = {
+local default_components = {
   active = {
     {
       c.vim_mode,
@@ -22,11 +22,11 @@ local components = {
       c.file_info,
     },
     {
+      c.macro,
       c.diagnostic_errors,
       c.diagnostic_warnings,
       c.diagnostic_info,
       c.diagnostic_hints,
-      c.search_count,
       c.position,
     },
   },
@@ -41,35 +41,36 @@ local components = {
   },
 }
 
-local conditional_components = {
-  {
-    condition = function()
-      return vim.api.nvim_win_get_width(0) < 80
-    end,
-    active = {
-      {
-        c.vim_mode,
-        c.file_info,
-      },
-      {
-        c.diagnostic_errors,
-        c.diagnostic_warnings,
-        c.diagnostic_info,
-        c.diagnostic_hints,
-        c.position,
-      },
+local small_window_components = {
+  condition = function()
+    return vim.api.nvim_win_get_width(0) < 80
+  end,
+  active = {
+    {
+      c.vim_mode,
+      c.file_info,
     },
-    inactive = {
-      {
-        c.git_branch,
-        c.file_info,
-      },
+    {
+      c.macro,
+      c.diagnostic_errors,
+      c.diagnostic_warnings,
+      c.diagnostic_info,
+      c.diagnostic_hints,
+      c.position,
+    },
+  },
+  inactive = {
+    {
+      c.git_branch,
+      c.file_info,
     },
   },
 }
 
 feline.setup({
   theme = theme,
-  components = components,
-  conditional_components = conditional_components,
+  components = default_components,
+  conditional_components = {
+    small_window_components,
+  },
 })

@@ -30,10 +30,9 @@ vim.opt.splitbelow = true
 vim.opt.splitright = true
 
 -- General
-vim.opt.bomb = false
 vim.opt.autoread = true
 vim.opt.backspace = "indent,eol,start"
-vim.opt.bomb = true
+vim.opt.bomb = false
 vim.opt.clipboard = "unnamedplus"
 vim.opt.compatible = false
 vim.opt.completeopt = "menu,menuone,noselect"

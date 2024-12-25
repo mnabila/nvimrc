@@ -17,7 +17,7 @@ nulls.setup({
     }),
 
     -- css, html, js, json and other stuff (lol)
-    nulls.builtins.formatting.prettierd,
+    nulls.builtins.formatting.prettier,
 
     -- golang
     nulls.builtins.formatting.goimports,
@@ -27,5 +27,6 @@ nulls.setup({
 
     -- proto
     nulls.builtins.formatting.buf,
+    nulls.builtins.diagnostics.buf,
   },
 })

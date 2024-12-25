@@ -42,7 +42,6 @@ return {
 
   position = {
     provider = "position",
-    icon = "󰉸 ",
     right_sep = " ",
     left_sep = " ",
   },
@@ -89,9 +88,9 @@ return {
     right_sep = " ",
   },
 
-  search_count = {
-    provider = "search_count",
+  macro = {
+    provider = "macro",
+    left_sep = " ",
     right_sep = " ",
-    icon = " ",
   },
 }

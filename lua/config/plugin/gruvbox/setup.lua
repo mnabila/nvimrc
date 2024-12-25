@@ -2,6 +2,8 @@ local p = require("gruvbox").palette
 
 require("gruvbox").setup({
   inverse = false,
+  dim_inactive = false,
+  transparent_mode = false,
   overrides = {
     TabLineFill = { link = "Normal" },
     SignColumn = { link = "Normal" },
