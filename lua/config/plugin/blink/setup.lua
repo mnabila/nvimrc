@@ -16,8 +16,18 @@ return {
   },
 
   completion = {
+    accept = {
+      create_undo_point = false,
+      auto_brackets = {
+        enabled = true,
+        semantic_token_resolution = {
+          enabled = true,
+        },
+      },
+    },
+
     list = {
-      selection = "preselect",
+      selection = "auto_insert",
     },
 
     menu = {
