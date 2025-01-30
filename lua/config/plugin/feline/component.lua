@@ -42,6 +42,7 @@ return {
 
   position = {
     provider = "position",
+    format = "Ln {line}, Col {col}",
     right_sep = " ",
     left_sep = " ",
   },
@@ -85,12 +86,6 @@ return {
   diagnostic_warnings = {
     provider = "diagnostic_warnings",
     icon = " ",
-    right_sep = " ",
-  },
-
-  macro = {
-    provider = "macro",
-    left_sep = " ",
     right_sep = " ",
   },
 }

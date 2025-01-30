@@ -22,7 +22,6 @@ local default_components = {
       c.file_info,
     },
     {
-      c.macro,
       c.diagnostic_errors,
       c.diagnostic_warnings,
       c.diagnostic_info,
@@ -51,7 +50,6 @@ local small_window_components = {
       c.file_info,
     },
     {
-      c.macro,
       c.diagnostic_errors,
       c.diagnostic_warnings,
       c.diagnostic_info,

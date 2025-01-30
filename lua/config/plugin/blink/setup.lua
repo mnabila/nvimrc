@@ -1,7 +1,8 @@
 return {
   keymap = {
-    ["<S-Tab>"] = { "select_prev", "fallback" },
-    ["<Tab>"] = { "select_next", "fallback" },
+    preset = "none",
+    ["<Tab>"] = { "select_next", "select_and_accept" },
+    ["<S-Tab>"] = { "select_prev", "select_and_accept" },
     ["<CR>"] = { "accept", "fallback" },
     ["<C-space>"] = {
       function(cmp)
@@ -19,15 +20,12 @@ return {
     accept = {
       create_undo_point = false,
       auto_brackets = {
-        enabled = true,
-        semantic_token_resolution = {
-          enabled = true,
-        },
+        enabled = false,
       },
     },
 
     list = {
-      selection = "auto_insert",
+      selection = { preselect = true, auto_insert = true },
     },
 
     menu = {
