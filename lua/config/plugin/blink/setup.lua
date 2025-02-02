@@ -3,7 +3,7 @@ return {
     preset = "none",
     ["<Tab>"] = { "select_next", "select_and_accept" },
     ["<S-Tab>"] = { "select_prev", "select_and_accept" },
-    ["<CR>"] = { "accept", "fallback" },
+    ["<CR>"] = { "select_and_accept", "fallback" },
     ["<C-space>"] = {
       function(cmp)
         cmp.show({ providers = { "lsp", "snippets" } })

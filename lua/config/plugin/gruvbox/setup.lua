@@ -12,6 +12,8 @@ require("gruvbox").setup({
     IncSearch = { fg = p.dark0, bg = p.bright_orange },
     WinSeparator = { fg = p.light0 },
 
+    StatuslineViMode = { bold = true },
+
     GruvboxRedSign = { link = "GruvboxRed" },
     GruvboxGreenSign = { link = "GruvboxGreen" },
     GruvboxYellowSign = { link = "GruvboxYellow" },

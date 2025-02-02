@@ -1,3 +1,6 @@
+-- set neovim mapleader
+vim.g.mapleader = " "
+
 -- Indentation
 vim.opt.autoindent = true
 vim.opt.tabstop = 2
@@ -87,3 +90,6 @@ vim.opt.updatetime = 1000
 
 -- Formatting
 vim.opt.formatoptions:remove("cro")
+
+-- Statusline
+-- vim.o.statusline = " %f %h%w%m%r%=%(%l,%c%) "
