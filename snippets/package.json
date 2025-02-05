@@ -17,6 +17,10 @@
       {
         "language": "sql",
         "path": "./sql.json"
+      },
+      {
+        "language": "plantuml",
+        "path": "./plantuml.json"
       }
     ]
   }

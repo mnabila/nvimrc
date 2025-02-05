@@ -50,6 +50,10 @@ local plugins = {
 
   -- markdown
   require("config.plugin.markdown.lazyspec"),
+
+  -- plantuml
+  require("config.plugin.plantuml.lazyspec"),
+  require("config.plugin.preview.lazyspec"),
 }
 
 require("lazy").setup(plugins, {

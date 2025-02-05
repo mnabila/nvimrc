@@ -1,0 +1,3 @@
+return {
+  "aklt/plantuml-syntax",
+}
