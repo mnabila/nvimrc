@@ -74,8 +74,19 @@ function M.file_name()
   return ""
 end
 
+function M.file_type()
+  if vim.bo.filetype ~= "" then
+    return vim.bo.filetype:upper() .. " "
+  end
+  return ""
+end
+
 function M.line_number()
-  return string.format("%d,%-2d ", vim.fn.line("."), vim.fn.col("."))
+  return string.format("Ln %-2d Col %-2d ", vim.fn.line("."), vim.fn.col("."))
+end
+
+function M.show_cmd()
+  return "%S "
 end
 
 return M

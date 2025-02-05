@@ -4,9 +4,12 @@ function MyStatusline()
   return table.concat({
     c.vi_mode(),
     c.git_branch(),
+    "%=",
     c.file_name(),
     "%=",
+    c.show_cmd(),
     c.line_number(),
+    c.file_type(),
     c.file_encoding(),
     c.file_format(),
   })
