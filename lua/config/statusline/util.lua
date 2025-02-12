@@ -17,4 +17,20 @@ function M.git_info_exists()
   return vim.b.gitsigns_head or vim.b.gitsigns_status_dict
 end
 
+function M.get_diagnostics(severity)
+  return vim.tbl_count(vim.diagnostic.get(0, severity and { severity = severity }))
+end
+
+function M.is_width_under(width)
+  local current_width = vim.api.nvim_win_get_width(0) / 2
+  return current_width < width
+end
+
+function M.hide_in_width(width, component)
+  if M.is_width_under(width) then
+    return ""
+  end
+  return component()
+end
+
 return M
