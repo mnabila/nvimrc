@@ -65,11 +65,12 @@ function M.file_format()
 end
 
 function M.file_name()
-  if vim.bo.buftype ~= "" then
+  local file = vim.api.nvim_buf_get_name(vim.api.nvim_get_current_buf())
+
+  if vim.bo.buftype ~= "" or file == "" then
     return ""
   end
 
-  local file = vim.api.nvim_buf_get_name(vim.api.nvim_get_current_buf())
   if util.is_width_under(50) then
     file = vim.fn.fnamemodify(file, ":t")
   else

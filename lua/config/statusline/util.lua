@@ -22,8 +22,8 @@ function M.get_diagnostics(severity)
 end
 
 function M.is_width_under(width)
-  local current_width = vim.api.nvim_win_get_width(0) / 2
-  return current_width < width
+  local columns = vim.o.columns / 2
+  return columns < width
 end
 
 function M.hide_in_width(width, component)
