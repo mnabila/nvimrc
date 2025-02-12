@@ -12,9 +12,8 @@ nulls.setup({
     nulls.builtins.formatting.shfmt,
 
     -- sql
-    nulls.builtins.formatting.sqlfluff.with({
-      extra_args = { "--dialect", "mysql" },
-    }),
+    nulls.builtins.formatting.sqruff,
+    nulls.builtins.diagnostics.sqruff,
 
     -- css, html, js, json and other stuff (lol)
     nulls.builtins.formatting.prettier,

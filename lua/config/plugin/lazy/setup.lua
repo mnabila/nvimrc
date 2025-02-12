@@ -30,7 +30,7 @@ local plugins = {
   require("config.plugin.sfm.lazyspec"),
   require("config.plugin.mini_surround.lazyspec"),
   require("config.plugin.mini_pairs.lazyspec"),
-  require("config.plugin.easyalign.lazyspec"),
+  require("config.plugin.mini_align.lazyspec"),
   require("config.plugin.wakatime.lazyspec"),
 
   -- git
@@ -38,7 +38,6 @@ local plugins = {
   require("config.plugin.neogit.lazyspec"),
 
   -- interfaces
-  -- require("config.plugin.lualine.lazyspec"),
   require("config.plugin.treesitter.lazyspec"),
 
   -- golang

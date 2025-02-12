@@ -1,40 +1,21 @@
 local telescope = require("telescope")
-local previewers = require("telescope.previewers")
-local sorters = require("telescope.sorters")
 
-telescope.load_extension("fzy_native")
+telescope.load_extension("zf-native")
 telescope.load_extension("ui-select")
 telescope.setup({
   defaults = {
-    vimgrep_arguments = {
-      "rg",
-      "--color=never",
-      "--no-heading",
-      "--with-filename",
-      "--line-number",
-      "--column",
-      "--smart-case",
-    },
-    results_title = "",
+    results_title = false,
     entry_prefix = "   ",
     multi_icon = " ❱ ",
     prompt_prefix = "❱❱ ",
     selection_caret = " ❱ ",
     initial_mode = "insert",
-    selection_strategy = "reset",
     file_ignore_patterns = {
       "^node_modules/",
       "%.class",
     },
-    file_sorter = sorters.get_fzy_sorter,
-    generic_sorter = sorters.get_generic_fzy_sorter,
     path_display = { "absolute" },
-    winblend = 0,
-    color_devicons = true,
     use_less = false,
-    file_previewer = previewers.vim_buffer_cat.new,
-    grep_previewer = previewers.vim_buffer_vimgrep.new,
-    qflist_previewer = previewers.vim_buffer_qflist.new,
     -- custom theme
     sorting_strategy = "descending",
     layout_strategy = "bottom_pane",
@@ -96,9 +77,10 @@ telescope.setup({
     },
   },
   extensions = {
-    fzy_native = {
-      override_generic_sorter = true,
-      override_file_sorter = true,
+    ["zf-native"] = {
+      generic = {
+        match_filename = true,
+      },
     },
   },
 })
