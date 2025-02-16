@@ -6,14 +6,21 @@ return {
     ["<CR>"] = { "select_and_accept", "fallback" },
     ["<C-space>"] = {
       function(cmp)
-        cmp.show({ providers = { "lsp", "snippets" } })
+        cmp.show({ providers = { "lsp", "path" } })
       end,
     },
   },
 
   sources = {
     default = { "lsp", "path", "snippets", "buffer" },
-    cmdline = {},
+  },
+
+  cmdline = {
+    enabled = false,
+  },
+
+  term = {
+    enabled = false,
   },
 
   completion = {
