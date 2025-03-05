@@ -46,7 +46,7 @@ function M.git_branch()
   return util.hide_in_width(50, function()
     local head = vim.b.gitsigns_head
     if head then
-      return string.format("(%s) ", vim.b.gitsigns_head)
+      return string.upper(vim.b.gitsigns_head) .. " "
     end
     return ""
   end)
@@ -65,7 +65,8 @@ function M.file_format()
 end
 
 function M.file_name()
-  local file = vim.api.nvim_buf_get_name(vim.api.nvim_get_current_buf())
+  local bufnr = vim.api.nvim_get_current_buf()
+  local file = vim.api.nvim_buf_get_name(bufnr)
 
   if vim.bo.buftype ~= "" or file == "" then
     return ""
@@ -74,7 +75,7 @@ function M.file_name()
   if util.is_width_under(50) then
     file = vim.fn.fnamemodify(file, ":t")
   else
-    file = vim.fn.fnamemodify(file, ":p")
+    file = vim.fn.fnamemodify(file, ":.")
   end
 
   if vim.bo.filetype == "" then
@@ -95,30 +96,31 @@ function M.file_type()
 end
 
 function M.line_number()
-  if util.is_width_under(30) then
+  if util.is_width_under(30) or vim.bo.buftype ~= "" then
     return ""
   end
+
   return string.format("Ln %-2d Col %-2d ", vim.fn.line("."), vim.fn.col("."))
 end
 
 function M.diagnostic_errors()
   return util.hide_in_width(50, function()
     local count = util.get_diagnostics(vim.diagnostic.severity.ERROR)
-    return count ~= 0 and string.format("E%d ", count) or ""
+    return count ~= 0 and string.format("[E%d]", count) or ""
   end)
 end
 
 function M.diagnostic_warnings()
   return util.hide_in_width(50, function()
     local count = util.get_diagnostics(vim.diagnostic.severity.WARN)
-    return count ~= 0 and string.format("W%d ", count) or ""
+    return count ~= 0 and string.format("[W%d]", count) or ""
   end)
 end
 
 function M.diagnostic_info()
   return util.hide_in_width(50, function()
     local count = util.get_diagnostics(vim.diagnostic.severity.INFO)
-    return count ~= 0 and string.format("I%d ", count) or ""
+    return count ~= 0 and string.format("[I%d]", count) or ""
   end)
 end
 

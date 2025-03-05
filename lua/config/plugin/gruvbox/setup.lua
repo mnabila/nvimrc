@@ -5,15 +5,6 @@ require("gruvbox").setup({
   dim_inactive = false,
   transparent_mode = false,
   overrides = {
-    TabLineFill = { link = "Normal" },
-    SignColumn = { link = "Normal" },
-    NormalFloat = { link = "Normal" },
-    Search = { fg = p.dark0, bg = p.bright_yellow },
-    IncSearch = { fg = p.dark0, bg = p.bright_orange },
-    WinSeparator = { fg = p.light0 },
-
-    StatuslineBold = { bold = true },
-
     GruvboxRedSign = { link = "GruvboxRed" },
     GruvboxGreenSign = { link = "GruvboxGreen" },
     GruvboxYellowSign = { link = "GruvboxYellow" },
@@ -22,9 +13,16 @@ require("gruvbox").setup({
     GruvboxAquaSign = { link = "GruvboxAqua" },
     GruvboxOrangeSign = { link = "GruvboxOrange" },
 
+    TabLineFill = { link = "Normal" },
+    SignColumn = { link = "Normal" },
+    NormalFloat = { link = "Normal" },
+    Search = { fg = p.dark0, bg = p.bright_yellow },
+    IncSearch = { fg = p.dark0, bg = p.bright_orange },
+    WinSeparator = { fg = p.light0 },
+    SFMFolderIndicator = { fg = p.light4 },
+    StatuslineBold = { bold = true },
     TroubleFoldIcon = { link = "Normal" },
     TroubleCount = { link = "GruvboxOrange", reverse = true },
-
     LspInfoBorder = { link = "Normal" },
   },
 })

@@ -1,12 +1,7 @@
-return function(client, bufnr)
-  vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "single" })
+return function()
+  vim.lsp.handlers["textDocument/hover"] = vim.lsp.buf.hover({ border = "single" })
 
-  vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "single" })
-
-  vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-    underline = true,
-    virtual_text = { spacing = 2, prefix = "❰" },
-  })
+  vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.buf.hover({ border = "single" })
 
   -- if client.supports_method("textDocument/inlayHint") then
   --   vim.lsp.inlay_hint.enable(bufnr, true)

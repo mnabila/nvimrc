@@ -53,6 +53,9 @@ local plugins = {
   -- plantuml
   require("config.plugin.plantuml.lazyspec"),
   require("config.plugin.preview.lazyspec"),
+
+  -- ai
+  require("config.plugin.codecompanion.lazyspec"),
 }
 
 require("lazy").setup(plugins, {

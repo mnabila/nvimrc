@@ -3,16 +3,15 @@ local c = require("config.statusline.component")
 function MyStatusline()
   return table.concat({
     c.vi_mode(),
-    c.git_branch(),
+    c.file_name(),
     c.diagnostic_errors(),
     c.diagnostic_warnings(),
     c.diagnostic_info(),
     c.diagnostic_hints(),
     "%=",
-    c.file_name(),
-    "%=",
     c.line_number(),
     c.file_type(),
+    c.git_branch(),
     c.file_encoding(),
     c.file_format(),
   })
