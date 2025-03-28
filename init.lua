@@ -1,11 +1,14 @@
 -- neovim basic configuration
-require("config.option")
+require("option")
 
 -- neovim keybindings
-require("config.keymap")
+require("keymap")
 
 -- custom statusline
-require("config.statusline")
+require("statusline")
+
+-- language server protocol
+require("lspconfig")
 
 -- neovim package manager
-require("config.plugin.lazy.setup")
+require("plugin.lazy.setup")
