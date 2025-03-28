@@ -4,6 +4,5 @@ return {
   dependencies = { "nvim-lua/plenary.nvim" },
   config = function()
     require("plugin.nonels.setup")
-    require("plugin.nonels.keymap")
   end,
 }

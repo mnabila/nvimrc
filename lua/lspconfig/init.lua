@@ -1,5 +1,3 @@
-local capabilities = require("lspconfig.capabilities")
-
 vim.diagnostic.config({
   underline = true,
   virtual_text = {
@@ -10,7 +8,8 @@ vim.diagnostic.config({
 })
 
 vim.lsp.config("*", {
-  capabilities = capabilities,
+  capabilities = require("lspconfig.capabilities"),
+  on_attach = require("lspconfig.on_attach"),
 })
 
 vim.lsp.enable({
