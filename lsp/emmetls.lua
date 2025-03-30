@@ -1,5 +1,5 @@
 return {
-    cmd = { 'emmet-language-server', '--stdio' },
+  cmd = { "emmet-language-server", "--stdio" },
   filetypes = {
     "astro",
     "css",
