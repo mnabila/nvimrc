@@ -1,6 +1,6 @@
 return {
   "nvim-treesitter/nvim-treesitter",
-  event = "LspAttach",
+  event = "BufEnter",
   config = function()
     require("config.plugin.treesitter.setup")
   end,

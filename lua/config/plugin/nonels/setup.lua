@@ -4,6 +4,7 @@ nulls.setup({
   sources = {
     -- lua
     nulls.builtins.formatting.stylua,
+    nulls.builtins.diagnostics.selene,
 
     -- python
     nulls.builtins.formatting.black,

@@ -1,6 +1,6 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 
-if not (vim.uv or vim.loop).fs_stat(lazypath) then
+if not vim.uv.fs_stat(lazypath) then
   local repo = "https://github.com/folke/lazy.nvim.git"
   vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", repo, lazypath })
 end
@@ -19,8 +19,8 @@ local plugins = {
 
   -- languages server protocol
   require("config.plugin.nonels.lazyspec"),
-  require("config.plugin.fidget.lazyspec"),
   require("config.plugin.trouble.lazyspec"),
+  require("config.plugin.navic.lazyspec"),
 
   -- fuzzy finder
   require("config.plugin.telescope.lazyspec"),
@@ -31,6 +31,7 @@ local plugins = {
   require("config.plugin.mini_pairs.lazyspec"),
   require("config.plugin.mini_align.lazyspec"),
   require("config.plugin.wakatime.lazyspec"),
+  require("config.plugin.fidget.lazyspec"),
 
   -- git
   require("config.plugin.gitsigns.lazyspec"),

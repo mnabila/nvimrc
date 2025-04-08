@@ -1,8 +1,16 @@
 return {
   "NeogitOrg/neogit",
   dependencies = {
-    "sindrets/diffview.nvim",
+    {
+      "sindrets/diffview.nvim",
+      cmd = { "DiffviewOpen", "DiffviewToggleFile" },
+      ft = { "NeogitStatus" },
+    },
   },
+  cmd = "Neogit",
+  init = function()
+    require("config.plugin.neogit.keymap")
+  end,
   config = function()
     require("config.plugin.neogit.setup")
   end,

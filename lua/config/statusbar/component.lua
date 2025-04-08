@@ -1,4 +1,5 @@
-local util = require("config.statusline.util")
+local util = require("config.statusbar.util")
+
 local M = {}
 
 function M.vi_mode()
@@ -39,7 +40,7 @@ function M.vi_mode()
     ["null"] = "NONE",
   }
 
-  return "%#StatuslineBold#" .. " " .. modes[vim.api.nvim_get_mode().mode] .. "%#Statusline#" .. " "
+  return "%#StatusLineBold#" .. " " .. modes[vim.api.nvim_get_mode().mode] .. "%#StatusLine#" .. " "
 end
 
 function M.git_branch()
@@ -85,7 +86,13 @@ function M.file_name()
   local readonly = vim.bo.readonly and "[RO]" or ""
   local modified = vim.bo.modified and "[+]" or ""
 
-  return string.format("%s %s%s", file, readonly, modified)
+  local ok, devicons = pcall(require, "nvim-web-devicons")
+  if ok then
+    local icon, _ = devicons.get_icon(file, vim.bo.filetype)
+    return string.format("%s%s %s %s ", readonly, modified, icon, file)
+  end
+
+  return string.format("%s%s %s ", readonly, modified, file)
 end
 
 function M.file_type()
@@ -95,12 +102,39 @@ function M.file_type()
   return ""
 end
 
+function M.file_size()
+  if not util.is_width_under(30) or vim.bo.buftype ~= "" then
+    local stat = vim.uv.fs_stat(vim.fn.expand("%:p"))
+    if not stat then
+      return ""
+    end
+
+    local size = stat.size
+    if size >= 1024 * 1024 then
+      return string.format("%.2f MB ", size / (1024 * 1024))
+    elseif size >= 1024 then
+      return string.format("%.2f KB ", size / 1024)
+    else
+      return string.format("%d B ", size)
+    end
+  end
+
+  return ""
+end
+
+function M.load_time()
+  if not util.is_width_under(30) and vim.b.loaded then
+    return string.format("%.2f ms ", vim.b.loaded)
+  end
+  return ""
+end
+
 function M.line_number()
   if util.is_width_under(30) or vim.bo.buftype ~= "" then
     return ""
   end
 
-  return string.format("Ln %-2d Col %-2d ", vim.fn.line("."), vim.fn.col("."))
+  return string.format("Ln %-1d Col %-1d ", vim.fn.line("."), vim.fn.col("."))
 end
 
 function M.diagnostic_errors()
@@ -127,7 +161,17 @@ end
 function M.diagnostic_hints()
   return util.hide_in_width(50, function()
     local count = util.get_diagnostics(vim.diagnostic.severity.HINT)
-    return count ~= 0 and string.format("H%d ", count) or ""
+    return count ~= 0 and string.format("[H%d]", count) or ""
+  end)
+end
+
+function M.breadcrumb()
+  return util.hide_in_width(50, function()
+    local ok, navic = pcall(require, "nvim-navic")
+    if ok and navic.is_available() then
+      return navic.get_location()
+    end
+    return ""
   end)
 end
 

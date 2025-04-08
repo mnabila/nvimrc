@@ -1,4 +1,3 @@
-local keymap = vim.keymap
 local neogit = require("neogit")
 
 neogit.setup({
@@ -8,5 +7,3 @@ neogit.setup({
     section = { "", "" },
   },
 })
-
-keymap.set("n", "<Leader>g", neogit.open, { desc = "Git: Open Neogit" })

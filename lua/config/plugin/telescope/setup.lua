@@ -2,6 +2,7 @@ local telescope = require("telescope")
 
 telescope.load_extension("zf-native")
 telescope.load_extension("ui-select")
+telescope.load_extension("fidget")
 telescope.setup({
   defaults = {
     results_title = false,
