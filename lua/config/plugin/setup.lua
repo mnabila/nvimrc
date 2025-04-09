@@ -9,7 +9,7 @@ vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
   -- colorscheme
-  require("config.plugin.gruvbox.lazyspec"),
+  -- require("config.plugin.gruvbox.lazyspec"),
 
   -- completion
   require("config.plugin.blink.lazyspec"),
@@ -32,6 +32,7 @@ local plugins = {
   require("config.plugin.mini_align.lazyspec"),
   require("config.plugin.wakatime.lazyspec"),
   require("config.plugin.fidget.lazyspec"),
+  require("config.plugin.colorizer.lazyspec"),
 
   -- git
   require("config.plugin.gitsigns.lazyspec"),

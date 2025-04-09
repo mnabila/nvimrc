@@ -1,3 +1,6 @@
+-- neovim colorscheme
+vim.cmd("colorscheme gruvboy")
+
 -- neovim basic configuration
 require("config.option")
 
