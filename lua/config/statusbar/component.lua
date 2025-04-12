@@ -40,7 +40,7 @@ function M.vi_mode()
     ["null"] = "NONE",
   }
 
-  return "%#StatusLineBold#" .. " " .. modes[vim.api.nvim_get_mode().mode] .. "%#StatusLine#" .. " "
+  return " " .. modes[vim.api.nvim_get_mode().mode] .. " "
 end
 
 function M.git_branch()
@@ -86,13 +86,7 @@ function M.file_name()
   local readonly = vim.bo.readonly and "[RO]" or ""
   local modified = vim.bo.modified and "[+]" or ""
 
-  local ok, devicons = pcall(require, "nvim-web-devicons")
-  if ok then
-    local icon, _ = devicons.get_icon(file, vim.bo.filetype)
-    return string.format("%s%s %s %s ", readonly, modified, icon, file)
-  end
-
-  return string.format("%s%s %s ", readonly, modified, file)
+  return " " .. readonly .. modified .. " " .. file .. " "
 end
 
 function M.file_type()
@@ -134,34 +128,34 @@ function M.line_number()
     return ""
   end
 
-  return string.format("Ln %-1d Col %-1d ", vim.fn.line("."), vim.fn.col("."))
+  return string.format("Ln %-2d Col %-2d ", vim.fn.line("."), vim.fn.col("."))
 end
 
 function M.diagnostic_errors()
   return util.hide_in_width(50, function()
     local count = util.get_diagnostics(vim.diagnostic.severity.ERROR)
-    return count ~= 0 and string.format("[E%d]", count) or ""
+    return count ~= 0 and string.format("[E%d] ", count) or ""
   end)
 end
 
 function M.diagnostic_warnings()
   return util.hide_in_width(50, function()
     local count = util.get_diagnostics(vim.diagnostic.severity.WARN)
-    return count ~= 0 and string.format("[W%d]", count) or ""
+    return count ~= 0 and string.format("[W%d] ", count) or ""
   end)
 end
 
 function M.diagnostic_info()
   return util.hide_in_width(50, function()
     local count = util.get_diagnostics(vim.diagnostic.severity.INFO)
-    return count ~= 0 and string.format("[I%d]", count) or ""
+    return count ~= 0 and string.format("[I%d] ", count) or ""
   end)
 end
 
 function M.diagnostic_hints()
   return util.hide_in_width(50, function()
     local count = util.get_diagnostics(vim.diagnostic.severity.HINT)
-    return count ~= 0 and string.format("[H%d]", count) or ""
+    return count ~= 0 and string.format("[H%d] ", count) or ""
   end)
 end
 
@@ -172,6 +166,23 @@ function M.breadcrumb()
       return navic.get_location()
     end
     return ""
+  end)
+end
+
+function M.lsp_name()
+  return util.hide_in_width(50, function()
+    local clients = vim.lsp.get_clients({ bufnr = vim.api.nvim_get_current_buf() })
+
+    if clients == nil then
+      return ""
+    end
+
+    local result = ""
+    for _, client in ipairs(clients) do
+      result = result .. client.name:upper() .. " "
+    end
+
+    return result
   end)
 end
 

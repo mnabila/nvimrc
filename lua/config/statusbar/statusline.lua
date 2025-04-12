@@ -5,6 +5,10 @@ function Statusline()
     c.vi_mode(),
     c.git_branch(),
     "%=",
+    c.diagnostic_errors(),
+    c.diagnostic_warnings(),
+    c.diagnostic_info(),
+    c.diagnostic_hints(),
     c.line_number(),
     c.file_type(),
     c.file_size(),
@@ -14,8 +18,10 @@ function Statusline()
   })
 end
 
+local group = vim.api.nvim_create_augroup("StatusLine", { clear = true })
+
 vim.api.nvim_create_autocmd({ "BufEnter", "BufLeave" }, {
-  group = vim.api.nvim_create_augroup("StatusLine", { clear = true }),
+  group = group,
   pattern = "*",
   callback = function()
     vim.opt_local.statusline = "%{%v:lua.Statusline()%}"
@@ -23,14 +29,14 @@ vim.api.nvim_create_autocmd({ "BufEnter", "BufLeave" }, {
 })
 
 vim.api.nvim_create_autocmd("BufReadPre", {
-  group = "StatusLine",
+  group = group,
   callback = function(args)
     vim.b[args.buf].loading = vim.uv.hrtime()
   end,
 })
 
 vim.api.nvim_create_autocmd("BufReadPost", {
-  group = "StatusLine",
+  group = group,
   callback = function(args)
     if not vim.b[args.buf].loading then
       return

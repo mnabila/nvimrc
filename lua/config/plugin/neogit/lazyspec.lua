@@ -4,7 +4,7 @@ return {
     {
       "sindrets/diffview.nvim",
       cmd = { "DiffviewOpen", "DiffviewToggleFile" },
-      ft = { "NeogitStatus" },
+      ft = { "NeogitStatus", "NeogitCommitView" },
     },
   },
   cmd = "Neogit",

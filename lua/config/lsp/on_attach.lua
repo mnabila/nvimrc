@@ -13,18 +13,22 @@ return function(client, bufnr)
     end, { buffer = true, desc = "LSP: Show Documentation" })
   end
 
-  if client:supports_method("textDocument/inlayHint") then
-    lsp.inlay_hint.enable(true, { bufnr = bufnr })
+  -- if client:supports_method("textDocument/inlayHint") then
+  --   lsp.inlay_hint.enable(true, { bufnr = bufnr })
+  --
+  --   command("InlayHint", function()
+  --     lsp.inlay_hint.enable(not lsp.inlay_hint.is_enabled({ bufnr = bufnr }))
+  --   end, { nargs = 0 })
+  -- end
 
-    command("InlayHint", function()
-      lsp.inlay_hint.enable(not lsp.inlay_hint.is_enabled({ bufnr = bufnr }))
-    end, { nargs = 0 })
-  end
+  -- if client:supports_method("textDocument/formatting") then
+  --   keymap.set("n", "<leader>f", function()
+  --     lsp.buf.format({ async = true })
+  --   end, { desc = "LSP: Formats the current buffer" })
+  -- end
 
-  if client:supports_method("textDocument/formatting") then
-    keymap.set("n", "<leader>f", function()
-      lsp.buf.format({ async = true, bufnr = bufnr })
-    end, { buffer = true, desc = "LSP: Formats the current buffer" })
+  if client:supports_method("textDocument/definition") then
+    keymap.set("n", "grd", lsp.buf.definition, { buffer = true, desc = "LSP: Go to definition" })
   end
 
   if not client:is_stopped() then

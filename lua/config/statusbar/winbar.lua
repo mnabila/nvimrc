@@ -2,12 +2,10 @@ local c = require("config.statusbar.component")
 
 function Winbar()
   return table.concat({
-    c.diagnostic_errors(),
-    c.diagnostic_warnings(),
-    c.diagnostic_info(),
-    c.diagnostic_hints(),
     c.file_name(),
     c.breadcrumb(),
+    "%=",
+    c.lsp_name(),
   })
 end
 

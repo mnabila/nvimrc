@@ -21,7 +21,6 @@ telescope.setup({
     sorting_strategy = "descending",
     layout_strategy = "bottom_pane",
     layout_config = {
-      preview_cutoff = 1,
       height = 0.4,
       prompt_position = "bottom",
     },
@@ -42,11 +41,8 @@ telescope.setup({
         "hidden",
       },
     },
-    find_files = {
-      previewer = false,
-    },
     oldfiles = {
-      previewer = false,
+      previewer = true,
       file_ignore_patterns = {
         "/usr/share/nvim/runtime/*",
         vim.fn.stdpath("data"),

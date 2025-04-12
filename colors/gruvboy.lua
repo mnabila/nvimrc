@@ -52,7 +52,7 @@ local groups = {
   Function = { fg = c.bright_green, bold = true },
   Identifier = { fg = c.bright_blue },
   Ignore = { link = "Conceal" },
-  IncSearch = { fg = c.yellow, bg = c.black, reverse = true },
+  IncSearch = { fg = c.black, bg = c.white },
   Include = { fg = c.cyan },
   Keyword = { fg = c.bright_red },
   Label = { fg = c.bright_red },
@@ -81,7 +81,7 @@ local groups = {
   Question = { fg = c.yellow, bold = true },
   QuickFixLine = { fg = c.cyan, bg = c.black, reverse = true },
   Repeat = { fg = c.bright_red },
-  Search = { fg = c.green, bg = c.black, reverse = true },
+  Search = { fg = c.black, bg = c.white },
   SignColumn = { fg = c.bright_black, bg = c.black },
   Special = { fg = c.yellow },
   SpecialChar = { fg = c.bright_red },
@@ -101,7 +101,7 @@ local groups = {
   TabLineFill = { fg = c.bright_white, bg = c.black },
   TabLineSel = { fg = c.bright_white, bg = c.black, bold = true },
   Title = { fg = c.bright_green, bold = true },
-  Todo = { fg = c.white, bg = c.black, bold = true },
+  Todo = { fg = c.black, bg = c.white, bold = true },
   ToolbarButton = { fg = c.bright_white, bg = c.bright_black, bold = true },
   ToolbarLine = { fg = c.none },
   Type = { fg = c.bright_yellow },
@@ -199,6 +199,17 @@ local groups = {
   GitSignAdd = { link = "DiffAdd" },
   GitSignChange = { link = "DiffChange" },
   GitSignDelete = { link = "DiffDelete" },
+
+  -- See :h neogit_highlights
+  NeogitChangeAdded = { fg = c.bright_green, bold = true, italic = true },
+  NeogitChangeDeleted = { fg = c.bright_red, bold = true, italic = true },
+  NeogitChangeModified = { fg = c.cyan, bold = true, italic = true },
+  NeogitDiffAdd = { link = "DiffAdd" },
+  NeogitDiffAddCursor = { fg = c.black, bg = c.bright_green },
+  NeogitDiffAddHighlight = { link = "DiffAdd" },
+  NeogitDiffDelete = { link = "DiffDelete" },
+  NeogitDiffDeleteCursor = { fg = c.black, bg = c.bright_red },
+  NeogitDiffDeleteHighlight = { link = "DiffDelete" },
 }
 
 for group, opts in pairs(groups) do

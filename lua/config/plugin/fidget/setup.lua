@@ -1,7 +1,7 @@
 require("fidget").setup({
   notification = {
-    override_vim_notify = true,
     window = {
+      normal_hl = "Normal",
       align = "bottom",
       relative = "editor",
     },
