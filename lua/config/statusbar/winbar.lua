@@ -10,7 +10,7 @@ function Winbar()
 end
 
 local function hide_winbar(buf)
-  local ignore_filetypes = { "sfm", "help", "terminal", "lazy", "mason", "TelescopePrompt" }
+  local ignore_filetypes = { "sfm", "help", "terminal", "lazy", "TelescopePrompt", "dap-view", "dap-repl" }
   return not buf or vim.api.nvim_buf_get_name(buf) == "" or vim.tbl_contains(ignore_filetypes, vim.bo[buf].filetype)
 end
 

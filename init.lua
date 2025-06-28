@@ -15,4 +15,4 @@ require("config.statusbar.statusline")
 require("config.statusbar.winbar")
 
 -- neovim package manager
-require("config.plugin.setup")
+require("config.plugin.lazy.setup")

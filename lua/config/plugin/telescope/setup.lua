@@ -38,7 +38,7 @@ telescope.setup({
       line_width = 0.7,
       no_unlisted = true,
       path_display = {
-        "hidden",
+        "filename_first",
       },
     },
     oldfiles = {
@@ -49,6 +49,9 @@ telescope.setup({
         vim.fn.stdpath("cache"),
         vim.fn.stdpath("log"),
       },
+    },
+    find_files = {
+      previewer = false,
     },
     builtin = {
       previewer = false,

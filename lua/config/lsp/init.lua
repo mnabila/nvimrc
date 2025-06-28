@@ -9,10 +9,12 @@ vim.lsp.enable({
   "dockerls",
   "emmetls",
   "gopls",
+  "jsonls",
   "luals",
+  "nills",
+  "pyright",
   "tsls",
   "vimls",
-  "pyright",
 })
 
 vim.diagnostic.config({

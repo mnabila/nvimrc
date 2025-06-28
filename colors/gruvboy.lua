@@ -83,6 +83,7 @@ local groups = {
   Repeat = { fg = c.bright_red },
   Search = { fg = c.black, bg = c.white },
   SignColumn = { fg = c.bright_black, bg = c.black },
+  SnippetTabstop = { link = "Normal" },
   Special = { fg = c.yellow },
   SpecialChar = { fg = c.bright_red },
   SpecialComment = { fg = c.bright_red, italic = true },
@@ -196,9 +197,9 @@ local groups = {
   TelescopePromptPrefix = { fg = c.bright_white },
 
   --See :h gitsigns-highlight-groups
-  GitSignAdd = { link = "DiffAdd" },
-  GitSignChange = { link = "DiffChange" },
-  GitSignDelete = { link = "DiffDelete" },
+  GitSignsAdd = { link = "DiffAdd" },
+  GitSignsChange = { link = "DiffChange" },
+  GitSignsDelete = { link = "DiffDelete" },
 
   -- See :h neogit_highlights
   NeogitChangeAdded = { fg = c.bright_green, bold = true, italic = true },
