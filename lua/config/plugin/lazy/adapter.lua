@@ -1,19 +1,5 @@
----@class SpecPackage
----@field source string           -- GitHub repo string (e.g., "author/plugin")
----@field version? string         -- Optional version tag/semver
-
----@class SpecLoader
----@field cmd? string|string[]    -- Command(s) to lazy-load plugin
----@field event? string|string[]  -- Event(s) to lazy-load plugin
----@field ft? string|string[]     -- Filetype(s) to lazy-load plugin
----@field keymap? string|string[] -- Keymap(s) to lazy-load plugin
-
----@class TemplateSpec
----@field package SpecPackage     -- Package information
----@field loader? SpecLoader      -- Lazy load trigger options
----@field deps? TemplateSpec[]    -- Optional nested plugin dependencies
----@field config? true | fun()    -- Plugin config (setup) function or true to use default
----@field init? fun()             -- Plugin init (setup) function or true to use default
+-- load type definition
+require("config.types.plugin_spec")
 
 local adapter = {}
 
@@ -28,6 +14,9 @@ function adapter.wrap_spec(spec)
     table.insert(lazy_spec, spec.package.source)
     if spec.package.version then
       lazy_spec.version = spec.package.version
+    end
+    if spec.package.lock then
+      lazy_spec.pin = spec.package.lock
     end
   end
 

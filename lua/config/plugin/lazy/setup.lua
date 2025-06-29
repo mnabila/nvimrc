@@ -7,8 +7,6 @@ end
 
 vim.opt.rtp:prepend(lazypath)
 
-local adapter = require("config.plugin.lazy.adapter")
-
 local specs = {
   -- completion
   "config.plugin.blink.spec",
@@ -54,6 +52,8 @@ local specs = {
   -- ai
   "config.plugin.codecompanion.spec",
 }
+
+local adapter = require("config.plugin.lazy.adapter")
 
 local plugins = vim.tbl_map(function(name)
   return adapter.wrap_spec(require(name))
