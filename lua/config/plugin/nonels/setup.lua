@@ -14,7 +14,6 @@ nulls.setup({
 
     -- sql
     nulls.builtins.formatting.sqruff,
-    nulls.builtins.diagnostics.sqruff,
 
     -- css, html, js, json and other stuff (lol)
     nulls.builtins.formatting.prettier,

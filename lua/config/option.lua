@@ -51,6 +51,10 @@ vim.opt.conceallevel = 0
 vim.opt.errorbells = false
 vim.opt.shortmess = "atToOcF"
 
+-- Folding
+vim.opt.foldenable = false
+vim.opt.foldmethod = "manual"
+
 -- Search Behavior
 vim.opt.hlsearch = true
 vim.opt.ignorecase = true
