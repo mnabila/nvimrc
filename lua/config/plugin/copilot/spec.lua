@@ -1,5 +1,6 @@
 return {
   package = { source = "zbirenbaum/copilot.lua" },
-  loader = { cmd = "Copilot", event = "InsertEnter" },
-  config = true,
+  config = function()
+    require("config.plugin.copilot.setup")
+  end,
 }

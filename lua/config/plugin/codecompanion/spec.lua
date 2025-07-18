@@ -4,7 +4,7 @@ return {
     cmd = {
       "CodeCompanionChat",
       "CodeCompanionCmd",
-      "CodeCompanionAction",
+      "CodeCompanionActions",
     },
   },
   config = function()
@@ -13,5 +13,6 @@ return {
   deps = {
     { package = { source = "nvim-lua/plenary.nvim" } },
     { package = { source = "nvim-treesitter/nvim-treesitter" } },
+    require("config.plugin.copilot.spec"),
   },
 }

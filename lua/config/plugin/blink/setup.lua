@@ -6,7 +6,7 @@ require("blink-cmp").setup({
     ["<CR>"] = { "select_and_accept", "fallback" },
     ["<C-space>"] = {
       function(cmp)
-        cmp.show({ providers = { "lsp", "path", "buffer" } })
+        cmp.show({ providers = { "lsp", "path", "buffer", "copilot" } })
       end,
     },
   },
