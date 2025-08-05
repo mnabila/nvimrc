@@ -11,11 +11,5 @@ return {
         { package = { source = "rcarriga/cmp-dap" } },
       },
     },
-    {
-      package = { source = "fang2hou/blink-copilot" },
-      deps = {
-        require("config.plugin.copilot.spec"),
-      },
-    },
   },
 }

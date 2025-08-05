@@ -7,6 +7,10 @@
         "path": "./global.json"
       },
       {
+        "language": "all",
+        "path": "./license.json"
+      },
+      {
         "language": "go",
         "path": "./go.json"
       },

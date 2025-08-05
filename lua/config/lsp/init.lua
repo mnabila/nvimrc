@@ -5,6 +5,7 @@ vim.lsp.config("*", {
 
 vim.lsp.enable({
   "bashls",
+  "clangd",
   "cssls",
   "dockerls",
   "emmetls",
