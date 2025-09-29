@@ -1,6 +1,7 @@
+local capabilities = require("config.lsp.capabilities")
+
 vim.lsp.config("*", {
-  capabilities = require("config.lsp.capabilities"),
-  on_attach = require("config.lsp.on_attach"),
+  capabilities = capabilities,
 })
 
 vim.lsp.enable({
@@ -41,4 +42,63 @@ vim.api.nvim_create_autocmd("LspDetach", {
     client:stop()
   end,
   desc = "Auto Detach LSP",
+})
+
+vim.api.nvim_create_autocmd("LspAttach", {
+  group = vim.api.nvim_create_augroup("UserLspConfig", {}),
+  callback = function(ev)
+    local client = vim.lsp.get_client_by_id(ev.data.client_id)
+
+    if not client then
+      return
+    end
+
+    -- Hover documentation
+    if client:supports_method("textDocument/hover") or client:supports_method("textDocument/signatureHelp") then
+      vim.keymap.set("n", "K", function()
+        vim.lsp.buf.hover({
+          silent = true,
+          border = "single",
+          max_width = math.floor(vim.o.columns / 2),
+        })
+      end, { buffer = ev.buf, noremap = true, desc = "LSP: Show Documentation" })
+    end
+
+    -- Formatting
+    if client:supports_method("textDocument/formatting") then
+      vim.keymap.set("n", "<leader>f", function()
+        vim.lsp.buf.format({ async = true })
+      end, { buffer = ev.buf, noremap = true, desc = "LSP: Formats the current buffer" })
+    end
+
+    -- Go to definition
+    if client:supports_method("textDocument/definition") then
+      vim.keymap.set(
+        "n",
+        "gd",
+        vim.lsp.buf.definition,
+        { buffer = ev.buf, noremap = true, desc = "LSP: Go to definition" }
+      )
+    end
+
+    -- Inlay hints
+    if client:supports_method("textDocument/inlayHint") then
+      vim.lsp.inlay_hint.enable(true, { bufnr = ev.buf })
+
+      vim.api.nvim_buf_create_user_command(ev.buf, "InlayHintToggle", function()
+        local current_state = vim.lsp.inlay_hint.is_enabled({ bufnr = ev.buf })
+        vim.lsp.inlay_hint.enable(not current_state, { bufnr = ev.buf })
+      end, { desc = "Toggle inlay hints" })
+    end
+
+    vim.api.nvim_buf_create_user_command(ev.buf, "LspStop", function()
+      if client:is_stopped() then
+        vim.notify(client.name:upper() .. " is already stopped", vim.log.levels.WARN)
+      else
+        client:stop(true)
+        vim.notify(client.name:upper() .. " stopped", vim.log.levels.INFO)
+      end
+    end, { desc = "Stop LSP client for this buffer" })
+  end,
+  desc = "User custom event for LspAttach",
 })
