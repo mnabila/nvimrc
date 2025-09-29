@@ -4,18 +4,18 @@ vim.lsp.config("*", {
 })
 
 vim.lsp.enable({
-  "bashls",
+  "bash-language-server",
   "clangd",
-  "cssls",
-  "dockerls",
-  "emmetls",
+  "docker-langserver",
+  "emmet-language-server",
   "gopls",
-  "jsonls",
-  "luals",
-  "nills",
+  "lua-language-server",
   "pyright",
-  "tsls",
-  "vimls",
+  "rust-analyzer",
+  "typescript-language-server",
+  "vim-language-server",
+  "css-language-server",
+  "json-language-server",
 })
 
 vim.diagnostic.config({
@@ -27,18 +27,18 @@ vim.diagnostic.config({
 })
 
 vim.api.nvim_create_autocmd("LspDetach", {
-  group = vim.api.nvim_create_augroup("LspStopWithLastClient", {}),
-  callback = function(args)
-    local client = vim.lsp.get_client_by_id(args.data.client_id)
+  group = vim.api.nvim_create_augroup("UserLspConfig", {}),
+  callback = function(ev)
+    local client = vim.lsp.get_client_by_id(ev.data.client_id)
     if not client or not client.attached_buffers then
       return
     end
     for buf_id in pairs(client.attached_buffers) do
-      if buf_id ~= args.buf then
+      if buf_id ~= ev.buf then
         return
       end
     end
     client:stop()
   end,
-  desc = "Auto detach LSP",
+  desc = "Auto Detach LSP",
 })

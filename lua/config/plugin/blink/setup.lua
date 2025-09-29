@@ -13,6 +13,23 @@ require("blink-cmp").setup({
 
   sources = {
     default = { "lsp", "path", "snippets", "buffer" },
+    providers = {
+      emoji = {
+        module = "blink-emoji",
+        name = "Emoji",
+        score_offset = 15,
+        opts = {
+          insert = true,
+          ---@type string|table|fun():table
+          trigger = function()
+            return { ":" }
+          end,
+        },
+        should_show_items = function()
+          return vim.tbl_contains({ "gitcommit", "markdown", "html" }, vim.o.filetype)
+        end,
+      },
+    },
   },
 
   cmdline = {

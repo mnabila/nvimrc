@@ -71,7 +71,7 @@ telescope.setup({
       symbol_width = 0.7,
     },
     buffers = {
-      initial_mode = "normal",
+      initial_mode = "insert",
       select_current = true,
       previewer = false,
       sort_lastused = true,

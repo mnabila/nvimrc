@@ -11,5 +11,6 @@ return {
         { package = { source = "rcarriga/cmp-dap" } },
       },
     },
+    { package = { source = "moyiz/blink-emoji.nvim" } },
   },
 }

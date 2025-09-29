@@ -15,6 +15,7 @@ local specs = {
   "config.plugin.nonels.spec",
   "config.plugin.trouble.spec",
   "config.plugin.navic.spec",
+  "config.plugin.mason.spec",
 
   -- debuging adapter protocol
   "config.plugin.dap.spec",
@@ -48,6 +49,9 @@ local specs = {
   -- plantuml
   "config.plugin.plantuml.spec",
   "config.plugin.preview.spec",
+
+  -- hugo
+  "config.plugin.hugo.spec",
 
   -- ai
   "config.plugin.codecompanion.spec",

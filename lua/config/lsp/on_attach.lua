@@ -3,38 +3,47 @@ local lsp = vim.lsp
 local command = vim.api.nvim_create_user_command
 
 return function(client, bufnr)
-  if client:supports_method("textDocument/hover") or client:supports_method("textDocument/signatureHelp") then
+  -- Hover documentation
+  if client.supports_method("textDocument/hover") or client.supports_method("textDocument/signatureHelp") then
     keymap.set("n", "K", function()
       lsp.buf.hover({
         silent = true,
         border = "single",
-        width = math.floor(vim.o.columns / 2),
+        -- Fix: Use max_width instead of width
+        max_width = math.floor(vim.o.columns / 2),
       })
-    end, { buffer = true, desc = "LSP: Show Documentation" })
+    end, { buffer = bufnr, desc = "LSP: Show Documentation" })
   end
 
-  -- if client:supports_method("textDocument/inlayHint") then
-  --   lsp.inlay_hint.enable(true, { bufnr = bufnr })
-  --
-  --   command("InlayHint", function()
-  --     lsp.inlay_hint.enable(not lsp.inlay_hint.is_enabled({ bufnr = bufnr }))
-  --   end, { nargs = 0 })
-  -- end
+  -- Inlay hints
+  if client.supports_method("textDocument/inlayHint") then
+    lsp.inlay_hint.enable(true, { bufnr = bufnr })
 
-  -- if client:supports_method("textDocument/formatting") then
-  --   keymap.set("n", "<leader>f", function()
-  --     lsp.buf.format({ async = true })
-  --   end, { desc = "LSP: Formats the current buffer" })
-  -- end
-
-  if client:supports_method("textDocument/definition") then
-    keymap.set("n", "grd", lsp.buf.definition, { buffer = true, desc = "LSP: Go to definition" })
+    -- Fix: Make command buffer-local to avoid conflicts
+    vim.api.nvim_buf_create_user_command(bufnr, "InlayHintToggle", function()
+      local current_state = lsp.inlay_hint.is_enabled({ bufnr = bufnr })
+      lsp.inlay_hint.enable(not current_state, { bufnr = bufnr })
+    end, { desc = "Toggle inlay hints" })
   end
 
-  if not client:is_stopped() then
-    command("LspStop", function()
-      client:stop({ force = true })
-      vim.notify(client.name:upper() .. " already stopped")
-    end, { nargs = 0 })
+  -- Formatting
+  if client.supports_method("textDocument/formatting") then
+    keymap.set("n", "<leader>f", function()
+      lsp.buf.format({ async = true })
+    end, { buffer = bufnr, desc = "LSP: Formats the current buffer" })
   end
+
+  -- Go to definition
+  if client.supports_method("textDocument/definition") then
+    keymap.set("n", "grd", lsp.buf.definition, { buffer = bufnr, desc = "LSP: Go to definition" })
+  end
+
+  vim.api.nvim_buf_create_user_command(bufnr, "LspStop", function()
+    if client:is_stopped() then
+      vim.notify(client.name:upper() .. " is already stopped", vim.log.levels.WARN)
+    else
+      client:stop(true)
+      vim.notify(client.name:upper() .. " stopped", vim.log.levels.INFO)
+    end
+  end, { desc = "Stop LSP client for this buffer" })
 end
