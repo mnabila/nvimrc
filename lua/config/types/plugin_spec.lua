@@ -1,8 +1,10 @@
 ---@class SpecPackage
----@field source string             -- GitHub repository (e.g., "author/plugin")
----@field version? string           -- Optional version tag or semver (e.g., "v1.0.0")
----@field branch? string            -- Optional git branch to use
----@field lock? boolean             -- If true, plugin is pinned and won’t be updated
+---@field url string               -- Remote repository URL (e.g., "author/plugin")
+---@field dir? string              -- Local directory path for the plugin (e.g., /home/user/git/plugin.nvim)
+---@field version? string          -- Optional version tag or semver (e.g., "v1.0.0")
+---@field branch? string           -- Optional git branch to use
+---@field lock? boolean            -- If true, plugin is pinned and won't be updated
+---@field dev? boolean             -- If true, use 'dir' as local development directory; if false, use 'url' as remote repository
 
 ---@class SpecLoader
 ---@field cmd? string | string[]    -- Command(s) that trigger lazy loading (e.g., ":MyPlugin")

@@ -1,5 +1,5 @@
 return {
-  package = { source = "mfussenegger/nvim-dap" },
+  package = { url = "mfussenegger/nvim-dap" },
   loader = { ft = { "go" } },
   config = function()
     require("config.plugin.dap.setup")
@@ -7,11 +7,11 @@ return {
   end,
   deps = {
     {
-      package = { source = "igorlfs/nvim-dap-view" },
+      package = { url = "igorlfs/nvim-dap-view" },
       config = true,
     },
     {
-      package = { source = "leoluz/nvim-dap-go" },
+      package = { url = "leoluz/nvim-dap-go" },
       config = function()
         require("dap-go").setup()
       end,

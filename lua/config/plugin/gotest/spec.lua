@@ -1,5 +1,5 @@
 return {
-  package = { source = "yanskun/gotests.nvim" },
+  package = { url = "yanskun/gotests.nvim" },
   loader = { ft = "go" },
   config = true,
 }

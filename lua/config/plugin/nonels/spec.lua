@@ -1,10 +1,10 @@
 return {
-  package = { source = "nvimtools/none-ls.nvim" },
+  package = { url = "nvimtools/none-ls.nvim" },
   loader = { event = "InsertEnter" },
   config = function()
     require("config.plugin.nonels.setup")
   end,
   deps = {
-    { package = { source = "nvim-lua/plenary.nvim" } },
+    { package = { url = "nvim-lua/plenary.nvim" } },
   },
 }

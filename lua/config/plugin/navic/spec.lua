@@ -1,5 +1,5 @@
 return {
-  package = { source = "SmiteshP/nvim-navic" },
+  package = { url = "SmiteshP/nvim-navic" },
   loader = { event = "LspAttach" },
   config = function()
     require("config.plugin.navic.setup")

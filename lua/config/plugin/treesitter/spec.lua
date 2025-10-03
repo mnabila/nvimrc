@@ -1,5 +1,5 @@
 return {
-  package = { source = "nvim-treesitter/nvim-treesitter" },
+  package = { url = "nvim-treesitter/nvim-treesitter" },
   loader = {
     event = { "BufRead", "BufNewFile" },
     cmd = { "TSInstall", "TSUpdate" },

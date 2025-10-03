@@ -1,5 +1,5 @@
 return {
-  package = { source = "echasnovski/mini.pairs" },
+  package = { url = "echasnovski/mini.pairs" },
   loader = { event = "InsertEnter" },
   config = true,
 }

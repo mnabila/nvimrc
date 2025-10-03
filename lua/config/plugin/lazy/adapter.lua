@@ -11,7 +11,11 @@ function adapter.wrap_spec(spec)
 
   -- Add source and version
   if spec.package then
-    table.insert(lazy_spec, spec.package.source)
+    table.insert(lazy_spec, spec.package.url)
+    if spec.package.dev then
+      lazy_spec.dir = spec.package.dir
+      lazy_spec.dev = spec.package.dev
+    end
     if spec.package.version then
       lazy_spec.version = spec.package.version
     end

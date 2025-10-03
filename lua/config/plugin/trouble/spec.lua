@@ -1,5 +1,5 @@
 return {
-  package = { source = "folke/trouble.nvim" },
+  package = { url = "folke/trouble.nvim" },
   loader = { cmd = "Trouble" },
   init = function()
     require("config.plugin.trouble.keymap")
@@ -8,7 +8,7 @@ return {
     require("config.plugin.trouble.setup")
   end,
   deps = {
-    { package = { source = "nvim-tree/nvim-web-devicons" } },
-    { package = { source = "nvim-telescope/telescope.nvim" } },
+    { package = { url = "nvim-tree/nvim-web-devicons" } },
+    { package = { url = "nvim-telescope/telescope.nvim" } },
   },
 }

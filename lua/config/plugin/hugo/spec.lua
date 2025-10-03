@@ -1,3 +1,3 @@
 return {
-  package = { source = "phelipetls/vim-hugo" },
+  package = { url = "phelipetls/vim-hugo" },
 }

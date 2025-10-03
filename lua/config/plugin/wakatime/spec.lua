@@ -1,4 +1,4 @@
 return {
-  package = { source = "wakatime/vim-wakatime" },
+  package = { url = "wakatime/vim-wakatime" },
   loader = { event = "BufRead" },
 }

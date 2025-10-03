@@ -1,5 +1,5 @@
 return {
-  package = { source = "williamboman/mason.nvim" },
+  package = { url = "williamboman/mason.nvim" },
   loader = {
     event = "BufRead",
     cmd = { "Mason", "MasonInstall", "MasonUpdate" },

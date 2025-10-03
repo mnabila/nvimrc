@@ -1,4 +1,4 @@
 return {
-  package = { source = "aklt/plantuml-syntax" },
+  package = { url = "aklt/plantuml-syntax" },
   loader = { ft = "plantuml" },
 }

@@ -1,5 +1,5 @@
 return {
-  package = { source = "echasnovski/mini.surround" },
+  package = { url = "echasnovski/mini.surround" },
   loader = { event = "InsertEnter" },
   config = true,
 }

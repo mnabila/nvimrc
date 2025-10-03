@@ -1,5 +1,5 @@
 return {
-  package = { source = "dinhhuy258/sfm.nvim" },
+  package = { url = "dinhhuy258/sfm.nvim" },
   loader = { cmd = "SFMToggle" },
   init = function()
     require("config.plugin.sfm.keymap")
@@ -8,6 +8,6 @@ return {
     require("config.plugin.sfm.setup")
   end,
   deps = {
-    { package = { source = "dinhhuy258/sfm-filter.nvim" } },
+    { package = { url = "dinhhuy258/sfm-filter.nvim" } },
   },
 }

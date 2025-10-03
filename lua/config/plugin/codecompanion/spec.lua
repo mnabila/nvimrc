@@ -1,5 +1,5 @@
 return {
-  package = { source = "olimorris/codecompanion.nvim" },
+  package = { url = "olimorris/codecompanion.nvim" },
   loader = {
     cmd = {
       "CodeCompanionChat",
@@ -11,7 +11,7 @@ return {
     require("config.plugin.codecompanion.setup")
   end,
   deps = {
-    { package = { source = "nvim-lua/plenary.nvim" } },
-    { package = { source = "nvim-treesitter/nvim-treesitter" } },
+    { package = { url = "nvim-lua/plenary.nvim" } },
+    { package = { url = "nvim-treesitter/nvim-treesitter" } },
   },
 }

@@ -1,5 +1,5 @@
 return {
-  package = { source = "NeogitOrg/neogit" },
+  package = { url = "NeogitOrg/neogit" },
   loader = { cmd = "Neogit" },
   config = function()
     require("config.plugin.neogit.setup")
@@ -9,7 +9,7 @@ return {
   end,
   deps = {
     {
-      package = { source = "sindrets/diffview.nvim" },
+      package = { url = "sindrets/diffview.nvim" },
       loader = {
         cmd = { "DiffviewOpen", "DiffviewToggleFile" },
         ft = { "NeogitStatus", "NeogitCommitView" },
