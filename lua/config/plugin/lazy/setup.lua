@@ -31,6 +31,7 @@ local specs = {
   "config.plugin.wakatime.spec",
   "config.plugin.fidget.spec",
   "config.plugin.colorizer.spec",
+  "config.plugin.header.spec",
 
   -- git
   "config.plugin.gitsigns.spec",
