@@ -1,8 +1,8 @@
 require("blink-cmp").setup({
   keymap = {
     preset = "none",
-    ["<Tab>"] = { "select_next" },
-    ["<S-Tab>"] = { "select_prev" },
+    ["<Tab>"] = { "select_next", "fallback" },
+    ["<S-Tab>"] = { "select_prev", "fallback" },
     ["<CR>"] = { "select_and_accept", "fallback" },
     ["<C-space>"] = {
       function(cmp)
@@ -55,7 +55,11 @@ require("blink-cmp").setup({
     menu = {
       draw = {
         treesitter = { "lsp" },
-        columns = { { "kind_icon", gap = 1 }, { "label", "label_description", gap = 1 }, { "source_name", gap = 1 } },
+        columns = {
+          { "kind_icon", gap = 1 },
+          { "label", "label_description", gap = 1 },
+          { "source_name", gap = 1 },
+        },
         components = {
           source_name = {
             highlight = "BlinkCmpKind",

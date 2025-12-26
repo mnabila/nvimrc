@@ -17,6 +17,7 @@ vim.lsp.enable({
   "vim-language-server",
   "css-language-server",
   "json-language-server",
+  "marksman",
 })
 
 vim.diagnostic.config({

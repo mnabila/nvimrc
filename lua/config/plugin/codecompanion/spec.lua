@@ -2,6 +2,7 @@ return {
   package = { url = "olimorris/codecompanion.nvim" },
   loader = {
     cmd = {
+      "CodeCompanion",
       "CodeCompanionChat",
       "CodeCompanionCmd",
       "CodeCompanionActions",

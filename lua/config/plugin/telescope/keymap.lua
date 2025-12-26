@@ -6,3 +6,4 @@ vim.keymap.set("n", "<Leader>d", "<cmd>Telescope diagnostics<cr>", { desc = "Tel
 vim.keymap.set("n", "<Leader>a", "<cmd>Telescope lsp_document_symbols<cr>", { desc = "Telescope: List LSP symbols" })
 vim.keymap.set("n", "<Leader>l", "<cmd>Telescope buffers<cr>", { desc = "Telescope: Lists buffers" })
 vim.keymap.set("n", "<Leader>c", "<cmd>Telescope commands<cr>", { desc = "Telescope: Lists commands" })
+vim.keymap.set("n", "<Leader>r", "<cmd>Telescope registers<cr>", { desc = "Telescope: Lists register" })

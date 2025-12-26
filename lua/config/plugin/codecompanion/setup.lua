@@ -5,10 +5,11 @@ require("codecompanion").setup({
     send_code = false,
   },
   strategies = {
-    chat = { adapter = "gemini" },
-    cmd = { adapter = "gemini" },
+    chat = { adapter = "ollama", model = "gpt-oss:120b" },
+    cmd = { adapter = "ollama", model = "gpt-oss:120b" },
     inline = {
-      adapter = "gemini",
+      adapter = "ollama",
+      model = "gpt-oss:120b",
       keymaps = {
         accept_change = {
           modes = { n = "<Leader>w" },
@@ -22,28 +23,36 @@ require("codecompanion").setup({
     },
   },
   adapters = {
-    gemini = function()
-      return adapters.extend("gemini", {
-        env = {
-          api_key = "cmd: pass show codecompanion/gemini",
-          model = "gemini-2.5-pro",
-        },
-      })
-    end,
+    http = {
+      gemini = function()
+        return adapters.extend("gemini", {
+          env = {
+            api_key = "cmd: pass show codecompanion/gemini",
+            model = "gemini-2.5-pro",
+          },
+        })
+      end,
+      ollama = function()
+        return require("codecompanion.adapters").extend("ollama", {
+          env = {
+            url = "https://ollama.com",
+            api_key = "cmd: pass show codecompanion/ollama",
+          },
+          headers = {
+            ["Content-Type"] = "application/json",
+            ["Authorization"] = "Bearer ${api_key}",
+          },
+          parameters = {
+            sync = true,
+          },
+        })
+      end,
+    },
   },
   prompt_library = {
-    ["Swaggo"] = {
-      strategy = "inline",
-      description = "Generate Swagger documentation annotation from endpoint handler function",
-      prompts = {
-        {
-          role = "system",
-          content = "You are an expert in generating Swagger (OpenAPI) documentation using swaggo for generationg swagger documentation, especially for REST APIs written in Go. Your output should be in the form of Go-style Swagger annotations as comments above the handler function. Do not wrap the code in markdown.",
-        },
-        {
-          role = "user",
-          content = "<user_prompt> Generate Swagger documentation for this handler function. Return only the Go Swagger annotations with godoc witout function body or markdown. </user_prompt>",
-        },
+    markdown = {
+      dirs = {
+        vim.fn.stdpath("config") .. "/prompts",
       },
     },
   },

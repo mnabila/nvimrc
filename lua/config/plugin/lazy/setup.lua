@@ -45,7 +45,7 @@ local specs = {
   "config.plugin.gotest.spec",
 
   -- markdown
-  "config.plugin.markdown.spec",
+  "config.plugin.markview.spec",
 
   -- plantuml
   "config.plugin.plantuml.spec",

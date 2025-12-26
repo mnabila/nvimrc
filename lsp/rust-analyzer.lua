@@ -118,4 +118,15 @@ return {
       reload_workspace(bufnr)
     end, { desc = "Reload current cargo workspace" })
   end,
+  settings = {
+    ["rust-analyzer"] = {
+      cargo = {
+        allFeatures = true,
+        buildScripts = { enable = true },
+      },
+      procMacro = {
+        enable = true,
+      },
+    },
+  },
 }
