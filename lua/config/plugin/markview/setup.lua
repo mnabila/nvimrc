@@ -4,7 +4,6 @@ require("markview").setup({
       "markdown",
       "codecompanion",
     },
-    ignore_buftypes = {},
   },
 })
 

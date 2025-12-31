@@ -24,6 +24,23 @@ vim.diagnostic.config({
   underline = true,
   virtual_lines = {
     current_line = true,
+    format = function(diagnostic)
+      local message = diagnostic.message
+      local win_width = vim.api.nvim_win_get_width(0)
+      local max_width = math.floor(win_width * 3 / 4)
+
+      if #message <= max_width then
+        return message
+      end
+
+      -- wrap if length message is greather than max_width
+      local wrapped = {}
+      for i = 1, #message, max_width do
+        table.insert(wrapped, message:sub(i, i + max_width - 1))
+      end
+
+      return table.concat(wrapped, "\n")
+    end,
   },
   signs = true,
 })

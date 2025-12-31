@@ -5,11 +5,11 @@ require("codecompanion").setup({
     send_code = false,
   },
   strategies = {
-    chat = { adapter = "ollama", model = "gpt-oss:120b" },
-    cmd = { adapter = "ollama", model = "gpt-oss:120b" },
+    chat = { adapter = "ollama", model = "qwen3-coder:480b" },
+    cmd = { adapter = "ollama", model = "qwen3-coder:480b" },
     inline = {
       adapter = "ollama",
-      model = "gpt-oss:120b",
+      model = "qwen3-coder:480b",
       keymaps = {
         accept_change = {
           modes = { n = "<Leader>w" },
