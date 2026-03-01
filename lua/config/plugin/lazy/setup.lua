@@ -25,9 +25,9 @@ local specs = {
 
   -- editor
   "config.plugin.sfm.spec",
-  "config.plugin.mini_surround.spec",
-  "config.plugin.mini_pairs.spec",
-  "config.plugin.mini_align.spec",
+  "config.plugin.mini-surround.spec",
+  "config.plugin.mini-pairs.spec",
+  "config.plugin.mini-align.spec",
   "config.plugin.wakatime.spec",
   "config.plugin.fidget.spec",
   "config.plugin.colorizer.spec",
@@ -56,6 +56,8 @@ local specs = {
 
   -- ai
   "config.plugin.codecompanion.spec",
+
+  "config.plugin.live-preview.spec",
 }
 
 local adapter = require("config.plugin.lazy.adapter")

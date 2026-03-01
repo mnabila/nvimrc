@@ -6,43 +6,75 @@ vim.lsp.config("*", {
 
 vim.lsp.enable({
   "bash-language-server",
+  "buf",
   "clangd",
-  "docker-langserver",
+  "css-language-server",
+  "docker-language-server",
   "emmet-language-server",
   "gopls",
+  "json-language-server",
   "lua-language-server",
+  "marksman",
   "pyright",
   "rust-analyzer",
-  "typescript-language-server",
+  "taplo",
+  "ts_ls",
   "vim-language-server",
-  "css-language-server",
-  "json-language-server",
-  "marksman",
 })
 
 vim.diagnostic.config({
+  signs = true,
+  severity_sort = true,
+  update_in_insert = false,
   underline = true,
   virtual_lines = {
     current_line = true,
     format = function(diagnostic)
       local message = diagnostic.message
       local win_width = vim.api.nvim_win_get_width(0)
-      local max_width = math.floor(win_width * 3 / 4)
+      local max_width = math.floor(win_width * 0.75)
+      local max_lines = 5
+      local max_length = max_width * max_lines
 
+      -- Truncate if message exceeds max length
+      if #message > max_length then
+        message = message:sub(1, max_length - 3) .. "..."
+      end
+
+      -- Return as-is if within width
       if #message <= max_width then
         return message
       end
 
-      -- wrap if length message is greather than max_width
+      -- Smart word wrapping
       local wrapped = {}
-      for i = 1, #message, max_width do
-        table.insert(wrapped, message:sub(i, i + max_width - 1))
+      local line = ""
+
+      for word in message:gmatch("%S+") do
+        local test_line = line == "" and word or line .. " " .. word
+
+        if #test_line <= max_width then
+          line = test_line
+        else
+          if line ~= "" then
+            table.insert(wrapped, line)
+            -- Stop if we've reached max lines
+            if #wrapped >= max_lines then
+              wrapped[#wrapped] = wrapped[#wrapped] .. "..."
+              break
+            end
+          end
+          line = word
+        end
+      end
+
+      if line ~= "" and #wrapped < max_lines then
+        table.insert(wrapped, line)
       end
 
       return table.concat(wrapped, "\n")
     end,
   },
-  signs = true,
 })
 
 vim.api.nvim_create_autocmd("LspDetach", {

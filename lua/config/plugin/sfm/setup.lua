@@ -67,6 +67,7 @@ sfm:load_extension("sfm-filter", {
   show_hidden = false,
   ignore_names = {
     "node_modules",
+    "target",
   },
   ignore_extensions = {
     "class",

@@ -25,6 +25,10 @@
       {
         "language": "plantuml",
         "path": "./plantuml.json"
+      },
+      {
+        "language": "rust",
+        "path": "./rust.json"
       }
     ]
   }
