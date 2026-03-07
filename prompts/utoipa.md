@@ -1,8 +1,9 @@
 ---
 name: Utoipa Annotation
-alias: utoipa
 interaction: chat
 description: Generate utoipa OpenAPI annotations for a Rust controller/handler
+opts:
+  alias: utoipa
 ---
 
 ## system

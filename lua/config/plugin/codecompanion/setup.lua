@@ -4,21 +4,13 @@ require("codecompanion").setup({
   opts = {
     send_code = false,
   },
-  strategies = {
-    chat = { adapter = "ollama", model = "gpt-oss:120b-cloud" },
-    cmd = { adapter = "ollama", model = "gpt-oss:120b-cloud" },
+  interactions = {
+    chat = { adapter = "claude_code" },
+    cmd = { adapter = "claude_code" },
     inline = {
-      adapter = "ollama",
-      model = "gpt-oss:120b-cloud",
-      keymaps = {
-        accept_change = {
-          modes = { n = "<Leader>w" },
-          description = "Accept the suggested change",
-        },
-        reject_change = {
-          modes = { n = "<Leader>q" },
-          description = "Reject the suggested change",
-        },
+      adapter = {
+        name = "ollama",
+        model = "qwen3.5:397b-cloud",
       },
     },
   },
@@ -44,6 +36,15 @@ require("codecompanion").setup({
           },
           parameters = {
             sync = true,
+          },
+        })
+      end,
+    },
+    acp = {
+      claude_code = function()
+        return require("codecompanion.adapters").extend("claude_code", {
+          env = {
+            CLAUDE_CODE_OAUTH_TOKEN = "cmd: pass show codecompanion/claude",
           },
         })
       end,

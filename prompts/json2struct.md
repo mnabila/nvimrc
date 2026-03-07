@@ -1,8 +1,9 @@
 ---
 name: JSON to Go Struct
-alias: json2struct
 interaction: chat
 description: Convert JSON into an idiomatic Golang struct with explanation
+opts:
+  alias: json2struct
 ---
 
 ## system
