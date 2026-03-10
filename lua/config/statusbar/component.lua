@@ -2,44 +2,44 @@ local util = require("config.statusbar.util")
 
 local M = {}
 
-function M.vi_mode()
-  local modes = {
-    ["n"] = "NORMAL",
-    ["no"] = "OP",
-    ["nov"] = "OP",
-    ["noV"] = "OP",
-    ["no"] = "OP",
-    ["niI"] = "NORMAL",
-    ["niR"] = "NORMAL",
-    ["niV"] = "NORMAL",
-    ["v"] = "VISUAL",
-    ["vs"] = "VISUAL",
-    ["V"] = "LINES",
-    ["Vs"] = "LINES",
-    [""] = "BLOCK",
-    ["s"] = "BLOCK",
-    ["s"] = "SELECT",
-    ["S"] = "SELECT",
-    [""] = "BLOCK",
-    ["i"] = "INSERT",
-    ["ic"] = "INSERT",
-    ["ix"] = "INSERT",
-    ["R"] = "REPLACE",
-    ["Rc"] = "REPLACE",
-    ["Rv"] = "V-REPLACE",
-    ["Rx"] = "REPLACE",
-    ["c"] = "COMMAND",
-    ["cv"] = "COMMAND",
-    ["ce"] = "COMMAND",
-    ["r"] = "ENTER",
-    ["rm"] = "MORE",
-    ["r?"] = "CONFIRM",
-    ["!"] = "SHELL",
-    ["t"] = "TERM",
-    ["nt"] = "TERM",
-    ["null"] = "NONE",
-  }
+local modes = {
+  ["n"] = "NORMAL",
+  ["no"] = "OP",
+  ["nov"] = "OP",
+  ["noV"] = "OP",
+  ["no"] = "OP",
+  ["niI"] = "NORMAL",
+  ["niR"] = "NORMAL",
+  ["niV"] = "NORMAL",
+  ["v"] = "VISUAL",
+  ["vs"] = "VISUAL",
+  ["V"] = "LINES",
+  ["Vs"] = "LINES",
+  [""] = "BLOCK",
+  ["s"] = "BLOCK",
+  ["s"] = "SELECT",
+  ["S"] = "SELECT",
+  [""] = "BLOCK",
+  ["i"] = "INSERT",
+  ["ic"] = "INSERT",
+  ["ix"] = "INSERT",
+  ["R"] = "REPLACE",
+  ["Rc"] = "REPLACE",
+  ["Rv"] = "V-REPLACE",
+  ["Rx"] = "REPLACE",
+  ["c"] = "COMMAND",
+  ["cv"] = "COMMAND",
+  ["ce"] = "COMMAND",
+  ["r"] = "ENTER",
+  ["rm"] = "MORE",
+  ["r?"] = "CONFIRM",
+  ["!"] = "SHELL",
+  ["t"] = "TERM",
+  ["nt"] = "TERM",
+  ["null"] = "NONE",
+}
 
+function M.vi_mode()
   return " " .. modes[vim.api.nvim_get_mode().mode] .. " "
 end
 
@@ -98,19 +98,7 @@ end
 
 function M.file_size()
   if not util.is_width_under(30) or vim.bo.buftype ~= "" then
-    local stat = vim.uv.fs_stat(vim.fn.expand("%:p"))
-    if not stat then
-      return ""
-    end
-
-    local size = stat.size
-    if size >= 1024 * 1024 then
-      return string.format("%.2f MB ", size / (1024 * 1024))
-    elseif size >= 1024 then
-      return string.format("%.2f KB ", size / 1024)
-    else
-      return string.format("%d B ", size)
-    end
+    return vim.b.file_size_str or ""
   end
 
   return ""

@@ -25,10 +25,10 @@ vim.opt.relativenumber = true
 vim.opt.cursorline = true
 vim.opt.cursorcolumn = true
 vim.opt.list = true
-vim.opt.listchars = { tab = "‧‧>", space = "‧" }
+vim.opt.listchars = { tab = "‧‧>" }
 vim.opt.termguicolors = true
 vim.opt.title = true
-vim.opt.showmatch = true
+vim.opt.showmatch = false
 vim.opt.showmode = false
 vim.opt.showtabline = 0
 vim.opt.signcolumn = "yes"
@@ -45,7 +45,6 @@ vim.opt.fillchars = {
 }
 vim.opt.pumblend = 10
 vim.opt.pumheight = 15
-vim.opt.lazyredraw = true
 vim.opt.linespace = 0
 vim.opt.conceallevel = 0
 vim.opt.errorbells = false
@@ -83,5 +82,6 @@ vim.opt.writebackup = true
 vim.opt.swapfile = false
 
 -- Performance Tweaks
-vim.opt.timeoutlen = 1000
-vim.opt.updatetime = 1000
+vim.opt.timeoutlen = 500
+vim.opt.updatetime = 300
+vim.opt.shada = "'20,<50,s10"

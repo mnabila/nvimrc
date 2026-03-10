@@ -45,3 +45,32 @@ vim.api.nvim_create_autocmd("BufReadPost", {
     vim.b[args.buf].loaded = (vim.uv.hrtime() - vim.b[args.buf].loading) / 1e6
   end,
 })
+
+local function update_file_size(buf)
+  local name = vim.api.nvim_buf_get_name(buf)
+  if name == "" then
+    return
+  end
+
+  local stat = vim.uv.fs_stat(name)
+  if not stat then
+    vim.b[buf].file_size_str = ""
+    return
+  end
+
+  local size = stat.size
+  if size >= 1024 * 1024 then
+    vim.b[buf].file_size_str = string.format("%.2f MB ", size / (1024 * 1024))
+  elseif size >= 1024 then
+    vim.b[buf].file_size_str = string.format("%.2f KB ", size / 1024)
+  else
+    vim.b[buf].file_size_str = string.format("%d B ", size)
+  end
+end
+
+vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost" }, {
+  group = group,
+  callback = function(args)
+    update_file_size(args.buf)
+  end,
+})
