@@ -1,4 +1,18 @@
 local nulls = require("null-ls")
+local helpers = require("null-ls.helpers")
+
+local kdlfmt = helpers.make_builtin({
+  name = "kdlfmt",
+  meta = { url = "https://github.com/nickel-lang/kdlfmt" },
+  method = nulls.methods.FORMATTING,
+  filetypes = { "kdl" },
+  generator_opts = {
+    command = "kdlfmt",
+    args = { "format", "-" },
+    to_stdin = true,
+  },
+  factory = helpers.formatter_factory,
+})
 
 nulls.setup({
   sources = {
@@ -28,5 +42,7 @@ nulls.setup({
     -- proto
     nulls.builtins.formatting.buf,
     nulls.builtins.diagnostics.buf,
+
+    kdlfmt,
   },
 })

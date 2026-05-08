@@ -1,34 +1,7 @@
-require("nvim-treesitter.configs").setup({
-  ensure_installed = {
-    "bash",
-    "c",
-    "css",
-    "go",
-    "gomod",
-    "gosum",
-    "gotmpl",
-    "javascript",
-    "json",
-    "jsonc",
-    "lua",
-    "markdown",
-    "markdown_inline",
-    "python",
-    "query",
-    "sql",
-    "ssh_config",
-    "tsx",
-    "typescript",
-    "vim",
-    "vimdoc",
-    "yaml",
-  },
-  auto_install = false,
-  highlight = {
-    enable = true,
-    use_languagetree = true,
-  },
-  indent = {
-    enable = true,
-  },
+vim.api.nvim_create_autocmd("FileType", {
+  callback = function(args)
+    if pcall(vim.treesitter.start, args.buf) then
+      vim.bo[args.buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+    end
+  end,
 })
