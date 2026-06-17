@@ -17,7 +17,6 @@ vim.api.nvim_create_autocmd("UIEnter", {
       "gopls",
       "json-language-server",
       "lua-language-server",
-      "marksman",
       "pyright",
       "rust-analyzer",
       "taplo",

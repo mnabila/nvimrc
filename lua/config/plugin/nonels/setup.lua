@@ -43,6 +43,10 @@ nulls.setup({
     nulls.builtins.formatting.buf,
     nulls.builtins.diagnostics.buf,
 
+    -- typst
+    nulls.builtins.formatting.typstyle,
+
+    -- kdl
     kdlfmt,
   },
 })

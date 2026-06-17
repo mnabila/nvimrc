@@ -58,6 +58,9 @@ local specs = {
   "config.plugin.codecompanion.spec",
 
   "config.plugin.live_preview.spec",
+
+  -- notes
+  "config.plugin.obsidian.spec",
 }
 
 local adapter = require("config.plugin.lazy.adapter")
