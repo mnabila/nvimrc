@@ -11,11 +11,25 @@ require("obsidian").setup({
     name = "telescope.nvim",
   },
   note_id_func = function(title)
-    local suffix = title and "-" .. title:gsub(" ", "-"):lower() or ""
-    return os.time() .. suffix
+    if title then
+      return title:gsub(" ", "-"):gsub("[^A-Za-z0-9-]", ""):lower()
+    end
+    return tostring(os.time())
   end,
   frontmatter = {
     enabled = true,
+  },
+  daily_notes = {
+    enabled = true,
+    folder = "daily",
+    date_format = "YYYY-MM-DD",
+    template = "daily.md",
+    default_tags = { "daily" },
+  },
+  templates = {
+    folder = "templates",
+    date_format = "%Y-%m-%d",
+    time_format = "%H:%M",
   },
   workspaces = {
     {
