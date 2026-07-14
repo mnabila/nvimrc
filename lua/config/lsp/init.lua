@@ -19,6 +19,7 @@ vim.api.nvim_create_autocmd("UIEnter", {
       "lua-language-server",
       "pyright",
       "rust-analyzer",
+      "svelte",
       "taplo",
       "ts_ls",
       "vim-language-server",

@@ -46,7 +46,7 @@ vim.opt.fillchars = {
 vim.opt.pumblend = 10
 vim.opt.pumheight = 15
 vim.opt.linespace = 0
-vim.opt.conceallevel = 2
+vim.opt.conceallevel = 0
 vim.opt.errorbells = false
 vim.opt.shortmess = "atToOcF"
 
