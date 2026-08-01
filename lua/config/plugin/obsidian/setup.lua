@@ -12,12 +12,16 @@ require("obsidian").setup({
   },
   note_id_func = function(title)
     if title then
-      return title:gsub(" ", "-"):gsub("[^A-Za-z0-9-]", ""):lower()
+      local slug = title:gsub(" ", "-"):gsub("[^A-Za-z0-9-]", ""):lower()
+      return os.date("%Y-%m-%d") .. "-" .. slug
     end
     return tostring(os.time())
   end,
   frontmatter = {
     enabled = true,
+  },
+  note = {
+    template = "default.md",
   },
   daily_notes = {
     enabled = true,
@@ -27,19 +31,19 @@ require("obsidian").setup({
     default_tags = { "daily" },
   },
   templates = {
-    folder = "templates",
+    folder = ".templates",
     date_format = "%Y-%m-%d",
     time_format = "%H:%M",
   },
   workspaces = {
     {
       name = "personal",
-      path = home .. "/.obsidian/personal",
+      path = home .. "/Notebook/personal",
       strict = true,
     },
     {
       name = "work",
-      path = home .. "/.obsidian/work",
+      path = home .. "/Notebook/work",
       strict = true,
     },
   },
