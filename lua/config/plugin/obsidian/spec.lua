@@ -1,5 +1,11 @@
 return {
   package = { url = "obsidian-nvim/obsidian.nvim", version = "*" },
+  loader = {
+    cmd = "Obsidian",
+    keys = {
+      { "<Leader>n", "<cmd>Obsidian<cr>", desc = "Obsidian" },
+    },
+  },
   config = function()
     require("config.plugin.obsidian.setup")
   end,

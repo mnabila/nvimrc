@@ -1,7 +1,5 @@
 local home = vim.fn.expand("$HOME")
 
-vim.keymap.set("n", "<Leader>n", "<cmd>Obsidian<cr>")
-
 require("obsidian").setup({
   legacy_commands = false,
   sync = {
