@@ -17,9 +17,6 @@ local specs = {
   "config.plugin.navic.spec",
   "config.plugin.mason.spec",
 
-  -- debuging adapter protocol
-  "config.plugin.dap.spec",
-
   -- fuzzy finder
   "config.plugin.telescope.spec",
 
@@ -46,10 +43,6 @@ local specs = {
 
   -- markdown
   "config.plugin.markview.spec",
-
-  -- plantuml
-  "config.plugin.plantuml.spec",
-  "config.plugin.preview.spec",
 
   -- hugo
   "config.plugin.hugo.spec",

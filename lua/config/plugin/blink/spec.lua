@@ -7,9 +7,6 @@ return {
   deps = {
     {
       package = { url = "saghen/blink.compat" },
-      deps = {
-        { package = { url = "rcarriga/cmp-dap" } },
-      },
     },
     { package = { url = "moyiz/blink-emoji.nvim" } },
   },
