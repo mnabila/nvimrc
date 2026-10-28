@@ -21,7 +21,7 @@ local specs = {
   "config.plugin.telescope.spec",
 
   -- editor
-  "config.plugin.sfm.spec",
+  "config.plugin.snacks.spec",
   "config.plugin.mini_surround.spec",
   "config.plugin.mini_pairs.spec",
   "config.plugin.mini_align.spec",

@@ -17,10 +17,4 @@ return {
     },
   },
   config = true,
-  deps = {
-    {
-      package = { url = "folke/snacks.nvim" },
-      config = true,
-    },
-  },
 }
