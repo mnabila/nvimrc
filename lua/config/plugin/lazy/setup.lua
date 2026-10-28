@@ -48,7 +48,7 @@ local specs = {
   "config.plugin.hugo.spec",
 
   -- ai
-  "config.plugin.codecompanion.spec",
+  "config.plugin.claudecode.spec",
 
   "config.plugin.live_preview.spec",
 
