@@ -20,6 +20,8 @@ require("snacks").setup({
         ignored = false,
         git_status = false,
         git_status_open = false,
+        diagnostics = false,
+        diagnostics_open = false,
         exclude = {
           "node_modules",
           "target",
