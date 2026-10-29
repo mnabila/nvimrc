@@ -23,7 +23,7 @@ vim.opt.formatoptions:remove("cro")
 vim.opt.number = false
 vim.opt.relativenumber = true
 vim.opt.cursorline = true
-vim.opt.cursorcolumn = true
+vim.opt.cursorcolumn = false
 vim.opt.list = true
 vim.opt.listchars = { tab = "‧‧>" }
 vim.opt.termguicolors = true

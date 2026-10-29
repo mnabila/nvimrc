@@ -1,3 +1,11 @@
+-- gruvboy: a hand-written gruvbox-inspired 16-color theme
+
+vim.cmd("highlight clear")
+if vim.g.syntax_on then
+  vim.cmd("syntax reset")
+end
+vim.g.colors_name = "gruvboy"
+
 local c = {
   none = "NONE",
 
@@ -114,15 +122,46 @@ local groups = {
   WildMenu = { fg = c.bright_blue, bg = c.white, bold = true },
   WinBar = { fg = c.bright_white, bg = c.black },
   WinBarNC = { fg = c.white, bg = c.black },
+  WinSeparator = { link = "VertSplit" },
+
+  --See :h nvim_open_win (floating windows)
+  FloatBorder = { fg = c.bright_black, bg = c.black },
+  FloatTitle = { fg = c.bright_green, bg = c.black, bold = true },
+  FloatFooter = { fg = c.white, bg = c.black },
+
+  --See :h highlight-groups (newer standard groups)
+  CurSearch = { fg = c.black, bg = c.bright_yellow, bold = true },
+  Substitute = { fg = c.black, bg = c.bright_red },
+  MsgArea = { link = "Normal" },
+  MsgSeparator = { fg = c.bright_black, bg = c.black },
+  NormalNC = { link = "Normal" },
+  Tag = { link = "Special" },
+  Added = { fg = c.bright_green },
+  Changed = { fg = c.cyan },
+  Removed = { fg = c.bright_red },
 
   --See :h diagnostic-highlights
   DiagnosticError = { fg = c.red },
   DiagnosticWarn = { fg = c.yellow },
   DiagnosticInfo = { fg = c.blue },
   DiagnosticHint = { fg = c.cyan },
+  DiagnosticUnderlineError = { sp = c.red, undercurl = true },
+  DiagnosticUnderlineWarn = { sp = c.yellow, undercurl = true },
+  DiagnosticUnderlineInfo = { sp = c.blue, undercurl = true },
+  DiagnosticUnderlineHint = { sp = c.cyan, undercurl = true },
+  DiagnosticVirtualTextError = { fg = c.red, bg = c.black },
+  DiagnosticVirtualTextWarn = { fg = c.yellow, bg = c.black },
+  DiagnosticVirtualTextInfo = { fg = c.blue, bg = c.black },
+  DiagnosticVirtualTextHint = { fg = c.cyan, bg = c.black },
 
   --See :h lsp-highlights
   LspInlayHint = { fg = c.white },
+  LspReferenceText = { bg = c.bright_black },
+  LspReferenceRead = { link = "LspReferenceText" },
+  LspReferenceWrite = { link = "LspReferenceText" },
+  LspSignatureActiveParameter = { fg = c.bright_yellow, bold = true },
+  LspCodeLens = { link = "Comment" },
+  LspCodeLensSeparator = { link = "Comment" },
 
   --See :h treesitter-highlight-groups
   ["@boolean"] = { link = "Boolean" },
@@ -167,8 +206,24 @@ local groups = {
   ["@type"] = { link = "Type" },
   ["@type.definition"] = { link = "Typedef" },
   ["@variable"] = { fg = c.bright_white },
+  ["@variable.builtin"] = { fg = c.bright_red },
   ["@variable.member"] = { link = "Identifier" },
   ["@variable.parameter"] = { link = "Identifier" },
+  ["@tag.attribute"] = { link = "Identifier" },
+  ["@tag.delimiter"] = { link = "Delimiter" },
+  ["@string.regexp"] = { link = "SpecialChar" },
+  ["@comment.error"] = { link = "Error" },
+  ["@comment.warning"] = { fg = c.yellow },
+  ["@comment.note"] = { fg = c.blue },
+  ["@markup.strong"] = { bold = true },
+  ["@markup.italic"] = { italic = true },
+  ["@markup.strikethrough"] = { strikethrough = true },
+  ["@markup.quote"] = { link = "Comment" },
+  ["@markup.list"] = { link = "Delimiter" },
+  ["@markup.link.label"] = { link = "Identifier" },
+  ["@diff.plus"] = { link = "DiffAdd" },
+  ["@diff.minus"] = { link = "DiffDelete" },
+  ["@diff.delta"] = { link = "DiffChange" },
 
   --See :h lsp-semantic-highlight
   ["@lsp.type.class"] = { link = "Structure" },
@@ -188,6 +243,16 @@ local groups = {
   ["@lsp.type.variable"] = { link = "@variable" },
 
   --See telescope.nvim/plugin/telescope.lua
+  TelescopeNormal = { link = "NormalFloat" },
+  TelescopeBorder = { link = "FloatBorder" },
+  TelescopePromptBorder = { link = "TelescopeBorder" },
+  TelescopeResultsBorder = { link = "TelescopeBorder" },
+  TelescopePreviewBorder = { link = "TelescopeBorder" },
+  TelescopePromptTitle = { fg = c.black, bg = c.bright_green, bold = true },
+  TelescopeResultsTitle = { fg = c.black, bg = c.bright_blue, bold = true },
+  TelescopePreviewTitle = { fg = c.black, bg = c.bright_yellow, bold = true },
+  TelescopeMatching = { fg = c.bright_yellow, bold = true },
+  TelescopePromptCounter = { fg = c.white },
   TelescopeSelection = { link = "CursorLine" },
   TelescopeSelectionCaret = { link = "TelescopeSelection" },
   TelescopeMultiSelection = { link = "Type", default = true },
@@ -209,6 +274,81 @@ local groups = {
   NeogitDiffDelete = { link = "DiffDelete" },
   NeogitDiffDeleteCursor = { fg = c.black, bg = c.bright_red },
   NeogitDiffDeleteHighlight = { link = "DiffDelete" },
+  GitSignsCurrentLineBlame = { link = "Comment" },
+  GitSignsStagedAdd = { link = "GitSignsAdd" },
+  GitSignsStagedChange = { link = "GitSignsChange" },
+  GitSignsStagedDelete = { link = "GitSignsDelete" },
+
+  --See :h blink-cmp-appearance
+  BlinkCmpMenu = { link = "Pmenu" },
+  BlinkCmpMenuBorder = { link = "FloatBorder" },
+  BlinkCmpMenuSelection = { link = "PmenuSel" },
+  BlinkCmpScrollBarThumb = { link = "PmenuThumb" },
+  BlinkCmpScrollBarGutter = { link = "PmenuSbar" },
+  BlinkCmpLabel = { link = "Pmenu" },
+  BlinkCmpLabelMatch = { fg = c.bright_yellow, bold = true },
+  BlinkCmpLabelDeprecated = { fg = c.white, strikethrough = true },
+  BlinkCmpLabelDetail = { fg = c.white },
+  BlinkCmpLabelDescription = { fg = c.white },
+  BlinkCmpKind = { link = "PmenuKind" },
+  BlinkCmpSource = { fg = c.white },
+  BlinkCmpGhostText = { fg = c.bright_black, italic = true },
+  BlinkCmpDoc = { link = "NormalFloat" },
+  BlinkCmpDocBorder = { link = "FloatBorder" },
+  BlinkCmpDocSeparator = { link = "FloatBorder" },
+  BlinkCmpSignatureHelp = { link = "NormalFloat" },
+  BlinkCmpSignatureHelpBorder = { link = "FloatBorder" },
+  BlinkCmpSignatureHelpActiveParameter = { link = "LspSignatureActiveParameter" },
+
+  --See snacks.nvim (picker, explorer, notifier, input, indent)
+  SnacksNormal = { link = "NormalFloat" },
+  SnacksNormalNC = { link = "NormalFloat" },
+  SnacksWinBar = { link = "Title" },
+  SnacksPicker = { link = "NormalFloat" },
+  SnacksPickerBorder = { link = "FloatBorder" },
+  SnacksPickerTitle = { link = "FloatTitle" },
+  SnacksPickerMatch = { fg = c.bright_yellow, bold = true },
+  SnacksPickerDir = { fg = c.white },
+  SnacksPickerPathHidden = { fg = c.bright_black },
+  SnacksPickerListCursorLine = { link = "CursorLine" },
+  SnacksPickerInputBorder = { link = "FloatBorder" },
+  SnacksInputBorder = { link = "FloatBorder" },
+  SnacksInputTitle = { link = "FloatTitle" },
+  SnacksIndent = { fg = c.bright_black },
+  SnacksIndentScope = { fg = c.white },
+  SnacksNotifierInfo = { fg = c.blue },
+  SnacksNotifierWarn = { fg = c.yellow },
+  SnacksNotifierError = { fg = c.red },
+  SnacksNotifierDebug = { fg = c.magenta },
+  SnacksNotifierTrace = { fg = c.bright_magenta },
+  SnacksNotifierBorderInfo = { fg = c.blue, bg = c.black },
+  SnacksNotifierBorderWarn = { fg = c.yellow, bg = c.black },
+  SnacksNotifierBorderError = { fg = c.red, bg = c.black },
+  SnacksNotifierTitleInfo = { fg = c.blue, bold = true },
+  SnacksNotifierTitleWarn = { fg = c.yellow, bold = true },
+  SnacksNotifierTitleError = { fg = c.red, bold = true },
+
+  --See trouble.nvim
+  TroubleNormal = { link = "Normal" },
+  TroubleNormalNC = { link = "NormalNC" },
+  TroubleText = { fg = c.bright_white },
+  TroubleCount = { fg = c.bright_magenta, bold = true },
+  TroubleFoldIcon = { fg = c.white },
+  TroubleIndent = { fg = c.bright_black },
+  TroublePos = { fg = c.white },
+  TroubleSource = { fg = c.white, italic = true },
+
+  --See nvim-navic
+  NavicText = { fg = c.bright_white },
+  NavicSeparator = { fg = c.white },
+
+  --See fidget.nvim
+  FidgetTitle = { fg = c.bright_green, bold = true },
+  FidgetTask = { fg = c.white },
+
+  --See copilot.lua
+  CopilotSuggestion = { fg = c.bright_black, italic = true },
+  CopilotAnnotation = { fg = c.white },
 }
 
 for group, opts in pairs(groups) do
