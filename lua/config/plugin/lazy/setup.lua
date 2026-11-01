@@ -12,7 +12,8 @@ local specs = {
   "config.plugin.blink.spec",
 
   -- languages server protocol
-  "config.plugin.nonels.spec",
+  "config.plugin.nvim_lint.spec",
+  "config.plugin.conform.spec",
   "config.plugin.trouble.spec",
   "config.plugin.navic.spec",
   "config.plugin.mason.spec",

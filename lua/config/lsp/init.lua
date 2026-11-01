@@ -15,7 +15,6 @@ vim.api.nvim_create_autocmd("UIEnter", {
       "docker-language-server",
       "emmet-language-server",
       "gopls",
-      "json-language-server",
       "lua-language-server",
       "pyright",
       "rust-analyzer",
@@ -112,12 +111,6 @@ vim.api.nvim_create_autocmd("UIEnter", {
               max_width = math.floor(vim.o.columns / 2),
             })
           end, { buffer = ev.buf, noremap = true, desc = "LSP: Show Documentation" })
-        end
-
-        if client:supports_method("textDocument/formatting") then
-          vim.keymap.set("n", "<leader>f", function()
-            vim.lsp.buf.format({ async = true })
-          end, { buffer = ev.buf, noremap = true, desc = "LSP: Formats the current buffer" })
         end
 
         if client:supports_method("textDocument/definition") then
