@@ -40,7 +40,8 @@ local modes = {
 }
 
 function M.vi_mode()
-  return " " .. modes[vim.api.nvim_get_mode().mode] .. " "
+  local mode = vim.api.nvim_get_mode().mode
+  return " " .. (modes[mode] or mode):upper() .. " "
 end
 
 function M.git_branch()

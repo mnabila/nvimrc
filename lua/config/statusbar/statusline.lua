@@ -20,13 +20,7 @@ end
 
 local group = vim.api.nvim_create_augroup("StatusLine", { clear = true })
 
-vim.api.nvim_create_autocmd({ "BufEnter", "BufLeave" }, {
-  group = group,
-  pattern = "*",
-  callback = function()
-    vim.opt_local.statusline = "%{%v:lua.Statusline()%}"
-  end,
-})
+vim.opt.statusline = "%{%v:lua.Statusline()%}"
 
 vim.api.nvim_create_autocmd("BufReadPre", {
   group = group,

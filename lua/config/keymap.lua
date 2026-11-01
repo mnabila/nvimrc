@@ -18,6 +18,7 @@ map.set("v", "<Leader>d6", "c<C-r>=system('base64 -d', @\")<cr><esc>", { desc = 
 map.set("v", "<Leader>e6", "c<C-r>=system('base64', @\")<cr><esc>", { desc = "Encode to base64 string" })
 
 -- others
+map.set("n", "<esc>", "<cmd>nohlsearch<cr>", { desc = "Clear search highlights" })
 map.set("n", "<Leader>x", "<cmd>%s///<cr>", { desc = "Delete in search result" })
 
 -- buffer (delete keymaps live in config.plugin.snacks.keymap via Snacks.bufdelete)
