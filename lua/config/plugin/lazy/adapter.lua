@@ -1,5 +1,5 @@
 -- load type definition
-require("config.types.plugin_spec")
+require("config.plugin.plugin_spec")
 
 local adapter = {}
 

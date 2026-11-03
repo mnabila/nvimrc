@@ -1,4 +1,4 @@
-local util = require("config.statusbar.util")
+local util = require("config.ui.util")
 
 local M = {}
 

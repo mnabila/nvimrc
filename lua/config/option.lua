@@ -10,6 +10,7 @@ vim.opt.softtabstop = 0
 vim.opt.backspace = "indent,eol,start"
 vim.opt.clipboard = "unnamedplus"
 vim.opt.hidden = true
+vim.opt.confirm = true
 vim.opt.mouse = "a"
 vim.opt.wrap = true
 vim.opt.linebreak = true

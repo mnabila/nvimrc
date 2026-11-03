@@ -1,4 +1,4 @@
-local c = require("config.statusbar.component")
+local c = require("config.ui.component")
 
 function Winbar()
   return table.concat({

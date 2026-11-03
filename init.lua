@@ -10,9 +10,9 @@ require("config.keymap")
 -- language server protocol
 require("config.lsp")
 
--- custom statusbar
-require("config.statusbar.statusline")
-require("config.statusbar.winbar")
+-- custom ui bars (statusline + winbar)
+require("config.ui.statusline")
+require("config.ui.winbar")
 
 -- neovim package manager
 require("config.plugin.lazy.setup")

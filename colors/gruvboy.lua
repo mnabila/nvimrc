@@ -4,6 +4,7 @@ vim.cmd("highlight clear")
 if vim.g.syntax_on then
   vim.cmd("syntax reset")
 end
+
 vim.g.colors_name = "gruvboy"
 
 local c = {
