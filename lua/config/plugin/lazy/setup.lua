@@ -14,13 +14,9 @@ local specs = {
   -- languages server protocol
   "config.plugin.nvim_lint.spec",
   "config.plugin.conform.spec",
-  "config.plugin.trouble.spec",
+  -- "config.plugin.trouble.spec",
   "config.plugin.navic.spec",
   "config.plugin.mason.spec",
-
-  -- fuzzy finder
-  -- "config.plugin.telescope.spec",
-
 
   -- editor
   "config.plugin.snacks.spec",
@@ -30,8 +26,6 @@ local specs = {
   "config.plugin.mini_ai.spec",
   "config.plugin.wakatime.spec",
   "config.plugin.fidget.spec",
-  "config.plugin.colorizer.spec",
-  "config.plugin.header.spec",
 
   -- git
   "config.plugin.gitsigns.spec",

@@ -31,3 +31,8 @@ vim.keymap.set("n", "<Leader>a", function() require("snacks").picker.lsp_symbols
 vim.keymap.set("n", "<Leader>l", function() require("snacks").picker.buffers() end, { desc = "Snacks: Lists buffers" })
 vim.keymap.set("n", "<Leader>c", function() require("snacks").picker.commands() end, { desc = "Snacks: Lists commands" })
 vim.keymap.set("n", "<Leader>r", function() require("snacks").picker.registers() end, { desc = "Snacks: Lists register" })
+
+-- terminal
+vim.keymap.set("n", "<Leader>t", function() require("snacks").terminal() end, { desc = "Terminal: Toggle Floating Terminal" })
+vim.keymap.set("t", "<Leader>t", function() require("snacks").terminal() end, { desc = "Terminal: Toggle Floating Terminal" })
+

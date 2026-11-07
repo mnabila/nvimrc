@@ -11,6 +11,7 @@ require("snacks").setup({
   notifier = { enabled = true },
   indent = { enabled = true },
   select = { enabled = true },
+  terminal = { enabled = true },
 
   -- file explorer (replaces sfm)
   explorer = { enabled = true, replace_netrw = true },
