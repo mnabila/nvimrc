@@ -10,6 +10,7 @@ require("snacks").setup({
   -- ui
   notifier = { enabled = true },
   indent = { enabled = true },
+  select = { enabled = true },
 
   -- file explorer (replaces sfm)
   explorer = { enabled = true, replace_netrw = true },
@@ -44,10 +45,10 @@ require("snacks").setup({
         win = {
           list = {
             keys = {
-              ["["] = "explorer_up",    -- goto parent dir
+              ["["] = "explorer_up", -- goto parent dir
               ["]"] = "explorer_focus", -- goto child dir (set root)
-              ["o"] = "confirm",        -- open file / folder
-              ["O"] = "explorer_open",  -- system open
+              ["o"] = "confirm", -- open file / folder
+              ["O"] = "explorer_open", -- system open
             },
           },
         },

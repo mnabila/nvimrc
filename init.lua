@@ -7,6 +7,9 @@ require("config.option")
 -- neovim keybindings
 require("config.keymap")
 
+-- custom autocmds
+require("config.autocmds")
+
 -- language server protocol
 require("config.lsp")
 

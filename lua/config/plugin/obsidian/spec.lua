@@ -11,6 +11,5 @@ return {
   end,
   deps = {
     { package = { url = "nvim-lua/plenary.nvim" } },
-    { package = { url = "nvim-telescope/telescope.nvim" } },
   },
 }

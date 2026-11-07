@@ -117,7 +117,7 @@ local groups = {
   Type = { fg = c.bright_yellow },
   Typedef = { fg = c.bright_yellow },
   Underlined = { fg = c.bright_blue, underline = true },
-  VertSplit = { fg = c.bright_black, bg = c.black },
+  VertSplit = { fg = c.white, bg = c.black },
   Visual = { fg = c.black, bg = c.white },
   WarningMsg = { fg = c.bright_yellow, bold = true },
   WildMenu = { fg = c.bright_blue, bg = c.white, bold = true },
@@ -126,7 +126,7 @@ local groups = {
   WinSeparator = { link = "VertSplit" },
 
   --See :h nvim_open_win (floating windows)
-  FloatBorder = { fg = c.bright_black, bg = c.black },
+  FloatBorder = { fg = c.white, bg = c.black },
   FloatTitle = { fg = c.bright_green, bg = c.black, bold = true },
   FloatFooter = { fg = c.white, bg = c.black },
 

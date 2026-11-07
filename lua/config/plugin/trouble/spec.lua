@@ -9,6 +9,5 @@ return {
   end,
   deps = {
     { package = { url = "nvim-tree/nvim-web-devicons" } },
-    { package = { url = "nvim-telescope/telescope.nvim" } },
   },
 }

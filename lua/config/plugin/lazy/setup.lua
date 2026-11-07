@@ -19,13 +19,15 @@ local specs = {
   "config.plugin.mason.spec",
 
   -- fuzzy finder
-  "config.plugin.telescope.spec",
+  -- "config.plugin.telescope.spec",
+
 
   -- editor
   "config.plugin.snacks.spec",
   "config.plugin.mini_surround.spec",
   "config.plugin.mini_pairs.spec",
   "config.plugin.mini_align.spec",
+  "config.plugin.mini_ai.spec",
   "config.plugin.wakatime.spec",
   "config.plugin.fidget.spec",
   "config.plugin.colorizer.spec",

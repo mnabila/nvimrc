@@ -20,7 +20,3 @@ map.set("v", "<Leader>e6", "c<C-r>=system('base64', @\")<cr><esc>", { desc = "En
 -- others
 map.set("n", "<esc>", "<cmd>nohlsearch<cr>", { desc = "Clear search highlights" })
 map.set("n", "<Leader>x", "<cmd>%s///<cr>", { desc = "Delete in search result" })
-
--- buffer (delete keymaps live in config.plugin.snacks.keymap via Snacks.bufdelete)
-map.set("n", "<C-k>", "<cmd>bprevious<cr>", { desc = "Buffer: focus to previous buffer" })
-map.set("n", "<C-j>", "<cmd>bnext<cr>", { desc = "Buffer: focus to next buffer" })
