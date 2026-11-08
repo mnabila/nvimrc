@@ -12,8 +12,8 @@ A modern, Lua-based Neovim setup designed for efficiency and customization.
 - 🎨 Gruvbox theme with custom highlights
 - 🧠 Intelligent code completion and LSP support
 - 🧰 Modular setup under `lua/config/`
-- 🔍 Telescope for fuzzy finding
-- 🗂️ File explorer with `sfm.nvim`
+- 🔍 Snacks.nvim for fuzzy finding and editor utilities
+- 🗂️ File explorer via Snacks.nvim
 - 🧱 Git integration with `gitsigns.nvim` and `neogit`
 
 ## 📂 Structure
@@ -33,11 +33,11 @@ git clone https://github.com/mnabila/nvimrc ~/.config/nvim
 ## 💡 Tips
 
 - Want to change the theme? Check `lua/config/colorscheme.lua`
-- Plugins are managed in `lua/config/plugins.lua`
+- Plugins are managed in `lua/config/plugin/lazy/setup.lua`
 - LSP setup is organized inside the `lsp/` directory
 - Filetype-specific settings are located in `after/ftplugin/`
-- You can tweak general settings in `lua/config/options.lua`
-- Key mappings are defined in `lua/config/keymaps.lua`
+- You can tweak general settings in `lua/config/option.lua`
+- Key mappings are defined in `lua/config/keymap.lua`
 
 ## 📜 License
 
