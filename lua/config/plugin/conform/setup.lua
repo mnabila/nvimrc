@@ -18,11 +18,10 @@ conform.setup({
     html = { "prettier" },
     css = { "prettier" },
     markdown = { "prettier" },
-    go = { "goimports" },
+    go = { "goimports", "gofumpt" },
     php = { "phpcsfixer" },
     proto = { "buf" },
     typst = { "typstyle" },
     kdl = { "kdlfmt" },
   },
 })
-

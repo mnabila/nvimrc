@@ -9,15 +9,26 @@ require("snacks").setup({
 
   -- ui
   notifier = { enabled = true },
-  indent = { enabled = true },
-  select = { enabled = true },
+  indent = {
+    enabled = true,
+    animate = { enabled = false }, -- cheaper on big files
+  },
   terminal = { enabled = true },
 
   -- file explorer (replaces sfm)
   explorer = { enabled = true, replace_netrw = true },
+
   picker = {
     enabled = true,
+
+    -- cheaper scoring on large candidate lists
+    matcher = { frecency = false },
+
     sources = {
+      -- no preview for these only, so explorer layout stays default
+      files = { layout = { preset = "select" } },
+      grep = { layout = { preset = "select" } },
+
       explorer = {
         hidden = false,
         ignored = false,
@@ -25,24 +36,12 @@ require("snacks").setup({
         git_status_open = false,
         diagnostics = false,
         diagnostics_open = false,
-        exclude = {
-          "node_modules",
-          "target",
-          "*.class",
-        },
+        focus = "list", -- start in the file list, not the input
         layout = {
           preset = "sidebar",
-          preview = false,
-          layout = {
-            box = "vertical",
-            width = 40,
-            min_width = 40,
-            height = 0,
-            position = "left",
-            border = "none",
-            { win = "list", border = "none" },
-          },
+          hidden = { "input" }, -- hide the search box
         },
+        exclude = { "node_modules", "target", "*.class" },
         win = {
           list = {
             keys = {

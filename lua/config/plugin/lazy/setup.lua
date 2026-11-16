@@ -45,7 +45,6 @@ local specs = {
   "config.plugin.hugo.spec",
 
   -- ai
-  "config.plugin.claudecode.spec",
   "config.plugin.opencode.spec",
 
   "config.plugin.live_preview.spec",
